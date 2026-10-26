@@ -1883,15 +1883,31 @@ pub fn merge_remote_catalog_json(
                     }
                 }
 
-                let local_box_art_empty = l_game
+                let local_box_art_needs_update = l_game
                     .get("box_art_url")
-                    .map_or(true, |v| v.is_null() || v.as_str().is_some_and(str::is_empty));
-                if local_box_art_empty {
+                    .map_or(true, |v| {
+                        v.is_null()
+                            || v.as_str().is_some_and(|s| {
+                                s.is_empty()
+                                    || s.contains("mobygames.com")
+                                    || s.contains("co20se.jpg")
+                                    || s.contains("co224t.jpg")
+                                    || s.contains("co1r7n.jpg")
+                            })
+                    });
+                if local_box_art_needs_update {
                     if let Some(r_box_art) = r_game.get("box_art_url").filter(|v| !v.is_null()) {
                         if let Some(l_obj) = l_game.as_object_mut() {
                             l_obj.insert("box_art_url".to_string(), r_box_art.clone());
                             game_updated = true;
                         }
+                    }
+                    if let (Some(l_proj), Some(r_port_art)) = (
+                        l_game.get_mut("project").and_then(|p| p.as_object_mut()),
+                        r_game.pointer("/project/port_art_url").filter(|v| !v.is_null()),
+                    ) {
+                        l_proj.insert("port_art_url".to_string(), r_port_art.clone());
+                        game_updated = true;
                     }
                 }
 

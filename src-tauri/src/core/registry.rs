@@ -196,6 +196,43 @@ fn merge_missing_seed_entries(user_json: &str, seed_json: &str) -> String {
             {
                 repair_stale_port_entry(existing, seed_game, seed_id);
             }
+        } else if matches!(
+            seed_id,
+            "killzone-shadow-fall"
+                | "lost-odyssey"
+                | "dragons-crown-pro"
+                | "wet"
+                | "saints-row"
+                | "ico-ps2"
+        ) {
+            if let Some(existing) = user_games
+                .iter_mut()
+                .find(|game| game.get("id").and_then(serde_json::Value::as_str) == Some(seed_id))
+            {
+                let is_known_bad = existing
+                    .get("box_art_url")
+                    .and_then(serde_json::Value::as_str)
+                    .map_or(true, |u| {
+                        u.is_empty()
+                            || u.contains("mobygames.com")
+                            || u.contains("co20se.jpg")
+                            || u.contains("co224t.jpg")
+                            || u.contains("co1r7n.jpg")
+                    });
+                if is_known_bad {
+                    if let (Some(existing_object), Some(seed_cover)) =
+                        (existing.as_object_mut(), seed_game.get("box_art_url"))
+                    {
+                        existing_object.insert("box_art_url".to_string(), seed_cover.clone());
+                    }
+                    if let (Some(existing_proj), Some(seed_port_art)) = (
+                        existing.get_mut("project").and_then(|p| p.as_object_mut()),
+                        seed_game.pointer("/project/port_art_url"),
+                    ) {
+                        existing_proj.insert("port_art_url".to_string(), seed_port_art.clone());
+                    }
+                }
+            }
         }
     }
 
@@ -537,5 +574,28 @@ mod tests {
             "CTR-NitroFueled-PC.exe"
         );
         assert_eq!(games[1]["project"]["port_art_url"], "ctr-port-cover");
+    }
+
+    #[test]
+    fn repairs_known_bad_covers_for_portsdr_entries() {
+        let user = r#"{"games":[
+            {"id":"lost-odyssey","box_art_url":"https://images.igdb.com/igdb/image/upload/t_cover_big/co20se.jpg","project":{"port_art_url":"stale.png"}},
+            {"id":"lost-odyssey-custom","box_art_url":"custom.png","project":{"port_art_url":"custom.png"}}
+        ]}"#;
+        let seed = r#"{"games":[
+            {"id":"lost-odyssey","box_art_url":"https://upload.wikimedia.org/wikipedia/en/0/09/Lost_Odyssey_cover.jpg","project":{"port_art_url":"https://upload.wikimedia.org/wikipedia/en/0/09/Lost_Odyssey_cover.jpg"}},
+            {"id":"lost-odyssey-custom","box_art_url":"seed.png","project":{"port_art_url":"seed.png"}}
+        ]}"#;
+        let merged: serde_json::Value =
+            serde_json::from_str(&merge_missing_seed_entries(user, seed)).unwrap();
+        assert_eq!(
+            merged["games"][0]["box_art_url"],
+            "https://upload.wikimedia.org/wikipedia/en/0/09/Lost_Odyssey_cover.jpg"
+        );
+        assert_eq!(
+            merged["games"][0]["project"]["port_art_url"],
+            "https://upload.wikimedia.org/wikipedia/en/0/09/Lost_Odyssey_cover.jpg"
+        );
+        assert_eq!(merged["games"][1]["box_art_url"], "custom.png");
     }
 }

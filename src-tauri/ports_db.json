@@ -1,5 +1,5 @@
 {
-  "catalog_version": "2.6.0",
+  "catalog_version": "2.6.1",
   "games": [
     {
       "artwork": {
@@ -2253,7 +2253,7 @@
       "release_year": 2007,
       "developer": "Mistwalker / Feelplus",
       "synopsis": "Kaim, un guerrero inmortal condenado a vivir mil años y a sufrir el olvido de su pasado, descubre su destino en medio de una revolución mágica industrial.",
-      "box_art_url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co20se.jpg",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/0/09/Lost_Odyssey_cover.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -2269,7 +2269,7 @@
         "requires_original_assets": true,
         "author": "freefrank and contributors",
         "author_avatar_url": "https://github.com/freefrank.png",
-        "port_art_url": "https://raw.githubusercontent.com/freefrank/LostOdysseyRecomp/main/docs/images/title-screen.png",
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/0/09/Lost_Odyssey_cover.jpg",
         "features": [
           "Recompilación estática nativa PowerPC para Windows x64",
           "Renderizado Direct3D 12 y Vulkan a resolución nativa de PC",
@@ -2299,7 +2299,7 @@
       "release_year": 2009,
       "developer": "Artificial Mind and Movement",
       "synopsis": "Rubi Malone, una mercenaria y pistolera acrobática, emprende una sangrienta venganza en un shooter estilizado con estética de cine grindhouse.",
-      "box_art_url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co224t.jpg",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/9/98/Wet_game.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -2315,7 +2315,7 @@
         "requires_original_assets": true,
         "author": "Mohammed Albarghouthi (Supermedo)",
         "author_avatar_url": "https://github.com/Supermedo.png",
-        "port_art_url": "https://github.com/Supermedo.png",
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/9/98/Wet_game.jpg",
         "features": [
           "Port nativo para PC basado en ReXGlue",
           "Recompilación estática de Xbox 360 para Windows x64",
@@ -2391,7 +2391,7 @@
       "release_year": 2006,
       "developer": "Volition",
       "synopsis": "Únete a los 3rd Street Saints en la ciudad de Stilwater para reclamar los distritos y derrotar a las bandas rivales en el inicio de la saga.",
-      "box_art_url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1r7n.jpg",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/5/59/Saints_Row_Box_Art.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -2407,7 +2407,7 @@
         "requires_original_assets": true,
         "author": "whompay",
         "author_avatar_url": "https://github.com/whompay.png",
-        "port_art_url": "https://github.com/whompay.png",
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/5/59/Saints_Row_Box_Art.jpg",
         "features": [
           "Port nativo no oficial de Saints Row 1 (Xbox 360) a Windows",
           "Instalador y actualizador integrado en GitHub releases",
@@ -3260,7 +3260,7 @@
       "release_year": 2001,
       "developer": "Team Ico / Japan Studio",
       "synopsis": "Ico, un niño con cuernos, escapa de un castillo laberíntico mientras protege y guía a Yorda entre sus sombras y mecanismos.",
-      "box_art_url": "https://cdn.mobygames.com/covers/5207487-ico-playstation-2-front-cover.jpg",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/4/40/Ico_cover_-_EU%2BJP.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -3276,7 +3276,7 @@
         "requires_original_assets": true,
         "author": "nathanialf y colaboradores",
         "author_avatar_url": "https://github.com/nathanialf.png",
-        "port_art_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/4/40/Ico_cover_-_EU%2BJP.jpg",
         "features": [
           "Port nativo construido sobre la decompilación de ICO",
           "Builds para Windows, Linux/Steam Deck, Android y Apple Silicon; mejoras opcionales de imagen, widescreen y controles",
@@ -3353,7 +3353,7 @@
       "release_year": 2018,
       "developer": "Vanillaware",
       "synopsis": "Espectacular beat 'em up de rol y acción en 2D con un suntuoso estilo artístico pintado a mano, banda sonora orquestal y juego cooperativo local.",
-      "box_art_url": "https://cdn.mobygames.com/covers/7123985-dragons-crown-pro-playstation-4-front-cover.png",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/c/cd/Dragons_Crown.png",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -3369,7 +3369,7 @@
         "requires_original_assets": true,
         "author": "saulob y colaboradores",
         "author_avatar_url": "https://github.com/saulob.png",
-        "port_art_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/c/cd/Dragons_Crown.png",
         "features": [
           "Ejecución nativa de la versión PS4 Pro con runtime propio y renderizador Vulkan",
           "Resolución nativa hasta 4K UHD con soporte ultra-panorámico 21:9 y 32:9",
@@ -3449,7 +3449,7 @@
       "release_year": 2013,
       "developer": "Guerrilla Games",
       "synopsis": "Treinta años después de los eventos de la trilogía original, dos facciones rivales (los Vektans y los Helghast) conviven divididos por una gigantesca muralla en una frágil guerra fría.",
-      "box_art_url": "https://cdn.mobygames.com/covers/1990425-killzone-shadow-fall-playstation-4-front-cover.jpg",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/1/1e/Killzone_Shadow_Fall_Box.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -3465,7 +3465,7 @@
         "requires_original_assets": true,
         "author": "lesca-191204",
         "author_avatar_url": "https://github.com/lesca-191204.png",
-        "port_art_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/1/1e/Killzone_Shadow_Fall_Box.jpg",
         "features": [
           "Runtime nativo para Windows basado en compatibilidad PS4 y capa gráfica Vulkan",
           "Soporte de altas resoluciones 1440p y 4K con control de campo de visión (FOV)",
