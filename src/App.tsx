@@ -2169,7 +2169,7 @@ export const App: React.FC = () => {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', flexWrap: 'wrap' }}>
                       <Database size={15} color="#34d399" />
                       <span style={{ fontSize: '0.82rem', color: '#e2e8f0', fontWeight: 600 }}>
-                        Catálogo Oficial PortStation: <span style={{ color: '#34d399' }}>v{catalogInfo?.catalogVersion ?? '2.6.1'}</span>
+                        Catálogo Oficial PortStation: <span style={{ color: '#34d399' }}>v{catalogInfo?.catalogVersion ?? '2.6.2'}</span>
                       </span>
                       <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
                         ({catalogPorts.length} proyectos registrados en GitHub)

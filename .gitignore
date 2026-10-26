@@ -37,4 +37,6 @@ generate_icon.py
 *.zip
 release/
 releases/
+PortStation-*/
+
 

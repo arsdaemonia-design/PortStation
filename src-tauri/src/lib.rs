@@ -2038,13 +2038,13 @@ fn sync_remote_catalog(
 
     let message = if status == "updated" {
         format!(
-            "Catálogo actualizado con éxito a la versión v{} (+{} nuevos, {} actualizados, {} totales).",
-            remote_ver, new_games, updated_games, total_games
+            "Catálogo actualizado con éxito a la versión v{} (+{} nuevos, {} actualizados).",
+            remote_ver, new_games, updated_games
         )
     } else {
         format!(
-            "El catálogo ya está actualizado en la versión v{} ({} juegos).",
-            local_ver, total_games
+            "El catálogo ya está actualizado en la versión v{}.",
+            local_ver
         )
     };
 
