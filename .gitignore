@@ -32,3 +32,9 @@ PortStation-*.md
 docs/
 parse_*.py
 generate_icon.py
+
+# Release archives and output
+*.zip
+release/
+releases/
+
