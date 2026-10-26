@@ -1,5 +1,5 @@
 {
-  "catalog_version": "2.6.1",
+  "catalog_version": "2.6.2",
   "games": [
     {
       "artwork": {
@@ -4431,6 +4431,56 @@
           "folder_patterns": [
             "supermetroid",
             "SuperMetroidRecomp"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "monster-hunter-generations-ultimate",
+      "title": "Monster Hunter Generations Ultimate",
+      "original_platforms": [
+        "Nintendo Switch"
+      ],
+      "release_year": 2018,
+      "developer": "Capcom",
+      "synopsis": "Caza monstruos colosales con estilos de caza y técnicas de artes de caza en la entrega definitiva de Monster Hunter para Nintendo Switch.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/2/23/Monster_hunter_generations_cover_art.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "allgenurecomp",
+        "name": "AllGenURecomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "AllGenURecomp",
+          "owner": "krisztsa",
+          "provider": "github",
+          "url": "https://github.com/krisztsa/AllGenURecomp"
+        },
+        "requires_original_assets": true,
+        "author": "Kris´ZtS",
+        "author_avatar_url": "https://github.com/krisztsa.png",
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/2/23/Monster_hunter_generations_cover_art.jpg",
+        "features": [
+          "Recompilación estática de código AOT de Switch a Windows x64",
+          "Tasa de cuadros desbloqueada de 30 hasta 240 FPS nativos",
+          "Resoluciones libres hasta 4K y soporte para monitores Ultrawide (21:9)",
+          "Multijugador local Wireless sobre IP (LAN/VPN) y misiones de aldea cooperativas",
+          "Soporte completo de mandos con SDL3 y control experimental de teclado y ratón",
+          "Cargador nativo de mods RomFS y plugins Forge"
+        ],
+        "technical_notes": "Port nativo para PC basado en la versión 1.4.0 de Nintendo Switch. Requiere los datos originales (exefs y romfs).",
+        "detection": {
+          "executables": [
+            "allgenurecomp.exe",
+            "AllGenURecomp.exe"
+          ],
+          "folder_patterns": [
+            "*AllGenURecomp*",
+            "*MHGU*",
+            "*Monster Hunter Generations Ultimate*"
           ],
           "known_hashes": [],
           "verified": true
