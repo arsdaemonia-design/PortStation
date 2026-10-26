@@ -285,6 +285,17 @@ fn repair_stale_port_entry(
         return;
     };
 
+    if game_id == "bloodborne" && existing_project.get("id").and_then(serde_json::Value::as_str) == Some("bloodborne") {
+        if let Some(seed_pid) = seed_project.get("id") {
+            existing_project.insert("id".to_string(), seed_pid.clone());
+        }
+    }
+    if game_id == "crash-team-racing-nitro-fueled" && existing_project.get("id").and_then(serde_json::Value::as_str) == Some("crash-team-racing-nitro-fueled") {
+        if let Some(seed_pid) = seed_project.get("id") {
+            existing_project.insert("id".to_string(), seed_pid.clone());
+        }
+    }
+
     let port_art_is_empty = existing_project.get("port_art_url").map_or(true, |value| {
         value.is_null() || value.as_str().is_some_and(str::is_empty)
     });

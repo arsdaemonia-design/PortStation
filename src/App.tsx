@@ -33,7 +33,8 @@ import {
   Key,
   Smartphone,
   Monitor,
-  Database
+  Database,
+  ArrowUpDown
 } from 'lucide-react';
 import { invoke } from '@tauri-apps/api/core';
 import { listen } from '@tauri-apps/api/event';
@@ -96,6 +97,17 @@ interface CatalogPort {
   technicalNotes?: string | null;
   installed: boolean;
 }
+
+type CatalogSortOption =
+  | 'default'
+  | 'alpha-asc'
+  | 'alpha-desc'
+  | 'year-desc'
+  | 'year-asc'
+  | 'platform'
+  | 'installed-first';
+
+type CatalogStatusFilter = 'all' | 'installed' | 'available';
 
 interface DownloadedCatalogZip {
   path: string;
@@ -259,6 +271,17 @@ export const App: React.FC = () => {
   const [catalogDownloadMessages, setCatalogDownloadMessages] = useState<Record<string, string>>({});
   const [catalogDownloaded, setCatalogDownloaded] = useState<Record<string, boolean>>({});
   const [coverErrors, setCoverErrors] = useState<Record<string, boolean>>({});
+  const [catalogSort, setCatalogSort] = useState<CatalogSortOption>(() => {
+    try {
+      const saved = localStorage.getItem('portstation_catalog_sort') as CatalogSortOption;
+      if (['default', 'alpha-asc', 'alpha-desc', 'year-desc', 'year-asc', 'platform', 'installed-first'].includes(saved)) {
+        return saved;
+      }
+    } catch {}
+    return 'alpha-asc';
+  });
+  const [catalogPlatformFilter, setCatalogPlatformFilter] = useState<string>('all');
+  const [catalogStatusFilter, setCatalogStatusFilter] = useState<CatalogStatusFilter>('all');
   const [roots, setRoots] = useState<ScanRoot[]>(() => {
     try {
       const saved = localStorage.getItem('portstation_scan_roots');
@@ -1308,12 +1331,94 @@ export const App: React.FC = () => {
     return true;
   });
 
-  const filteredCatalogPorts = catalogPorts.filter((port) => {
+  const availableCatalogPlatforms = React.useMemo(() => {
+    const map = new Map<string, number>();
+    catalogPorts.forEach((p) => {
+      p.originalPlatform.split('/').forEach((part) => {
+        const plat = part.trim();
+        if (plat) {
+          map.set(plat, (map.get(plat) || 0) + 1);
+        }
+      });
+    });
+    return Array.from(map.entries()).sort((a, b) => a[0].localeCompare(b[0], 'es'));
+  }, [catalogPorts]);
+
+  const filteredCatalogPorts = React.useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
-    if (!query) return true;
-    return [port.title, port.projectTitle, port.originalPlatform, port.author || '', port.developer || '']
-      .some((value) => value.toLowerCase().includes(query));
-  });
+    const result = catalogPorts.filter((port) => {
+      // 1. Search Query
+      if (query) {
+        const matchesQuery = [
+          port.title,
+          port.projectTitle,
+          port.originalPlatform,
+          port.author || '',
+          port.developer || ''
+        ].some((value) => value.toLowerCase().includes(query));
+        if (!matchesQuery) return false;
+      }
+
+      // 2. Platform filter
+      if (catalogPlatformFilter !== 'all') {
+        const matchesPlat = port.originalPlatform
+          .split('/')
+          .map((s) => s.trim().toLowerCase())
+          .includes(catalogPlatformFilter.toLowerCase());
+        if (!matchesPlat) return false;
+      }
+
+      // 3. Status filter
+      if (catalogStatusFilter === 'installed' && !port.installed) return false;
+      if (catalogStatusFilter === 'available' && port.installed) return false;
+
+      return true;
+    });
+
+    // 4. Sorting
+    switch (catalogSort) {
+      case 'alpha-asc':
+        result.sort((a, b) => a.title.localeCompare(b.title, 'es', { numeric: true, sensitivity: 'base' }));
+        break;
+      case 'alpha-desc':
+        result.sort((a, b) => b.title.localeCompare(a.title, 'es', { numeric: true, sensitivity: 'base' }));
+        break;
+      case 'year-desc':
+        result.sort((a, b) => {
+          const ya = a.releaseYear ?? 0;
+          const yb = b.releaseYear ?? 0;
+          if (yb !== ya) return yb - ya;
+          return a.title.localeCompare(b.title, 'es');
+        });
+        break;
+      case 'year-asc':
+        result.sort((a, b) => {
+          const ya = a.releaseYear ?? 9999;
+          const yb = b.releaseYear ?? 9999;
+          if (ya !== yb) return ya - yb;
+          return a.title.localeCompare(b.title, 'es');
+        });
+        break;
+      case 'platform':
+        result.sort((a, b) => {
+          const platCmp = a.originalPlatform.localeCompare(b.originalPlatform, 'es');
+          if (platCmp !== 0) return platCmp;
+          return a.title.localeCompare(b.title, 'es');
+        });
+        break;
+      case 'installed-first':
+        result.sort((a, b) => {
+          if (a.installed !== b.installed) return a.installed ? -1 : 1;
+          return a.title.localeCompare(b.title, 'es');
+        });
+        break;
+      case 'default':
+      default:
+        break;
+    }
+
+    return result;
+  }, [catalogPorts, searchQuery, catalogPlatformFilter, catalogStatusFilter, catalogSort]);
 
   // Find banner hero info for active filter (both corporate + console logos)
   const getActiveBannerInfo = () => {
@@ -2048,43 +2153,143 @@ export const App: React.FC = () => {
               </div>
             ) : (
               <>
-                <div className="explore-catalog-toolbar" style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  flexWrap: 'wrap',
-                  gap: '0.75rem',
-                  marginBottom: '1.25rem',
-                  padding: '0.65rem 1rem',
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.06)',
-                  borderRadius: '8px',
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', flexWrap: 'wrap' }}>
-                    <Database size={15} color="#34d399" />
-                    <span style={{ fontSize: '0.82rem', color: '#e2e8f0', fontWeight: 600 }}>
-                      Catálogo Oficial PortStation: <span style={{ color: '#34d399' }}>v{catalogInfo?.catalogVersion ?? '2.5.2'}</span>
-                    </span>
-                    <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
-                      ({catalogPorts.length} proyectos registrados en GitHub)
-                    </span>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', flexWrap: 'wrap' }}>
-                    {catalogSyncResult && (
-                      <span style={{ fontSize: '0.75rem', color: '#34d399', fontWeight: 500 }}>
-                        {catalogSyncResult.message}
+                <div className="explore-controls-panel">
+                  {/* Top Header / Sync Bar */}
+                  <div className="explore-catalog-toolbar" style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    flexWrap: 'wrap',
+                    gap: '0.75rem',
+                    padding: '0.65rem 1rem',
+                    background: 'rgba(255, 255, 255, 0.03)',
+                    border: '1px solid rgba(255, 255, 255, 0.06)',
+                    borderRadius: '8px',
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', flexWrap: 'wrap' }}>
+                      <Database size={15} color="#34d399" />
+                      <span style={{ fontSize: '0.82rem', color: '#e2e8f0', fontWeight: 600 }}>
+                        Catálogo Oficial PortStation: <span style={{ color: '#34d399' }}>v{catalogInfo?.catalogVersion ?? '2.6.1'}</span>
                       </span>
-                    )}
-                    <button
-                      className="btn btn-secondary"
-                      style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.35rem 0.75rem', fontSize: '0.78rem' }}
-                      disabled={catalogSyncing}
-                      onClick={() => void handleSyncCatalog()}
-                      title="Consultar GitHub y añadir nuevos ports registrados"
-                    >
-                      <RefreshCw size={13} className={catalogSyncing ? 'spin' : ''} />
-                      <span>{catalogSyncing ? 'Sincronizando...' : 'Sincronizar Catálogo'}</span>
-                    </button>
+                      <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+                        ({catalogPorts.length} proyectos registrados en GitHub)
+                      </span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', flexWrap: 'wrap' }}>
+                      {catalogSyncResult && (
+                        <span style={{ fontSize: '0.75rem', color: '#34d399', fontWeight: 500 }}>
+                          {catalogSyncResult.message}
+                        </span>
+                      )}
+                      <button
+                        className="btn btn-secondary"
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.35rem 0.75rem', fontSize: '0.78rem' }}
+                        disabled={catalogSyncing}
+                        onClick={() => void handleSyncCatalog()}
+                        title="Consultar GitHub y añadir nuevos ports registrados"
+                      >
+                        <RefreshCw size={13} className={catalogSyncing ? 'spin' : ''} />
+                        <span>{catalogSyncing ? 'Sincronizando...' : 'Sincronizar Catálogo'}</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Filter & Sort Controls Bar */}
+                  <div className="explore-filter-bar">
+                    <div className="explore-filter-row">
+                      {/* Sort Selector */}
+                      <div className="explore-filter-item">
+                        <ArrowUpDown size={14} color="#58a6ff" />
+                        <label htmlFor="catalog-sort-select" style={{ fontWeight: 600, color: '#e2e8f0' }}>Ordenar:</label>
+                        <select
+                          id="catalog-sort-select"
+                          className="explore-select"
+                          value={catalogSort}
+                          onChange={(e) => {
+                            const val = e.target.value as CatalogSortOption;
+                            setCatalogSort(val);
+                            try {
+                              localStorage.setItem('portstation_catalog_sort', val);
+                            } catch {}
+                          }}
+                        >
+                          <option value="alpha-asc">Alfabético (A → Z)</option>
+                          <option value="alpha-desc">Alfabético (Z → A)</option>
+                          <option value="year-desc">Año: Más Nuevos / Recientes</option>
+                          <option value="year-asc">Año: Más Clásicos / Retro</option>
+                          <option value="platform">Por Plataforma Original</option>
+                          <option value="installed-first">Instalados Primero</option>
+                          <option value="default">Orden por Defecto (Catálogo)</option>
+                        </select>
+                      </div>
+
+                      {/* Platform Filter */}
+                      <div className="explore-filter-item">
+                        <Layers size={14} color="#bc8cff" />
+                        <label htmlFor="catalog-platform-select" style={{ fontWeight: 600, color: '#e2e8f0' }}>Plataforma:</label>
+                        <select
+                          id="catalog-platform-select"
+                          className="explore-select"
+                          value={catalogPlatformFilter}
+                          onChange={(e) => setCatalogPlatformFilter(e.target.value)}
+                        >
+                          <option value="all">Todas ({catalogPorts.length})</option>
+                          {availableCatalogPlatforms.map(([plat, count]) => (
+                            <option key={plat} value={plat}>
+                              {plat} ({count})
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      {/* Status Pills */}
+                      <div className="explore-pills-group">
+                        <button
+                          type="button"
+                          className={`explore-pill-btn ${catalogStatusFilter === 'all' ? 'active' : ''}`}
+                          onClick={() => setCatalogStatusFilter('all')}
+                        >
+                          Todos
+                        </button>
+                        <button
+                          type="button"
+                          className={`explore-pill-btn ${catalogStatusFilter === 'installed' ? 'active' : ''}`}
+                          onClick={() => setCatalogStatusFilter('installed')}
+                        >
+                          Instalados ({catalogPorts.filter((p) => p.installed).length})
+                        </button>
+                        <button
+                          type="button"
+                          className={`explore-pill-btn ${catalogStatusFilter === 'available' ? 'active' : ''}`}
+                          onClick={() => setCatalogStatusFilter('available')}
+                        >
+                          Por Instalar ({catalogPorts.filter((p) => !p.installed).length})
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Results Count & Reset */}
+                    <div className="explore-results-badge">
+                      <span>Mostrando <strong style={{ color: '#f0f6fc' }}>{filteredCatalogPorts.length}</strong> de {catalogPorts.length} ports</span>
+                      {(catalogSort !== 'alpha-asc' || catalogPlatformFilter !== 'all' || catalogStatusFilter !== 'all' || searchQuery.trim()) && (
+                        <button
+                          type="button"
+                          className="explore-reset-btn"
+                          onClick={() => {
+                            setCatalogSort('alpha-asc');
+                            setCatalogPlatformFilter('all');
+                            setCatalogStatusFilter('all');
+                            setSearchQuery('');
+                            try {
+                              localStorage.setItem('portstation_catalog_sort', 'alpha-asc');
+                            } catch {}
+                          }}
+                          title="Restablecer filtros a la vista por defecto"
+                        >
+                          (Restablecer)
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </div>
                 <div className="games-grid catalog-ports-grid">
