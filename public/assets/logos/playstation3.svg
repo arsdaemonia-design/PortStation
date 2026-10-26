@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 80">
+  <defs>
+    <linearGradient id="ps3silver" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="60%" stop-color="#e2e8f0" />
+      <stop offset="100%" stop-color="#94a3b8" />
+    </linearGradient>
+  </defs>
+  <text x="10" y="56" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="900" fill="url(#ps3silver)" letter-spacing="1">PLAYSTATION <tspan fill="#38bdf8" font-size="52" font-weight="900">3</tspan></text>
+</svg>

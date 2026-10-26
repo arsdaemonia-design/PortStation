@@ -1,0 +1,4487 @@
+{
+  "catalog_version": "2.6.0",
+  "games": [
+    {
+      "artwork": {
+        "local": {
+          "cover": "/games/twilight-princess/cover.png",
+          "disc": "/games/twilight-princess/disc.png",
+          "port": "https://raw.githubusercontent.com/TwilitRealm/dusklight/refs/heads/main/res/icon.png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "The Legend of Zelda: Twilight Princess",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "The Legend of Zelda: Twilight Princess",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "The Legend of Zelda: Twilight Princess",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "The Legend of Zelda: Twilight Princess",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "The Legend of Zelda: Twilight Princess",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "The Legend of Zelda: Twilight Princess",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "The Legend of Zelda: Twilight Princess",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "/games/twilight-princess/cover.png",
+      "developer": "Nintendo EAD",
+      "disc_art_url": "/games/twilight-princess/disc.png",
+      "id": "twilight-princess",
+      "original_platforms": [
+        "GameCube",
+        "Wii"
+      ],
+      "project": {
+        "author": "TwilitRealm Community",
+        "author_avatar_url": "https://avatars.githubusercontent.com/u/161476686?s=200&v=4",
+        "detection": {
+          "executables": [
+            "dusklight.exe"
+          ],
+          "folder_patterns": [
+            "*Twilight Princess*",
+            "*Dusklight*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Render nativo WebGPU / Vulkan / DirectX",
+          "Resolución ultra HD y Widescreen 21:9",
+          "Tasa de cuadros desbloqueada (60/120+ FPS)",
+          "Inyección de texturas, ReShade y DLSS"
+        ],
+        "id": "dusklight",
+        "method": "DECOMP_NATIVE",
+        "name": "Dusklight",
+        "port_art_url": "https://raw.githubusercontent.com/TwilitRealm/dusklight/refs/heads/main/res/icon.png",
+        "repository": {
+          "name": "dusklight",
+          "owner": "TwilitRealm",
+          "provider": "github",
+          "url": "https://github.com/TwilitRealm/dusklight"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Port nativo para PC basado en la decompilación completa de GameCube."
+      },
+      "release_year": 2006,
+      "sub_games": null,
+      "synopsis": "Link emprende un viaje para salvar Hyrule tras ser engullido por una misteriosa dimensión paralela conocida como el Reino Crepuscular.",
+      "title": "The Legend of Zelda: Twilight Princess"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "/games/jak-1/cover.png",
+          "disc": "/games/jak-1/disc.png",
+          "port": "https://raw.githubusercontent.com/open-goal/jak-project/master/game/graphics/opengl_renderer/icon.png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Jak and Daxter: The Trilogy",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Jak and Daxter: The Trilogy",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Jak and Daxter: The Trilogy",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Jak and Daxter: The Trilogy",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Jak and Daxter: The Trilogy",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Jak and Daxter: The Trilogy",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Jak and Daxter: The Trilogy",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "/games/jak-1/cover.png",
+      "developer": "Naughty Dog",
+      "disc_art_url": "/games/jak-1/disc.png",
+      "id": "jak-1",
+      "original_platforms": [
+        "PlayStation 2"
+      ],
+      "project": {
+        "author": "OpenGOAL Team",
+        "author_avatar_url": "https://avatars.githubusercontent.com/u/74640101?s=200&v=4",
+        "detection": {
+          "executables": [
+            "OpenGOAL-Launcher.exe",
+            "gk.exe"
+          ],
+          "folder_patterns": [
+            "*Jack and Daxter*",
+            "*Jak*",
+            "*OpenGOAL*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Soporte nativo para Jak 1, Jak II y Jak 3",
+          "60 / 144 / 240 FPS con físicas desacopladas",
+          "Soporte ultrawide 21:9 y 32:9",
+          "Texturas HD y subtítulos en español"
+        ],
+        "id": "opengoal-jak1",
+        "method": "DECOMP_NATIVE",
+        "name": "OpenGOAL (Trilogía Completa)",
+        "port_art_url": "https://raw.githubusercontent.com/open-goal/jak-project/master/game/graphics/opengl_renderer/icon.png",
+        "repository": {
+          "name": "jak-project",
+          "owner": "open-goal",
+          "provider": "github",
+          "url": "https://github.com/open-goal/jak-project"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Decompilación del lenguaje GOAL (Game Oriented Assembly Lisp) a C++ nativo."
+      },
+      "release_year": 2001,
+      "sub_games": [
+        {
+          "box_art_url": "/games/jak-1/cover.png",
+          "media_type": "disc",
+          "release_year": 2001,
+          "screenshots": null,
+          "synopsis": "Jak y Daxter viajan a través del archipiélago en busca del sabio Gol para devolver a Daxter a su forma humana.",
+          "title": "Jak and Daxter: The Precursor Legacy"
+        },
+        {
+          "box_art_url": "/games/jak-1/cover.png",
+          "media_type": "disc",
+          "release_year": 2003,
+          "screenshots": null,
+          "synopsis": "Jak es apresado durante dos años en Villa Refugio. Ahora busca venganza y lidera la resistencia.",
+          "title": "Jak II: Renegade"
+        },
+        {
+          "box_art_url": "/games/jak-1/cover.png",
+          "media_type": "disc",
+          "release_year": 2004,
+          "screenshots": null,
+          "synopsis": "Desterrado al Páramo, Jak debe sobrevivir y ganar la confianza del rey Damon de Spargus.",
+          "title": "Jak 3"
+        }
+      ],
+      "synopsis": "La legendaria trilogía de plataformas y acción 3D creada por Naughty Dog para PS2, preservada y portada a PC de forma nativa por el equipo de OpenGOAL.",
+      "title": "Jak and Daxter: The Trilogy"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "/games/dantes-inferno/cover.jpg",
+          "disc": "/games/dantes-inferno/disc.png",
+          "port": "/games/dantes-inferno/cover.jpg"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Dante's Inferno",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Dante's Inferno",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Dante's Inferno",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Dante's Inferno",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Dante's Inferno",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Dante's Inferno",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Dante's Inferno",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "/games/dantes-inferno/cover.jpg",
+      "developer": "Visceral Games",
+      "disc_art_url": "/games/dantes-inferno/disc.png",
+      "id": "dantes-inferno",
+      "original_platforms": [
+        "Xbox 360",
+        "PlayStation 3"
+      ],
+      "project": {
+        "author": "florinp93",
+        "author_avatar_url": "https://github.com/florinp93.png",
+        "detection": {
+          "executables": [
+            "dantes_inferno.exe",
+            "DantesInfernoLauncher.exe",
+            "DantesInfernoInstaller.exe"
+          ],
+          "folder_patterns": [
+            "*Dantes Inferno*",
+            "*dantes_inferno*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Recompilación estática de PowerPC a x86-64 nativo",
+          "Resolución 4K a 60/120 FPS sin emulador",
+          "Compatibilidad completa con mandos DualSense y Xbox"
+        ],
+        "id": "hells-gate-recomp",
+        "method": "STATIC_RECOMP",
+        "name": "Hell's Gate (Dante's Inferno Recompiled)",
+        "port_art_url": "/games/dantes-inferno/cover.jpg",
+        "repository": {
+          "name": "hells-gate-recomp",
+          "owner": "florinp93",
+          "provider": "github",
+          "url": "https://github.com/florinp93/hells-gate-recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Port nativo generado mediante recompilación estática del ejecutable original de Xbox 360."
+      },
+      "release_year": 2010,
+      "sub_games": null,
+      "synopsis": "Inspirado en la Divina Comedia de Dante Alighieri, encarna a un veterano cruzado que desciende a través de los nueve círculos del Infierno para rescatar el alma de su amada Beatriz.",
+      "title": "Dante's Inferno"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "/games/bloody-roar-2/cover.png",
+          "disc": "/games/bloody-roar-2/disc.png",
+          "port": "/games/bloody-roar-2/cover.png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Bloody Roar II: The New Breed",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Bloody Roar II: The New Breed",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Bloody Roar II: The New Breed",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Bloody Roar II: The New Breed",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Bloody Roar II: The New Breed",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Bloody Roar II: The New Breed",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Bloody Roar II: The New Breed",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "/games/bloody-roar-2/cover.png",
+      "developer": "Eighting / Raizing",
+      "disc_art_url": "/games/bloody-roar-2/disc.png",
+      "id": "bloody-roar-2",
+      "original_platforms": [
+        "PlayStation"
+      ],
+      "project": {
+        "author": "novapowers0",
+        "author_avatar_url": "https://github.com/novapowers0.png",
+        "detection": {
+          "executables": [
+            "BloodyRoar2_Recompiled.exe",
+            "BloodyRoar2.exe"
+          ],
+          "folder_patterns": [
+            "*BloodyRoar2*",
+            "*Bloody Roar*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Recompilación nativa directa a C++ y Vulkan/DirectX",
+          "Resolución interna 4K y Widescreen verdadero sin deformar personajes",
+          "Netplay rollback experimental integrado"
+        ],
+        "id": "bloody-roar-2-recomp",
+        "method": "STATIC_RECOMP",
+        "name": "Bloody Roar 2 Recompiled",
+        "port_art_url": "/games/bloody-roar-2/cover.png",
+        "repository": {
+          "name": "BloodyRoar2Recomp",
+          "owner": "novapowers0",
+          "provider": "github",
+          "url": "https://github.com/novapowers0/BloodyRoar2Recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Port para PC basado en decompilación y recompilación estática de la versión NTSC-U."
+      },
+      "release_year": 1999,
+      "sub_games": null,
+      "synopsis": "El legendario juego de lucha 3D donde los combatientes despiertan su gen Zoántropo para transformarse en bestias feroces durante el combate.",
+      "title": "Bloody Roar II: The New Breed"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "/games/dbz-budokai-3/cover.png",
+          "disc": "/games/dbz-budokai-3/disc.png",
+          "port": "/games/dbz-budokai-3/cover.png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Dragon Ball Z: Budokai 3",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Dragon Ball Z: Budokai 3",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Dragon Ball Z: Budokai 3",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Dragon Ball Z: Budokai 3",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Dragon Ball Z: Budokai 3",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Dragon Ball Z: Budokai 3",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Dragon Ball Z: Budokai 3",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "/games/dbz-budokai-3/cover.png",
+      "developer": "Dimps",
+      "disc_art_url": "/games/dbz-budokai-3/disc.png",
+      "id": "dbz-budokai-3",
+      "original_platforms": [
+        "PlayStation 2",
+        "PlayStation 3"
+      ],
+      "project": {
+        "author": "novapowers0",
+        "author_avatar_url": "https://github.com/novapowers0.png",
+        "detection": {
+          "executables": [
+            "dbz3.exe",
+            "budokai3.exe"
+          ],
+          "folder_patterns": [
+            "*Budokai HD Collection*",
+            "*Budokai 3*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Motor gráfico reconstruido en DirectX 12 y Vulkan",
+          "60 FPS estables sin desaceleración por Ki",
+          "Texturas rehechas en alta definición y soporte ultrawide"
+        ],
+        "id": "dbz-budokai-3-hd",
+        "method": "DECOMP_NATIVE",
+        "name": "Dragon Ball Z: Budokai 3 HD Collection",
+        "port_art_url": "/games/dbz-budokai-3/cover.png",
+        "repository": {
+          "name": "DBZ-Budokai-3-HD-Collection",
+          "owner": "novapowers0",
+          "provider": "github",
+          "url": "https://github.com/novapowers0/DBZ-Budokai-3-HD-Collection"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Port para PC extraído del ejecutable nativo de Budokai HD Collection."
+      },
+      "release_year": 2004,
+      "sub_games": null,
+      "synopsis": "El clímax de la saga Budokai: combates rápidos con transformaciones en tiempo real, esquivas del Dragón y Modo Universo Dragón.",
+      "title": "Dragon Ball Z: Budokai 3"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "/games/condemned-2/cover.jpg",
+          "disc": "/games/condemned-2/disc.png",
+          "port": "/games/condemned-2/cover.jpg"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Condemned 2: Bloodshot",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Condemned 2: Bloodshot",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Condemned 2: Bloodshot",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Condemned 2: Bloodshot",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Condemned 2: Bloodshot",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Condemned 2: Bloodshot",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Condemned 2: Bloodshot",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "/games/condemned-2/cover.jpg",
+      "developer": "Monolith Productions",
+      "disc_art_url": "/games/condemned-2/disc.png",
+      "id": "condemned-2",
+      "original_platforms": [
+        "Xbox 360",
+        "PlayStation 3"
+      ],
+      "project": {
+        "author": "psxrestore",
+        "author_avatar_url": "https://github.com/psxrestore.png",
+        "detection": {
+          "executables": [
+            "condemned2recomp.exe",
+            "condemned2.exe"
+          ],
+          "folder_patterns": [
+            "*Condemned 2*",
+            "*condemned2*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Recompilación estática de Xbox 360 a código x86_64 nativo",
+          "Resolución 4K sin las caídas de frames del hardware original",
+          "Soporte nativo para ratón y teclado y mandos actuales"
+        ],
+        "id": "condemned-2-recomp",
+        "method": "STATIC_RECOMP",
+        "name": "Condemned 2: Bloodshot Recompiled",
+        "port_art_url": "/games/condemned-2/cover.jpg",
+        "repository": {
+          "name": "Condemned2Recomp",
+          "owner": "psxrestore",
+          "provider": "github",
+          "url": "https://github.com/psxrestore/Condemned2Recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Port nativo para PC generado con recompiler estático para arquitecturas Xenon PowerPC."
+      },
+      "release_year": 2008,
+      "sub_games": null,
+      "synopsis": "Ethan Thomas regresa como un vagabundo atormentado por visiones para investigar asesinatos rituales y conspiraciones en una ciudad sumida en la locura colectiva.",
+      "title": "Condemned 2: Bloodshot"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "/games/army-of-two/cover.jpg",
+          "disc": null,
+          "port": "/games/army-of-two/cover.jpg"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Army of Two",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Army of Two",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Army of Two",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Army of Two",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Army of Two",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Army of Two",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Army of Two",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "/games/army-of-two/cover.jpg",
+      "developer": "EA Montreal",
+      "disc_art_url": null,
+      "id": "army-of-two",
+      "original_platforms": [
+        "Xbox 360",
+        "PlayStation 3"
+      ],
+      "project": {
+        "author": "nikolaygorb",
+        "author_avatar_url": "https://github.com/nikolaygorb.png",
+        "detection": {
+          "executables": [
+            "armyoftworecomp.exe",
+            "armyoftwo.exe"
+          ],
+          "folder_patterns": [
+            "*ARMY OF TWO*",
+            "*army_of_two*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Recompilación nativa x86-64 desde binario original de Xbox 360",
+          "Render directo a DirectX 12 / Vulkan a 60 FPS",
+          "Soporte cooperativo en pantalla dividida en PC"
+        ],
+        "id": "army-of-two-recomp",
+        "method": "STATIC_RECOMP",
+        "name": "Army of Two Recompiled",
+        "port_art_url": "/games/army-of-two/cover.jpg",
+        "repository": {
+          "name": "ArmyOfTwoRecomp",
+          "owner": "nikolaygorb",
+          "provider": "github",
+          "url": "https://github.com/nikolaygorb/ArmyOfTwoRecomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Port para PC ensamblado desde el ejecutable xex recompiled."
+      },
+      "release_year": 2008,
+      "sub_games": null,
+      "synopsis": "Tyson Rios y Elliot Salem se adentran en misiones de contratistas militares privados con un enfoque total en el juego cooperativo, fuego cruzado y personalización masiva de armas.",
+      "title": "Army of Two"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "/games/pokemon-gen1/cover.png",
+          "disc": null,
+          "port": "/games/pokemon-gen1/cover.png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Pokémon Edición Roja / Azul / Amarilla",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Pokémon Edición Roja / Azul / Amarilla",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Pokémon Edición Roja / Azul / Amarilla",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Pokémon Edición Roja / Azul / Amarilla",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Pokémon Edición Roja / Azul / Amarilla",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Pokémon Edición Roja / Azul / Amarilla",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Pokémon Edición Roja / Azul / Amarilla",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "/games/pokemon-gen1/cover.png",
+      "developer": "Game Freak",
+      "disc_art_url": null,
+      "id": "pokemon-gen1",
+      "original_platforms": [
+        "Game Boy"
+      ],
+      "project": {
+        "author": "bryanthaboi",
+        "author_avatar_url": "https://github.com/bryanthaboi.png",
+        "detection": {
+          "executables": [
+            "gen1recomp.exe",
+            "love-11.5-win64.exe"
+          ],
+          "folder_patterns": [
+            "*Pokemon 3d*",
+            "*pokemon*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Port nativo para PC con renderizador OpenGL / Love2D",
+          "Soporte para pantalla completa y filtros CRT / LCD retro",
+          "Audio estéreo mejorado y compatibilidad con mandos"
+        ],
+        "id": "gen1recomp",
+        "method": "DECOMP_NATIVE",
+        "name": "Pokemon Gen 1 Recompiled",
+        "port_art_url": "/games/pokemon-gen1/cover.png",
+        "repository": {
+          "name": "gen1recomp",
+          "owner": "bryanthaboi",
+          "provider": "github",
+          "url": "https://github.com/bryanthaboi/gen1recomp"
+        },
+        "requires_original_assets": false,
+        "technical_notes": "Port nativo basado en el desensamblado exacto de Game Freak para Z80/SM83."
+      },
+      "release_year": 1996,
+      "sub_games": null,
+      "synopsis": "Comienza tu viaje como entrenador en Pueblo Paleta, captura a los 151 Pokémon originales y derrota a los 8 líderes de gimnasio y al Alto Mando en la región de Kanto.",
+      "title": "Pokémon Edición Roja / Azul / Amarilla"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Diddy%20Kong%20Racing%20(USA)%20(En%2CFr).png",
+          "disc": null,
+          "port": "/games/diddy-kong-racing/cover.png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Diddy Kong Racing",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Diddy Kong Racing",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Diddy Kong Racing",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Diddy Kong Racing",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Diddy Kong Racing",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Diddy Kong Racing",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Diddy Kong Racing",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Diddy%20Kong%20Racing%20(USA)%20(En%2CFr).png",
+      "developer": "Rare",
+      "disc_art_url": null,
+      "id": "diddy-kong-racing",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "project": {
+        "author": "akratch",
+        "author_avatar_url": "https://github.com/akratch.png",
+        "detection": {
+          "executables": [
+            "GoldenBalloon.exe",
+            "GoldenBalloon"
+          ],
+          "folder_patterns": [
+            "*Diddy Kong Racing*",
+            "*GoldenBalloon*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Render nativo WebGPU y OpenGL con alta tasa de cuadros",
+          "Soporte para resoluciones panorámicas 16:9 y ultrawide",
+          "Workshop integrado para importar personajes en formato glTF"
+        ],
+        "id": "golden-balloon",
+        "method": "DECOMP_NATIVE",
+        "name": "Golden Balloon",
+        "port_art_url": "/games/diddy-kong-racing/cover.png",
+        "repository": {
+          "name": "goldenballoon",
+          "owner": "akratch",
+          "provider": "github",
+          "url": "https://github.com/akratch/goldenballoon"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Port nativo para PC basado en la decompilación de Nintendo 64."
+      },
+      "release_year": 1997,
+      "sub_games": null,
+      "synopsis": "Diddy Kong y sus amigos compiten en carreras de karts, aerodeslizadores y aviones por toda la Isla de Timber para expulsar al malvado hechicero espacial Wizpig.",
+      "title": "Diddy Kong Racing"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "/games/road-rash-64/cover.png",
+          "disc": null,
+          "port": "/games/road-rash-64/cover.png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Road Rash 64",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Road Rash 64",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Road Rash 64",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Road Rash 64",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Road Rash 64",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Road Rash 64",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Road Rash 64",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "/games/road-rash-64/cover.png",
+      "developer": "Pacific Coast Power & Light",
+      "disc_art_url": null,
+      "id": "road-rash-64",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "project": {
+        "author": "linkssy2",
+        "author_avatar_url": "https://github.com/linkssy2.png",
+        "detection": {
+          "executables": [
+            "RoadRash64Recompiled.exe",
+            "RoadRash64DirectStart.exe"
+          ],
+          "folder_patterns": [
+            "*Road Rash 64*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Render nativo moderno a 60 FPS estables",
+          "Soporte de mandos modernos y pantalla panorámica",
+          "Soporte para mods de texturas HD y pistas importadas de Mario Kart 64"
+        ],
+        "id": "road-rash-64-recomp",
+        "method": "STATIC_RECOMP",
+        "name": "Road Rash 64 Recompiled",
+        "port_art_url": "/games/road-rash-64/cover.png",
+        "repository": {
+          "name": "RoadRash64Recompiled",
+          "owner": "linkssy2",
+          "provider": "github",
+          "url": "https://github.com/linkssy2/RoadRash64Recompiled"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Port nativo para PC generado mediante N64 Recomp."
+      },
+      "release_year": 1999,
+      "sub_games": null,
+      "synopsis": "Carreras de motocicletas extremas con combate cuerpo a cuerpo, bates de béisbol, cadenas y física arcade desenfadada.",
+      "title": "Road Rash 64"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "/games/soulcalibur-2/cover.png",
+          "disc": "/games/soulcalibur-2/disc.png",
+          "port": "/games/soulcalibur-2/cover.png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "SoulCalibur II",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "SoulCalibur II",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "SoulCalibur II",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "SoulCalibur II",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "SoulCalibur II",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "SoulCalibur II",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "SoulCalibur II",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "/games/soulcalibur-2/cover.png",
+      "developer": "Project Soul / Namco",
+      "disc_art_url": "/games/soulcalibur-2/disc.png",
+      "id": "soulcalibur-2",
+      "original_platforms": [
+        "GameCube",
+        "PlayStation 2",
+        "Xbox"
+      ],
+      "project": {
+        "author": "jackpoison-prog",
+        "author_avatar_url": "https://github.com/jackpoison-prog.png",
+        "detection": {
+          "executables": [
+            "RingOut.exe"
+          ],
+          "folder_patterns": [
+            "*SoulCalibur II*",
+            "*RingOut*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Recompilación estática nativa con LLVM y Clang",
+          "Render Vulkan a 60 FPS fijos y baja latencia de entrada",
+          "Optimizaciones PGO (Profile-Guided Optimization)"
+        ],
+        "id": "ringout",
+        "method": "STATIC_RECOMP",
+        "name": "Ring Out (SoulCalibur II Recompiled)",
+        "port_art_url": "/games/soulcalibur-2/cover.png",
+        "repository": {
+          "name": "RingOut",
+          "owner": "jackpoison-prog",
+          "provider": "github",
+          "url": "https://github.com/jackpoison-prog/RingOut"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Port nativo compilado con dolrecomp a partir de ISO GameCube (GRSEAF)."
+      },
+      "release_year": 2003,
+      "sub_games": null,
+      "synopsis": "El legendario combate de armas blancas 3D con ocho direcciones de movimiento libre (8-Way Run) y la aparición exclusiva de Link en la versión de GameCube.",
+      "title": "SoulCalibur II"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "/games/super-mario-strikers/cover.png",
+          "disc": "/games/super-mario-strikers/disc.png",
+          "port": "/games/super-mario-strikers/cover.png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Super Mario Strikers",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Super Mario Strikers",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Super Mario Strikers",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Super Mario Strikers",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Super Mario Strikers",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Super Mario Strikers",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Super Mario Strikers",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "/games/super-mario-strikers/cover.png",
+      "developer": "Next Level Games",
+      "disc_art_url": "/games/super-mario-strikers/disc.png",
+      "id": "super-mario-strikers",
+      "original_platforms": [
+        "GameCube"
+      ],
+      "project": {
+        "author": "new-coke",
+        "author_avatar_url": "https://github.com/new-coke.png",
+        "detection": {
+          "executables": [
+            "strikers.exe",
+            "strikers-settings.exe"
+          ],
+          "folder_patterns": [
+            "*Super Mario Strikers*",
+            "*strikers*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Render nativo con Vulkan, DirectX 12 y Metal",
+          "Soporte de packs de texturas HD y desbloqueo de tasa de cuadros",
+          "Soporte completo de mandos SDL3 y modo ventana/pantalla completa"
+        ],
+        "id": "strikers",
+        "method": "DECOMP_NATIVE",
+        "name": "Super Mario Strikers PC Port",
+        "port_art_url": "/games/super-mario-strikers/cover.png",
+        "repository": {
+          "name": "strikers",
+          "owner": "new-coke",
+          "provider": "github",
+          "url": "https://github.com/new-coke/strikers"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Port nativo para PC con backend WebGPU Dawn y configurador Qt6."
+      },
+      "release_year": 2005,
+      "sub_games": null,
+      "synopsis": "Fútbol arcade sin reglas donde Mario y sus rivales se enfrentan con super trallazos, objetos de Nintendo y entradas demoledoras con electrificación de vallas.",
+      "title": "Super Mario Strikers"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "/games/crash-bandicoot/cover.png",
+          "disc": null,
+          "port": "/games/crash-bandicoot/cover.png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Crash Bandicoot",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Crash Bandicoot",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Crash Bandicoot",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Crash Bandicoot",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Crash Bandicoot",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Crash Bandicoot",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Crash Bandicoot",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "/games/crash-bandicoot/cover.png",
+      "developer": "Naughty Dog",
+      "disc_art_url": null,
+      "id": "crash-bandicoot",
+      "original_platforms": [
+        "PlayStation"
+      ],
+      "project": {
+        "author": "Matteo842",
+        "author_avatar_url": "https://github.com/Matteo842.png",
+        "detection": {
+          "executables": [
+            "CrashBandicoot.exe",
+            "CrashBandicoot"
+          ],
+          "folder_patterns": [
+            "*Crash Bandicoot*",
+            "*Crash*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Recompilación nativa directa a C# y C++",
+          "Resolución 4K panorámica sin deformar a Crash",
+          "60 FPS reales y tiempo de carga instantáneo"
+        ],
+        "id": "crash-bandicoot-recomp",
+        "method": "STATIC_RECOMP",
+        "name": "Crash Bandicoot PC Recompiled",
+        "port_art_url": "/games/crash-bandicoot/cover.png",
+        "repository": {
+          "name": "CrashBandicoot-Launcher",
+          "owner": "Matteo842",
+          "provider": "github",
+          "url": "https://github.com/Matteo842/CrashBandicoot-Launcher"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Port nativo generado a partir del ejecutable MIPS de PS1 mediante recompilación estática."
+      },
+      "release_year": 1996,
+      "sub_games": null,
+      "synopsis": "Crash debe rescatar a su novia Tawna y frustrar los malvados planes del Dr. Neo Cortex y el Dr. Nitrus Brio en el archipiélago Wumpa.",
+      "title": "Crash Bandicoot"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Super%20Mario%2064%20(USA).png",
+          "disc": null,
+          "port": "https://raw.githubusercontent.com/HarbourMasters/Ghostship/develop/logo.png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Super Mario 64",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Super Mario 64",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Super Mario 64",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Super Mario 64",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Super Mario 64",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Super Mario 64",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Super Mario 64",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Super%20Mario%2064%20(USA).png",
+      "developer": "Nintendo EAD",
+      "disc_art_url": null,
+      "id": "super-mario-64",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "project": {
+        "id": "ghostship",
+        "name": "Ghostship",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "Ghostship",
+          "owner": "HarbourMasters",
+          "provider": "github",
+          "url": "https://github.com/HarbourMasters/Ghostship"
+        },
+        "requires_original_assets": true,
+        "author": "Harbour Masters",
+        "author_avatar_url": "https://github.com/HarbourMasters.png",
+        "port_art_url": "https://raw.githubusercontent.com/HarbourMasters/Ghostship/develop/logo.png",
+        "features": [
+          "Port nativo para PC basado en LibUltraShip",
+          "Widescreen, 60+ FPS, controles modernos y soporte HD",
+          "Release Nautilus Alfa v3.0.0 publicada"
+        ],
+        "technical_notes": "Requiere ROM original compatible de Super Mario 64 para extraer los assets. Release 3.0.0 (Nautilus - Alfa 3.0.0) publicada por Harbour Masters.",
+        "detection": {
+          "executables": [
+            "Ghostship.exe",
+            "ghostship.exe",
+            "sm64.exe"
+          ],
+          "folder_patterns": [
+            "*Ghostship*",
+            "*Super Mario 64*",
+            "*sm64*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      },
+      "release_year": 1996,
+      "sub_games": null,
+      "synopsis": "El juego que definió las plataformas en 3D. Salva a la Princesa Peach recolectando las 120 estrellas de poder en el Castillo de Bowser.",
+      "title": "Super Mario 64"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20Ocarina%20of%20Time%20(USA).png",
+          "disc": null,
+          "port": "/games/zelda-oot/cover.png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "The Legend of Zelda: Ocarina of Time",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "The Legend of Zelda: Ocarina of Time",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "The Legend of Zelda: Ocarina of Time",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "The Legend of Zelda: Ocarina of Time",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "The Legend of Zelda: Ocarina of Time",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "The Legend of Zelda: Ocarina of Time",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "The Legend of Zelda: Ocarina of Time",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20Ocarina%20of%20Time%20(USA).png",
+      "developer": "Nintendo EAD",
+      "disc_art_url": null,
+      "id": "zelda-oot",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "project": {
+        "author": "Harbour Masters",
+        "author_avatar_url": "https://github.com/HarbourMasters.png",
+        "detection": {
+          "executables": [
+            "soh.exe",
+            "ShipOfHarkinian.exe"
+          ],
+          "folder_patterns": [
+            "*Ship of Harkinian*",
+            "*Ocarina of Time*",
+            "*soh*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Tasa de cuadros desbloqueada (hasta 250 FPS)",
+          "Compatibilidad con giroscopio, widescreen y randomizer integrado",
+          "Modo de cámara libre y soporte para texturas HD"
+        ],
+        "id": "ship-of-harkinian",
+        "method": "DECOMP_NATIVE",
+        "name": "Ship of Harkinian",
+        "port_art_url": "https://raw.githubusercontent.com/HarbourMasters/Shipwright/develop/assets/icons/icon.png",
+        "repository": {
+          "name": "Shipwright",
+          "owner": "HarbourMasters",
+          "provider": "github",
+          "url": "https://github.com/HarbourMasters/Shipwright"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Port nativo para PC basado en la decompilación completa de OoT N64."
+      },
+      "release_year": 1998,
+      "sub_games": null,
+      "synopsis": "Viaja a través del tiempo entre la niñez y la adultez para despertar a los Siete Sabios y derrotar al Rey Gerudo Ganondorf.",
+      "title": "The Legend of Zelda: Ocarina of Time"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20Majora%27s%20Mask%20(USA).png",
+          "disc": null,
+          "port": "/games/zelda-mm/cover.png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "The Legend of Zelda: Majora's Mask",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "The Legend of Zelda: Majora's Mask",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "The Legend of Zelda: Majora's Mask",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "The Legend of Zelda: Majora's Mask",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "The Legend of Zelda: Majora's Mask",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "The Legend of Zelda: Majora's Mask",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "The Legend of Zelda: Majora's Mask",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20Majora%27s%20Mask%20(USA).png",
+      "developer": "Nintendo EAD",
+      "disc_art_url": null,
+      "id": "zelda-mm",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "project": {
+        "author": "Harbour Masters",
+        "author_avatar_url": null,
+        "detection": {
+          "executables": [
+            "2ship.exe",
+            "2Ship2Harkinian.exe"
+          ],
+          "folder_patterns": [
+            "*2Ship*",
+            "*Majoras Mask*",
+            "*mm*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Render nativo con Vulkan y DirectX a altos FPS",
+          "Control de cámara con stick derecho y resolución ultrawide",
+          "Menú de mejoras de calidad de vida y asignación rápida de objetos"
+        ],
+        "id": "2ship2harkinian",
+        "method": "DECOMP_NATIVE",
+        "name": "2 Ship 2 Harkinian",
+        "port_art_url": "/games/zelda-mm/cover.png",
+        "repository": {
+          "name": "2ship2harkinian",
+          "owner": "2ship2harkinian",
+          "provider": "github",
+          "url": "https://github.com/2ship2harkinian/2ship2harkinian"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Port nativo para PC de Majora's Mask basado en decompilación.",
+        "repository_url": "https://github.com/2ship2harkinian/2ship2harkinian"
+      },
+      "release_year": 2000,
+      "sub_games": null,
+      "synopsis": "Atrapado en la tierra de Términa con solo 72 horas antes de que la luna caiga, Link debe usar máscaras místicas para salvar el mundo.",
+      "title": "The Legend of Zelda: Majora's Mask"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Banjo-Kazooie%20(USA).png",
+          "disc": null,
+          "port": "https://raw.githubusercontent.com/BanjoRecomp/BanjoRecomp/main/icons/app.png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Banjo-Kazooie",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Banjo-Kazooie",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Banjo-Kazooie",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Banjo-Kazooie",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Banjo-Kazooie",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Banjo-Kazooie",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Banjo-Kazooie",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Banjo-Kazooie%20(USA).png",
+      "developer": "Rare",
+      "disc_art_url": null,
+      "id": "banjo-kazooie",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "project": {
+        "author": "BanjoRecomp",
+        "author_avatar_url": "https://github.com/BanjoRecomp.png",
+        "detection": {
+          "executables": [
+            "BanjoKazooie.exe",
+            "Banjo.exe"
+          ],
+          "folder_patterns": [
+            "*Banjo Kazooie*",
+            "*Banjo*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "60+ FPS sin acelerar la velocidad del juego",
+          "Soporte ultrawide 21:9 y texturas en alta resolución",
+          "Configuración directa de mandos modernos"
+        ],
+        "id": "banjo-recomp",
+        "method": "STATIC_RECOMP",
+        "name": "Banjo-Kazooie PC Recompiled",
+        "port_art_url": "https://raw.githubusercontent.com/BanjoRecomp/BanjoRecomp/main/icons/app.png",
+        "repository": {
+          "name": "BanjoRecomp",
+          "owner": "BanjoRecomp",
+          "provider": "github",
+          "url": "https://github.com/BanjoRecomp/BanjoRecomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Port nativo de Banjo-Kazooie generado con N64 Recomp."
+      },
+      "release_year": 1998,
+      "sub_games": null,
+      "synopsis": "Banjo el oso y Kazooie el ave recorren mundos mágicos recolectando piezas de rompecabezas para rescatar a Tooty de la malvada bruja Gruntilda.",
+      "title": "Banjo-Kazooie"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Perfect%20Dark%20(USA).png",
+          "disc": null,
+          "port": "https://github.com/DabDavis.png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Perfect Dark",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Perfect Dark",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Perfect Dark",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Perfect Dark",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Perfect Dark",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Perfect Dark",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Perfect Dark",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Perfect%20Dark%20(USA).png",
+      "developer": "Rare",
+      "disc_art_url": null,
+      "id": "perfect-dark",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "project": {
+        "id": "perfect-dark-dabs-mod",
+        "name": "Perfect Dark (Dab's Mod)",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "perfect-dark-dabs-mod",
+          "owner": "DabDavis",
+          "provider": "github",
+          "url": "https://github.com/DabDavis/perfect-dark-dabs-mod"
+        },
+        "requires_original_assets": true,
+        "author": "DabDavis and contributors",
+        "author_avatar_url": "https://github.com/DabDavis.png",
+        "port_art_url": "https://github.com/DabDavis.png",
+        "features": [
+          "Port nativo para PC con mejoras modernas de jugabilidad",
+          "Saltos, rodar en combate, combos cuerpo a cuerpo y tercera persona",
+          "Hasta 80 simulantes, grabador de video y soporte widescreen/60+ FPS"
+        ],
+        "technical_notes": "Fork activo del port de Perfect Dark para PC. Requiere ROM legal de Perfect Dark (USA/v1.1). Releases con binarios directos para Windows.",
+        "detection": {
+          "executables": [
+            "pd.x86_64-windows.exe",
+            "pd.exe",
+            "perfectdark.exe"
+          ],
+          "folder_patterns": [
+            "*perfect-dark*",
+            "*Perfect Dark*",
+            "*pd-dabs-mod*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      },
+      "release_year": 2000,
+      "sub_games": null,
+      "synopsis": "Joanna Dark descubre una conspiración extraterrestre que involucra a la megacorporación dataDyne y a la raza alienígena de los Skedar.",
+      "title": "Perfect Dark"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://www.mobygames.com/game/3739/castlevania-symphony-of-the-night/cover/group-849/cover-194676/",
+          "disc": "/games/castlevania-sotn/disc.png",
+          "port": "/games/castlevania-sotn/cover.png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Castlevania: Symphony of the Night",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Castlevania: Symphony of the Night",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Castlevania: Symphony of the Night",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Castlevania: Symphony of the Night",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Castlevania: Symphony of the Night",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Castlevania: Symphony of the Night",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Castlevania: Symphony of the Night",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Castlevania%20-%20Symphony%20of%20the%20Night%20(USA).png",
+      "developer": "Konami",
+      "disc_art_url": "/games/castlevania-sotn/disc.png",
+      "id": "castlevania-sotn",
+      "original_platforms": [
+        "PlayStation",
+        "Sega Saturn"
+      ],
+      "project": {
+        "author": "BlackLabelHQ",
+        "author_avatar_url": "https://github.com/BlackLabelHQ.png",
+        "detection": {
+          "executables": [
+            "sotn.exe"
+          ],
+          "folder_patterns": [
+            "*SymphonyRecomp*",
+            "*Symphony of the Night*",
+            "*sotn*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Render nativo panorámico a 60 FPS",
+          "Sin tiempos de carga entre secciones del castillo"
+        ],
+        "id": "sotn-recomp",
+        "method": "STATIC_RECOMP",
+        "name": "Symphony of the Night Recompiled",
+        "port_art_url": "/games/castlevania-sotn/cover.png",
+        "repository": {
+          "name": "SymphonyRecomp",
+          "owner": "BlackLabelHQ",
+          "provider": "github",
+          "url": "https://github.com/BlackLabelHQ/SymphonyRecomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Port para PC ensamblado desde el binario original de PS1."
+      },
+      "release_year": 1997,
+      "sub_games": null,
+      "synopsis": "Explora el castillo de Drácula como Alucard en esta obra maestra que definió el género Metroidvania, combinando plataformas, exploración y RPG.",
+      "title": "Castlevania: Symphony of the Night"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Donkey%20Kong%2064%20(USA).png",
+          "disc": null,
+          "port": "https://raw.githubusercontent.com/Rainchus/Donkey-Kong-64-Recompiled/main/icons/app.png"
+        },
+        "preferred_order": [
+          "local",
+          "Libretro Thumbnails"
+        ],
+        "sources": [
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Donkey Kong 64",
+            "url": "https://thumbnails.libretro.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Donkey%20Kong%2064%20(USA).png",
+      "developer": "Rare",
+      "disc_art_url": null,
+      "id": "donkey-kong-64",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "project": {
+        "author": "Rainchus, theballaam96 and contributors",
+        "author_avatar_url": "https://github.com/Rainchus.png",
+        "detection": {
+          "executables": [
+            "DK64Recompiled.exe",
+            "DK64.exe"
+          ],
+          "folder_patterns": [
+            "*DK64*",
+            "*Rekongpiled*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Recompilación estática nativa con RT64",
+          "Widescreen/ultrawide y framerate sin límite",
+          "Mods, texturas, controles de ratón/giroscopio y cargas rápidas"
+        ],
+        "id": "dk64-rekongpiled",
+        "method": "STATIC_RECOMP",
+        "name": "DK64: Rekongpiled",
+        "port_art_url": "https://raw.githubusercontent.com/Rainchus/Donkey-Kong-64-Recompiled/main/icons/app.png",
+        "repository": {
+          "name": "Donkey-Kong-64-Recompiled",
+          "owner": "Rainchus",
+          "provider": "github",
+          "url": "https://github.com/Rainchus/Donkey-Kong-64-Recompiled"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Requiere una ROM legal de Donkey Kong 64 (USA); el proyecto no incluye los datos del juego. Campaña jugable; multijugador local experimental/no funcional según PCGamingWiki."
+      },
+      "release_year": 1999,
+      "sub_games": null,
+      "synopsis": "Donkey Kong y sus compañeros recorren la Isla DK para detener a King K. Rool. DK64: Rekongpiled recompila el código original para Windows y otros sistemas modernos.",
+      "title": "Donkey Kong 64"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Star%20Fox%2064%20(USA).png",
+          "disc": null,
+          "port": "https://raw.githubusercontent.com/HarbourMasters/Starship/main/logo.png"
+        },
+        "preferred_order": [
+          "local",
+          "Libretro Thumbnails"
+        ],
+        "sources": [
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Star Fox 64",
+            "url": "https://thumbnails.libretro.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Star%20Fox%2064%20(USA).png",
+      "developer": "Nintendo EAD",
+      "disc_art_url": null,
+      "id": "star-fox-64",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "project": {
+        "author": "Harbour Masters",
+        "author_avatar_url": "https://github.com/HarbourMasters.png",
+        "detection": {
+          "executables": [
+            "Starship.exe",
+            "starship.exe"
+          ],
+          "folder_patterns": [
+            "*Starship*",
+            "*Star Fox 64*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Decompilación y port nativo para PC",
+          "Escalado, controles configurables y compatibilidad con mods",
+          "Windows, Linux y macOS"
+        ],
+        "id": "starship",
+        "method": "DECOMP_NATIVE",
+        "name": "Starship",
+        "port_art_url": "https://raw.githubusercontent.com/HarbourMasters/Starship/main/logo.png",
+        "repository": {
+          "name": "Starship",
+          "owner": "HarbourMasters",
+          "provider": "github",
+          "url": "https://github.com/HarbourMasters/Starship"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Requiere una ROM compatible de Star Fox 64 para generar los assets del juego. La release Barnard Alfa v2.0.0 está publicada; sigue en desarrollo activo."
+      },
+      "release_year": 1997,
+      "sub_games": null,
+      "synopsis": "Fox McCloud y el equipo Star Fox defienden el sistema Lylat en este shooter sobre raíles de Nintendo 64.",
+      "title": "Star Fox 64"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Mario%20Kart%2064%20(USA).png",
+          "disc": null,
+          "port": "https://raw.githubusercontent.com/HarbourMasters/SpaghettiKart/main/icon.png"
+        },
+        "preferred_order": [
+          "local",
+          "Libretro Thumbnails"
+        ],
+        "sources": [
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Mario Kart 64",
+            "url": "https://thumbnails.libretro.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Mario%20Kart%2064%20(USA).png",
+      "developer": "Nintendo EAD",
+      "disc_art_url": null,
+      "id": "mario-kart-64",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "project": {
+        "author": "Harbour Masters",
+        "author_avatar_url": "https://github.com/HarbourMasters.png",
+        "detection": {
+          "executables": [
+            "Spaghettify.exe",
+            "spaghetti.exe"
+          ],
+          "folder_patterns": [
+            "*SpaghettiKart*",
+            "*Mario Kart 64*",
+            "*Spaghettify*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Port decompilado con multijugador local",
+          "Editor e importador de pistas personalizadas",
+          "Mods, ajustes visuales y soporte multiplataforma"
+        ],
+        "id": "spaghetti-kart",
+        "method": "DECOMP_NATIVE",
+        "name": "SpaghettiKart",
+        "port_art_url": "https://raw.githubusercontent.com/HarbourMasters/SpaghettiKart/main/icon.png",
+        "repository": {
+          "name": "SpaghettiKart",
+          "owner": "HarbourMasters",
+          "provider": "github",
+          "url": "https://github.com/HarbourMasters/SpaghettiKart"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Requiere la ROM compatible USA de Mario Kart 64; la release Bolognese Alfa v1.0.0 está publicada. Es un proyecto distinto de Diddy Kong Racing/Golden Balloon."
+      },
+      "release_year": 1996,
+      "sub_games": null,
+      "synopsis": "Mario y sus amigos compiten en carreras y copas de karts en circuitos clásicos de Nintendo 64.",
+      "title": "Mario Kart 64"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Bomberman%2064%20(USA).png",
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "Libretro Thumbnails"
+        ],
+        "sources": [
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Bomberman 64",
+            "url": "https://thumbnails.libretro.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Bomberman%2064%20(USA).png",
+      "developer": "Hudson Soft",
+      "disc_art_url": null,
+      "id": "bomberman-64",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "project": {
+        "author": "RevoSucks and contributors",
+        "author_avatar_url": "https://github.com/RevoSucks.png",
+        "detection": {
+          "executables": [
+            "BM64Recompiled.exe",
+            "BM64.exe"
+          ],
+          "folder_patterns": [
+            "*BM64Recomp*",
+            "*Bomberman 64*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        },
+        "features": [
+          "Recompilación estática nativa con RT64",
+          "Soporte de mods y mejoras modernas",
+          "Ports publicados para Windows, Linux y macOS"
+        ],
+        "id": "bomberman-64-recomp",
+        "method": "STATIC_RECOMP",
+        "name": "Bomberman 64: Recompiled",
+        "port_art_url": "https://github.com/RevoSucks.png",
+        "repository": {
+          "name": "BM64Recomp",
+          "owner": "RevoSucks",
+          "provider": "github",
+          "url": "https://github.com/RevoSucks/BM64Recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Release v1.0.0 publicada. Requiere ROM USA legal; el repositorio y sus releases no incluyen los assets originales. PCGamingWiki lo clasifica como jugable."
+      },
+      "release_year": 1997,
+      "sub_games": null,
+      "synopsis": "Bomberman explora laberintos, coloca bombas y combate enemigos en la aventura de Nintendo 64.",
+      "title": "Bomberman 64"
+    },
+    {
+      "id": "pokemon-snap",
+      "title": "Pokémon Snap",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "release_year": 1999,
+      "developer": "HAL Laboratory",
+      "synopsis": "Todd Snap viaja por la Isla Pokémon a bordo del Zero-One para capturar las mejores fotografías de criaturas salvajes en su hábitat natural.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Pokemon%20Snap%20(USA).png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "snap64-recomp",
+        "name": "Snap64 Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "Snap64Recomp",
+          "owner": "JackandBeans",
+          "provider": "github",
+          "url": "https://github.com/JackandBeans/Snap64Recomp"
+        },
+        "requires_original_assets": true,
+        "author": "JackandBeans",
+        "author_avatar_url": "https://github.com/JackandBeans.png",
+        "port_art_url": "https://raw.githubusercontent.com/JackandBeans/Snap64Recomp/main/docs/logo.png",
+        "features": [
+          "Recompilación estática nativa para Windows y Linux",
+          "Comportamiento fiel al cartucho de N64 con mejoras opcionales",
+          "Soporte widescreen, framerates fluidos y mandos actuales"
+        ],
+        "technical_notes": "Requiere ROM legal de Pokémon Snap (USA). Release v1.1.0 publicada con binarios directos para Windows.",
+        "detection": {
+          "executables": [
+            "Snap64Recomp.exe",
+            "Snap64.exe"
+          ],
+          "folder_patterns": [
+            "*Snap64*",
+            "*Pokemon Snap*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "lost-odyssey",
+      "title": "Lost Odyssey",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2007,
+      "developer": "Mistwalker / Feelplus",
+      "synopsis": "Kaim, un guerrero inmortal condenado a vivir mil años y a sufrir el olvido de su pasado, descubre su destino en medio de una revolución mágica industrial.",
+      "box_art_url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co20se.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "lost-odyssey-recomp",
+        "name": "Lost Odyssey Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "LostOdysseyRecomp",
+          "owner": "freefrank",
+          "provider": "github",
+          "url": "https://github.com/freefrank/LostOdysseyRecomp"
+        },
+        "requires_original_assets": true,
+        "author": "freefrank and contributors",
+        "author_avatar_url": "https://github.com/freefrank.png",
+        "port_art_url": "https://raw.githubusercontent.com/freefrank/LostOdysseyRecomp/main/docs/images/title-screen.png",
+        "features": [
+          "Recompilación estática nativa PowerPC para Windows x64",
+          "Renderizado Direct3D 12 y Vulkan a resolución nativa de PC",
+          "Cargas ultrarrápidas y soporte para mandos modernos"
+        ],
+        "technical_notes": "Requiere volcado de los archivos de juego originales de Lost Odyssey (Xbox 360). Release activa con ZIP precompilado de Windows.",
+        "detection": {
+          "executables": [
+            "LostOdyssey.exe",
+            "LostOdysseyRecomp.exe"
+          ],
+          "folder_patterns": [
+            "*LostOdyssey*",
+            "*Lost Odyssey*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "wet",
+      "title": "WET",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2009,
+      "developer": "Artificial Mind and Movement",
+      "synopsis": "Rubi Malone, una mercenaria y pistolera acrobática, emprende una sangrienta venganza en un shooter estilizado con estética de cine grindhouse.",
+      "box_art_url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co224t.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "wet-recomp",
+        "name": "WET Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "wet-recomp",
+          "owner": "Supermedo",
+          "provider": "github",
+          "url": "https://github.com/Supermedo/wet-recomp"
+        },
+        "requires_original_assets": true,
+        "author": "Mohammed Albarghouthi (Supermedo)",
+        "author_avatar_url": "https://github.com/Supermedo.png",
+        "port_art_url": "https://github.com/Supermedo.png",
+        "features": [
+          "Port nativo para PC basado en ReXGlue",
+          "Recompilación estática de Xbox 360 para Windows x64",
+          "Framerates desbloqueados y controles configurables"
+        ],
+        "technical_notes": "Requiere volcado de la ISO de WET para Xbox 360. Release v0.2.0 disponible con binario de Windows.",
+        "detection": {
+          "executables": [
+            "WET.exe",
+            "wet-recomp.exe"
+          ],
+          "folder_patterns": [
+            "*wet-recomp*",
+            "*WET*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "fable-2",
+      "title": "Fable II",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2008,
+      "developer": "Lionhead Studios",
+      "synopsis": "Explora el reino de Albión 500 años después del original. Define tu camino mediante elecciones morales que moldean a tu héroe y al mundo que te rodea.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Fable_II_cover.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "fable-2-recomp",
+        "name": "Fable II Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "Fable2Recomp",
+          "owner": "Fable2Recomp",
+          "provider": "github",
+          "url": "https://github.com/Fable2Recomp/Fable2Recomp"
+        },
+        "requires_original_assets": true,
+        "author": "Fable 2 Recomp Project",
+        "author_avatar_url": null,
+        "port_art_url": null,
+        "features": [
+          "Proyecto experimental de recompilación estática Xbox 360",
+          "Objetivo anunciado: Windows y Linux",
+          "El repositorio no documenta una release jugable publicada"
+        ],
+        "technical_notes": "Repositorio oficial consultado 2026-09-30. README describe el proyecto como todavía en desarrollo y plantea Windows/Linux como objetivos; no se corroboró una release pública v1.3.7 ni una descarga jugable. Requiere datos propios del juego.",
+        "detection": {
+          "executables": [
+            "Fable2.exe",
+            "fable2_recomp.exe"
+          ],
+          "folder_patterns": [
+            "*Fable*2*",
+            "*Fable-2*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "saints-row",
+      "title": "Saints Row",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2006,
+      "developer": "Volition",
+      "synopsis": "Únete a los 3rd Street Saints en la ciudad de Stilwater para reclamar los distritos y derrotar a las bandas rivales en el inicio de la saga.",
+      "box_art_url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1r7n.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "saints-reborn",
+        "name": "Saints Reborn (Saints Row 1)",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "SaintsReborn",
+          "owner": "whompay",
+          "provider": "github",
+          "url": "https://github.com/whompay/SaintsReborn"
+        },
+        "requires_original_assets": true,
+        "author": "whompay",
+        "author_avatar_url": "https://github.com/whompay.png",
+        "port_art_url": "https://github.com/whompay.png",
+        "features": [
+          "Port nativo no oficial de Saints Row 1 (Xbox 360) a Windows",
+          "Instalador y actualizador integrado en GitHub releases",
+          "Soporte para controles de PC y resoluciones panorámicas"
+        ],
+        "technical_notes": "Requiere datos del juego original de Xbox 360. Distribuido como instalador SaintsReborn-Setup.exe en sus releases.",
+        "detection": {
+          "executables": [
+            "SaintsRow.exe",
+            "SaintsReborn.exe",
+            "SaintsReborn-Setup.exe"
+          ],
+          "folder_patterns": [
+            "*SaintsReborn*",
+            "*Saints Row*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "lotus-nelumbo",
+      "title": "Lotus Trilogy (Nelumbo)",
+      "original_platforms": [
+        "Amiga",
+        "DOS",
+        "Sega Genesis"
+      ],
+      "release_year": 1990,
+      "developer": "Magnetic Fields / Gremlin Graphics",
+      "synopsis": "Reimplementación moderna de la mítica trilogía de carreras Lotus (Lotus Esprit Turbo Challenge, Lotus 2 y Lotus III). Diseñado para PC con 3 modos de renderizado, soporte de pantalla ancha en alta resolución, tasas de cuadros modernas y controles analógicos.",
+      "box_art_url": "https://img.itch.zone/aW1nLzI5MzA3NTA4LnBuZw==/original/P76Iv%2F.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "nelumbo",
+        "name": "Nelumbo",
+        "method": "PORT",
+        "repository": {
+          "name": "Nelumbo",
+          "owner": "Almost There Games",
+          "provider": "itch.io",
+          "url": "https://almost-there-games.itch.io/nelumbo"
+        },
+        "requires_original_assets": true,
+        "author": "Almost There Games",
+        "author_avatar_url": null,
+        "port_art_url": "https://img.itch.zone/aW1nLzI5OTY0NDI2LnBuZw==/original/jg8m%2F7.png",
+        "features": [
+          "Las 3 campañas de Lotus juntas en un solo juego moderno",
+          "Tres renderers a elegir: clásico, moderno y eye-candy",
+          "Widescreen/ultrawide, vibración, música personalizada y soporte de volantes"
+        ],
+        "technical_notes": "Port y reimplementación nativa en C/SDL por Almost There Games. Publicado en itch.io (versión 2.0.2).",
+        "detection": {
+          "executables": [
+            "Nelumbo.exe"
+          ],
+          "folder_patterns": [
+            "*Nelumbo*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "spyro-1-openpete",
+      "title": "Spyro the Dragon",
+      "original_platforms": [
+        "PlayStation"
+      ],
+      "release_year": 1998,
+      "developer": "Insomniac Games / Sony Computer Entertainment",
+      "synopsis": "Aventura de plataformas en 3D protagonizada por Spyro, publicada originalmente para PlayStation.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/5/53/Spyro_the_Dragon.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "openpete-spyro1",
+        "name": "Spyro 1 Decompilation Project",
+        "method": "UNKNOWN",
+        "repository": {
+          "name": "spyro-1",
+          "owner": "TheMobyCollective",
+          "provider": "github",
+          "url": "https://github.com/TheMobyCollective/spyro-1"
+        },
+        "requires_original_assets": true,
+        "author": "TheMobyCollective",
+        "author_avatar_url": null,
+        "port_art_url": null,
+        "features": [],
+        "technical_notes": "Proyecto de descompilación cuyo objetivo es reconstruir el ejecutable original de PlayStation. El repositorio enlazado no es un port nativo para PC ni publica los ejecutables atribuidos anteriormente.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "super-smash-bros-melee",
+      "title": "Super Smash Bros. Melee",
+      "original_platforms": [
+        "GameCube"
+      ],
+      "release_year": 2001,
+      "developer": "HAL Laboratory",
+      "synopsis": "Juego de lucha de Nintendo GameCube con combates de hasta cuatro participantes y modos para un jugador.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/7/75/Super_Smash_Bros_Melee_box_art.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "melee-pc",
+        "name": "Melee PC",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "melee-pc",
+          "owner": "999sian",
+          "provider": "github",
+          "url": "https://github.com/999sian/melee-pc"
+        },
+        "requires_original_assets": true,
+        "author": "999sian y colaboradores",
+        "author_avatar_url": null,
+        "port_art_url": null,
+        "features": [
+          "Builds nativas Windows, Linux, macOS, Android e iOS",
+          "Beta en desarrollo; modos principales jugables según el repositorio",
+          "Requiere imagen propia de Melee USA 1.02 (GALE01)"
+        ],
+        "technical_notes": "Release consultada 2026-09-30: v0.2.2-beta. Netplay sigue en evolución. No se incluyen datos del juego. Falta incorporar carátula al catálogo.",
+        "detection": {
+          "executables": [
+            "melee.exe",
+            "Melee.exe"
+          ],
+          "folder_patterns": [
+            "*melee-pc*",
+            "*melee-windows*",
+            "*Super Smash Bros Melee*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "the-darkness-recomp",
+      "title": "The Darkness",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2007,
+      "developer": "Starbreeze Studios",
+      "synopsis": "Shooter de acción en primera persona en el que Jackie Estacado hereda un poder sobrenatural conocido como The Darkness.",
+      "box_art_url": "https://images.launchbox-app.com/1da60c98-fd58-4cd2-a34e-e96f2f0d9923.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "the-darkness-recomp",
+        "name": "The Darkness Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "The-Darkness-Recomp",
+          "owner": "portingpete",
+          "provider": "github",
+          "url": "https://github.com/portingpete/The-Darkness-Recomp"
+        },
+        "requires_original_assets": true,
+        "author": "portingpete",
+        "author_avatar_url": null,
+        "port_art_url": "https://images.launchbox-app.com/1da60c98-fd58-4cd2-a34e-e96f2f0d9923.jpg",
+        "features": [
+          "Recompilación estática nativa para Windows 10/11 x64 con Direct3D 11",
+          "ZIP de Windows listo para extraer; incluye launcher, runtimes y actualizador opcional",
+          "Requiere el default.xex y los datos de una copia Xbox 360 propia; no incluye archivos del juego"
+        ],
+        "technical_notes": "Repositorio y releases oficiales revisados 2026-10-20: v0.1.7 (pre-release), con subtítulos escalables, lanzamiento directo por Steam y arreglos de renderizado. Pasó contratos automatizados y pruebas de arranque/render, pero el autor aclara que aún no cuenta con una partida completa validada. Windows 10/11 x64, CPU SSSE3 y GPU D3D11. Linux solo vía Proton; no hay build Linux nativa verificada.",
+        "detection": {
+          "executables": [
+            "DarkRecomp.exe"
+          ],
+          "folder_patterns": [
+            "The-Darkness-Recomp"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "dead-rising-2-case-zero",
+      "title": "Dead Rising 2: Case Zero",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2010,
+      "developer": "Capcom Vancouver",
+      "synopsis": "Prólogo independiente de Dead Rising 2: Chuck Greene busca a su hija Katey en la ciudad de Still Creek, infestada de zombis.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/7/77/Dead_Rising_2_cover.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "dead-rising-2-case-zero-recomp",
+        "name": "Dead Rising 2: Case Zero Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "Dead_Rising_2_Case_Zero_Xenon_Recomp",
+          "owner": "wivi514",
+          "provider": "github",
+          "url": "https://github.com/wivi514/Dead_Rising_2_Case_Zero_Xenon_Recomp"
+        },
+        "requires_original_assets": true,
+        "author": "wivi514 y colaboradores",
+        "author_avatar_url": null,
+        "port_art_url": null,
+        "features": [
+          "Builds nativas Windows y Linux",
+          "Recompilación estática Xbox 360",
+          "El proyecto reporta campaña jugable; requiere datos propios"
+        ],
+        "technical_notes": "Release consultada 2026-09-30: v1.1.2. Requiere archivos de una copia propia del juego; no redistribuye los datos. Falta incorporar carátula al catálogo.",
+        "detection": {
+          "executables": [
+            "DeadRising2CaseZero.exe",
+            "DR2CaseZero.exe"
+          ],
+          "folder_patterns": [
+            "*Dead Rising 2 Case Zero*",
+            "*DR2CaseZero*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "bloodborne",
+      "title": "Bloodborne",
+      "original_platforms": [
+        "PlayStation 4"
+      ],
+      "release_year": 2015,
+      "developer": "FromSoftware",
+      "synopsis": "Un cazador recorre Yharnam, una ciudad consumida por una plaga, en una aventura de acción y terror gótico.",
+      "box_art_url": "https://www.powerupgaming.ca/cdn/shop/products/402360_front.jpg?v=1733843441",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "bloodborne-pc-windows",
+        "name": "Bloodborne for Windows",
+        "method": "HYBRID",
+        "repository": {
+          "name": "bloodborne_pc",
+          "owner": "Supermedo",
+          "provider": "github",
+          "url": "https://github.com/Supermedo/bloodborne_pc"
+        },
+        "requires_original_assets": true,
+        "author": "Supermedo (fork de bbport)",
+        "author_avatar_url": null,
+        "port_art_url": "https://www.powerupgaming.ca/cdn/shop/products/402360_front.jpg?v=1733843441",
+        "features": [
+          "Cliente nativo de Windows con traducción gráfica a Vulkan",
+          "DLSS y FSR; frecuencia de cuadros y resolución configurables",
+          "El juego y sus datos no se distribuyen con el proyecto"
+        ],
+        "technical_notes": "El README del repositorio confirma Bloodborne.exe como ejecutable principal y Play Bloodborne.exe como lanzador directo. Requiere un volcado propio descifrado CUSA03173; la versión 1.09 se necesita para los parches comunitarios de FPS/resolución. El proyecto se apoya en bbport y shadPS4.",
+        "detection": {
+          "executables": [
+            "Bloodborne.exe",
+            "Play Bloodborne.exe"
+          ],
+          "folder_patterns": [
+            "Bloodborne-Windows",
+            "bbport-windows"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "crash-team-racing",
+      "title": "Crash Team Racing",
+      "original_platforms": [
+        "PlayStation"
+      ],
+      "release_year": 1999,
+      "developer": "Naughty Dog",
+      "synopsis": "Crash y sus rivales compiten en karts para detener a Nitros Oxide y salvar la Tierra.",
+      "box_art_url": "https://cdn2.steamgriddb.com/thumb/afa10814865d47b74741b44d8fcbb37b.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "ctr-high-octane",
+        "name": "Crash Team Racing: High Octane",
+        "method": "PORT",
+        "repository": {
+          "name": "Crash-Team-Racing-High-Octane",
+          "owner": "Rinnegatamante",
+          "provider": "github",
+          "url": "https://github.com/Rinnegatamante/Crash-Team-Racing-High-Octane"
+        },
+        "requires_original_assets": true,
+        "author": "Rinnegatamante y colaboradores de CTR Native",
+        "author_avatar_url": null,
+        "port_art_url": "https://cdn2.steamgriddb.com/thumb/afa10814865d47b74741b44d8fcbb37b.jpg",
+        "features": [
+          "Build para Windows y PSVita; también cuenta con build para navegador",
+          "Pantalla panorámica, 60 FPS y efectos gráficos opcionales",
+          "Basado en el proyecto CTR Native"
+        ],
+        "technical_notes": "PortsDR reportó v.1.5 (12/10/2026). El README oficial indica que se necesita un volcado propio del disco de Crash Team Racing; el repositorio enlaza la build web por separado. No se activan reglas de detección automática.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "crash-bandicoot-2",
+      "title": "Crash Bandicoot 2: Cortex Strikes Back",
+      "original_platforms": [
+        "PlayStation"
+      ],
+      "release_year": 1997,
+      "developer": "Naughty Dog",
+      "synopsis": "Crash vuelve a enfrentarse a Cortex mientras recorre islas, reúne cristales y trata de impedir un nuevo desastre.",
+      "box_art_url": "https://cdn2.steamgriddb.com/icon_thumb/0432a37cefd696a70d9db9ec0c17d31a.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "crash-2-recomp",
+        "name": "Crash2Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "Crash2Recomp",
+          "owner": "Zumbo06",
+          "provider": "github",
+          "url": "https://github.com/Zumbo06/Crash2Recomp"
+        },
+        "requires_original_assets": true,
+        "author": "Zumbo06 y colaboradores",
+        "author_avatar_url": null,
+        "port_art_url": "https://cdn2.steamgriddb.com/icon_thumb/0432a37cefd696a70d9db9ec0c17d31a.png",
+        "features": [
+          "Recompilación estática para Windows",
+          "Admite imagen propia .cue/.bin o .chd de la versión norteamericana",
+          "Necesita compilar los datos localmente; el proyecto no incluye el juego"
+        ],
+        "technical_notes": "PortsDR reportó v0.9.6 (08/10/2026) y etiqueta el proyecto como asistido por IA. Requiere la edición norteamericana SCUS-94154. PortStation no valida la seguridad ni ejecuta los archivos descargados; detección automática desactivada.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "black-xbox-recomp",
+      "title": "BLACK",
+      "original_platforms": [
+        "Xbox"
+      ],
+      "release_year": 2006,
+      "developer": "Criterion Games",
+      "synopsis": "Shooter cinematográfico en primera persona centrado en operaciones de alto riesgo y destrucción de escenarios.",
+      "box_art_url": "https://raw.githubusercontent.com/xemu-project/xdb/master/titles/EA/131/cover_front.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "black-xberecomp",
+        "name": "BLACK-XBERecomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "BLACK-XBERecomp",
+          "owner": "TGP482",
+          "provider": "github",
+          "url": "https://github.com/TGP482/BLACK-XBERecomp"
+        },
+        "requires_original_assets": true,
+        "author": "TGP482 y colaboradores",
+        "author_avatar_url": null,
+        "port_art_url": "https://raw.githubusercontent.com/xemu-project/xdb/master/titles/EA/131/cover_front.jpg",
+        "features": [
+          "Recompilación estática de la versión original de Xbox para PC",
+          "Proyecto con release V2 reportada por PortsDR",
+          "Requiere archivos propios del juego"
+        ],
+        "technical_notes": "El repositorio confirma BLACK.exe como ejecutable y admite archivos extraídos o una imagen propia de las ediciones USA/Europa en la carpeta assets. La primera ejecución recompila el código localmente; no se incluyen datos del juego.",
+        "detection": {
+          "executables": [
+            "BLACK.exe"
+          ],
+          "folder_patterns": [
+            "BLACK-XBERecomp"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "conkers-bad-fur-day",
+      "title": "Conker's Bad Fur Day",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "release_year": 2001,
+      "developer": "Rare",
+      "synopsis": "Conker intenta volver a casa tras una noche de fiesta y queda atrapado en una aventura irreverente por un mundo lleno de personajes extraños.",
+      "box_art_url": "https://cdn2.steamgriddb.com/icon_thumb/23b023b22d0bf47626029d5961328028.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "conker-bfd-recompiled",
+        "name": "CBFD-Recompiled",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "CBFD-Recompiled",
+          "owner": "sciaschi",
+          "provider": "github",
+          "url": "https://github.com/sciaschi/CBFD-Recompiled"
+        },
+        "requires_original_assets": true,
+        "author": "sciaschi y colaboradores",
+        "author_avatar_url": null,
+        "port_art_url": "https://cdn2.steamgriddb.com/icon_thumb/23b023b22d0bf47626029d5961328028.png",
+        "features": [
+          "Builds nativas para Windows, Linux y macOS",
+          "Resolución panorámica y alta tasa de cuadros mediante RT64",
+          "La compilación extrae los datos desde una ROM propia"
+        ],
+        "technical_notes": "PortsDR reportó V0.1.6 (13/10/2026). El README requiere la ROM estadounidense propia en formato .z64; el repositorio explica cómo compilar. No se activan reglas de detección automática.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "sly-cooper-thievius-raccoonus",
+      "title": "Sly Cooper and the Thievius Raccoonus",
+      "original_platforms": [
+        "PlayStation 2"
+      ],
+      "release_year": 2002,
+      "developer": "Sucker Punch Productions",
+      "synopsis": "Sly Cooper, un mapache ladrón, se infiltra en guaridas para recuperar el libro familiar robado por la banda de los Cinco Malvados.",
+      "box_art_url": "https://cdn2.steamgriddb.com/thumb/0641427e9032aa2968f6d2b0b4fc02a7.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "project-cane",
+        "name": "ProjectCane",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "ProjectCane",
+          "owner": "theclub654",
+          "provider": "github",
+          "url": "https://github.com/theclub654/ProjectCane"
+        },
+        "requires_original_assets": true,
+        "author": "theclub654 y colaboradores",
+        "author_avatar_url": null,
+        "port_art_url": "https://cdn2.steamgriddb.com/thumb/0641427e9032aa2968f6d2b0b4fc02a7.jpg",
+        "features": [
+          "Recompilación estática para Windows",
+          "Release beta en desarrollo",
+          "Requiere datos de una copia propia de PS2"
+        ],
+        "technical_notes": "PortsDR reportó v0.4.1-beta.1 (15/10/2026). Se conserva explícitamente el estado beta; verificar en el README/release del proyecto los requisitos de imagen antes de compilar. No se activan reglas de detección automática.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "yoshis-story",
+      "title": "Yoshi's Story",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "release_year": 1997,
+      "developer": "Nintendo EAD",
+      "synopsis": "Yoshi y sus amigos atraviesan páginas de un cuento para recuperar el Árbol Superfeliz y rescatar su isla.",
+      "box_art_url": "https://raw.githubusercontent.com/wootbeer/dinotale/refs/heads/main/icons/app.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "dinotale-yoshis-story",
+        "name": "DinoTale",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "dinotale",
+          "owner": "wootbeer",
+          "provider": "github",
+          "url": "https://github.com/wootbeer/dinotale"
+        },
+        "requires_original_assets": true,
+        "author": "wootbeer y colaboradores",
+        "author_avatar_url": null,
+        "port_art_url": "https://raw.githubusercontent.com/wootbeer/dinotale/refs/heads/main/icons/app.png",
+        "features": [
+          "Proyecto para Windows y Linux",
+          "Recompilación nativa de Nintendo 64",
+          "Requiere datos propios del juego"
+        ],
+        "technical_notes": "PortsDR reportó la versión 0.1.5 (17/10/2026). Se añade como proyecto temprano para explorar, no como juego completado ni detección confirmada.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "dark-cloud-2",
+      "title": "Dark Cloud 2 (Dark Chronicle)",
+      "original_platforms": [
+        "PlayStation 2"
+      ],
+      "release_year": 2002,
+      "developer": "Level-5",
+      "synopsis": "Max y Monica viajan entre presente y futuro para detener al Emperador Griffon y reconstruir pueblos alterados por la guerra.",
+      "box_art_url": "https://raw.githubusercontent.com/Red-tv141/DC2-PS2RECOMP/refs/heads/main/dc2_Launcher/dc2_launcher_icon.ico",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "dc2-ps2recomp",
+        "name": "DC2-PS2RECOMP",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "DC2-PS2RECOMP",
+          "owner": "Red-tv141",
+          "provider": "github",
+          "url": "https://github.com/Red-tv141/DC2-PS2RECOMP"
+        },
+        "requires_original_assets": true,
+        "author": "Red-tv141 y colaboradores",
+        "author_avatar_url": "https://github.com/Red-tv141.png",
+        "port_art_url": "https://raw.githubusercontent.com/Red-tv141/DC2-PS2RECOMP/refs/heads/main/dc2_Launcher/dc2_launcher_icon.ico",
+        "features": [
+          "Proyecto de recompilación para Windows",
+          "Versión 0.9.5 reportada por PortsDR",
+          "Necesita archivos propios del juego"
+        ],
+        "technical_notes": "PortsDR reportó la versión 0.9.5 (10/10/2026). La URL de imagen proporcionada por PortsDR es un icono ICO y puede verse cuadrado o no cargar en algunos visores; no se inventa una carátula. No se activan reglas de detección automática.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "dragon-ball-z-budokai-tenkaichi-3",
+      "title": "Dragon Ball Z: Budokai Tenkaichi 3",
+      "original_platforms": [
+        "PlayStation 2"
+      ],
+      "release_year": 2007,
+      "developer": "Spike",
+      "synopsis": "Goku y los guerreros Z libran combates en grandes escenarios destructibles, con una extensa plantilla de personajes y modos de historia.",
+      "box_art_url": "https://shop.curiosityvideogames.com/cdn/shop/files/ps2_dragon_ball_z_budokai_tenkaichi_3_p_72regu.jpg?v=1724772928",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "tenkaichi-3-decomp",
+        "name": "Tenkaichi3Decomp",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "Tenkaichi3Decomp",
+          "owner": "z3xox",
+          "provider": "github",
+          "url": "https://github.com/z3xox/Tenkaichi3Decomp"
+        },
+        "requires_original_assets": true,
+        "author": "z3xox y colaboradores",
+        "author_avatar_url": "https://github.com/z3xox.png",
+        "port_art_url": "https://shop.curiosityvideogames.com/cdn/shop/files/ps2_dragon_ball_z_budokai_tenkaichi_3_p_72regu.jpg?v=1724772928",
+        "features": [
+          "Port nativo para Windows y Linux, no es un emulador",
+          "La campaña principal, combates, pantalla dividida y controles están implementados",
+          "Renderizadores Vulkan y OpenGL; requiere la imagen propia SLUS-21678 para preparar los datos del juego"
+        ],
+        "technical_notes": "El ejecutable de Windows de esta instalación es Tenkaichi3Decomp.exe. Requiere preparar los datos desde una copia propia compatible del disco; el proyecto no distribuye los archivos del juego. Para actualizar en Windows, reemplaza la instalación completa según las instrucciones del proyecto.",
+        "detection": {
+          "executables": [
+            "Tenkaichi3Decomp.exe"
+          ],
+          "folder_patterns": [
+            "Tenkaichi3Decomp-windows-x64",
+            "Tenkaichi3Decomp"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "def-jam-fight-for-ny",
+      "title": "Def Jam: Fight for NY",
+      "original_platforms": [
+        "Xbox"
+      ],
+      "release_year": 2004,
+      "developer": "AKI Corporation / EA Canada",
+      "synopsis": "Un juego de lucha callejera donde el jugador crea a su peleador y se abre paso por el circuito clandestino de Nueva York junto a artistas del hip-hop.",
+      "box_art_url": "https://raw.githubusercontent.com/xemu-project/xdb/master/titles/EA/073/cover_front.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "def-jam-fight-for-ny-recompiled",
+        "name": "Def Jam: Fight for NY — Recompiled",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "DefJamFFNY-recomp",
+          "owner": "vyanhursky",
+          "provider": "github",
+          "url": "https://github.com/vyanhursky/DefJamFFNY-recomp"
+        },
+        "requires_original_assets": true,
+        "author": "vyanhursky y colaboradores",
+        "author_avatar_url": "https://github.com/vyanhursky.png",
+        "port_art_url": "https://raw.githubusercontent.com/xemu-project/xdb/master/titles/EA/073/cover_front.jpg",
+        "features": [
+          "Recompilación estática nativa para Windows, macOS y Linux",
+          "Renderizado moderno, pantalla panorámica y controles actuales; multijugador local hasta cuatro jugadores",
+          "El instalador verifica y recompila los datos desde una copia propia compatible de Xbox NTSC-U; no admite las versiones de PS2 o GameCube"
+        ],
+        "technical_notes": "Instalación local detectada en E:/Games/Ports/DEF JAM FNY. DefJamLauncher.exe es el launcher que abre el usuario para configurar y jugar; el juego compilado se guarda como defjam_recomp.exe dentro de Install/versions. Requiere la copia propia compatible de Xbox USA y conserva datos/ajustes en DATA. PortStation ignora el instalador DefJamSetup para no registrarlo como juego.",
+        "detection": {
+          "executables": [
+            "DefJamLauncher.exe"
+          ],
+          "folder_patterns": [
+            "DEF JAM FNY",
+            "DefJamFFNY"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "the-wind-waker-hd",
+      "title": "The Legend of Zelda: The Wind Waker HD",
+      "original_platforms": [
+        "Wii U"
+      ],
+      "release_year": 2013,
+      "developer": "Nintendo EAD",
+      "synopsis": "Link navega el Gran Mar para rescatar a su hermana y detener a Ganondorf en esta versión HD de la aventura de GameCube.",
+      "box_art_url": "https://www.linkshideaway.com/assets/linkshideaway.com/staff_files/autydi/WiiU_LOZWWHD_pkg_RGB.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "wind-waker-hd-recomp",
+        "name": "Zelda Wind Waker HD Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "ZeldaWWHDRecomp",
+          "owner": "ZeldaWWHDRecomp",
+          "provider": "github",
+          "url": "https://github.com/ZeldaWWHDRecomp/ZeldaWWHDRecomp"
+        },
+        "requires_original_assets": true,
+        "author": "ZeldaWWHDRecomp y colaboradores",
+        "author_avatar_url": "https://github.com/ZeldaWWHDRecomp.png",
+        "port_art_url": "https://www.linkshideaway.com/assets/linkshideaway.com/staff_files/autydi/WiiU_LOZWWHD_pkg_RGB.png",
+        "features": [
+          "Recompila a C el código del juego y crea una build nativa para Windows, macOS y Linux",
+          "Soporta las ediciones Wii U USA y Europa, versión base 0",
+          "Genera los datos de juego localmente a partir de una copia propia; el repositorio no redistribuye el juego"
+        ],
+        "technical_notes": "El ejecutable oficial para Windows es Wind Waker HD.exe; el paquete también incluye wwhd.exe dentro de data/bin. Requiere un volcado propio de Wii U y prepara el juego al primer inicio. La carpeta detectada por PortStation corresponde a la versión v0.3.0-devel.",
+        "detection": {
+          "executables": [
+            "Wind Waker HD.exe",
+            "wwhd.exe"
+          ],
+          "folder_patterns": [
+            "WindWakerHD-v0.3.0",
+            "WindWakerHD"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "crash-team-racing-nitro-fueled",
+      "title": "Crash Team Racing Nitro-Fueled",
+      "original_platforms": [
+        "PlayStation 4"
+      ],
+      "release_year": 2019,
+      "developer": "Beenox",
+      "synopsis": "Crash y sus rivales vuelven a competir en karts en una versión renovada que combina pistas y contenido de Crash Team Racing y Crash Nitro Kart.",
+      "box_art_url": "https://media.gamestop.com/i/gamestop/10171144/Crash-Team-Racing-Nitro-Fueled---PlayStation-4",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "ctr-nitro-fueled-pc",
+        "name": "CTR-NitroFueled-PC",
+        "method": "HYBRID",
+        "repository": {
+          "name": "CTR-NitroFueled-PC",
+          "owner": "GetLostIn",
+          "provider": "github",
+          "url": "https://github.com/GetLostIn/CTR-NitroFueled-PC"
+        },
+        "requires_original_assets": true,
+        "author": "GetLostIn y colaboradores",
+        "author_avatar_url": "https://github.com/GetLostIn.png",
+        "port_art_url": "https://media.gamestop.com/i/gamestop/10171144/Crash-Team-Racing-Nitro-Fueled---PlayStation-4",
+        "features": [
+          "Port nativo para Windows 10/11 basado en el código de PS4 y runtime Vulkan",
+          "El launcher prepara el juego fusionando la copia base CUSA13795 con su actualización 1.21",
+          "No incluye los archivos comerciales del juego; requiere una copia propia compatible"
+        ],
+        "technical_notes": "El ejecutable principal del paquete Windows es CTR-NitroFueled-PC.exe. La carpeta detectada contiene la versión portable; la preparación del juego se hace localmente desde una copia propia de PS4 y su actualización 1.21.",
+        "detection": {
+          "executables": [
+            "CTR-NitroFueled-PC.exe"
+          ],
+          "folder_patterns": [
+            "CTR-NitroFueled-PC-portable-windows",
+            "CTR-NitroFueled-PC-portable"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "god-of-war-iii-remastered",
+      "title": "God of War III Remastered",
+      "original_platforms": [
+        "PlayStation 4"
+      ],
+      "release_year": 2015,
+      "developer": "Santa Monica Studio",
+      "synopsis": "Kratos emprende su asalto final al Olimpo en una versión remasterizada para PlayStation 4 de la conclusión de su saga griega.",
+      "box_art_url": "https://images.static-bluray.com/products/29/5488_1_large.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "spartanport-gow3",
+        "name": "SpartanPort",
+        "method": "HYBRID",
+        "repository": {
+          "name": "SpartanPort",
+          "owner": "FelipePrado0",
+          "provider": "github",
+          "url": "https://github.com/FelipePrado0/SpartanPort"
+        },
+        "requires_original_assets": true,
+        "author": "FelipePrado0 y colaboradores",
+        "author_avatar_url": "https://github.com/FelipePrado0.png",
+        "port_art_url": "https://images.static-bluray.com/products/29/5488_1_large.jpg",
+        "features": [
+          "El código x86-64 de PS4 corre en Windows/Linux con un runtime propio y núcleo gráfico Vulkan de shadPS4",
+          "Launcher con ajustes, soporte de mando y límite de hasta 240 FPS",
+          "Requiere un volcado propio de PS4 CUSA01623 o CUSA01715; no incluye archivos del juego"
+        ],
+        "technical_notes": "El ejecutable principal del paquete es SpartanPort.exe; Play SpartanPort.exe ofrece acceso directo al juego. El README indica compatibilidad probada con CUSA01623/CUSA01715 en versiones 01.00 y 01.02. God of War III Remastered salió originalmente en PS4 en 2015.",
+        "detection": {
+          "executables": [
+            "SpartanPort.exe",
+            "Play SpartanPort.exe",
+            "God of War III.exe",
+            "Play God of War III.exe"
+          ],
+          "folder_patterns": [
+            "spartanport-windows"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "shadow-of-the-colossus-ps4",
+      "title": "Shadow of the Colossus (PS4)",
+      "original_platforms": [
+        "PlayStation 4"
+      ],
+      "release_year": 2018,
+      "developer": "Bluepoint Games / Japan Studio",
+      "synopsis": "Wander recorre una tierra prohibida para derrotar a dieciséis colosos y devolver la vida a Mono, en la reconstrucción para PS4 del clásico de Team Ico.",
+      "box_art_url": "https://media.gamestop.com/i/gamestop/10149676/Shadow-of-the-Colossus---PlayStation-4?fmt=auto&h=768&w=768",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "shadow-of-the-colossus-pc",
+        "name": "Shadow of the Colossus PC",
+        "method": "HYBRID",
+        "repository": {
+          "name": "ShadowOfTheColossus-PC",
+          "owner": "AjncSystem",
+          "provider": "github",
+          "url": "https://github.com/AjncSystem/ShadowOfTheColossus-PC"
+        },
+        "requires_original_assets": true,
+        "author": "AjncSystem y colaboradores",
+        "author_avatar_url": "https://github.com/AjncSystem.png",
+        "port_art_url": null,
+        "features": [
+          "Port nativo de Windows: ejecuta el código x86-64 de PS4 con runtime propio y traducción gráfica Vulkan",
+          "Launcher con búsqueda de juegos, mandos DualShock 4/DualSense/Xbox, widescreen, opciones gráficas y soporte de saves",
+          "Release v0.59.1; requiere dump propio CUSA08809 y módulos de audio de una consola propia"
+        ],
+        "technical_notes": "Repositorio y releases oficiales revisados 2026-10-20: v0.59.1, publicada el 20 de octubre. Requiere Windows 10/11 x64, GPU Vulkan 1.3, dump PS4 CUSA08809 (EU 1.01 recomendado) y módulos Sony libSceNgs2/libSceUlt propios para audio. No distribuye juego ni firmware. Tiene problemas conocidos: shaders recompilan tras actualizar; el modo 60 FPS puede alterar algunas escenas y frame generation es experimental.",
+        "detection": {
+          "executables": [
+            "SotC.exe"
+          ],
+          "folder_patterns": [
+            "ShadowOfTheColossus-PC",
+            "SotC-PC"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "ico-ps2",
+      "title": "ICO",
+      "original_platforms": [
+        "PlayStation 2"
+      ],
+      "release_year": 2001,
+      "developer": "Team Ico / Japan Studio",
+      "synopsis": "Ico, un niño con cuernos, escapa de un castillo laberíntico mientras protege y guía a Yorda entre sus sombras y mecanismos.",
+      "box_art_url": "https://cdn.mobygames.com/covers/5207487-ico-playstation-2-front-cover.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "ico-pc",
+        "name": "ICO PC",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "ico-pc",
+          "owner": "nathanialf",
+          "provider": "github",
+          "url": "https://github.com/nathanialf/ico-pc"
+        },
+        "requires_original_assets": true,
+        "author": "nathanialf y colaboradores",
+        "author_avatar_url": "https://github.com/nathanialf.png",
+        "port_art_url": null,
+        "features": [
+          "Port nativo construido sobre la decompilación de ICO",
+          "Builds para Windows, Linux/Steam Deck, Android y Apple Silicon; mejoras opcionales de imagen, widescreen y controles",
+          "Release v0.7.4; requiere imagen de disco propia PAL, japonesa o coreana compatible"
+        ],
+        "technical_notes": "Repositorio y releases oficiales revisados 2026-10-20: v0.7.4 (14 de octubre). En Windows se ejecuta x64/ico_pc_x64.exe; al primer inicio lee la imagen propia del disco y extrae localmente los datos. Admite PAL SCES-50760, Japón SCPS-11003 y Corea SCPS-56001; la edición estadounidense no está soportada. No contiene datos del juego.",
+        "detection": {
+          "executables": [
+            "ico_pc_x64.exe"
+          ],
+          "folder_patterns": [
+            "ico-pc"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "call-of-duty-3",
+      "title": "Call of Duty 3",
+      "original_platforms": [
+        "Xbox 360",
+        "PlayStation 3"
+      ],
+      "release_year": 2006,
+      "developer": "Treyarch",
+      "synopsis": "La tercera entrega de la saga bélica recrea la Batalla de Normandía a través de las perspectivas de soldados estadounidenses, británicos, canadienses y polacos.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/5/51/Call_of_Duty_3_Game_Cover.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "cod3-recomp",
+        "name": "CoD3Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "CoD3Recomp",
+          "owner": "FrankHUN88453",
+          "provider": "github",
+          "url": "https://github.com/FrankHUN88453/CoD3Recomp"
+        },
+        "requires_original_assets": true,
+        "author": "FrankHUN88453",
+        "author_avatar_url": "https://github.com/FrankHUN88453.png",
+        "port_art_url": null,
+        "features": [
+          "Recompilación estática nativa de Xbox 360 a PC x86-64 con backend Direct3D 11",
+          "Campaña completa jugable de principio a fin a 60/120+ FPS desbloqueados",
+          "Soporte nativo de ratón y teclado, FOV ajustable y resoluciones ultra-panorámicas 21:9 / 32:9",
+          "Decodificación de audio de voz XMA multicanal con FFmpeg integrado"
+        ],
+        "technical_notes": "Verificado contra GitHub (v0.5.0): el release publica CoD3SP_s.exe. Requiere volcado legal propio de la versión de Xbox 360. No incluye datos protegidos por derechos de autor.",
+        "detection": {
+          "executables": [
+            "CoD3SP_s.exe"
+          ],
+          "folder_patterns": [
+            "CoD3Recomp",
+            "CoD3-PC-Port",
+            "Call of Duty 3",
+            "CallOfDuty3"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "dragons-crown-pro",
+      "title": "Dragon's Crown Pro",
+      "original_platforms": [
+        "PlayStation 4"
+      ],
+      "release_year": 2018,
+      "developer": "Vanillaware",
+      "synopsis": "Espectacular beat 'em up de rol y acción en 2D con un suntuoso estilo artístico pintado a mano, banda sonora orquestal y juego cooperativo local.",
+      "box_art_url": "https://cdn.mobygames.com/covers/7123985-dragons-crown-pro-playstation-4-front-cover.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "dragons-crown-pro-pc",
+        "name": "Dragon's Crown Pro PC",
+        "method": "HYBRID",
+        "repository": {
+          "name": "dragons-crown-pro-pc",
+          "owner": "saulob",
+          "provider": "github",
+          "url": "https://github.com/saulob/dragons-crown-pro-pc"
+        },
+        "requires_original_assets": true,
+        "author": "saulob y colaboradores",
+        "author_avatar_url": "https://github.com/saulob.png",
+        "port_art_url": null,
+        "features": [
+          "Ejecución nativa de la versión PS4 Pro con runtime propio y renderizador Vulkan",
+          "Resolución nativa hasta 4K UHD con soporte ultra-panorámico 21:9 y 32:9",
+          "Multijugador cooperativo local para hasta 4 jugadores con mandos PlayStation y Xbox",
+          "Launcher integrado con seguimiento de trofeos offline y menú de opciones F10"
+        ],
+        "technical_notes": "Verificado contra GitHub (v0.7.1): zip Windows x64 y AppImage Linux con checksums .sha256. Ejecutable dragons_crown_pro.exe. Requiere dump propio desencriptado de PS4. No contiene assets de juego ni firmware.",
+        "detection": {
+          "executables": [
+            "dragons_crown_pro.exe"
+          ],
+          "folder_patterns": [
+            "dragons-crown-pro-pc",
+            "DragonsCrownProPC",
+            "Dragon's Crown Pro"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "the-last-guardian",
+      "title": "The Last Guardian",
+      "original_platforms": [
+        "PlayStation 4"
+      ],
+      "release_year": 2016,
+      "developer": "genDESIGN / Japan Studio",
+      "synopsis": "En una tierra mística y en ruinas, un joven muchacho forja un vínculo inquebrantable con una gigantesca criatura alada llamada Trico para escapar de un colosal laberinto.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/2/25/The_Last_Guardian_cover_art.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "tlg-pc",
+        "name": "The Last Guardian PC (tlg_pc)",
+        "method": "HYBRID",
+        "repository": {
+          "name": "tlg_pc",
+          "owner": "HayatoG",
+          "provider": "github",
+          "url": "https://github.com/HayatoG/tlg_pc"
+        },
+        "requires_original_assets": true,
+        "author": "HayatoG y colaboradores",
+        "author_avatar_url": "https://github.com/HayatoG.png",
+        "port_art_url": null,
+        "features": [
+          "Port nativo para Windows mediante capa de compatibilidad x86-64 y traducción Vulkan",
+          "Tasa de refresco a 60 FPS estables o desbloqueada (superando el límite de 30 FPS de consola)",
+          "Soporte completo para ratón y teclado con sensibilidad configurable y mandos modernos",
+          "Filtros gráficos SMAA/CAS y escalado de resolución interna"
+        ],
+        "technical_notes": "Verificado contra GitHub (release 2026.10.24): zip Windows x64 y tar.gz Linux con SHA256SUMS. Requiere dump propio legal de PS4 (CUSA03627) y módulos de audio propios. No distribuye código protegido ni firmware.",
+        "detection": {
+          "executables": [
+            "The Last Guardian.exe",
+            "Play The Last Guardian.exe",
+            "The Last Guardian (classic).exe"
+          ],
+          "folder_patterns": [
+            "tlg_pc",
+            "tlg-windows-x86_64",
+            "The Last Guardian"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "killzone-shadow-fall",
+      "title": "Killzone: Shadow Fall",
+      "original_platforms": [
+        "PlayStation 4"
+      ],
+      "release_year": 2013,
+      "developer": "Guerrilla Games",
+      "synopsis": "Treinta años después de los eventos de la trilogía original, dos facciones rivales (los Vektans y los Helghast) conviven divididos por una gigantesca muralla en una frágil guerra fría.",
+      "box_art_url": "https://cdn.mobygames.com/covers/1990425-killzone-shadow-fall-playstation-4-front-cover.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "killzone-shadowfall-pc",
+        "name": "Killzone Shadow Fall PC",
+        "method": "HYBRID",
+        "repository": {
+          "name": "killzone-shadowfall-pc",
+          "owner": "lesca-191204",
+          "provider": "github",
+          "url": "https://github.com/lesca-191204/killzone-shadowfall-pc"
+        },
+        "requires_original_assets": true,
+        "author": "lesca-191204",
+        "author_avatar_url": "https://github.com/lesca-191204.png",
+        "port_art_url": null,
+        "features": [
+          "Runtime nativo para Windows basado en compatibilidad PS4 y capa gráfica Vulkan",
+          "Soporte de altas resoluciones 1440p y 4K con control de campo de visión (FOV)",
+          "Compatibilidad con mandos XInput, DualSense y controles de teclado y ratón",
+          "Proyecto activo en desarrollo con optimizaciones continuas de shaders"
+        ],
+        "technical_notes": "Verificado contra GitHub (v0.6.0): solo build Windows (.zip). Requiere dump propio legal de PS4 CUSA00190. En desarrollo activo; pueden existir fallos en cinemáticas y shaders.",
+        "detection": {
+          "executables": [
+            "Killzone Shadow Fall.exe",
+            "KillzoneShadowFall.exe"
+          ],
+          "folder_patterns": [
+            "killzone-shadowfall-pc",
+            "Killzone Shadow Fall",
+            "KillzoneShadowFall"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "killzone-ps2",
+      "title": "Killzone",
+      "original_platforms": [
+        "PlayStation 2"
+      ],
+      "release_year": 2004,
+      "developer": "Guerrilla Games",
+      "synopsis": "El inicio de la encarnizada guerra entre la ISA y los Helghast. Toma el control del capitán Jan Templar y sus compañeros en una intensa lucha por la supervivencia en el planeta Vekta.",
+      "box_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%202/Named_Boxarts/Killzone%20(USA).png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "killzone-recomp",
+        "name": "KillzoneRecomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "KillzoneRecomp",
+          "owner": "drakolordx7",
+          "provider": "github",
+          "url": "https://github.com/drakolordx7/KillzoneRecomp"
+        },
+        "requires_original_assets": true,
+        "author": "drakolordx7 y colaboradores",
+        "author_avatar_url": "https://github.com/drakolordx7.png",
+        "port_art_url": null,
+        "features": [
+          "Recompilación estática nativa de PS2 a PC x64",
+          "Tasa de cuadros desbloqueada hasta 60 / 120 FPS sin alterar las físicas",
+          "Entrada directa de ratón con puntería precisa y teclado remapeable",
+          "Soporte widescreen 16:9 y altas resoluciones nativas sin emulación pesada"
+        ],
+        "technical_notes": "Verificado contra GitHub (v0.1.5-alpha): build en fase alpha, solo Windows. Ejecutable killzone.exe. Requiere dump legal propio del disco de PS2. No contiene assets comerciales.",
+        "detection": {
+          "executables": [
+            "killzone.exe"
+          ],
+          "folder_patterns": [
+            "KillzoneRecomp",
+            "Killzone-PC"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "infamous-second-son",
+      "title": "inFAMOUS Second Son",
+      "original_platforms": [
+        "PlayStation 4"
+      ],
+      "release_year": 2014,
+      "developer": "Sucker Punch Productions",
+      "synopsis": "Delsin Rowe descubre que puede absorber poderes de otros conductores y se enfrenta al Departamento de Protección Unificada en una Seattle abierta y reactiva a tus decisiones morales.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/3/34/Infamous_second_son_boxart.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "infamous-second-son-pc",
+        "name": "inFAMOUS Second Son PC (iss_pc)",
+        "method": "HYBRID",
+        "repository": {
+          "name": "iss_pc",
+          "owner": "HayatoG",
+          "provider": "github",
+          "url": "https://github.com/HayatoG/iss_pc"
+        },
+        "requires_original_assets": true,
+        "author": "HayatoG y colaboradores",
+        "author_avatar_url": "https://github.com/HayatoG.png",
+        "port_art_url": null,
+        "features": [
+          "Port nativo para Windows y Linux de la versión PS4 (CUSA00223)",
+          "Emulación de sensores de movimiento",
+          "Builds beta publicados con checksums SHA256SUMS",
+          "Lanzadores 'Play' y 'classic' incluidos en el paquete"
+        ],
+        "technical_notes": "Verificado contra GitHub (beta-2026.10.24): zip Windows x64 y tar.gz Linux con SHA256SUMS. Ejecutable 'inFAMOUS Second Son.exe'. En desarrollo, jugable. Requiere dump propio de PS4 (CUSA00223); no incluye juego ni firmware. Fuente del catálogo: portsdr.com.",
+        "detection": {
+          "executables": [
+            "inFAMOUS Second Son.exe",
+            "Play inFAMOUS Second Son.exe",
+            "inFAMOUS Second Son (classic).exe"
+          ],
+          "folder_patterns": [
+            "iss_pc",
+            "infamous-windows-x86_64",
+            "inFAMOUS Second Son"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "metroid-dread-recomp",
+      "title": "Metroid Dread",
+      "original_platforms": [
+        "Nintendo Switch"
+      ],
+      "release_year": 2021,
+      "developer": "MercurySteam / Nintendo",
+      "synopsis": "Samus Aran regresa en una aventura 2D de acción y exploración, perseguida por los robots E.M.M.I. en el planeta ZDR.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/f/f7/Metroid_Dread_Banner.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "metroid-dread-recomp",
+        "name": "Metroid-Dread-Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "Metroid-Dread-Recomp",
+          "owner": "yozander2009-stack",
+          "provider": "github",
+          "url": "https://github.com/yozander2009-stack/Metroid-Dread-Recomp"
+        },
+        "requires_original_assets": true,
+        "author": "yozander2009-stack",
+        "author_avatar_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/f/f7/Metroid_Dread_Banner.png",
+        "features": [
+          "Recompilación estática nativa para Windows x64",
+          "ZIP listo para extraer con launcher y actualizador (update-x.y.z.zip)",
+          "Requiere tu propia copia del juego; no incluye archivos de Nintendo"
+        ],
+        "technical_notes": "Release v0.4.0 (estable) revisada 2026-10-26. Incluye toolchain de recompilación (gcc) dentro del ZIP.",
+        "detection": {
+          "executables": [
+            "Metroid Dread.exe"
+          ],
+          "folder_patterns": [
+            "Metroid Dread",
+            "MetroidDread-PC"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "knack-2-ps4",
+      "title": "Knack II",
+      "original_platforms": [
+        "PlayStation 4"
+      ],
+      "release_year": 2017,
+      "developer": "SIE Japan Studio",
+      "synopsis": "Aventura de plataformas y acción cooperativa local protagonizada por Knack, el héroe de reliquias.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/3/3e/Knack_II_Boxart.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "knack-2-ps4",
+        "name": "Knack-II-pc-port",
+        "method": "PORT",
+        "repository": {
+          "name": "Knack-II-pc-port",
+          "owner": "Hyant4",
+          "provider": "github",
+          "url": "https://github.com/Hyant4/Knack-II-pc-port"
+        },
+        "requires_original_assets": true,
+        "author": "Hyant4",
+        "author_avatar_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/3/3e/Knack_II_Boxart.jpg",
+        "features": [
+          "Port nativo experimental para Windows x64 con renderer Vulkan",
+          "Cooperativo local para 2 jugadores y presets hasta 4K",
+          "Requiere tu propio dump de PS4 (CUSA08014 / CUSA07670)"
+        ],
+        "technical_notes": "Release knack2-Version-0.17.5 revisada 2026-10-26. Alpha experimental; valida el dump con el launcher incluido.",
+        "detection": {
+          "executables": [
+            "Knack II.exe",
+            "Play Knack II.exe"
+          ],
+          "folder_patterns": [
+            "Knack-II-Windows-x64",
+            "Knack II"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "halo-5-guardians-campaign",
+      "title": "Halo 5: Guardians",
+      "original_platforms": [
+        "Xbox One"
+      ],
+      "release_year": 2015,
+      "developer": "343 Industries",
+      "synopsis": "Campaña de Halo 5: Guardians con el Jefe Maestro y el Equipo Osiris.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/6/68/Halo_Guardians.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "halo-5-guardians-campaign",
+        "name": "halo5onpc",
+        "method": "HYBRID",
+        "repository": {
+          "name": "halo5onpc",
+          "owner": "danielmccluskey",
+          "provider": "github",
+          "url": "https://github.com/danielmccluskey/halo5onpc"
+        },
+        "requires_original_assets": true,
+        "author": "danielmccluskey",
+        "author_avatar_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/6/68/Halo_Guardians.png",
+        "features": [
+          "Launcher que añade la campaña a la build PC de Halo 5 Forge",
+          "Requiere Halo 5 Forge (Microsoft Store) y tus propios archivos extraídos",
+          "No es una recompilación completa: es un mod/launcher sobre Forge"
+        ],
+        "technical_notes": "Releases main-5-1 (pre-release) revisadas 2026-10-26. Proyecto de modificación, no port nativo oficial.",
+        "detection": {
+          "executables": [
+            "h5sololauncher.exe"
+          ],
+          "folder_patterns": [
+            "h5sololauncher",
+            "halo5onpc"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "god-of-war-chains-of-olympus",
+      "title": "God of War: Chains of Olympus",
+      "original_platforms": [
+        "PlayStation Portable"
+      ],
+      "release_year": 2008,
+      "developer": "Ready at Dawn / Sony Santa Monica",
+      "synopsis": "Precuela de God of War: Kratos lucha por los dioses del Olimpo, atrapado entre la luz y la oscuridad.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/3/3a/God_of_War_Chains_of_Olympus_NA_version_front_cover.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "god-of-war-chains-of-olympus",
+        "name": "gow-psp-recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "gow-psp-recomp",
+          "owner": "DrummingBird1",
+          "provider": "github",
+          "url": "https://github.com/DrummingBird1/gow-psp-recomp"
+        },
+        "requires_original_assets": true,
+        "author": "DrummingBird1",
+        "author_avatar_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/3/3a/God_of_War_Chains_of_Olympus_NA_version_front_cover.jpg",
+        "features": [
+          "Recompilación estática del código MIPS de PSP a ejecutable nativo de Windows",
+          "Resoluciones hasta 4K, framerate desbloqueado y soporte de mando/teclado",
+          "También cubre Ghost of Sparta; requiere tu propio ISO"
+        ],
+        "technical_notes": "Release v1.3.1 revisada 2026-10-26. Proyecto no oficial; trae tu propio disco.",
+        "detection": {
+          "executables": [
+            "GoWLauncher.exe"
+          ],
+          "folder_patterns": [
+            "GoW_PSP",
+            "gow-psp-recomp"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "new-super-mario-bros-u",
+      "title": "New Super Mario Bros. U",
+      "original_platforms": [
+        "Wii U"
+      ],
+      "release_year": 2012,
+      "developer": "Nintendo EAD",
+      "synopsis": "Plataformas 2D de Mario con modo cooperativo, mapa del Reino Champiñón y Miiverse.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/0/03/New_Super_Mario_Bros._U_box_art.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "new-super-mario-bros-u",
+        "name": "nsmbu-recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "nsmbu-recomp",
+          "owner": "nsmbu-recomp",
+          "provider": "github",
+          "url": "https://github.com/nsmbu-recomp/nsmbu-recomp"
+        },
+        "requires_original_assets": true,
+        "author": "nsmbu-recomp",
+        "author_avatar_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/0/03/New_Super_Mario_Bros._U_box_art.png",
+        "features": [
+          "Port nativo para Windows, Linux y macOS (arm64)",
+          "ZIP y AppImage; herramienta nsmbu-extract incluida",
+          "Requiere tus propios archivos (.wua, .wud/.wux o carpeta extraída)"
+        ],
+        "technical_notes": "Release v0.6.3 revisada 2026-10-26.",
+        "detection": {
+          "executables": [
+            "NSMBU.exe"
+          ],
+          "folder_patterns": [
+            "NSMBU-v",
+            "nsmbu-recomp"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "resident-evil-code-veronica-x",
+      "title": "Resident Evil Code: Veronica X",
+      "original_platforms": [
+        "PlayStation 2"
+      ],
+      "release_year": 2001,
+      "developer": "Capcom",
+      "synopsis": "Claire Redfield y Chris Redfield enfrentan a Umbrella en la Antártida y la isla Rockfort.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/4/44/RECV_boxart.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "resident-evil-code-veronica-x",
+        "name": "recvx-enhanced-port",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "recvx-enhanced-port",
+          "owner": "aikatore",
+          "provider": "github",
+          "url": "https://github.com/aikatore/recvx-enhanced-port"
+        },
+        "requires_original_assets": true,
+        "author": "aikatore",
+        "author_avatar_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/4/44/RECV_boxart.jpg",
+        "features": [
+          "Port mejorado basado en la decompilación completa recvx-decomp",
+          "Widescreen, resolución interna alta, cámara opcional y co-op online para 2 jugadores",
+          "Requiere tu propio ISO de PS2 (SLUS-20184)"
+        ],
+        "technical_notes": "Release v0.6.10 (pre-release) revisada 2026-10-26. Build Windows x86 y Linux i686.",
+        "detection": {
+          "executables": [
+            "recvx.exe"
+          ],
+          "folder_patterns": [
+            "recvx-enhanced-port"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "resident-evil-code-veronica-hd-ps3",
+      "title": "Resident Evil Code: Veronica X HD",
+      "original_platforms": [
+        "PlayStation 3"
+      ],
+      "release_year": 2011,
+      "developer": "Capcom",
+      "synopsis": "Versión HD de Code: Veronica X con herramientas de speedrun y soporte 4K.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/4/44/RECV_boxart.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "resident-evil-code-veronica-hd-ps3",
+        "name": "RE-Code-Veronica-Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "RE-Code-Veronica-Recomp",
+          "owner": "kastieloficial",
+          "provider": "github",
+          "url": "https://github.com/kastieloficial/RE-Code-Veronica-Recomp"
+        },
+        "requires_original_assets": true,
+        "author": "kastieloficial",
+        "author_avatar_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/4/44/RECV_boxart.jpg",
+        "features": [
+          "Recompilación estática de la versión HD de PS3",
+          "4K, interpolación a 60 FPS y FSR 3.1 frame generation",
+          "LiveSplit, saltar animaciones de puertas y editor de inventario; requiere tus propios archivos"
+        ],
+        "technical_notes": "Release v1.1.3 revisada 2026-10-26. Rama por defecto: code-veronica.",
+        "detection": {
+          "executables": [
+            "Code Veronica.exe",
+            "CodeVeronicaPort.exe"
+          ],
+          "folder_patterns": [
+            "CodeVeronica",
+            "RE-Code-Veronica-Recomp"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "gravity-rush-remastered",
+      "title": "Gravity Rush Remastered",
+      "original_platforms": [
+        "PlayStation 4"
+      ],
+      "release_year": 2016,
+      "developer": "SIE Japan Studio",
+      "synopsis": "Kat controla la gravedad para explorar la ciudad flotante de Hekseville.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/0/0e/GravityRushPSVitaCover.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "gravity-rush-remastered",
+        "name": "gravityrush_pc",
+        "method": "PORT",
+        "repository": {
+          "name": "gravityrush_pc",
+          "owner": "LucaPazienza",
+          "provider": "github",
+          "url": "https://github.com/LucaPazienza/gravityrush_pc"
+        },
+        "requires_original_assets": true,
+        "author": "LucaPazienza",
+        "author_avatar_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/0/0e/GravityRushPSVitaCover.png",
+        "features": [
+          "Port nativo para Windows con renderer Vulkan",
+          "Resoluciones hasta 4K, DLSS y FSR, soporte DualSense con giroscopio",
+          "Requiere tu propio dump de PS4"
+        ],
+        "technical_notes": "Release v0.1.8 revisada 2026-10-26. Etapa temprana (0.1.x).",
+        "detection": {
+          "executables": [
+            "Gravity Rush.exe",
+            "Gravity Rush Launcher.exe"
+          ],
+          "folder_patterns": [
+            "gravityrush-windows",
+            "gravityrush_pc"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "super-smash-bros-brawl",
+      "title": "Super Smash Bros. Brawl",
+      "original_platforms": [
+        "Wii"
+      ],
+      "release_year": 2008,
+      "developer": "Sora Ltd. / Nintendo",
+      "synopsis": "Pelea de plataformas con la mayor plantilla de personajes de Nintendo y modo Emisario Subespacial.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/f/f3/SSBB_Cover.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "super-smash-bros-brawl",
+        "name": "BrawlRecompiled",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "BrawlRecompiled",
+          "owner": "josiahg2502-glitch",
+          "provider": "github",
+          "url": "https://github.com/josiahg2502-glitch/BrawlRecompiled"
+        },
+        "requires_original_assets": true,
+        "author": "josiahg2502-glitch",
+        "author_avatar_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/f/f3/SSBB_Cover.jpg",
+        "features": [
+          "Port nativo para Windows y Linux con 4K y pantalla panorámica",
+          "Soporta mods de SD de Wii (Project+, Project+Ex, REX, Brawl Minus, Legacy XP)",
+          "Requiere tu propio disco; rama por defecto: master"
+        ],
+        "technical_notes": "Release v0.4.0 revisada 2026-10-26.",
+        "detection": {
+          "executables": [
+            "Brawl Recompiled.exe"
+          ],
+          "folder_patterns": [
+            "BrawlRecompiled"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "lotr-return-of-the-king-athelas",
+      "title": "The Lord of the Rings: The Return of the King",
+      "original_platforms": [
+        "Xbox"
+      ],
+      "release_year": 2003,
+      "developer": "EA",
+      "synopsis": "Beat em up cooperativo basado en la película de Peter Jackson, desde Minas Tirith hasta el Monte del Destino.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/4/40/Rotkboxart2.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "lotr-return-of-the-king-athelas",
+        "name": "Athelas",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "Athelas",
+          "owner": "Shagg88",
+          "provider": "github",
+          "url": "https://github.com/Shagg88/Athelas"
+        },
+        "requires_original_assets": true,
+        "author": "Shagg88",
+        "author_avatar_url": null,
+        "port_art_url": "https://raw.githubusercontent.com/Shagg88/Athelas/refs/heads/main/launcher/art/icon_1024.png",
+        "features": [
+          "Recompilación estática de Xbox para Windows x64 (y arm64)",
+          "El paquete también incluye herramientas para The Two Towers y The Fellowship of the Ring",
+          "Requiere tus propios archivos de Xbox"
+        ],
+        "technical_notes": "Release 1.6.0 revisada 2026-10-26.",
+        "detection": {
+          "executables": [
+            "Athelas.exe",
+            "ROTKXbox.exe"
+          ],
+          "folder_patterns": [
+            "Athelas",
+            "ROTK-Xbox"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "darkwatch-darker-edition",
+      "title": "Darkwatch",
+      "original_platforms": [
+        "Xbox"
+      ],
+      "release_year": 2005,
+      "developer": "High Moon Studios",
+      "synopsis": "Shooter de vaqueros y vampiros en el Viejo Oeste con Jericho Cross.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/9/95/Darkwatch.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "darkwatch-darker-edition",
+        "name": "DarkwatchDarkerEdition",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "DarkwatchDarkerEdition",
+          "owner": "linkssy2",
+          "provider": "github",
+          "url": "https://github.com/linkssy2/DarkwatchDarkerEdition"
+        },
+        "requires_original_assets": true,
+        "author": "linkssy2",
+        "author_avatar_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/9/95/Darkwatch.jpg",
+        "features": [
+          "Port de PC impulsado por XboxXBERecomp",
+          "Paquete HD de texturas opcional (ZIP multiparte) y build Linux vía Proton experimental",
+          "Requiere tus propios archivos de Xbox"
+        ],
+        "technical_notes": "Release v0.6 revisada 2026-10-26.",
+        "detection": {
+          "executables": [
+            "Darkwatch Darker Edition.exe",
+            "Play Darkwatch.exe"
+          ],
+          "folder_patterns": [
+            "Darkwatch"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "ssf2t-hd-remix",
+      "title": "Super Street Fighter II Turbo HD Remix",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2008,
+      "developer": "Capcom / Backbone Entertainment",
+      "synopsis": "Remake en HD del clásico de lucha de Capcom con arte redibujado y balance renovado.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/9/9b/SSF_HD_Remix_Boxart.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "ssf2t-hd-remix",
+        "name": "ssf2t-hd-remix-recompiled",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "ssf2t-hd-remix-recompiled",
+          "owner": "saulob",
+          "provider": "github",
+          "url": "https://github.com/saulob/ssf2t-hd-remix-recompiled"
+        },
+        "requires_original_assets": true,
+        "author": "saulob",
+        "author_avatar_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/9/9b/SSF_HD_Remix_Boxart.jpg",
+        "features": [
+          "Port nativo por recompilación estática para Windows x64 y Linux (AppImage)",
+          "Incluye actualizador integrado",
+          "Requiere tus propios archivos de Xbox 360"
+        ],
+        "technical_notes": "Release v0.2.1 revisada 2026-10-26.",
+        "detection": {
+          "executables": [
+            "ssf2t_hd_remix.exe"
+          ],
+          "folder_patterns": [
+            "SSF2THDRemix",
+            "ssf2t-hd-remix"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "burnout-3-takedown",
+      "title": "Burnout 3: Takedown",
+      "original_platforms": [
+        "PlayStation 2"
+      ],
+      "release_year": 2004,
+      "developer": "Criterion Games",
+      "synopsis": "Carreras arcade centradas en choques y takedowns a toda velocidad.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/9/93/Burnout_3_-_Takedown_Coverart.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "burnout-3-takedown",
+        "name": "burnout3-pc",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "burnout3-pc",
+          "owner": "danielgomesvieira2000",
+          "provider": "github",
+          "url": "https://github.com/danielgomesvieira2000/burnout3-pc"
+        },
+        "requires_original_assets": true,
+        "author": "danielgomesvieira2000",
+        "author_avatar_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/9/93/Burnout_3_-_Takedown_Coverart.jpg",
+        "features": [
+          "Port nativo para Windows x64 mediante toolchain de decompilación de PS2",
+          "Incluye variante SSE4",
+          "Requiere tu propio ISO de PS2"
+        ],
+        "technical_notes": "Release v0.7.1-alpha (pre-release) revisada 2026-10-26.",
+        "detection": {
+          "executables": [
+            "burnout3.exe",
+            "burnout3-sse4.exe"
+          ],
+          "folder_patterns": [
+            "Burnout3-PC",
+            "burnout3-pc"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "star-fox-adventures",
+      "title": "Star Fox Adventures",
+      "original_platforms": [
+        "GameCube"
+      ],
+      "release_year": 2002,
+      "developer": "Rare",
+      "synopsis": "Aventura de acción de Fox McCloud en Dinosaur Planet.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/3/31/Star_Fox_Adventures_GCN_Game_Box.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "star-fox-adventures",
+        "name": "foxhollow",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "foxhollow",
+          "owner": "JackPriceBurns",
+          "provider": "github",
+          "url": "https://github.com/JackPriceBurns/foxhollow"
+        },
+        "requires_original_assets": true,
+        "author": "JackPriceBurns",
+        "author_avatar_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/3/31/Star_Fox_Adventures_GCN_Game_Box.jpg",
+        "features": [
+          "Foxhollow: port nativo basado en la decompilación de SFA y Aurora",
+          "Windows, Linux y macOS; sitio oficial foxhollow.dev",
+          "Requiere tu propia copia del juego"
+        ],
+        "technical_notes": "Repositorio activo (v1.0.30) pero sus releases de GitHub no traen archivos; la descarga se hace desde foxhollow.dev. Sin reglas de detección verificadas.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "uncharted-nathan-drake-collection",
+      "title": "Uncharted: The Nathan Drake Collection",
+      "original_platforms": [
+        "PlayStation 4"
+      ],
+      "release_year": 2015,
+      "developer": "Naughty Dog / Bluepoint Games",
+      "synopsis": "Colección remasterizada de las tres primeras aventuras de Nathan Drake.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/c/c9/Nathan_Drake_Collection_cover_art.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "uncharted-nathan-drake-collection",
+        "name": "uncharted_pc",
+        "method": "PORT",
+        "repository": {
+          "name": "uncharted_pc",
+          "owner": "Supermedo",
+          "provider": "github",
+          "url": "https://github.com/Supermedo/uncharted_pc"
+        },
+        "requires_original_assets": true,
+        "author": "Supermedo",
+        "author_avatar_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/c/c9/Nathan_Drake_Collection_cover_art.png",
+        "features": [
+          "Port nativo para Windows x64",
+          "Requiere tu propio dump de PS4",
+          "Incluye utilidades de detección de GPU"
+        ],
+        "technical_notes": "Release v0.3.9 revisada 2026-10-26.",
+        "detection": {
+          "executables": [
+            "Uncharted.exe",
+            "Play Uncharted.exe"
+          ],
+          "folder_patterns": [
+            "uncharted-windows",
+            "uncharted_pc"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "need-for-speed-most-wanted-2005",
+      "title": "Need for Speed: Most Wanted",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2005,
+      "developer": "EA Black Box",
+      "synopsis": "Carreras callejeras: derrota a la Lista Negra y escapa de la policía de Rockport.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/8/8e/Need_for_Speed_Most_Wanted_Box_Art.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "need-for-speed-most-wanted-2005",
+        "name": "NFSMW-Recompiled",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "NFSMW-Recompiled",
+          "owner": "madelrandel-blip",
+          "provider": "github",
+          "url": "https://github.com/madelrandel-blip/NFSMW-Recompiled"
+        },
+        "requires_original_assets": true,
+        "author": "madelrandel-blip",
+        "author_avatar_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/8/8e/Need_for_Speed_Most_Wanted_Box_Art.jpg",
+        "features": [
+          "Recompilación estática para Windows x64 (y Android)",
+          "Requiere tus propios archivos del juego",
+          "Launcher integrado"
+        ],
+        "technical_notes": "Release v1.0.1 revisada 2026-10-26.",
+        "detection": {
+          "executables": [
+            "NFSMW Recomp.exe"
+          ],
+          "folder_patterns": [
+            "NFSMW Recomp",
+            "NFSMW-Recompiled"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "metroid-prime-hunters",
+      "title": "Metroid Prime Hunters",
+      "original_platforms": [
+        "Nintendo DS"
+      ],
+      "release_year": 2006,
+      "developer": "Nintendo Software Technology",
+      "synopsis": "Samus compite con cazarrecompensas rivales en busca de los Octolitos.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/b/b2/Mph_cover_updated.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "metroid-prime-hunters",
+        "name": "MetroidPrimeHuntersRecomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "MetroidPrimeHuntersRecomp",
+          "owner": "mstan",
+          "provider": "github",
+          "url": "https://github.com/mstan/MetroidPrimeHuntersRecomp"
+        },
+        "requires_original_assets": true,
+        "author": "mstan",
+        "author_avatar_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/b/b2/Mph_cover_updated.jpg",
+        "features": [
+          "Recompilación estática de Nintendo DS para Windows x64 y Linux",
+          "Requiere tu propia ROM",
+          "Pre-release 0.7.9-alpha"
+        ],
+        "technical_notes": "Release v0.7.9-alpha (pre-release) revisada 2026-10-26.",
+        "detection": {
+          "executables": [
+            "MetroidPrimeHuntersRecomp.exe"
+          ],
+          "folder_patterns": [
+            "MetroidPrimeHuntersRecomp"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "lotr-the-two-towers",
+      "title": "The Lord of the Rings: The Two Towers",
+      "original_platforms": [
+        "Xbox"
+      ],
+      "release_year": 2002,
+      "developer": "EA",
+      "synopsis": "Acción basada en la película: Aragorn, Legolas y Gimli en el Abismo de Helm.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/2/2c/Twotowersbox1.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "lotr-the-two-towers",
+        "name": "TooTawersRecomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "TooTawersRecomp",
+          "owner": "Gumpolas",
+          "provider": "github",
+          "url": "https://github.com/Gumpolas/TooTawersRecomp"
+        },
+        "requires_original_assets": true,
+        "author": "Gumpolas",
+        "author_avatar_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/2/2c/Twotowersbox1.jpg",
+        "features": [
+          "Recompilación estática para Windows, Linux y macOS",
+          "Traducciones de README en varios idiomas",
+          "Requiere tus propios archivos de Xbox"
+        ],
+        "technical_notes": "Release 1.9.7 revisada 2026-10-26.",
+        "detection": {
+          "executables": [
+            "The Two Towers Recompiled.exe",
+            "twotowers_recomp.exe"
+          ],
+          "folder_patterns": [
+            "TwoTowers-Recompiled",
+            "TooTawersRecomp"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "super-metroid-snes-recomp",
+      "title": "Super Metroid",
+      "original_platforms": [
+        "Super Nintendo"
+      ],
+      "release_year": 1994,
+      "developer": "Nintendo R&D1 / Intelligent Systems",
+      "synopsis": "Samus explora Zebes para detener a Mother Brain en el clásico de 16 bits.",
+      "box_art_url": "https://cdn2.steamgriddb.com/thumb/e5cf20f10bf632fb74542a536ef1aa95.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "super-metroid-snes-recomp",
+        "name": "SuperMetroidRecomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "SuperMetroidRecomp",
+          "owner": "mstan",
+          "provider": "github",
+          "url": "https://github.com/mstan/SuperMetroidRecomp"
+        },
+        "requires_original_assets": true,
+        "author": "mstan",
+        "author_avatar_url": null,
+        "port_art_url": "https://cdn2.steamgriddb.com/thumb/e5cf20f10bf632fb74542a536ef1aa95.jpg",
+        "features": [
+          "Recompilación estática para Windows x64, Linux y macOS",
+          "Requiere tu propia ROM",
+          "Releases con SHA256SUMS"
+        ],
+        "technical_notes": "Release v0.3.15 revisada 2026-10-26.",
+        "detection": {
+          "executables": [
+            "SuperMetroidSNESRecomp.exe"
+          ],
+          "folder_patterns": [
+            "supermetroid",
+            "SuperMetroidRecomp"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    }
+  ],
+  "schema_version": 2,
+  "sources": {
+    "artwork": [
+      {
+        "name": "ArcadeArtwork",
+        "role": "box/disc/media scans",
+        "url": "https://www.arcadeartwork.org/"
+      },
+      {
+        "name": "SteamGridDB",
+        "role": "grids/heroes/icons",
+        "url": "https://www.steamgriddb.com/"
+      },
+      {
+        "name": "GameTDB",
+        "role": "disc and cover artwork",
+        "url": "https://www.gametdb.com/"
+      },
+      {
+        "name": "The Cover Project",
+        "role": "physical box scans",
+        "url": "https://www.thecoverproject.net/"
+      },
+      {
+        "name": "Libretro Thumbnails",
+        "role": "retro boxarts/snaps",
+        "url": "https://thumbnails.libretro.com/"
+      },
+      {
+        "name": "MobyGames",
+        "role": "historical/regional artwork",
+        "url": "https://www.mobygames.com/"
+      },
+      {
+        "name": "IGDB",
+        "role": "modern game metadata/artwork",
+        "url": "https://www.igdb.com/"
+      }
+    ],
+    "primary_discovery": {
+      "name": "PortsDR",
+      "role": "project discovery; repository/platform/version references are independently validated before scanner verification",
+      "url": "https://portsdr.com/"
+    }
+  },
+  "updated_at": "2026-10-21T15:00:00Z"
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 90">
+  <g transform="translate(10, 10)">
+    <path d="M35 5 L65 22 L65 52 L35 70 L5 52 L5 22 Z" fill="none" stroke="#69569f" stroke-width="8" stroke-linejoin="round" />
+    <path d="M35 5 L35 38 L65 22" fill="none" stroke="#69569f" stroke-width="7" stroke-linejoin="round" />
+    <path d="M35 38 L5 22" fill="none" stroke="#69569f" stroke-width="7" stroke-linejoin="round" />
+    <path d="M35 38 L35 70" fill="none" stroke="#69569f" stroke-width="7" stroke-linejoin="round" />
+  </g>
+  <text x="95" y="44" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="900" fill="#ffffff" letter-spacing="1">NINTENDO</text>
+  <text x="95" y="74" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="800" fill="#a78bfa" letter-spacing="4">GAMECUBE</text>
+</svg>

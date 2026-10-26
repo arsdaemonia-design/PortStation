@@ -1,0 +1,584 @@
+:root {
+  --ease-spring: cubic-bezier(.34, 1.45, .5, 1);
+  --ease-lid:    cubic-bezier(.65, .03, .28, 1);
+  --ease-cart:   cubic-bezier(.22, 1.18, .36, 1);
+}
+
+/* ================== <physical-media> ================== */
+physical-media {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 295px;
+  perspective: 1400px;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  overflow: visible;
+}
+
+physical-media:focus-visible {
+  outline: 2px solid #58a6ff;
+  outline-offset: 6px;
+  border-radius: 14px;
+}
+
+.pm-obj {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--w);
+  height: var(--h);
+  margin-left: calc(var(--w) / -2);
+  margin-top: calc(var(--h) / -2 + var(--sit, 14px));
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx)) rotateY(var(--ry)) scale(1.04);
+  transition: transform .6s var(--ease-spring);
+  will-change: transform;
+}
+
+physical-media:hover .pm-obj {
+  transform: rotateX(var(--rx)) rotateY(var(--ry)) translateY(-6px) scale(1.08);
+}
+
+.game-card.gamepad-focused physical-media .pm-obj {
+  transform: rotateX(var(--rx)) rotateY(var(--ry)) translateY(-6px) scale(1.08);
+}
+
+physical-media.open .pm-obj {
+  transform: rotateX(var(--rx)) rotateY(var(--ry)) translateY(-8px) scale(1.05);
+}
+
+.pm-face {
+  position: absolute;
+}
+
+.pm-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  width: calc(var(--w) * 1.15);
+  height: 24px;
+  margin-left: calc(var(--w) * -.575);
+  background: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, .75), transparent 70%);
+  border-radius: 50%;
+  filter: blur(4px);
+  transition: transform .6s ease, opacity .6s ease;
+  pointer-events: none;
+}
+
+physical-media.open .pm-shadow {
+  transform: scale(.8);
+  opacity: .5;
+}
+
+/* ================================================================
+   DISC: jewel / DVD / Blu-ray
+   ================================================================ */
+.pm-disc .pm-back {
+  inset: 0;
+  background: var(--tray);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08);
+  border-radius: 6px;
+}
+
+.pm-disc .pm-spine {
+  left: 0;
+  top: 0;
+  width: var(--d);
+  height: 100%;
+  transform-origin: left center;
+  transform: translateZ(calc(var(--d) / -2)) rotateY(-90deg);
+  background: var(--spine);
+  border-radius: 4px;
+}
+
+.pm-disc .pm-edge {
+  right: 0;
+  top: 0;
+  width: var(--d);
+  height: 100%;
+  transform-origin: right center;
+  transform: translateZ(calc(var(--d) / -2)) rotateY(90deg);
+  background: var(--spine);
+  filter: brightness(.8);
+  border-radius: 4px;
+}
+
+.pm-disc .pm-tray {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--disc) * .96);
+  height: calc(var(--disc) * .96);
+  margin: calc(var(--disc) * -.48) 0 0 calc(var(--disc) * -.48);
+  border-radius: 50%;
+  transform: translateZ(calc(var(--d) / -2 + 3px));
+  background:
+    radial-gradient(circle, rgba(0, 0, 0, .6) 0 30%, transparent 31%),
+    radial-gradient(circle, rgba(255, 255, 255, .06), rgba(0, 0, 0, .35));
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .08),
+    inset 0 0 0 3px var(--accent, transparent);
+}
+
+.pm-disc .pm-lid {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  transform: translateZ(calc(var(--d) / 2));
+  transition: transform .85s var(--ease-lid) .1s;
+}
+
+physical-media.open .pm-disc .pm-lid,
+physical-media:hover .pm-disc .pm-lid,
+.game-card:hover physical-media .pm-disc .pm-lid,
+.game-card.gamepad-focused physical-media .pm-disc .pm-lid {
+  transform: translateZ(calc(var(--d) / 2)) rotateY(var(--lid-angle));
+}
+
+.pm-lid-face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  border-radius: 6px;
+}
+
+.pm-lid-front {
+  background: #0b0f0a;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .15);
+}
+
+.pm-lid-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pm-lid-front::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 28%, rgba(255, 255, 255, .18) 44%, transparent 60%);
+}
+
+.pm-lid-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(150deg, #1c2027, #0c0f13);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05),
+              inset 0 0 60px rgba(0, 0, 0, .65);
+}
+
+.pm-disc .pm-disc-media {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--disc);
+  height: var(--disc);
+  margin: calc(var(--disc) / -2) 0 0 calc(var(--disc) / -2);
+  border-radius: 50%;
+  transform: translateZ(0) translateY(0) rotateY(0deg) scale(.82);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .95s var(--ease-spring) .5s, opacity .3s ease .5s;
+  background: radial-gradient(circle at 50% 50%,
+    #e6e9ed 0 30%, #c3c9d0 38%, #f4f6f8 45%, #b4bbc4 62%, #e9ecef 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .45), 0 16px 36px rgba(0, 0, 0, .55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+physical-media.open .pm-disc .pm-disc-media,
+physical-media:hover .pm-disc .pm-disc-media,
+.game-card:hover physical-media .pm-disc .pm-disc-media,
+.game-card.gamepad-focused physical-media .pm-disc .pm-disc-media {
+  transform: translateZ(var(--eject-z)) translateY(var(--eject-y)) rotateY(-16deg) scale(1);
+  opacity: 1;
+}
+
+.pm-disc-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.pm-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg,
+    transparent 0 40deg, rgba(120, 200, 255, .4) 80deg, transparent 130deg,
+    rgba(255, 120, 220, .32) 200deg, transparent 260deg,
+    rgba(255, 230, 120, .36) 310deg, transparent 360deg);
+  opacity: 0;
+  transition: opacity .4s .85s;
+}
+
+physical-media.open .pm-sheen,
+physical-media:hover .pm-sheen,
+.game-card:hover physical-media .pm-sheen,
+.game-card.gamepad-focused physical-media .pm-sheen {
+  opacity: 1;
+  animation: pm-spin 7s linear infinite;
+}
+
+@keyframes pm-spin {
+  to { transform: rotate(360deg); }
+}
+
+.pm-hub {
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  background: radial-gradient(circle, #0b0e0b 55%, #3d443c 100%);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .2), 0 0 0 3px rgba(0, 0, 0, .25);
+}
+
+/* ================================================================
+   CART: caja de cartón (se abre) + cartucho dentro (sale)
+   ================================================================ */
+.pm-box {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.pm-box-back {
+  position: absolute;
+  inset: 0;
+  background: var(--box-inside);
+  transform: translateZ(calc(var(--d) / -2));
+  border-radius: 4px;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, .6);
+}
+
+.pm-box-spine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--d);
+  height: 100%;
+  transform-origin: left center;
+  transform: translateZ(calc(var(--d) / -2)) rotateY(-90deg);
+  background: var(--box-spine);
+  border-radius: 4px;
+}
+
+.pm-box-edge {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: var(--d);
+  height: 100%;
+  transform-origin: right center;
+  transform: translateZ(calc(var(--d) / -2)) rotateY(90deg);
+  background: var(--box-spine);
+  filter: brightness(.82);
+  border-radius: 4px;
+}
+
+.pm-box-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--d);
+  transform-origin: top center;
+  transform: translateZ(calc(var(--d) / -2)) rotateX(90deg);
+  background: var(--box-top);
+  border-radius: 4px;
+}
+
+.pm-box-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--d);
+  transform-origin: bottom center;
+  transform: translateZ(calc(var(--d) / -2)) rotateX(-90deg);
+  background: var(--box-bottom);
+  border-radius: 4px;
+}
+
+.pm-box-front {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  transform: translateZ(calc(var(--d) / 2));
+  transition: transform .85s var(--ease-lid) .1s;
+}
+
+physical-media.open .pm-box-front,
+physical-media:hover .pm-box-front,
+.game-card:hover physical-media .pm-box-front {
+  transform: translateZ(calc(var(--d) / 2)) rotateY(-128deg);
+}
+
+.game-card.gamepad-focused physical-media .pm-box-front {
+  transform: translateZ(calc(var(--d) / 2)) rotateY(-128deg);
+}
+
+.pm-bf-art {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 4px;
+  backface-visibility: hidden;
+  background: #111;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .14);
+}
+
+.pm-bf-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pm-bf-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 28%, rgba(255, 255, 255, .13) 44%, transparent 60%);
+}
+
+.pm-bf-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  border-radius: 4px;
+  background: linear-gradient(150deg, var(--box-inside), #000);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05),
+              inset 0 0 60px rgba(0, 0, 0, .55);
+}
+
+/* --- cartucho dentro de la caja --- */
+.pm-cart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--cw);
+  height: var(--ch);
+  margin: calc(var(--ch) / -2) 0 0 calc(var(--cw) / -2);
+  transform-style: preserve-3d;
+  transform: translateZ(0) translateY(4px) scale(.96);
+  transition: transform .85s var(--ease-cart) .38s;
+}
+
+physical-media.open .pm-cart,
+physical-media:hover .pm-cart,
+.game-card:hover physical-media .pm-cart {
+  transform: translateZ(52px) translateY(calc(var(--lift) * -1))
+            rotateX(-3deg) rotateY(5deg) scale(1);
+}
+
+.game-card.gamepad-focused physical-media .pm-cart {
+  transform: translateZ(52px) translateY(calc(var(--lift) * -1))
+            rotateX(-3deg) rotateY(5deg) scale(1);
+}
+
+.pm-cface {
+  position: absolute;
+  border-radius: var(--cart-radius, 4px);
+}
+
+.pm-cfront {
+  inset: 0;
+  transform: translateZ(calc(var(--cd) / 2));
+  background: var(--cart-body);
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14);
+}
+
+.pm-cback {
+  inset: 0;
+  transform: translateZ(calc(var(--cd) / -2)) rotateY(180deg);
+  background: var(--cart-back);
+}
+
+.pm-cleft {
+  left: 0;
+  top: 0;
+  width: var(--cd);
+  height: 100%;
+  transform-origin: left center;
+  transform: translateZ(calc(var(--cd) / -2)) rotateY(-90deg);
+  background: var(--cart-side);
+}
+
+.pm-cright {
+  right: 0;
+  top: 0;
+  width: var(--cd);
+  height: 100%;
+  transform-origin: right center;
+  transform: translateZ(calc(var(--cd) / -2)) rotateY(90deg);
+  background: var(--cart-side);
+  filter: brightness(.86);
+}
+
+.pm-ctop {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--cd);
+  transform-origin: top center;
+  transform: translateZ(calc(var(--cd) / -2)) rotateX(90deg);
+  background: var(--cart-top);
+}
+
+.pm-cbottom {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--cd);
+  transform-origin: bottom center;
+  transform: translateZ(calc(var(--cd) / -2)) rotateX(-90deg);
+  background: var(--cart-bottom, var(--cart-side));
+}
+
+.pm-clabel {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .32),
+             0 1px 0 rgba(255, 255, 255, .32);
+  background: #e9e5d6;
+}
+
+.pm-clabel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pm-default {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  color: #2c3138;
+  background: repeating-linear-gradient(135deg, #e9e6da 0 8px, #ddd9ca 8px 16px);
+}
+
+.pm-clabel.branded::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--brand-w, 22%);
+  background: var(--brand-bg, linear-gradient(180deg, #c8203a, #7a1530));
+}
+
+/* Card container integration */
+.card-media-3d-wrap {
+  position: relative;
+  width: 100%;
+  height: 315px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 120%, rgba(28, 42, 64, 0.45) 0%, rgba(10, 14, 20, 0.96) 80%);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: visible;
+  padding: 0.5rem 0;
+}
+
+.card-media-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  background: rgba(13, 17, 23, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+.card-repo-version-overlay {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  max-width: calc(100% - 92px);
+  padding: 0.28rem 0.55rem;
+  border: 1px solid rgba(88, 166, 255, 0.38);
+  border-radius: 6px;
+  background: rgba(13, 17, 23, 0.9);
+  color: #a9d0ff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+.card-repo-version-overlay.has-update {
+  border-color: rgba(250, 204, 21, 0.5);
+  background: rgba(45, 36, 10, 0.94);
+  color: #fde047;
+}
+
+.card-media-hover-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  z-index: 10;
+  background: rgba(9, 14, 22, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(88, 166, 255, 0.4);
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #79c0ff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.game-card:hover .card-media-hover-hint {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.game-card.gamepad-focused .card-media-hover-hint {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

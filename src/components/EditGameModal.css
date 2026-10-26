@@ -1,0 +1,204 @@
+.edit-game-modal {
+  position: relative;
+  width: 90vw;
+  max-width: 680px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  background: #0d121a;
+  border: 1px solid rgba(88, 166, 255, 0.28);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  color: #e6edf3;
+  overflow: hidden;
+  animation: modalFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.edit-game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(22, 27, 34, 0.85);
+}
+
+.edit-game-header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.edit-game-header-title .edit-icon {
+  color: #58a6ff;
+}
+
+.edit-game-header-title h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f0f6fc;
+}
+
+.edit-game-header-title small {
+  display: block;
+  font-size: 0.75rem;
+  color: #8b949e;
+  margin-top: 0.15rem;
+}
+
+.edit-game-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem 1.4rem;
+}
+
+.edit-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #8b949e;
+}
+
+.edit-classification-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.edit-classification-options > label.edit-toggle-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(88, 166, 255, 0.18);
+  border-radius: 8px;
+  background: rgba(13, 20, 31, 0.75);
+  text-transform: none;
+  letter-spacing: normal;
+  cursor: pointer;
+}
+
+.edit-toggle-row input {
+  width: auto;
+  margin: 0.1rem 0 0;
+  accent-color: #fbbf24;
+}
+
+.edit-toggle-row span {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  color: #dbe7f5;
+  font-size: 0.79rem;
+}
+
+.edit-toggle-row small {
+  color: #8b9bb0;
+  font-size: 0.7rem;
+  line-height: 1.35;
+}
+
+@media (max-width: 620px) {
+  .edit-classification-options { grid-template-columns: 1fr; }
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  background: #161b22;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: #f0f6fc;
+  font-size: 0.85rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #58a6ff;
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+  line-height: 1.45;
+}
+
+.form-section-heading {
+  margin-top: 0.15rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid rgba(88, 166, 255, 0.18);
+  color: #8fb9e8;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.edit-game-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1rem 1.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(22, 27, 34, 0.85);
+}
+
+.save-status-msg {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: #3fb950;
+  margin-right: auto;
+  font-weight: 600;
+}
+
+.btn-save-edit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #238636;
+  border: 1px solid rgba(240, 246, 252, 0.1);
+  color: #ffffff;
+  padding: 0.55rem 1.1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-save-edit:hover:not(:disabled) {
+  background: #2ea043;
+}
+
+.btn-save-edit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
