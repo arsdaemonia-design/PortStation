@@ -1,5 +1,5 @@
 {
-  "catalog_version": "2.6.4",
+  "catalog_version": "2.6.5",
   "games": [
     {
       "artwork": {
@@ -5856,6 +5856,978 @@
       "sub_games": null,
       "synopsis": "Tommy Vercetti construye su imperio criminal en Vice City, una ciudad inspirada en Miami durante los años ochenta.",
       "title": "Grand Theft Auto: Vice City"
+    },
+    {
+      "id": "doom-doom2-chocolate",
+      "title": "Doom / Doom II (Chocolate Doom)",
+      "original_platforms": [
+        "PC (DOS)"
+      ],
+      "release_year": 1993,
+      "developer": "id Software",
+      "synopsis": "Doom y Doom II: combate contra demonios en Marte y el Infierno, con campañas, expansiones y mods.",
+      "box_art_url": "",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "chocolate-doom",
+        "name": "Chocolate Doom",
+        "method": "PORT",
+        "repository": {
+          "name": "chocolate-doom",
+          "owner": "chocolate-doom",
+          "provider": "github",
+          "url": "https://github.com/chocolate-doom/chocolate-doom"
+        },
+        "requires_original_assets": true,
+        "author": "chocolate-doom",
+        "author_avatar_url": "https://github.com/chocolate-doom.png",
+        "port_art_url": "",
+        "features": [
+          "Port fiel al código fuente de DOS; reproduce el comportamiento clásico.",
+          "Incluye Doom, Doom II y Final Doom.",
+          "Builds para Windows y macOS; Linux compilable.",
+          "Admite IWADs originales, shareware y Freedoom."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. Requiere IWADs propios; algunas versiones shareware y Freedoom son gratuitas.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*Chocolate Doom*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "doom-64-ex-plus",
+      "title": "Doom 64 (Doom 64 EX+)",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "release_year": 1997,
+      "developer": "Midway Games / id Software",
+      "synopsis": "Doomguy vuelve a enfrentarse a las fuerzas demoníacas en una campaña creada para Nintendo 64.",
+      "box_art_url": "",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "doom64-ex-plus",
+        "name": "Doom 64 EX+",
+        "method": "PORT",
+        "repository": {
+          "name": "Doom64EX-Plus",
+          "owner": "atsb",
+          "provider": "github",
+          "url": "https://github.com/atsb/Doom64EX-Plus"
+        },
+        "requires_original_assets": true,
+        "author": "atsb",
+        "author_avatar_url": "https://github.com/atsb.png",
+        "port_art_url": "",
+        "features": [
+          "Port abierto con funciones modernas, Lost Levels y mods de la remasterización.",
+          "Builds para Windows x64 y macOS."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. Proyecto en mantenimiento; requiere datos IWAD de Doom 64: Remaster (2020).",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*Doom 64 EX+*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "doom-3-bfg",
+      "title": "Doom 3: BFG Edition (RBDOOM-3-BFG)",
+      "original_platforms": [
+        "Windows",
+        "Xbox 360",
+        "PlayStation 3"
+      ],
+      "release_year": 2012,
+      "developer": "id Software",
+      "synopsis": "Un marine espacial combate una invasión demoníaca en la estación de investigación de Marte.",
+      "box_art_url": "",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "rbdoom-3-bfg",
+        "name": "RBDOOM-3-BFG",
+        "method": "PORT",
+        "repository": {
+          "name": "RBDOOM-3-BFG",
+          "owner": "RobertBeckebans",
+          "provider": "github",
+          "url": "https://github.com/RobertBeckebans/RBDOOM-3-BFG"
+        },
+        "requires_original_assets": true,
+        "author": "RobertBeckebans",
+        "author_avatar_url": "https://github.com/RobertBeckebans.png",
+        "port_art_url": "",
+        "features": [
+          "Continuación del código fuente publicado por id Software.",
+          "Renderizado moderno con Direct3D 12 o Vulkan, HDR, PBR e iluminación avanzada.",
+          "Soporte para mods y mapas."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. La build de Windows requiere los datos de tu copia de Doom 3: BFG Edition.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*RBDOOM-3-BFG*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "driver-2-redriver2",
+      "title": "Driver 2 (REDRIVER2)",
+      "original_platforms": [
+        "PlayStation"
+      ],
+      "release_year": 2000,
+      "developer": "Reflections Interactive",
+      "synopsis": "Tanner y Jones persiguen una red criminal en Chicago, La Habana, Las Vegas y Río de Janeiro.",
+      "box_art_url": "",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "redriver2",
+        "name": "REDRIVER2",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "REDRIVER2",
+          "owner": "OpenDriver2",
+          "provider": "github",
+          "url": "https://github.com/OpenDriver2/REDRIVER2"
+        },
+        "requires_original_assets": true,
+        "author": "OpenDriver2",
+        "author_avatar_url": "https://github.com/OpenDriver2.png",
+        "port_art_url": "",
+        "features": [
+          "Decompilación y reimplementación nativa en C, sin emulación de CPU.",
+          "Campaña completa; mejoras opcionales de cámara, controles, guardado y pantalla panorámica.",
+          "Windows y Linux."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. Requiere los dos discos de una versión admitida de PS1; deja fuera el menú de tarjeta de memoria.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*REDRIVER2*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "tomb-raider-1-3-trx",
+      "title": "Tomb Raider I–III (TRX)",
+      "original_platforms": [
+        "PlayStation",
+        "PC"
+      ],
+      "release_year": 1996,
+      "developer": "Core Design",
+      "synopsis": "Las tres primeras aventuras de Lara Croft, sus expansiones y niveles personalizados en un motor nativo moderno.",
+      "box_art_url": "https://www.mobygames.com/images/covers/l/16220-tomb-raider-playstation-front-cover.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "trx",
+        "name": "TRX (Tomb Raider I–III)",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "TRX",
+          "owner": "LostArtefacts",
+          "provider": "github",
+          "url": "https://github.com/LostArtefacts/TRX"
+        },
+        "requires_original_assets": true,
+        "author": "LostArtefacts",
+        "author_avatar_url": "https://github.com/LostArtefacts.png",
+        "port_art_url": "https://www.mobygames.com/images/covers/l/16220-tomb-raider-playstation-front-cover.jpg",
+        "features": [
+          "Un motor para Tomb Raider I, II y III y sus expansiones.",
+          "Los tres juegos se pueden terminar de principio a fin.",
+          "Windows, Linux y macOS; mando reasignable y mejoras visuales opcionales."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. Requiere los datos de las copias propias de los juegos.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*TRX (Tomb Raider I–III)*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "quake-vkquake",
+      "title": "Quake (vkQuake)",
+      "original_platforms": [
+        "PC"
+      ],
+      "release_year": 1996,
+      "developer": "id Software",
+      "synopsis": "Ranger combate a los ejércitos de Quake en una campaña de acción en primera persona.",
+      "box_art_url": "",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "vkquake",
+        "name": "vkQuake",
+        "method": "PORT",
+        "repository": {
+          "name": "vkQuake",
+          "owner": "Novum",
+          "provider": "github",
+          "url": "https://github.com/Novum/vkQuake"
+        },
+        "requires_original_assets": true,
+        "author": "Novum",
+        "author_avatar_url": "https://github.com/Novum.png",
+        "port_art_url": "",
+        "features": [
+          "Port de QuakeSpasm con renderizador Vulkan.",
+          "Admite mods, modelos modernos y tasas de cuadros elevadas.",
+          "Binaries para Windows; encuentra instalaciones de Steam, GOG y Epic."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. El paquete trae datos de demostración; el juego completo necesita sus archivos originales.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*vkQuake*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "quake-2-vkquake2",
+      "title": "Quake II (vkQuake2)",
+      "original_platforms": [
+        "PC"
+      ],
+      "release_year": 1997,
+      "developer": "id Software",
+      "synopsis": "El marine Bitterman combate a los Strogg en una campaña de ciencia ficción militar.",
+      "box_art_url": "",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "vkquake2",
+        "name": "vkQuake2",
+        "method": "PORT",
+        "repository": {
+          "name": "vkQuake2",
+          "owner": "kondrak",
+          "provider": "github",
+          "url": "https://github.com/kondrak/vkQuake2"
+        },
+        "requires_original_assets": true,
+        "author": "kondrak",
+        "author_avatar_url": "https://github.com/kondrak.png",
+        "port_art_url": "",
+        "features": [
+          "Código oficial de Quake II 3.21 con renderizador Vulkan.",
+          "Incluye soporte de expansiones y varios sistemas operativos.",
+          "Binaries para Windows; el paquete incluye solo datos de demo."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. La versión completa requiere archivos .pak propios.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*vkQuake2*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "duke-nukem-3d-raze",
+      "title": "Duke Nukem 3D (Raze)",
+      "original_platforms": [
+        "PC (DOS)"
+      ],
+      "release_year": 1996,
+      "developer": "3D Realms",
+      "synopsis": "Duke Nukem combate una invasión alienígena en Los Ángeles usando armas y escenarios interactivos.",
+      "box_art_url": "https://jogorama.com.br/arquivos/capas/25.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "raze",
+        "name": "Raze",
+        "method": "PORT",
+        "repository": {
+          "name": "Raze",
+          "owner": "ZDoom",
+          "provider": "github",
+          "url": "https://github.com/ZDoom/Raze"
+        },
+        "requires_original_assets": true,
+        "author": "ZDoom",
+        "author_avatar_url": "https://github.com/ZDoom.png",
+        "port_art_url": "https://jogorama.com.br/arquivos/capas/25.jpg",
+        "features": [
+          "Port del motor Build que reúne Duke Nukem 3D, Blood, Shadow Warrior, Redneck Rampage y Exhumed.",
+          "Reconoce ediciones, expansiones y shareware.",
+          "OpenGL/Vulkan; builds para Windows y macOS."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. Requiere los datos de tu copia; algunas versiones shareware son gratuitas.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*Raze*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "duke-nukem-2-rigel-engine",
+      "title": "Duke Nukem II (Rigel Engine)",
+      "original_platforms": [
+        "PC (DOS)"
+      ],
+      "release_year": 1993,
+      "developer": "Apogee Software / 3D Realms",
+      "synopsis": "Duke escapa de los alienígenas Rigelatins y busca regresar a la Tierra.",
+      "box_art_url": "",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "rigel-engine",
+        "name": "Rigel Engine",
+        "method": "PORT",
+        "repository": {
+          "name": "RigelEngine",
+          "owner": "lethal-guitar",
+          "provider": "github",
+          "url": "https://github.com/lethal-guitar/RigelEngine"
+        },
+        "requires_original_assets": true,
+        "author": "lethal-guitar",
+        "author_avatar_url": "https://github.com/lethal-guitar.png",
+        "port_art_url": "",
+        "features": [
+          "Reimplementación nativa mediante ingeniería inversa.",
+          "Los cuatro episodios, incluida la versión shareware, son completables.",
+          "Windows, Linux, macOS y Steam Deck."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. Lee datos de tu copia registrada o shareware.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*Rigel Engine*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "medal-of-honor-allied-assault-openmohaa",
+      "title": "Medal of Honor: Allied Assault (OpenMoHAA)",
+      "original_platforms": [
+        "PC (Windows)"
+      ],
+      "release_year": 2002,
+      "developer": "2015, Inc.",
+      "synopsis": "El teniente Mike Powell participa en operaciones aliadas durante la Segunda Guerra Mundial.",
+      "box_art_url": "https://images.launchbox-app.com/r2_0fe1e010-39d2-4da0-81d5-de414bb9cad6.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "openmohaa",
+        "name": "OpenMoHAA",
+        "method": "PORT",
+        "repository": {
+          "name": "openmohaa",
+          "owner": "openmoh",
+          "provider": "github",
+          "url": "https://github.com/openmoh/openmohaa"
+        },
+        "requires_original_assets": true,
+        "author": "openmoh",
+        "author_avatar_url": "https://github.com/openmoh.png",
+        "port_art_url": "https://images.launchbox-app.com/r2_0fe1e010-39d2-4da0-81d5-de414bb9cad6.jpg",
+        "features": [
+          "Reimplementación de Allied Assault y las expansiones Spearhead y Breakthrough.",
+          "Compatible con recursos, guiones y multijugador del original.",
+          "Windows, Linux y macOS, incluidos sistemas ARM."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. Requiere una instalación propia; también admite las demos gratuitas.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*OpenMoHAA*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "sonic-mania-decompilation",
+      "title": "Sonic Mania (Decompilation)",
+      "original_platforms": [
+        "PC",
+        "PlayStation 4",
+        "Xbox One",
+        "Nintendo Switch"
+      ],
+      "release_year": 2017,
+      "developer": "PagodaWest Games / Headcannon / Sonic Team",
+      "synopsis": "Sonic, Tails y Knuckles vuelven a las plataformas 2D con zonas clásicas y nuevas.",
+      "box_art_url": "https://multimedia.bbycastatic.ca/multimedia/products/1500x1500/143/14379/14379711.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "sonic-mania-decompilation",
+        "name": "Sonic Mania Decompilation",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "Sonic-Mania-Decompilation",
+          "owner": "RSDKModding",
+          "provider": "github",
+          "url": "https://github.com/RSDKModding/Sonic-Mania-Decompilation"
+        },
+        "requires_original_assets": true,
+        "author": "RSDKModding",
+        "author_avatar_url": "https://github.com/RSDKModding.png",
+        "port_art_url": "https://multimedia.bbycastatic.ca/multimedia/products/1500x1500/143/14379/14379711.jpg",
+        "features": [
+          "Decompilación completa en C del juego y del motor Retro Engine v5.",
+          "Cargador de mods integrado y builds multiplataforma.",
+          "Requiere recursos de una copia oficial de Sonic Mania."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. La edición de Netflix no es compatible.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*Sonic Mania Decompilation*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "mortal-kombat-shaolin-monks-recomp",
+      "title": "Mortal Kombat: Shaolin Monks Recomp",
+      "original_platforms": [
+        "Xbox"
+      ],
+      "release_year": 2005,
+      "developer": "Midway Studios Los Angeles",
+      "synopsis": "Liu Kang y Kung Lao se enfrentan a las fuerzas de Outworld en una aventura de acción cooperativa.",
+      "box_art_url": "https://oaleextraducoes.com/img/Posts/Mortal-Kombat-Shaolin-Monks/Xbox/%28Xbox%29-Mortal-Kombat-Shaolin-Monks-2005.webp",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "shaolin-monks-recomp",
+        "name": "Shaolin Monks Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "ShaolinMonksRecomp",
+          "owner": "OAleex",
+          "provider": "github",
+          "url": "https://github.com/OAleex/ShaolinMonksRecomp"
+        },
+        "requires_original_assets": true,
+        "author": "OAleex",
+        "author_avatar_url": "https://github.com/OAleex.png",
+        "port_art_url": "https://oaleextraducoes.com/img/Posts/Mortal-Kombat-Shaolin-Monks/Xbox/%28Xbox%29-Mortal-Kombat-Shaolin-Monks-2005.webp",
+        "features": [
+          "Recompilación estática nativa de la versión Xbox.",
+          "Campaña completa terminable según su autor; quedan fallos gráficos menores.",
+          "Windows con Direct3D 12 y Linux con Vulkan."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. Requiere la versión estadounidense de Xbox; los juegos extra del disco no funcionan.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*Shaolin Monks Recomp*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "ratchet-and-clank-rac-rs",
+      "title": "Ratchet & Clank (rac-rs)",
+      "original_platforms": [
+        "PlayStation 2"
+      ],
+      "release_year": 2002,
+      "developer": "Insomniac Games",
+      "synopsis": "Ratchet y Clank emprenden una aventura para detener al presidente Drek y salvar la galaxia.",
+      "box_art_url": "",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "rac-rs",
+        "name": "rac-rs",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "rac-rs",
+          "owner": "AsobiCodes",
+          "provider": "github",
+          "url": "https://github.com/AsobiCodes/rac-rs"
+        },
+        "requires_original_assets": true,
+        "author": "AsobiCodes",
+        "author_avatar_url": "https://github.com/AsobiCodes.png",
+        "port_art_url": "",
+        "features": [
+          "Port nativo para Windows en Rust, con recompilación estática y núcleo propio.",
+          "Se puede terminar desde el arranque hasta los créditos, incluida Nueva partida+.",
+          "Cámara configurable, mandos y mejoras gráficas opcionales."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. Requiere imagen propia PAL v1.00 (SCES-50916) o NTSC-U v1.00 (SCUS-97199).",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*rac-rs*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "wwe-smackdown-vs-raw-2007-recomp",
+      "title": "WWE SmackDown vs. Raw 2007 Recomp",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2006,
+      "developer": "Yuke's / THQ",
+      "synopsis": "Simulador de lucha libre con temporadas, creación de luchadores y múltiples tipos de combate.",
+      "box_art_url": "",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "svr07-recomp",
+        "name": "SVR07 Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "SVR07-Recomp",
+          "owner": "HollywoodAkeem",
+          "provider": "github",
+          "url": "https://github.com/HollywoodAkeem/SVR07-Recomp"
+        },
+        "requires_original_assets": true,
+        "author": "HollywoodAkeem",
+        "author_avatar_url": "https://github.com/HollywoodAkeem.png",
+        "port_art_url": "",
+        "features": [
+          "Recompilación estática de Xbox 360 para Windows.",
+          "Menús, temporada, creación de luchadores y guardados reportados funcionales a 60 FPS.",
+          "Salida gráfica escalable hasta 4K."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. El mantenedor menciona cierres gráficos ocasionales. Requiere datos extraídos de una copia propia de Xbox 360.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*SVR07 Recomp*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "serial-experiments-lain",
+      "title": "Serial Experiments Lain",
+      "original_platforms": [
+        "PlayStation"
+      ],
+      "release_year": 1998,
+      "developer": "Pioneer LDC / Production I.G",
+      "synopsis": "Aventura narrativa experimental ambientada en el universo de Serial Experiments Lain.",
+      "box_art_url": "",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "lain-psx-decompiled",
+        "name": "Serial Experiments Lain PC",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "lain-psx-decompiled",
+          "owner": "Y0oshi",
+          "provider": "github",
+          "url": "https://github.com/Y0oshi/lain-psx-decompiled"
+        },
+        "requires_original_assets": true,
+        "author": "Y0oshi",
+        "author_avatar_url": "https://github.com/Y0oshi.png",
+        "port_art_url": "",
+        "features": [
+          "Decompilación de PS1 con cliente nativo para Windows, macOS y Linux.",
+          "Requiere los datos del disco original; no se redistribuye el juego."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. Necesita los datos de tu propia copia de PS1.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*Serial Experiments Lain PC*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "dead-rising-2-case-west",
+      "title": "Dead Rising 2: Case West",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2010,
+      "developer": "Capcom Vancouver",
+      "synopsis": "Chuck Greene y Frank West investigan un centro de investigación infestado de zombis.",
+      "box_art_url": "",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "dead-rising-2-case-west-recomp",
+        "name": "Dead Rising 2: Case West Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "Dead_Rising_2_Case_West_Xenon_Recomp",
+          "owner": "wivi514",
+          "provider": "github",
+          "url": "https://github.com/wivi514/Dead_Rising_2_Case_West_Xenon_Recomp"
+        },
+        "requires_original_assets": true,
+        "author": "wivi514",
+        "author_avatar_url": "https://github.com/wivi514.png",
+        "port_art_url": "",
+        "features": [
+          "Recompilación estática de Xbox 360 con renderizador Vulkan y audio XMA.",
+          "Campaña completa terminable y cooperativo en línea para dos mediante XenonLive.",
+          "Windows, Linux, Steam Deck y macOS Apple Silicon."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. El proyecto está en mantenimiento; requiere el paquete del juego de Xbox 360.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*Dead Rising 2: Case West Recomp*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "splatterhouse-2010-recomp",
+      "title": "Splatterhouse (2010) Recompiled",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2010,
+      "developer": "Namco Bandai Games / BottleRocket Entertainment",
+      "synopsis": "Rick busca rescatar a Jennifer mientras una máscara sobrenatural lo transforma en un arma viviente.",
+      "box_art_url": "",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "splatterhouse-recompiled",
+        "name": "Splatterhouse Recompiled",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "splatterhouse-decomp",
+          "owner": "0c0de",
+          "provider": "github",
+          "url": "https://github.com/0c0de/splatterhouse-decomp"
+        },
+        "requires_original_assets": true,
+        "author": "0c0de",
+        "author_avatar_url": "https://github.com/0c0de.png",
+        "port_art_url": "",
+        "features": [
+          "Recompilación estática de Xbox 360 para Windows.",
+          "Campaña y DLC jugables de principio a fin según el autor.",
+          "Mejoras de rendimiento y pantalla panorámica."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. La versión 0.3 mejoró rendimiento; requiere una copia propia de Xbox 360.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*Splatterhouse Recompiled*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "jet-force-gemini-recomp",
+      "title": "Jet Force Gemini (TK22-26)",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "release_year": 1999,
+      "developer": "Rare",
+      "synopsis": "Juno y su equipo combaten a Mizar y liberan a los Tribals en una aventura de acción.",
+      "box_art_url": "",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "jetforcegemini-recomp",
+        "name": "Jet Force Gemini: Recompiled",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "JetForceGemini-Recomp",
+          "owner": "TK22-26",
+          "provider": "github",
+          "url": "https://github.com/TK22-26/JetForceGemini-Recomp"
+        },
+        "requires_original_assets": true,
+        "author": "TK22-26",
+        "author_avatar_url": "https://github.com/TK22-26.png",
+        "port_art_url": "",
+        "features": [
+          "Recompilación nativa para Windows x64 con N64Recomp.",
+          "Campaña completa, multijugador local y contenido opcional jugables.",
+          "Requiere ROM estadounidense propia en formato .z64."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. La v1 permite terminar la campaña; no se incluye la ROM.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*Jet Force Gemini: Recompiled*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "50-cent-blood-on-the-sand",
+      "title": "50 Cent: Blood on the Sand",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2009,
+      "developer": "Swordfish Studios",
+      "synopsis": "50 Cent y su equipo buscan recuperar un cráneo robado en una campaña de acción cooperativa.",
+      "box_art_url": "",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "skullburglar",
+        "name": "Skullburglar",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "skullburglar",
+          "owner": "nlwstein",
+          "provider": "github",
+          "url": "https://github.com/nlwstein/skullburglar"
+        },
+        "requires_original_assets": true,
+        "author": "nlwstein",
+        "author_avatar_url": "https://github.com/nlwstein.png",
+        "port_art_url": "",
+        "features": [
+          "Recompilación estática de Xbox 360 para Windows, Linux, macOS Apple Silicon y Steam Deck.",
+          "Campaña completa probada y renderizador Vulkan nativo.",
+          "Controles de teclado y ratón; juego cooperativo en red local."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. La ficha registra recorridos completos de las nueve misiones. Requiere el disco original de Xbox 360.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*Skullburglar*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "super-mario-bros-lost-levels",
+      "title": "Super Mario Bros. / The Lost Levels (SMB Vanilla)",
+      "original_platforms": [
+        "Nintendo Entertainment System",
+        "Famicom Disk System"
+      ],
+      "release_year": 1985,
+      "developer": "Nintendo",
+      "synopsis": "Super Mario Bros. y The Lost Levels reimplementados con fidelidad a los originales.",
+      "box_art_url": "",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "smb-vanilla",
+        "name": "SMB Vanilla",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "SMB-Vanilla",
+          "owner": "nukep",
+          "provider": "github",
+          "url": "https://github.com/nukep/SMB-Vanilla"
+        },
+        "requires_original_assets": true,
+        "author": "nukep",
+        "author_avatar_url": "https://github.com/nukep.png",
+        "port_art_url": "",
+        "features": [
+          "Decompilación C con port Windows/Linux sobre SDL3.",
+          "Ambos juegos se pueden completar; The Lost Levels requiere su ROM de Famicom Disk System.",
+          "No incluye recursos del juego."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. Requiere ROM propia; algunos detalles de audio de The Lost Levels no están implementados.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*SMB Vanilla*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "need-for-speed-2-se",
+      "title": "Need for Speed II: Special Edition (NFSIISE)",
+      "original_platforms": [
+        "PC"
+      ],
+      "release_year": 1997,
+      "developer": "EA Canada",
+      "synopsis": "Carreras arcade por circuitos internacionales, con coches exóticos y modos de competición.",
+      "box_art_url": "",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "nfs-iise",
+        "name": "NFSIISE",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "NFSIISE",
+          "owner": "zaps166",
+          "provider": "github",
+          "url": "https://github.com/zaps166/NFSIISE"
+        },
+        "requires_original_assets": true,
+        "author": "zaps166",
+        "author_avatar_url": "https://github.com/zaps166.png",
+        "port_art_url": "",
+        "features": [
+          "Port multiplataforma para Windows, Linux, macOS y Android.",
+          "Reconstruye el código original y conserva compatibilidad con sus datos.",
+          "Requiere Need for Speed II: Special Edition; la edición estándar no sirve."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. Requiere copiar los datos del CD original de Special Edition.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*NFSIISE*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "prince-of-persia-2-shadow-flame",
+      "title": "Prince of Persia 2: The Shadow and the Flame",
+      "original_platforms": [
+        "PC (DOS)"
+      ],
+      "release_year": 1993,
+      "developer": "Broderbund",
+      "synopsis": "El príncipe busca regresar a Persia tras ser expulsado de su reino.",
+      "box_art_url": "",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "prince-of-persia-2-windows",
+        "name": "Prince of Persia 2 Recompiled",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "prince-of-persia-2-windows",
+          "owner": "Supermedo",
+          "provider": "github",
+          "url": "https://github.com/Supermedo/prince-of-persia-2-windows"
+        },
+        "requires_original_assets": true,
+        "author": "Supermedo",
+        "author_avatar_url": "https://github.com/Supermedo.png",
+        "port_art_url": "",
+        "features": [
+          "Recompilación estática de PRINCE.EXE de DOS a C y runtime nativo para Windows.",
+          "Los 14 niveles, escenas, finales y guardados funcionan como en DOS.",
+          "OpenGL, mandos y puntos de control opcionales."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. Requiere datos propios de DOS, incluidos PRINCE.EXE y los archivos .DAT.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*Prince of Persia 2 Recompiled*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "nba-street-v3",
+      "title": "NBA Street V3",
+      "original_platforms": [
+        "PlayStation 2"
+      ],
+      "release_year": 2005,
+      "developer": "EA Canada",
+      "synopsis": "Baloncesto callejero 3 contra 3 con jugadas espectaculares y equipos de leyendas.",
+      "box_art_url": "",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "street-recomp-v3",
+        "name": "NBA Street V3 Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "street-recomp-v3",
+          "owner": "recomp-code",
+          "provider": "github",
+          "url": "https://github.com/recomp-code/street-recomp-v3"
+        },
+        "requires_original_assets": true,
+        "author": "recomp-code",
+        "author_avatar_url": "https://github.com/recomp-code.png",
+        "port_art_url": "",
+        "features": [
+          "Port nativo de PS2 para Windows y macOS Apple Silicon, con renderer PCSX2.",
+          "Modos del juego reportados completos y juego en línea mediante servidor comunitario.",
+          "La preparación para Windows descarga herramientas y recompila desde ISO propia."
+        ],
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. Requiere ISO estadounidense propia (SLUS-21126).",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*NBA Street V3 Recomp*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
     }
   ],
   "schema_version": 2,
