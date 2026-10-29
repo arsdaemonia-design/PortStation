@@ -1,5 +1,5 @@
 {
-  "catalog_version": "2.6.6",
+  "catalog_version": "2.6.9",
   "games": [
     {
       "artwork": {
@@ -95,7 +95,14 @@
           "url": "https://github.com/TwilitRealm/dusklight"
         },
         "requires_original_assets": true,
-        "technical_notes": "Port nativo para PC basado en la decompilación completa de GameCube."
+        "technical_notes": "Port nativo para PC basado en la decompilación completa de GameCube.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": false
       },
       "release_year": 2006,
       "sub_games": null,
@@ -197,7 +204,13 @@
           "url": "https://github.com/open-goal/jak-project"
         },
         "requires_original_assets": true,
-        "technical_notes": "Decompilación del lenguaje GOAL (Game Oriented Assembly Lisp) a C++ nativo."
+        "technical_notes": "Decompilación del lenguaje GOAL (Game Oriented Assembly Lisp) a C++ nativo.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       },
       "release_year": 2001,
       "sub_games": [
@@ -324,7 +337,12 @@
           "url": "https://github.com/florinp93/hells-gate-recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Port nativo generado mediante recompilación estática del ejecutable original de Xbox 360."
+        "technical_notes": "Port nativo generado mediante recompilación estática del ejecutable original de Xbox 360.",
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
       },
       "release_year": 2010,
       "sub_games": null,
@@ -424,7 +442,12 @@
           "url": "https://github.com/novapowers0/BloodyRoar2Recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Port para PC basado en decompilación y recompilación estática de la versión NTSC-U."
+        "technical_notes": "Port para PC basado en decompilación y recompilación estática de la versión NTSC-U.",
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": true
       },
       "release_year": 1999,
       "sub_games": null,
@@ -525,7 +548,12 @@
           "url": "https://github.com/novapowers0/DBZ-Budokai-3-HD-Collection"
         },
         "requires_original_assets": true,
-        "technical_notes": "Port para PC extraído del ejecutable nativo de Budokai HD Collection."
+        "technical_notes": "Port para PC extraído del ejecutable nativo de Budokai HD Collection.",
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": true
       },
       "release_year": 2004,
       "sub_games": null,
@@ -626,7 +654,12 @@
           "url": "https://github.com/psxrestore/Condemned2Recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Port nativo para PC generado con recompiler estático para arquitecturas Xenon PowerPC."
+        "technical_notes": "Port nativo para PC generado con recompiler estático para arquitecturas Xenon PowerPC.",
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
       },
       "release_year": 2008,
       "sub_games": null,
@@ -727,7 +760,13 @@
           "url": "https://github.com/nikolaygorb/ArmyOfTwoRecomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Port para PC ensamblado desde el ejecutable xex recompiled."
+        "technical_notes": "Port para PC ensamblado desde el ejecutable xex recompiled.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       },
       "release_year": 2008,
       "sub_games": null,
@@ -827,7 +866,14 @@
           "url": "https://github.com/bryanthaboi/gen1recomp"
         },
         "requires_original_assets": false,
-        "technical_notes": "Port nativo basado en el desensamblado exacto de Game Freak para Z80/SM83."
+        "technical_notes": "Port nativo basado en el desensamblado exacto de Game Freak para Z80/SM83.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": false
       },
       "release_year": 1996,
       "sub_games": null,
@@ -927,7 +973,13 @@
           "url": "https://github.com/akratch/goldenballoon"
         },
         "requires_original_assets": true,
-        "technical_notes": "Port nativo para PC basado en la decompilación de Nintendo 64."
+        "technical_notes": "Port nativo para PC basado en la decompilación de Nintendo 64.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       },
       "release_year": 1997,
       "sub_games": null,
@@ -1026,7 +1078,12 @@
           "url": "https://github.com/linkssy2/RoadRash64Recompiled"
         },
         "requires_original_assets": true,
-        "technical_notes": "Port nativo para PC generado mediante N64 Recomp."
+        "technical_notes": "Port nativo para PC generado mediante N64 Recomp.",
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": true
       },
       "release_year": 1999,
       "sub_games": null,
@@ -1127,7 +1184,12 @@
           "url": "https://github.com/jackpoison-prog/RingOut"
         },
         "requires_original_assets": true,
-        "technical_notes": "Port nativo compilado con dolrecomp a partir de ISO GameCube (GRSEAF)."
+        "technical_notes": "Port nativo compilado con dolrecomp a partir de ISO GameCube (GRSEAF).",
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
       },
       "release_year": 2003,
       "sub_games": null,
@@ -1227,7 +1289,13 @@
           "url": "https://github.com/new-coke/strikers"
         },
         "requires_original_assets": true,
-        "technical_notes": "Port nativo para PC con backend WebGPU Dawn y configurador Qt6."
+        "technical_notes": "Port nativo para PC con backend WebGPU Dawn y configurador Qt6.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       },
       "release_year": 2005,
       "sub_games": null,
@@ -1327,7 +1395,13 @@
           "url": "https://github.com/Matteo842/CrashBandicoot-Launcher"
         },
         "requires_original_assets": true,
-        "technical_notes": "Port nativo generado a partir del ejecutable MIPS de PS1 mediante recompilación estática."
+        "technical_notes": "Port nativo generado a partir del ejecutable MIPS de PS1 mediante recompilación estática.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "android"
+        ],
+        "supported_platforms_complete": true
       },
       "release_year": 1996,
       "sub_games": null,
@@ -1429,7 +1503,13 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       },
       "release_year": 1996,
       "sub_games": null,
@@ -1530,7 +1610,13 @@
           "url": "https://github.com/HarbourMasters/Shipwright"
         },
         "requires_original_assets": true,
-        "technical_notes": "Port nativo para PC basado en la decompilación completa de OoT N64."
+        "technical_notes": "Port nativo para PC basado en la decompilación completa de OoT N64.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       },
       "release_year": 1998,
       "sub_games": null,
@@ -1632,7 +1718,13 @@
         },
         "requires_original_assets": true,
         "technical_notes": "Port nativo para PC de Majora's Mask basado en decompilación.",
-        "repository_url": "https://github.com/2ship2harkinian/2ship2harkinian"
+        "repository_url": "https://github.com/2ship2harkinian/2ship2harkinian",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       },
       "release_year": 2000,
       "sub_games": null,
@@ -1732,7 +1824,13 @@
           "url": "https://github.com/BanjoRecomp/BanjoRecomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Port nativo de Banjo-Kazooie generado con N64 Recomp."
+        "technical_notes": "Port nativo de Banjo-Kazooie generado con N64 Recomp.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       },
       "release_year": 1998,
       "sub_games": null,
@@ -1834,7 +1932,13 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       },
       "release_year": 2000,
       "sub_games": null,
@@ -1934,7 +2038,12 @@
           "url": "https://github.com/BlackLabelHQ/SymphonyRecomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Port para PC ensamblado desde el binario original de PS1."
+        "technical_notes": "Port para PC ensamblado desde el binario original de PS1.",
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": true
       },
       "release_year": 1997,
       "sub_games": null,
@@ -1998,7 +2107,12 @@
           "url": "https://github.com/Rainchus/Donkey-Kong-64-Recompiled"
         },
         "requires_original_assets": true,
-        "technical_notes": "Requiere una ROM legal de Donkey Kong 64 (USA); el proyecto no incluye los datos del juego. Campaña jugable; multijugador local experimental/no funcional según PCGamingWiki."
+        "technical_notes": "Requiere una ROM legal de Donkey Kong 64 (USA); el proyecto no incluye los datos del juego. Campaña jugable; multijugador local experimental/no funcional según PCGamingWiki.",
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": true
       },
       "release_year": 1999,
       "sub_games": null,
@@ -2062,7 +2176,13 @@
           "url": "https://github.com/HarbourMasters/Starship"
         },
         "requires_original_assets": true,
-        "technical_notes": "Requiere una ROM compatible de Star Fox 64 para generar los assets del juego. La release Barnard Alfa v2.0.0 está publicada; sigue en desarrollo activo."
+        "technical_notes": "Requiere una ROM compatible de Star Fox 64 para generar los assets del juego. La release Barnard Alfa v2.0.0 está publicada; sigue en desarrollo activo.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": false
       },
       "release_year": 1997,
       "sub_games": null,
@@ -2127,7 +2247,13 @@
           "url": "https://github.com/HarbourMasters/SpaghettiKart"
         },
         "requires_original_assets": true,
-        "technical_notes": "Requiere la ROM compatible USA de Mario Kart 64; la release Bolognese Alfa v1.0.0 está publicada. Es un proyecto distinto de Diddy Kong Racing/Golden Balloon."
+        "technical_notes": "Requiere la ROM compatible USA de Mario Kart 64; la release Bolognese Alfa v1.0.0 está publicada. Es un proyecto distinto de Diddy Kong Racing/Golden Balloon.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       },
       "release_year": 1996,
       "sub_games": null,
@@ -2191,7 +2317,13 @@
           "url": "https://github.com/RevoSucks/BM64Recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Release v1.0.0 publicada. Requiere ROM USA legal; el repositorio y sus releases no incluyen los assets originales. PCGamingWiki lo clasifica como jugable."
+        "technical_notes": "Release v1.0.0 publicada. Requiere ROM USA legal; el repositorio y sus releases no incluyen los assets originales. PCGamingWiki lo clasifica como jugable.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": false
       },
       "release_year": 1997,
       "sub_games": null,
@@ -2241,7 +2373,12 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -2287,7 +2424,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -2333,7 +2474,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -2379,7 +2524,12 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -2426,7 +2576,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -2472,7 +2626,12 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -2508,7 +2667,9 @@
           "folder_patterns": [],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -2555,7 +2716,14 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -2599,7 +2767,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -2645,7 +2817,12 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -2691,7 +2868,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -2731,7 +2912,11 @@
           "folder_patterns": [],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -2771,7 +2956,11 @@
           "folder_patterns": [],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -2815,7 +3004,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -2855,7 +3048,13 @@
           "folder_patterns": [],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -2895,7 +3094,11 @@
           "folder_patterns": [],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -2935,7 +3138,12 @@
           "folder_patterns": [],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -2975,7 +3183,11 @@
           "folder_patterns": [],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -3020,7 +3232,12 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -3065,7 +3282,13 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -3111,7 +3334,13 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -3156,7 +3385,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -3203,7 +3436,12 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -3248,7 +3486,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -3292,7 +3534,14 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -3341,7 +3590,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -3388,7 +3641,12 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -3437,7 +3695,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -3485,7 +3747,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -3531,7 +3797,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -3580,7 +3850,12 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -3625,7 +3900,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -3671,7 +3950,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -3716,7 +3999,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -3761,7 +4048,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -3806,7 +4097,13 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -3850,7 +4147,12 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -3896,7 +4198,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -3942,7 +4248,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -3986,7 +4296,12 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4032,7 +4347,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4077,7 +4396,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "linux"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4122,7 +4445,12 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4168,7 +4496,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4208,7 +4540,13 @@
           "folder_patterns": [],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4254,7 +4592,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4299,7 +4641,12 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "android"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4343,7 +4690,12 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4389,7 +4741,13 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4434,7 +4792,13 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4484,7 +4848,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4532,7 +4900,13 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4577,7 +4951,12 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4622,7 +5001,14 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4669,7 +5055,12 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "android"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4716,7 +5107,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4764,7 +5159,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4812,7 +5211,12 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "macos"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4858,7 +5262,12 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -4955,7 +5364,14 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": false
       },
       "release_year": 2002,
       "sub_games": null,
@@ -5055,7 +5471,14 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": false
       },
       "release_year": 2004,
       "sub_games": null,
@@ -5154,7 +5577,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       },
       "release_year": 2023,
       "sub_games": null,
@@ -5253,7 +5680,12 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "macos"
+        ],
+        "supported_platforms_complete": false
       },
       "release_year": 2002,
       "sub_games": null,
@@ -5352,7 +5784,13 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": false
       },
       "release_year": 2019,
       "sub_games": null,
@@ -5450,7 +5888,11 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "android"
+        ],
+        "supported_platforms_complete": true
       },
       "release_year": 2017,
       "sub_games": null,
@@ -5549,7 +5991,11 @@
           ],
           "known_hashes": [],
           "verified": true
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       },
       "release_year": 2023,
       "sub_games": null,
@@ -5648,7 +6094,13 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       },
       "release_year": 1991,
       "sub_games": null,
@@ -5749,7 +6201,12 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
       },
       "release_year": 2001,
       "sub_games": null,
@@ -5850,7 +6307,12 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
       },
       "release_year": 2002,
       "sub_games": null,
@@ -5897,7 +6359,13 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -5938,7 +6406,12 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -5982,7 +6455,11 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -6024,7 +6501,12 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -6067,7 +6549,13 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -6109,7 +6597,11 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -6151,7 +6643,11 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -6193,7 +6689,12 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -6235,7 +6736,13 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -6277,7 +6784,13 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -6322,7 +6835,13 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "android"
+        ],
+        "supported_platforms_complete": false
       }
     },
     {
@@ -6364,7 +6883,12 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -6406,7 +6930,11 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -6448,7 +6976,11 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -6489,7 +7021,13 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -6531,7 +7069,13 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -6573,7 +7117,11 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -6615,7 +7163,11 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -6657,7 +7209,13 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -6700,7 +7258,12 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -6742,7 +7305,14 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -6784,7 +7354,11 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": true
       }
     },
     {
@@ -6826,8 +7400,210 @@
           ],
           "known_hashes": [],
           "verified": false
-        }
+        },
+        "supported_platforms": [
+          "windows",
+          "macos"
+        ],
+        "supported_platforms_complete": true
       }
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "The Legend of Zelda: Breath of the Wild Nintendo Switch",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "The Legend of Zelda: Breath of the Wild Nintendo Switch",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "The Legend of Zelda: Breath of the Wild Nintendo Switch",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "The Legend of Zelda: Breath of the Wild Nintendo Switch",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "The Legend of Zelda: Breath of the Wild Nintendo Switch",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "The Legend of Zelda: Breath of the Wild Nintendo Switch",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "The Legend of Zelda: Breath of the Wild Nintendo Switch",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Nintendo EPD",
+      "disc_art_url": null,
+      "id": "zelda-botw-savage-wind-pc",
+      "original_platforms": [
+        "Nintendo Switch"
+      ],
+      "project": {
+        "id": "savage-wind-recomp",
+        "name": "Savage Wind Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "Savage Wind Recomp",
+          "owner": "Revivedx",
+          "provider": "github",
+          "url": "https://github.com/Revivedx/SavageWindRecomp"
+        },
+        "requires_original_assets": true,
+        "author": "Revivedx",
+        "author_avatar_url": "https://github.com/Revivedx.png",
+        "port_art_url": null,
+        "features": [
+          "Recompilación estática de Breath of the Wild para PC a partir de la versión Switch 1.9.0.",
+          "Alpha 0.3.1 (25 de octubre de 2026); Windows y Linux/Steam Deck.",
+          "Inicio y Gran Meseta jugables; el resto del juego aún requiere pruebas y puede tener errores."
+        ],
+        "technical_notes": "Proyecto experimental en alpha. El README indica que el código y parte de la ingeniería inversa se realizaron con asistencia extensa de IA. Requiere una copia propia extraída de Nintendo Switch, actualizada a 1.9.0; no incluye datos del juego. Linux tiene AppImage; Windows cuenta con hotfix 0.3.1 para algunos controladores AMD/Intel.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 2017,
+      "sub_games": null,
+      "synopsis": "Link despierta en Hyrule después de un largo sueño para recuperar sus recuerdos y detener a Ganon.",
+      "title": "The Legend of Zelda: Breath of the Wild"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "The Legend of Zelda: Breath of the Wild Wii U",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "The Legend of Zelda: Breath of the Wild Wii U",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "The Legend of Zelda: Breath of the Wild Wii U",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "The Legend of Zelda: Breath of the Wild Wii U",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "The Legend of Zelda: Breath of the Wild Wii U",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "The Legend of Zelda: Breath of the Wild Wii U",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "The Legend of Zelda: Breath of the Wild Wii U",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Nintendo EPD",
+      "disc_art_url": null,
+      "id": "zelda-botw-native-pc",
+      "original_platforms": [
+        "Wii U"
+      ],
+      "project": {
+        "id": "botw-native",
+        "name": "BotW-Native",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "BotW-Native",
+          "owner": "ryderclanky",
+          "provider": "github",
+          "url": "https://github.com/ryderclanky/BotW-Native"
+        },
+        "requires_original_assets": true,
+        "author": "ryderclanky",
+        "author_avatar_url": "https://github.com/ryderclanky.png",
+        "port_art_url": null,
+        "features": [
+          "Recompilación estática de Breath of the Wild para Windows a partir de la versión Wii U 1.5.0.",
+          "v0.1.1 (25 de octubre de 2026); ejecuta de forma nativa con renderer Vulkan.",
+          "WIP: se han probado el inicio, combate, mapa/viaje rápido y Aldea Hatelia; el juego completo no está confirmado."
+        ],
+        "technical_notes": "Proyecto WIP, no es un lanzamiento completo. Requiere Windows 10/11, GPU compatible con Vulkan 1.1 y una copia propia extraída de Breath of the Wild para Wii U USA, actualización v208/1.5.0. No incluye archivos del juego ni claves.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 2017,
+      "sub_games": null,
+      "synopsis": "Link despierta en Hyrule después de un largo sueño para recuperar sus recuerdos y detener a Ganon.",
+      "title": "The Legend of Zelda: Breath of the Wild"
     }
   ],
   "schema_version": 2,

@@ -1,14 +1,14 @@
 # PortStation
 
-Launcher y gestor de preservación de descompilaciones y ports nativos para PC (Windows, Linux / Steam Deck, Android y macOS).
+Launcher y gestor local de preservación de descompilaciones y ports nativos. La arquitectura contempla Windows, Linux / Steam Deck, Android y macOS; el paquete portable disponible actualmente es **Windows x64**. Los demás targets necesitan builds y pruebas nativas antes de considerarse distribuidos.
 
 ## Características principales
 
-- **Catálogo de Ports Oficiales:** Catálogo sincronizable remotamente con decenas de ports, recompilaciones estáticas y descompilaciones nativas de la comunidad.
+- **Catálogo curado de proyectos comunitarios:** Catálogo sincronizable remotamente con ports, recompilaciones estáticas y descompilaciones nativas.
 - **Escáner Heurístico Inteligente:** Detección automática de ejecutables, firmas y carpetas de ports.
 - **Sincronización Dinámica de Catálogo:** Actualizaciones del catálogo de juegos (`ports_db.json`) directamente desde GitHub sin requerir una nueva instalación de la app.
-- **Detección de Actualizaciones Multiplataforma:** Escaneo automático de nuevas releases del launcher en GitHub con binarios optimizados para Windows (`.exe`), Linux / Steam Deck (`.AppImage`), Android (`.apk`) y macOS (`.dmg`).
-- **Auditoría de Seguridad con VirusTotal:** Hash SHA-256 y consulta de reputación antivirus en tiempo real.
+- **Detección de Actualizaciones del Launcher:** Consulta releases de GitHub, clasifica assets por OS/arquitectura y abre la descarga seleccionada. No instala ni reemplaza la app automáticamente.
+- **Hash SHA-256 y consulta VirusTotal:** Calcula hashes locales y permite consultar la reputación de VirusTotal. Esto no verifica firma digital ni garantiza que un binario sea seguro.
 - **Personalización de Arte y Metadatos:** Carátulas, artes de disco/cartucho y notas técnicas.
 - **Navegación Total con Gamepad:** Soporte integrado para mandos Xbox, PlayStation y mandos genéricos.
 

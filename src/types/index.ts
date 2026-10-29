@@ -130,13 +130,13 @@ export interface CatalogSyncResult {
   remoteVersion: string;
   newGamesCount: number;
   updatedGamesCount: number;
-  totalGamesCount: number;
+  totalProjectsCount: number;
   message: string;
 }
 
 export interface CatalogInfo {
   catalogVersion: string;
-  totalGames: number;
+  totalProjects: number;
   officialRepoUrl: string;
 }
 

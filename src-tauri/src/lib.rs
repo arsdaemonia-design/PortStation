@@ -70,6 +70,8 @@ pub struct CatalogPortDTO {
     pub repository_url: Option<String>,
     pub features: Vec<String>,
     pub technical_notes: Option<String>,
+    pub supported_platforms: Vec<String>,
+    pub supported_platforms_complete: bool,
     pub installed: bool,
 }
 
@@ -164,7 +166,7 @@ pub struct CatalogSyncResult {
     pub remote_version: String,
     pub new_games_count: usize,
     pub updated_games_count: usize,
-    pub total_games_count: usize,
+    pub total_projects_count: usize,
     pub message: String,
 }
 
@@ -172,7 +174,7 @@ pub struct CatalogSyncResult {
 #[serde(rename_all = "camelCase")]
 pub struct CatalogInfoDTO {
     pub catalog_version: String,
-    pub total_games: usize,
+    pub total_projects: usize,
     pub official_repo_url: String,
 }
 
@@ -320,6 +322,36 @@ fn is_explorable_port(method: &PortMethod, repository_url: Option<&str>) -> bool
         && repository_url.is_some_and(|url| github_repo_api_url(url).is_ok())
 }
 
+fn is_explorable_catalog_entry(entry: &serde_json::Value) -> bool {
+    let Some(project) = entry.get("project") else {
+        return false;
+    };
+    let Some(method) = project
+        .get("method")
+        .cloned()
+        .and_then(|value| serde_json::from_value::<PortMethod>(value).ok())
+    else {
+        return false;
+    };
+    let repository_url = project
+        .get("repository_url")
+        .and_then(serde_json::Value::as_str)
+        .or_else(|| {
+            project
+                .pointer("/repository/url")
+                .and_then(serde_json::Value::as_str)
+        });
+    is_explorable_port(&method, repository_url)
+}
+
+fn is_legacy_local_only_entry(entry: &serde_json::Value) -> bool {
+    entry
+        .get("id")
+        .and_then(serde_json::Value::as_str)
+        .is_some_and(|id| id.starts_with("unidentified-"))
+        && !is_explorable_catalog_entry(entry)
+}
+
 #[tauri::command(async)]
 fn check_github_updates(
     repository_url: String,
@@ -438,6 +470,8 @@ fn list_catalog_ports(state: State<AppState>) -> Result<Vec<CatalogPortDTO>, Str
                 repository_url,
                 features: project.features,
                 technical_notes: project.technical_notes,
+                supported_platforms: project.supported_platforms,
+                supported_platforms_complete: project.supported_platforms_complete,
                 installed: installed_project_ids.contains(&project.id),
             }
         })
@@ -1028,6 +1062,18 @@ fn update_game_metadata(
     technical_notes: Option<String>,
     features: Option<Vec<String>>,
 ) -> Result<(), String> {
+    // Unknown scanned games belong to the user's private library metadata,
+    // persisted by the frontend, not to the shared Explore catalog. Only keep
+    // an unidentified entry in the local catalog when it is a real community
+    // port with a valid GitHub repository.
+    let parsed_method = serde_json::from_str::<PortMethod>(&format!("\"{}\"", method))
+        .unwrap_or(PortMethod::UNKNOWN);
+    if game_id.starts_with("unidentified-")
+        && !is_explorable_port(&parsed_method, repository_url.as_deref())
+    {
+        return Ok(());
+    }
+
     let dir = get_portstation_data_dir()?;
     let file_path = dir.join("ports_db.json");
 
@@ -1831,7 +1877,7 @@ pub fn merge_remote_catalog_json(
 
     let mut new_games_count = 0;
     let mut updated_games_count = 0;
-    let total_games;
+    let total_projects;
 
     {
         let local_games = local_val
@@ -1839,10 +1885,19 @@ pub fn merge_remote_catalog_json(
             .and_then(|g| g.as_array_mut())
             .ok_or_else(|| "El catálogo local no contiene un array 'games'".to_string())?;
 
+        // Migrate old scanner-created UNKNOWN entries out of the catalog.
+        // The original local file is backed up by sync_remote_catalog before
+        // this merged JSON is written; personal metadata remains in the UI's
+        // private custom-metadata store.
+        local_games.retain(|game| !is_legacy_local_only_entry(game));
+
         for r_game in remote_games {
             let Some(r_id) = r_game.get("id").and_then(|v| v.as_str()) else {
                 continue;
             };
+            if is_legacy_local_only_entry(r_game) {
+                continue;
+            }
             // Skip malformed remote entries so a bad push cannot corrupt local catalogs.
             let has_valid_shape = r_game.get("title").and_then(|v| v.as_str()).is_some()
                 && r_game
@@ -1924,6 +1979,49 @@ pub fn merge_remote_catalog_json(
                     }
                 }
 
+                let local_platforms_empty = l_game
+                    .pointer("/project/supported_platforms")
+                    .and_then(serde_json::Value::as_array)
+                    .map_or(true, |platforms| platforms.is_empty());
+                let remote_platforms = r_game.pointer("/project/supported_platforms");
+                let remote_platforms_known = remote_platforms
+                    .and_then(serde_json::Value::as_array)
+                    .is_some_and(|platforms| !platforms.is_empty());
+                let remote_platforms_complete = r_game
+                    .pointer("/project/supported_platforms_complete")
+                    .and_then(serde_json::Value::as_bool)
+                    == Some(true);
+                if local_platforms_empty && remote_platforms_known {
+                    if let (Some(local_project), Some(remote_platforms)) = (
+                        l_game.get_mut("project").and_then(|project| project.as_object_mut()),
+                        remote_platforms,
+                    ) {
+                        local_project.insert("supported_platforms".to_string(), remote_platforms.clone());
+                        if let Some(complete) = r_game.pointer("/project/supported_platforms_complete") {
+                            local_project.insert("supported_platforms_complete".to_string(), complete.clone());
+                        }
+                        game_updated = true;
+                    }
+                } else if remote_platforms_complete
+                    && l_game
+                        .pointer("/project/supported_platforms_complete")
+                        .and_then(serde_json::Value::as_bool)
+                        != Some(true)
+                {
+                    if let Some(local_project) =
+                        l_game.get_mut("project").and_then(|project| project.as_object_mut())
+                    {
+                        if let Some(remote_platforms) = remote_platforms {
+                            local_project.insert("supported_platforms".to_string(), remote_platforms.clone());
+                        }
+                        local_project.insert(
+                            "supported_platforms_complete".to_string(),
+                            serde_json::Value::Bool(true),
+                        );
+                        game_updated = true;
+                    }
+                }
+
                 if game_updated {
                     updated_games_count += 1;
                 }
@@ -1932,7 +2030,10 @@ pub fn merge_remote_catalog_json(
                 new_games_count += 1;
             }
         }
-        total_games = local_games.len();
+        total_projects = local_games
+            .iter()
+            .filter(|game| is_explorable_catalog_entry(game))
+            .count();
     }
 
     if let Some(obj) = local_val.as_object_mut() {
@@ -1948,7 +2049,7 @@ pub fn merge_remote_catalog_json(
         updated_json,
         new_games_count,
         updated_games_count,
-        total_games,
+        total_projects,
         local_version,
         remote_version,
     ))
@@ -1974,15 +2075,19 @@ fn get_catalog_info() -> Result<CatalogInfoDTO, String> {
         .unwrap_or("2.5.2")
         .to_string();
 
-    let total_games = parsed
+    let total_projects = parsed
         .get("games")
         .and_then(|g| g.as_array())
-        .map(|arr| arr.len())
+        .map(|arr| {
+            arr.iter()
+                .filter(|game| is_explorable_catalog_entry(game))
+                .count()
+        })
         .unwrap_or(0);
 
     Ok(CatalogInfoDTO {
         catalog_version,
-        total_games,
+        total_projects,
         official_repo_url: "https://github.com/arsdaemonia-design/PortStation".to_string(),
     })
 }
@@ -2021,7 +2126,7 @@ fn sync_remote_catalog(
         embedded.to_string()
     };
 
-    let (merged_json, new_games, updated_games, total_games, local_ver, remote_ver) =
+    let (merged_json, new_games, updated_games, total_projects, local_ver, remote_ver) =
         merge_remote_catalog_json(&local_json, &remote_json)?;
 
     let status = if new_games > 0 || updated_games > 0 || local_ver != remote_ver {
@@ -2043,7 +2148,7 @@ fn sync_remote_catalog(
         )
     } else {
         format!(
-            "El catálogo ya está actualizado en la versión v{}.",
+            "El catálogo remoto ya está actualizado en la versión v{}.",
             local_ver
         )
     };
@@ -2054,7 +2159,7 @@ fn sync_remote_catalog(
         remote_version: remote_ver,
         new_games_count: new_games,
         updated_games_count: updated_games,
-        total_games_count: total_games,
+        total_projects_count: total_projects,
         message,
     })
 }
@@ -2287,6 +2392,8 @@ mod tests {
                     "title": "My Custom Title",
                     "box_art_url": null,
                     "project": {
+                        "method": "PORT",
+                        "repository": { "url": "https://github.com/example/existing-game" },
                         "detection": {
                             "executables": [],
                             "folder_patterns": [],
@@ -2325,6 +2432,7 @@ mod tests {
                     "project": {
                         "id": "brand-new-game",
                         "method": "PORT",
+                        "repository": { "url": "https://github.com/example/brand-new-game" },
                         "detection": {
                             "executables": ["new.exe"],
                             "folder_patterns": ["*New*"],

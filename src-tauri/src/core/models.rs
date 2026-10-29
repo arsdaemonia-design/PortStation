@@ -78,6 +78,10 @@ pub struct Project {
     pub features: Vec<String>,
     pub technical_notes: Option<String>,
     #[serde(default)]
+    pub supported_platforms: Vec<String>,
+    #[serde(default)]
+    pub supported_platforms_complete: bool,
+    #[serde(default)]
     pub detection: DetectionRule,
 }
 

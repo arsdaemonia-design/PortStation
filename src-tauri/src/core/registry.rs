@@ -53,6 +53,10 @@ struct DbProjectEntry {
     pub features: Vec<String>,
     pub technical_notes: Option<String>,
     #[serde(default)]
+    pub supported_platforms: Vec<String>,
+    #[serde(default)]
+    pub supported_platforms_complete: bool,
+    #[serde(default)]
     pub detection: DetectionRule,
 }
 
@@ -115,6 +119,8 @@ impl EmbeddedSeedRegistry {
                         port_art_url: entry.project.port_art_url,
                         features: entry.project.features,
                         technical_notes: entry.project.technical_notes,
+                        supported_platforms: entry.project.supported_platforms,
+                        supported_platforms_complete: entry.project.supported_platforms_complete,
                         detection: entry.project.detection,
                     };
                     games.insert(game.id.clone(), game);
@@ -149,6 +155,12 @@ fn merge_missing_seed_entries(user_json: &str, seed_json: &str) -> String {
         let Some(seed_id) = seed_game.get("id").and_then(serde_json::Value::as_str) else {
             continue;
         };
+        if let Some(existing) = user_games
+            .iter_mut()
+            .find(|game| game.get("id").and_then(serde_json::Value::as_str) == Some(seed_id))
+        {
+            merge_platform_support(existing, seed_game);
+        }
         let exists = user_games
             .iter()
             .any(|game| game.get("id").and_then(serde_json::Value::as_str) == Some(seed_id));
@@ -237,6 +249,38 @@ fn merge_missing_seed_entries(user_json: &str, seed_json: &str) -> String {
     }
 
     serde_json::to_string(&user_catalog).unwrap_or_else(|_| user_json.to_string())
+}
+
+fn merge_platform_support(existing: &mut serde_json::Value, seed: &serde_json::Value) {
+    let (Some(existing_project), Some(seed_project)) = (
+        existing.get_mut("project").and_then(serde_json::Value::as_object_mut),
+        seed.pointer("/project").and_then(serde_json::Value::as_object),
+    ) else {
+        return;
+    };
+    let local_platforms_empty = existing_project
+        .get("supported_platforms")
+        .and_then(serde_json::Value::as_array)
+        .map_or(true, |platforms| platforms.is_empty());
+    let seed_platforms = seed_project.get("supported_platforms");
+    if local_platforms_empty
+        && seed_platforms
+            .and_then(serde_json::Value::as_array)
+            .is_some_and(|platforms| !platforms.is_empty())
+    {
+        if let Some(platforms) = seed_platforms {
+            existing_project.insert("supported_platforms".to_string(), platforms.clone());
+        }
+        if let Some(complete) = seed_project.get("supported_platforms_complete") {
+            existing_project.insert("supported_platforms_complete".to_string(), complete.clone());
+        }
+    } else if seed_project
+        .get("supported_platforms_complete")
+        .and_then(serde_json::Value::as_bool)
+        == Some(true)
+    {
+        existing_project.insert("supported_platforms_complete".to_string(), serde_json::Value::Bool(true));
+    }
 }
 
 fn repair_stale_port_entry(

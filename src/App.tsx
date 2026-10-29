@@ -95,6 +95,8 @@ interface CatalogPort {
   repositoryUrl?: string | null;
   features: string[];
   technicalNotes?: string | null;
+  supportedPlatforms: string[];
+  supportedPlatformsComplete: boolean;
   installed: boolean;
 }
 
@@ -108,6 +110,12 @@ type CatalogSortOption =
   | 'installed-first';
 
 type CatalogStatusFilter = 'all' | 'installed' | 'available';
+type CatalogTargetFilter =
+  | 'all'
+  | 'multiplatform'
+  | 'windows' | 'android' | 'linux' | 'macos'
+  | 'windows-only' | 'android-only' | 'linux-only' | 'macos-only'
+  | 'unknown';
 
 interface DownloadedCatalogZip {
   path: string;
@@ -281,6 +289,7 @@ export const App: React.FC = () => {
     return 'alpha-asc';
   });
   const [catalogPlatformFilter, setCatalogPlatformFilter] = useState<string>('all');
+  const [catalogTargetFilter, setCatalogTargetFilter] = useState<CatalogTargetFilter>('all');
   const [catalogStatusFilter, setCatalogStatusFilter] = useState<CatalogStatusFilter>('all');
   const [roots, setRoots] = useState<ScanRoot[]>(() => {
     try {
@@ -1344,6 +1353,27 @@ export const App: React.FC = () => {
     return Array.from(map.entries()).sort((a, b) => a[0].localeCompare(b[0], 'es'));
   }, [catalogPorts]);
 
+  const catalogTargetFilterCounts = React.useMemo(() => {
+    const supported = (os: string) => catalogPorts.filter((port) => port.supportedPlatforms?.includes(os)).length;
+    const only = (os: string) => catalogPorts.filter((port) =>
+      port.supportedPlatformsComplete &&
+      port.supportedPlatforms?.length === 1 &&
+      port.supportedPlatforms[0] === os
+    ).length;
+    return {
+      multiplatform: catalogPorts.filter((port) => (port.supportedPlatforms?.length ?? 0) > 1).length,
+      windows: supported('windows'),
+      android: supported('android'),
+      linux: supported('linux'),
+      macos: supported('macos'),
+      windowsOnly: only('windows'),
+      androidOnly: only('android'),
+      linuxOnly: only('linux'),
+      macosOnly: only('macos'),
+      unknown: catalogPorts.filter((port) => !port.supportedPlatforms?.length).length,
+    };
+  }, [catalogPorts]);
+
   const filteredCatalogPorts = React.useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
     const result = catalogPorts.filter((port) => {
@@ -1366,6 +1396,18 @@ export const App: React.FC = () => {
           .map((s) => s.trim().toLowerCase())
           .includes(catalogPlatformFilter.toLowerCase());
         if (!matchesPlat) return false;
+      }
+
+      // 2b. Target OS filter. "Only" categories require a complete platform list;
+      // unknown or partial metadata must never be presented as Windows-only, etc.
+      const supportedPlatforms = port.supportedPlatforms ?? [];
+      if (catalogTargetFilter === 'multiplatform' && supportedPlatforms.length < 2) return false;
+      if (catalogTargetFilter === 'unknown' && supportedPlatforms.length > 0) return false;
+      if (['windows', 'android', 'linux', 'macos'].includes(catalogTargetFilter)
+        && !supportedPlatforms.includes(catalogTargetFilter)) return false;
+      if (catalogTargetFilter.endsWith('-only')) {
+        const onlyOs = catalogTargetFilter.slice(0, -5);
+        if (!port.supportedPlatformsComplete || supportedPlatforms.length !== 1 || supportedPlatforms[0] !== onlyOs) return false;
       }
 
       // 3. Status filter
@@ -1418,7 +1460,7 @@ export const App: React.FC = () => {
     }
 
     return result;
-  }, [catalogPorts, searchQuery, catalogPlatformFilter, catalogStatusFilter, catalogSort]);
+  }, [catalogPorts, searchQuery, catalogPlatformFilter, catalogTargetFilter, catalogStatusFilter, catalogSort]);
 
   // Find banner hero info for active filter (both corporate + console logos)
   const getActiveBannerInfo = () => {
@@ -2226,7 +2268,7 @@ export const App: React.FC = () => {
                       {/* Platform Filter */}
                       <div className="explore-filter-item">
                         <Layers size={14} color="#bc8cff" />
-                        <label htmlFor="catalog-platform-select" style={{ fontWeight: 600, color: '#e2e8f0' }}>Plataforma:</label>
+                          <label htmlFor="catalog-platform-select" style={{ fontWeight: 600, color: '#e2e8f0' }}>Consola original:</label>
                         <select
                           id="catalog-platform-select"
                           className="explore-select"
@@ -2239,6 +2281,31 @@ export const App: React.FC = () => {
                               {plat} ({count})
                             </option>
                           ))}
+                        </select>
+                      </div>
+
+                      {/* Target OS filter */}
+                      <div className="explore-filter-item">
+                        <Monitor size={14} color="#7ee787" />
+                        <label htmlFor="catalog-target-select" style={{ fontWeight: 600, color: '#e2e8f0' }}>Corre en:</label>
+                        <select
+                          id="catalog-target-select"
+                          className="explore-select"
+                          value={catalogTargetFilter}
+                          onChange={(e) => setCatalogTargetFilter(e.target.value as CatalogTargetFilter)}
+                          title="Filtra por sistemas de destino declarados para el port"
+                        >
+                          <option value="all">Todos los sistemas</option>
+                          <option value="multiplatform">Multiplataforma ({catalogTargetFilterCounts.multiplatform})</option>
+                          <option value="windows">Compatible con Windows ({catalogTargetFilterCounts.windows})</option>
+                          <option value="windows-only">Solo Windows ({catalogTargetFilterCounts.windowsOnly})</option>
+                          <option value="android">Compatible con Android ({catalogTargetFilterCounts.android})</option>
+                          <option value="android-only">Solo Android ({catalogTargetFilterCounts.androidOnly})</option>
+                          <option value="linux">Compatible con Linux / SteamOS ({catalogTargetFilterCounts.linux})</option>
+                          <option value="linux-only">Solo Linux ({catalogTargetFilterCounts.linuxOnly})</option>
+                          <option value="macos">Compatible con macOS ({catalogTargetFilterCounts.macos})</option>
+                          <option value="macos-only">Solo macOS ({catalogTargetFilterCounts.macosOnly})</option>
+                          <option value="unknown">Sin datos de sistema ({catalogTargetFilterCounts.unknown})</option>
                         </select>
                       </div>
 
@@ -2271,13 +2338,14 @@ export const App: React.FC = () => {
                     {/* Results Count & Reset */}
                     <div className="explore-results-badge">
                       <span>Mostrando <strong style={{ color: '#f0f6fc' }}>{filteredCatalogPorts.length}</strong> de {catalogPorts.length} ports</span>
-                      {(catalogSort !== 'alpha-asc' || catalogPlatformFilter !== 'all' || catalogStatusFilter !== 'all' || searchQuery.trim()) && (
+                      {(catalogSort !== 'alpha-asc' || catalogPlatformFilter !== 'all' || catalogTargetFilter !== 'all' || catalogStatusFilter !== 'all' || searchQuery.trim()) && (
                         <button
                           type="button"
                           className="explore-reset-btn"
                           onClick={() => {
                             setCatalogSort('alpha-asc');
                             setCatalogPlatformFilter('all');
+                            setCatalogTargetFilter('all');
                             setCatalogStatusFilter('all');
                             setSearchQuery('');
                             try {
@@ -3932,7 +4000,7 @@ export const App: React.FC = () => {
                       Catálogo: v{catalogInfo?.catalogVersion ?? '2.5.2'}
                     </span>
                     <span className="chip-latest" style={{ background: 'rgba(52, 211, 153, 0.1)', color: '#a7f3d0' }}>
-                      {catalogInfo?.totalGames ?? catalogPorts.length ?? 54} juegos
+                      {catalogInfo?.totalProjects ?? catalogPorts.length ?? 0} proyectos en Explorar
                     </span>
                   </div>
                 </div>
