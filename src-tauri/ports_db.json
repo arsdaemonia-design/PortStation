@@ -1,5 +1,5 @@
 {
-  "catalog_version": "2.6.2",
+  "catalog_version": "2.6.4",
   "games": [
     {
       "artwork": {
@@ -4486,6 +4486,1376 @@
           "verified": true
         }
       }
+    },
+    {
+      "id": "skate-3",
+      "title": "Skate 3",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2010,
+      "developer": "EA Black Box",
+      "synopsis": "Conviértete en leyenda del skate en Port Carverton, completa desafíos, crea parques y comparte sesiones con otros skaters.",
+      "box_art_url": "https://www.powerupgaming.ca/cdn/shop/products/127424_front.jpg?v=1733171607&width=905",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "skate3recomp",
+        "name": "Skate 3 Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "skate3recomp",
+          "owner": "mchughalex",
+          "provider": "github",
+          "url": "https://github.com/mchughalex/skate3recomp"
+        },
+        "requires_original_assets": true,
+        "author": "mchughalex",
+        "author_avatar_url": "https://github.com/mchughalex.png",
+        "port_art_url": "https://www.powerupgaming.ca/cdn/shop/products/127424_front.jpg?v=1733171607&width=905",
+        "features": [
+          "Recompilación estática de la versión Xbox 360 mediante ReXGlue",
+          "Compilaciones para Windows y Linux; macOS ARM es experimental",
+          "Desde v2.0.0 ofrece renderer nativo Direct3D 12/Vulkan además del renderer anterior",
+          "Resolución alta, ultrawide y tasa de cuadros desbloqueada"
+        ],
+        "technical_notes": "El repositorio confirma skate3.exe en Windows y skate3 en Linux. La build macOS es experimental. El renderer nativo incorporado en v2.0.0 sigue en evolución y el mantenedor advierte que no ha validado toda la campaña con ese renderer.",
+        "detection": {
+          "executables": [
+            "skate3.exe",
+            "skate3"
+          ],
+          "folder_patterns": [
+            "*Skate 3*",
+            "*Skate3Recomp*",
+            "*skate3recomp*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "sonic-unleashed",
+      "title": "Sonic Unleashed",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2008,
+      "developer": "Sonic Team",
+      "synopsis": "Sonic debe recuperar las Esmeraldas del Caos y salvar el mundo, alternando entre veloces niveles diurnos y combates nocturnos como el Werehog.",
+      "box_art_url": "https://i5.walmartimages.com/asr/b340b310-4c45-46f6-a3f4-f5b05e06c851.8e9cf1dd653eac65c6a8e3282031429a.jpeg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "unleashed-recomp",
+        "name": "Unleashed Recompiled",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "UnleashedRecomp",
+          "owner": "hedge-dev",
+          "provider": "github",
+          "url": "https://github.com/hedge-dev/UnleashedRecomp"
+        },
+        "requires_original_assets": true,
+        "author": "hedge-dev / Unleashed Recompiled team",
+        "author_avatar_url": "https://github.com/hedge-dev.png",
+        "port_art_url": "https://i5.walmartimages.com/asr/b340b310-4c45-46f6-a3f4-f5b05e06c851.8e9cf1dd653eac65c6a8e3282031429a.jpeg",
+        "features": [
+          "Recompilación estática del código PowerPC de Xbox 360",
+          "Windows y Linux; compatibilidad con Steam Deck mediante Linux/Proton",
+          "Alta resolución, ultrawide, tasas de cuadros elevadas y mods",
+          "Utiliza XenonRecomp y XenosRecomp para el código de CPU y shaders"
+        ],
+        "technical_notes": "El repositorio oficial confirma builds para Windows y Linux. macOS no está soportado oficialmente ni forma parte de la hoja de ruta actual. Requiere los archivos de una copia propia de Xbox 360 y la actualización del título compatible. El nombre exacto del ejecutable de la release no quedó confirmado en la documentación consultada; se deja la detección como pendiente en lugar de adivinar un nombre de archivo.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*Sonic Unleashed*",
+            "*UnleashedRecomp*",
+            "*Unleashed Recompiled*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "burnout-revenge",
+      "title": "Burnout Revenge",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2006,
+      "developer": "Criterion Games",
+      "synopsis": "Carreras arcade agresivas en las que el tráfico, los derribos y los choques espectaculares forman parte de la competición.",
+      "box_art_url": "https://www.retrospiel.com/media/image/product/36751/lg/burnout-revenge-eu-ovp-neuwertiger-sammlerzustand-xbox-360.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "xerenge-burnout-revenge",
+        "name": "Xerenge",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "Xerenge",
+          "owner": "shipa-2",
+          "provider": "github",
+          "url": "https://github.com/shipa-2/Xerenge"
+        },
+        "requires_original_assets": true,
+        "author": "shipa-2",
+        "author_avatar_url": "https://github.com/shipa-2.png",
+        "port_art_url": "https://www.retrospiel.com/media/image/product/36751/lg/burnout-revenge-eu-ovp-neuwertiger-sammlerzustand-xbox-360.png",
+        "features": [
+          "Recompilación estática PowerPC a C++ mediante ReXGlue, sin intérprete de CPU ni JIT",
+          "Windows y Linux; también se documentan Android y macOS Apple Silicon",
+          "Modos Race y Crash, repeticiones, pantalla panorámica, vídeo y audio funcionales",
+          "El mantenedor declara jugables de principio a fin las versiones retail europea y estadounidense compatibles"
+        ],
+        "technical_notes": "El repositorio declara pruebas de principio a fin para las versiones retail Europa y Estados Unidos concretas (no para betas ni otras regiones). Requiere Vulkan y archivos extraídos de una copia propia. El nombre del ejecutable final de Windows no queda explícito en el README revisado; la detección queda marcada como pendiente de validar y usa patrones de carpeta.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*Burnout Revenge*",
+            "*Xerenge*",
+            "*burnout-revenge*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "gears-of-war-2",
+      "title": "Gears of War 2",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2008,
+      "developer": "Epic Games",
+      "synopsis": "Marcus Fenix y el escuadrón Delta luchan contra la amenaza Locust en una campaña de acción en tercera persona.",
+      "box_art_url": "https://cdn.awsli.com.br/800x800/1919/1919257/produto/295579204/gearsofwar2-1-v1wqnb8jtv.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "gears-of-war-2-pc-recomp",
+        "name": "Gears of War 2 PC Port",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "gears-of-war-2-pc-port",
+          "owner": "santiquiroz",
+          "provider": "github",
+          "url": "https://github.com/santiquiroz/gears-of-war-2-pc-port"
+        },
+        "requires_original_assets": true,
+        "author": "santiquiroz",
+        "author_avatar_url": "https://github.com/santiquiroz.png",
+        "port_art_url": "https://cdn.awsli.com.br/800x800/1919/1919257/produto/295579204/gearsofwar2-1-v1wqnb8jtv.jpg",
+        "features": [
+          "Recompilación estática para Windows x64 con runtime gráfico híbrido ReXGlue",
+          "Release Windows; APK Android ARM64 experimental",
+          "Controles actuales, ajustes gráficos, caché de shaders y opciones de escalado",
+          "Trabajo cooperativo/System Link en desarrollo y probado por el proyecto"
+        ],
+        "technical_notes": "Repositorio consultado el 29 de octubre de 2026: la release más reciente visible es v0.3.8. El ejecutable de Windows confirmado es gow2.exe; la APK Android es experimental y separada. Requiere archivos de una copia propia. La campaña completa no se declara validada de principio a fin.",
+        "detection": {
+          "executables": [
+            "gow2.exe"
+          ],
+          "folder_patterns": [
+            "*Gears of War 2*",
+            "*gears-of-war-2-pc-port*",
+            "*gow2*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "gears-of-war-3",
+      "title": "Gears of War 3",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2011,
+      "developer": "Epic Games",
+      "synopsis": "La escuadra Delta busca sobrevivir mientras la humanidad se enfrenta a los Locust y a una nueva amenaza en Sera.",
+      "box_art_url": "https://i5.walmartimages.com/asr/bbb4bbe7-8c6b-44b1-b12d-0a469aae53b3.3961ed43f2f3ea0341a97d3006e4ac9c.jpeg?odnBg=FFFFFF&odnHeight=768&odnWidth=768",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "gears-of-war-3-recomp",
+        "name": "Gears of War 3 Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "gears-of-war-3-recomp",
+          "owner": "Flippage",
+          "provider": "github",
+          "url": "https://github.com/Flippage/gears-of-war-3-recomp"
+        },
+        "requires_original_assets": true,
+        "author": "Flippage",
+        "author_avatar_url": "https://github.com/Flippage.png",
+        "port_art_url": "https://i5.walmartimages.com/asr/bbb4bbe7-8c6b-44b1-b12d-0a469aae53b3.3961ed43f2f3ea0341a97d3006e4ac9c.jpeg?odnBg=FFFFFF&odnHeight=768&odnWidth=768",
+        "features": [
+          "Recompilación estática PowerPC a Windows x64 mediante ReXGlue",
+          "Renderer Direct3D 12 y Vulkan en evolución",
+          "Opciones de FSR, resolución interna superior y tasa de cuadros desbloqueada",
+          "System Link entre instancias y mejoras para teclado, ratón y mandos"
+        ],
+        "technical_notes": "Release para Windows 10/11 x64. El README indica que el juego arranca y se juega, pero la campaña completa sigue en prueba; Horde, Beast y Versus tampoco están suficientemente validados. El renderer nativo es una implementación parcial y puede presentar errores gráficos. Ejecutable confirmado: gow3.exe.",
+        "detection": {
+          "executables": [
+            "gow3.exe"
+          ],
+          "folder_patterns": [
+            "*Gears of War 3*",
+            "*gears-of-war-3-recomp*",
+            "*Gears3*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "gears-of-war-judgment",
+      "title": "Gears of War: Judgment",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2013,
+      "developer": "Epic Games / People Can Fly",
+      "synopsis": "Damon Baird y Kilo Squad afrontan un consejo de guerra mientras luchan por sobrevivir a una ofensiva Locust tras el Día de la Emergencia.",
+      "box_art_url": "https://i5.walmartimages.com/asr/a8a361ae-7e64-4389-be88-5af13cc2872d.36a6eb1df1ca983e5b88f072314273d0.jpeg?odnBg=FFFFFF&odnHeight=612&odnWidth=612",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "gears-judgement-recomp",
+        "name": "Gears of War: Judgment Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "gears-judgement-recomp",
+          "owner": "OverkillLabs3",
+          "provider": "github",
+          "url": "https://github.com/OverkillLabs3/gears-judgement-recomp"
+        },
+        "requires_original_assets": true,
+        "author": "OverkillLabs3",
+        "author_avatar_url": "https://github.com/OverkillLabs3.png",
+        "port_art_url": "https://i5.walmartimages.com/asr/a8a361ae-7e64-4389-be88-5af13cc2872d.36a6eb1df1ca983e5b88f072314273d0.jpeg?odnBg=FFFFFF&odnHeight=612&odnWidth=612",
+        "features": [
+          "Recompilación estática del código PowerPC de Xbox 360 para Windows x64",
+          "Controles reales de teclado y ratón, además de mandos",
+          "Límite de FPS configurable, SMAA, FSR y ajustes de calidad",
+          "Solo campaña individual; multijugador y funciones online no están implementados"
+        ],
+        "technical_notes": "Release temprana. El desarrollador indica que la campaña arranca y se puede jugar, pero las pruebas se concentran en las primeras partes. Última release comprobada en la fuente: v0.2.1. Ejecutable principal confirmado: GearsOfWarJudgment.exe.",
+        "detection": {
+          "executables": [
+            "GearsOfWarJudgment.exe",
+            "Graphics Settings.exe"
+          ],
+          "folder_patterns": [
+            "*Gears of War Judgment*",
+            "*gears-judgement-recomp*",
+            "*GearsOfWarJudgment*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "gta-vice-city-stories",
+      "title": "Grand Theft Auto: Vice City Stories",
+      "original_platforms": [
+        "PlayStation Portable"
+      ],
+      "release_year": 2006,
+      "developer": "Rockstar Leeds / Rockstar North",
+      "synopsis": "Victor Vance intenta sobrevivir a las guerras criminales de Vice City mientras construye su propio imperio en la década de 1980.",
+      "box_art_url": "https://www.instacart.com/image-server/1200x1200/www.instacart.com/assets/domains/product-image/file/large_022611a3-f9f9-4f52-a35a-c99786479004.jpeg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "vcs-native",
+        "name": "VCSNative",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "vice-city-stories-recomp",
+          "owner": "OverkillLabs3",
+          "provider": "github",
+          "url": "https://github.com/OverkillLabs3/vice-city-stories-recomp"
+        },
+        "requires_original_assets": true,
+        "author": "OverkillLabs3",
+        "author_avatar_url": "https://github.com/OverkillLabs3.png",
+        "port_art_url": "https://www.instacart.com/image-server/1200x1200/www.instacart.com/assets/domains/product-image/file/large_022611a3-f9f9-4f52-a35a-c99786479004.jpeg",
+        "features": [
+          "Recompilación estática del código PSP (MIPS/Allegrex) a C++ nativo",
+          "Windows y macOS",
+          "Esquema de teclado y ratón con movimiento de cámara, pantalla panorámica y Vulkan",
+          "SMAA/FXAA, corrección de color y paquete de texturas de alta resolución opcional"
+        ],
+        "technical_notes": "El repositorio declara una release jugable; el juego arranca y mantiene 60 FPS en el equipo de escritorio probado por su autor. Requiere una copia propia del juego y el ejecutable PSP descifrado. Ejecutables confirmados: VCSNative.exe y VCSLauncher.exe.",
+        "detection": {
+          "executables": [
+            "VCSNative.exe",
+            "VCSLauncher.exe"
+          ],
+          "folder_patterns": [
+            "*Vice City Stories*",
+            "*VCSNative*",
+            "*vice-city-stories-recomp*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "gta-liberty-city-stories",
+      "title": "Grand Theft Auto: Liberty City Stories",
+      "original_platforms": [
+        "PlayStation Portable"
+      ],
+      "release_year": 2005,
+      "developer": "Rockstar Leeds / Rockstar North",
+      "synopsis": "Toni Cipriani vuelve a Liberty City para trabajar con la familia Leone y abrirse camino en una ciudad dominada por disputas criminales.",
+      "box_art_url": "https://www.powerupgaming.ca/cdn/shop/products/Grand-Theft-Auto-Liberty-City-Stories.jpg?v=1732006621",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "lcs-recomp",
+        "name": "LCS Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "lcs-recomp",
+          "owner": "elmasas",
+          "provider": "github",
+          "url": "https://github.com/elmasas/lcs-recomp"
+        },
+        "requires_original_assets": true,
+        "author": "elmasas",
+        "author_avatar_url": "https://github.com/elmasas.png",
+        "port_art_url": "https://www.powerupgaming.ca/cdn/shop/products/Grand-Theft-Auto-Liberty-City-Stories.jpg?v=1732006621",
+        "features": [
+          "Port nativo basado en PSPRecomp y recompilación estática",
+          "Builds de Windows y Linux desde el código fuente",
+          "Vulkan en Linux y SDL2 para ventana/audio",
+          "Resolución de escritorio, ajustes de resolución interna y configuración de textura",
+          "Campaña completa no confirmada; tratar como port en desarrollo"
+        ],
+        "technical_notes": "Repositorio público actual consultado: elmasas/lcs-recomp. Recompilación estática basada en PSPRecomp; releases de Windows y builds Linux desde el código fuente. El juego llega a gameplay, pero la campaña completa no está confirmada como validada. No distribuye los archivos originales. Detección de ejecutable pendiente de verificación manual.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*Liberty City Stories*",
+            "*lcs-recomp*",
+            "*LCSRecomp*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://thumbnails.libretro.com/Nintendo%20-%20GameCube/Named_Boxarts/Metroid%20Prime%20(USA).png",
+          "disc": null,
+          "port": "https://thumbnails.libretro.com/Nintendo%20-%20GameCube/Named_Boxarts/Metroid%20Prime%20(USA).png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Metroid Prime",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Metroid Prime",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Metroid Prime",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Metroid Prime",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Metroid Prime",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Metroid Prime",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Metroid Prime",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20GameCube/Named_Boxarts/Metroid%20Prime%20(USA).png",
+      "developer": "Retro Studios / Nintendo",
+      "disc_art_url": null,
+      "id": "metroid-prime",
+      "original_platforms": [
+        "Nintendo GameCube",
+        "Wii (Metroid Prime Trilogy)"
+      ],
+      "project": {
+        "id": "metroid-prime-unbound",
+        "name": "Metroid Prime Unbound",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "MetroidPrimePort",
+          "owner": "Odrannnn",
+          "provider": "github",
+          "url": "https://github.com/Odrannnn/MetroidPrimePort"
+        },
+        "requires_original_assets": true,
+        "author": "Odrannnn",
+        "author_avatar_url": "https://github.com/Odrannnn.png",
+        "port_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20GameCube/Named_Boxarts/Metroid%20Prime%20(USA).png",
+        "features": [
+          "Port nativo de Metroid Prime basado en PrimeDecomp y Aurora (SDL3/WebGPU)",
+          "Builds disponibles para Windows, Linux y Android; macOS/iOS/iPadOS con soporte experimental o variable según build",
+          "Controles modernos, cámara dual-stick, giroscopio y controles táctiles móviles",
+          "Release v0.34.0 (26 de octubre de 2026); requiere dump propio de GameCube o Metroid Prime Trilogy"
+        ],
+        "technical_notes": "No es emulación convencional: parte de la decompilación de GameCube y renderiza a través de Aurora. Release v0.34.0. La cobertura de plataformas Apple varía por build; deben considerarse experimentales y no se afirma que la campaña completa esté validada. El repositorio no distribuye datos del juego.",
+        "detection": {
+          "executables": [
+            "metroid_prime_port.exe"
+          ],
+          "folder_patterns": [
+            "*MetroidPrimePort*",
+            "*Metroid Prime Unbound*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      },
+      "release_year": 2002,
+      "sub_games": null,
+      "synopsis": "Samus Aran explora Tallon IV y descubre las consecuencias de la sustancia mutágena Phazon en una aventura de exploración en primera persona.",
+      "title": "Metroid Prime"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://thumbnails.libretro.com/Nintendo%20-%20GameCube/Named_Boxarts/Metroid%20Prime%202%20-%20Echoes%20(USA).png",
+          "disc": null,
+          "port": "https://thumbnails.libretro.com/Nintendo%20-%20GameCube/Named_Boxarts/Metroid%20Prime%202%20-%20Echoes%20(USA).png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Metroid Prime 2: Echoes",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Metroid Prime 2: Echoes",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Metroid Prime 2: Echoes",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Metroid Prime 2: Echoes",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Metroid Prime 2: Echoes",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Metroid Prime 2: Echoes",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Metroid Prime 2: Echoes",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20GameCube/Named_Boxarts/Metroid%20Prime%202%20-%20Echoes%20(USA).png",
+      "developer": "Retro Studios / Nintendo",
+      "disc_art_url": null,
+      "id": "metroid-prime-2-echoes",
+      "original_platforms": [
+        "Nintendo GameCube",
+        "Wii (Metroid Prime Trilogy)"
+      ],
+      "project": {
+        "id": "metroid-prime-2-port",
+        "name": "Metroid Prime 2: Echoes Native Port",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "MetroidPrime2Port",
+          "owner": "Odrannnn",
+          "provider": "github",
+          "url": "https://github.com/Odrannnn/MetroidPrime2Port"
+        },
+        "requires_original_assets": true,
+        "author": "Odrannnn",
+        "author_avatar_url": "https://github.com/Odrannnn.png",
+        "port_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20GameCube/Named_Boxarts/Metroid%20Prime%202%20-%20Echoes%20(USA).png",
+        "features": [
+          "Port nativo basado en la decompilación PrimeDecomp/Echoes y Aurora (SDL3/WebGPU)",
+          "Targets declarados: Windows, Linux, macOS y Android; iOS experimental",
+          "Incluye opciones de calidad de vida y controles modernos según la build"
+        ],
+        "technical_notes": "Proyecto pre-release anunciado a finales de octubre de 2026. No marcar como completo ni asumir que todas las plataformas tienen una build estable probada; requiere una imagen propia compatible de GameCube o Metroid Prime Trilogy. No distribuye el juego.",
+        "detection": {
+          "executables": [
+            "metroid_prime2_port.exe"
+          ],
+          "folder_patterns": [
+            "*MetroidPrime2Port*",
+            "*Metroid Prime 2*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      },
+      "release_year": 2004,
+      "sub_games": null,
+      "synopsis": "Samus llega a Aether, un planeta dividido entre la luz y la oscuridad, y debe detener la amenaza de Dark Samus.",
+      "title": "Metroid Prime 2: Echoes"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Metroid Prime Remastered",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Metroid Prime Remastered",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Metroid Prime Remastered",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Metroid Prime Remastered",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Metroid Prime Remastered",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Metroid Prime Remastered",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Metroid Prime Remastered",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Retro Studios / Nintendo",
+      "disc_art_url": null,
+      "id": "metroid-prime-remastered",
+      "original_platforms": [
+        "Nintendo Switch"
+      ],
+      "project": {
+        "id": "prime-recomp",
+        "name": "PrimeRecomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "primerecomp",
+          "owner": "gminustwo",
+          "provider": "github",
+          "url": "https://github.com/gminustwo/primerecomp"
+        },
+        "requires_original_assets": true,
+        "author": "gminustwo",
+        "author_avatar_url": "https://github.com/gminustwo.png",
+        "port_art_url": null,
+        "features": [
+          "Recompilación estática de ARM64 de Nintendo Switch a C y ejecutable nativo de Windows",
+          "Renderer y servicios de sistema reimplementados para Windows/Vulkan",
+          "v0.0.1 early beta: Frigate Orpheon, Landing Site, Chozo Ruins y Magmoor Caverns probados; guardado/carga disponible"
+        ],
+        "technical_notes": "Estado publicado por el mantenedor: Windows 10/11 x64, beta temprana. La primera beta arranca, permite gameplay en varias zonas y guardar/cargar; se reportan glitches de iluminación/visor y áreas no probadas. Requiere archivos propios de Metroid Prime Remastered 1.0.0. La ficha solo declara Windows como plataforma de la release.",
+        "detection": {
+          "executables": [
+            "primerecomp.exe"
+          ],
+          "folder_patterns": [
+            "*PrimeRecomp*",
+            "*primerecomp*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      },
+      "release_year": 2023,
+      "sub_games": null,
+      "synopsis": "Remaster visual del primer Metroid Prime, con modelos y texturas rehechos y controles modernizados.",
+      "title": "Metroid Prime Remastered"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://thumbnails.libretro.com/Nintendo%20-%20GameCube/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20The%20Wind%20Waker%20(USA).png",
+          "disc": null,
+          "port": "https://thumbnails.libretro.com/Nintendo%20-%20GameCube/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20The%20Wind%20Waker%20(USA).png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "The Legend of Zelda: The Wind Waker",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "The Legend of Zelda: The Wind Waker",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "The Legend of Zelda: The Wind Waker",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "The Legend of Zelda: The Wind Waker",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "The Legend of Zelda: The Wind Waker",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "The Legend of Zelda: The Wind Waker",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "The Legend of Zelda: The Wind Waker",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20GameCube/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20The%20Wind%20Waker%20(USA).png",
+      "developer": "Nintendo EAD",
+      "disc_art_url": null,
+      "id": "the-wind-waker-gc",
+      "original_platforms": [
+        "Nintendo GameCube"
+      ],
+      "project": {
+        "id": "bluewake",
+        "name": "BlueWake",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "bluewake",
+          "owner": "chrissotraidis",
+          "provider": "github",
+          "url": "https://github.com/chrissotraidis/bluewake"
+        },
+        "requires_original_assets": true,
+        "author": "BlueWake contributors",
+        "author_avatar_url": "https://github.com/chrissotraidis.png",
+        "port_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20GameCube/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20The%20Wind%20Waker%20(USA).png",
+        "features": [
+          "Recompilación estática del Wind Waker original de GameCube",
+          "Windows listo para descargar; macOS Apple Silicon e iPhone/iPad requieren compilar la app; Apple TV experimental",
+          "Controles táctiles, soporte de mandos, mods y opciones modernas de presentación"
+        ],
+        "technical_notes": "El desarrollo continúa en el repositorio BlueWake tras la migración anunciada en octubre de 2026. El repositorio anterior conserva historial, pero las nuevas releases y reportes se dirigen a BlueWake. Requiere una copia propia compatible de Wind Waker para GameCube.",
+        "detection": {
+          "executables": [
+            "BlueWake.exe"
+          ],
+          "folder_patterns": [
+            "*BlueWake*",
+            "*Windwaker*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      },
+      "release_year": 2002,
+      "sub_games": null,
+      "synopsis": "Link emprende una aventura marítima por el Gran Mar para rescatar a su hermana y enfrentarse a Ganondorf.",
+      "title": "The Legend of Zelda: The Wind Waker"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "The Legend of Zelda: Link's Awakening (2019)",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "The Legend of Zelda: Link's Awakening (2019)",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "The Legend of Zelda: Link's Awakening (2019)",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "The Legend of Zelda: Link's Awakening (2019)",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "The Legend of Zelda: Link's Awakening (2019)",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "The Legend of Zelda: Link's Awakening (2019)",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "The Legend of Zelda: Link's Awakening (2019)",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Grezzo / Nintendo",
+      "disc_art_url": null,
+      "id": "links-awakening-2019",
+      "original_platforms": [
+        "Nintendo Switch"
+      ],
+      "project": {
+        "id": "las-recomp",
+        "name": "LAS Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "LASRecomp",
+          "owner": "peiikai",
+          "provider": "github",
+          "url": "https://github.com/peiikai/LASRecomp"
+        },
+        "requires_original_assets": true,
+        "author": "peiikai",
+        "author_avatar_url": "https://github.com/peiikai.png",
+        "port_art_url": null,
+        "features": [
+          "Recompilación estática de la versión Nintendo Switch a aplicación nativa",
+          "Windows x64, macOS Apple Silicon y Linux x64; Linux ARM64 experimental",
+          "Widescreen y randomizer; beta publicada el 26 de octubre de 2026"
+        ],
+        "technical_notes": "Beta: requiere los archivos exefs/romfs de una copia propia de Link's Awakening para Switch (1.0.0, 1.0.1 o 1.1.0). Linux ARM64 es experimental. No es un port terminado sin errores y no distribuye recursos del juego. No se asignó una URL de portada directa porque no se validó una URL de arte exacta; se dejan las fuentes de artwork para resolución posterior.",
+        "detection": {
+          "executables": [
+            "LASRecomp.exe"
+          ],
+          "folder_patterns": [
+            "*LASRecomp*",
+            "*LAS Recomp*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      },
+      "release_year": 2019,
+      "sub_games": null,
+      "synopsis": "Reimaginación con perspectiva inclinada del clásico de Game Boy: Link naufraga en la isla Koholint y debe despertar al Pez del Viento.",
+      "title": "The Legend of Zelda: Link's Awakening (2019)"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "The Legend of Zelda: Breath of the Wild",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "The Legend of Zelda: Breath of the Wild",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "The Legend of Zelda: Breath of the Wild",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "The Legend of Zelda: Breath of the Wild",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "The Legend of Zelda: Breath of the Wild",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "The Legend of Zelda: Breath of the Wild",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "The Legend of Zelda: Breath of the Wild",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Nintendo EPD",
+      "disc_art_url": null,
+      "id": "zelda-botw-android",
+      "original_platforms": [
+        "Wii U",
+        "Nintendo Switch"
+      ],
+      "project": {
+        "id": "botw-recomp-android",
+        "name": "BOTWRecompAndroid",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "BOTWRecompAndroid",
+          "owner": "mamcjr",
+          "provider": "github",
+          "url": "https://github.com/mamcjr/BOTWRecompAndroid"
+        },
+        "requires_original_assets": true,
+        "author": "mamcjr",
+        "author_avatar_url": "https://github.com/mamcjr.png",
+        "port_art_url": null,
+        "features": [
+          "Recompilación estática de la versión Switch para Android ARM64/Vulkan",
+          "v0.2.2 beta 15 (28 de octubre de 2026); gameplay desde el título hasta el mundo abierto y guardados en el dispositivo probado",
+          "Modo nativo experimental; probado en POCO F7 Ultra, Adreno 830 con controlador Turnip"
+        ],
+        "technical_notes": "Android es el único destino de aplicación declarado; los empaquetados de escritorio se discontinuaron el 22 de octubre de 2026. Beta con compatibilidad muy limitada (el mantenedor solo confirma el POCO F7 Ultra con Adreno 830/Turnip). Requiere dump propio de Breath of the Wild Switch 1.0.0, 1.6.0 o 1.8.2; no se incluye ningún recurso del juego.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [
+            "*BOTWRecompAndroid*",
+            "*BOTW Recomp*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      },
+      "release_year": 2017,
+      "sub_games": null,
+      "synopsis": "Link despierta en Hyrule después de un largo sueño para recuperar sus recuerdos y detener a Ganon.",
+      "title": "The Legend of Zelda: Breath of the Wild"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "The Legend of Zelda: Tears of the Kingdom",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "The Legend of Zelda: Tears of the Kingdom",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "The Legend of Zelda: Tears of the Kingdom",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "The Legend of Zelda: Tears of the Kingdom",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "The Legend of Zelda: Tears of the Kingdom",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "The Legend of Zelda: Tears of the Kingdom",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "The Legend of Zelda: Tears of the Kingdom",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Nintendo EPD",
+      "disc_art_url": null,
+      "id": "zelda-totk",
+      "original_platforms": [
+        "Nintendo Switch"
+      ],
+      "project": {
+        "id": "ultra-tears",
+        "name": "UltraTears",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "ultratears",
+          "owner": "kuraeow",
+          "provider": "github",
+          "url": "https://github.com/kuraeow/ultratears"
+        },
+        "requires_original_assets": true,
+        "author": "kuraeow",
+        "author_avatar_url": "https://github.com/kuraeow.png",
+        "port_art_url": null,
+        "features": [
+          "Recompilación estática de Switch ARM64 a C/x86-64 para Windows y Vulkan",
+          "Early playable: título, nueva partida, prólogo y Gran Isla Celeste probados en PC de desarrollo",
+          "30 FPS de simulación; shader compilation stutter y menús/configuración aún limitados"
+        ],
+        "technical_notes": "Proyecto temprano. El autor solo ha probado Windows 10, Ryzen y RTX 3060; Linux y Steam Deck están planeados, no soportados. Requiere dump propio de Tears of the Kingdom versión 1.4.3 (exefs/romfs). La campaña completa no está validada. No se incluye el juego ni sus archivos.",
+        "detection": {
+          "executables": [
+            "UltraTears.exe"
+          ],
+          "folder_patterns": [
+            "*UltraTears*",
+            "*ultratears*"
+          ],
+          "known_hashes": [],
+          "verified": true
+        }
+      },
+      "release_year": 2023,
+      "sub_games": null,
+      "synopsis": "Link explora Hyrule, los cielos y las profundidades utilizando nuevas habilidades para detener una amenaza ancestral.",
+      "title": "The Legend of Zelda: Tears of the Kingdom"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://thumbnails.libretro.com/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20A%20Link%20to%20the%20Past%20(USA).png",
+          "disc": null,
+          "port": "https://thumbnails.libretro.com/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20A%20Link%20to%20the%20Past%20(USA).png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "The Legend of Zelda: A Link to the Past",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "The Legend of Zelda: A Link to the Past",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "The Legend of Zelda: A Link to the Past",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "The Legend of Zelda: A Link to the Past",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "The Legend of Zelda: A Link to the Past",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "The Legend of Zelda: A Link to the Past",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "The Legend of Zelda: A Link to the Past",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20A%20Link%20to%20the%20Past%20(USA).png",
+      "developer": "Nintendo EAD",
+      "disc_art_url": null,
+      "id": "zelda-a-link-to-the-past",
+      "original_platforms": [
+        "Super Nintendo Entertainment System"
+      ],
+      "project": {
+        "id": "zelda3",
+        "name": "Zelda3 (A Link to the Past Reimplementation)",
+        "method": "PORT",
+        "repository": {
+          "name": "zelda3",
+          "owner": "snesrev",
+          "provider": "github",
+          "url": "https://github.com/snesrev/zelda3"
+        },
+        "requires_original_assets": true,
+        "author": "snesrev",
+        "author_avatar_url": "https://github.com/snesrev.png",
+        "port_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20A%20Link%20to%20the%20Past%20(USA).png",
+        "features": [
+          "Reimplementación en C del juego de SNES mediante ingeniería inversa; no es recompilación estática del código de SNES",
+          "Jugable de principio a fin según el README; requiere ROM propia para extraer recursos, luego no necesita la ROM para jugar",
+          "Opciones de widescreen, shaders, resolución vertical ampliada y audio MSU-1"
+        ],
+        "technical_notes": "El autor describe un clon reverse-engineered de Zelda 3, alrededor de 70–80k líneas de C, que reimplementa todas las partes originales y es jugable de principio a fin. El repositorio incluye solución/proyecto de Visual Studio y un script con Tiny C Compiler. No asumir soporte oficial de macOS/Android; la compilación documentada es principalmente Windows.",
+        "detection": {
+          "executables": [
+            "zelda3.exe"
+          ],
+          "folder_patterns": [
+            "*zelda3*",
+            "*A Link to the Past*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      },
+      "release_year": 1991,
+      "sub_games": null,
+      "synopsis": "Link debe despertar a los siete sabios y detener a Ganon viajando entre Hyrule y el Mundo Oscuro.",
+      "title": "The Legend of Zelda: A Link to the Past"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%202/Named_Boxarts/Grand%20Theft%20Auto%20III%20(USA).png",
+          "disc": null,
+          "port": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%202/Named_Boxarts/Grand%20Theft%20Auto%20III%20(USA).png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Grand Theft Auto III",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Grand Theft Auto III",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Grand Theft Auto III",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Grand Theft Auto III",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Grand Theft Auto III",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Grand Theft Auto III",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Grand Theft Auto III",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%202/Named_Boxarts/Grand%20Theft%20Auto%20III%20(USA).png",
+      "developer": "DMA Design / Rockstar North",
+      "disc_art_url": null,
+      "id": "gta-iii-re3",
+      "original_platforms": [
+        "Windows",
+        "PlayStation 2",
+        "Xbox"
+      ],
+      "project": {
+        "id": "hez-gta-re3-master",
+        "name": "re3 / reVC (Hezkore fork)",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "hez-gta-re3",
+          "owner": "Hezkore",
+          "provider": "github",
+          "url": "https://github.com/Hezkore/hez-gta-re3"
+        },
+        "requires_original_assets": true,
+        "author": "Hezkore",
+        "author_avatar_url": "https://github.com/Hezkore.png",
+        "port_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%202/Named_Boxarts/Grand%20Theft%20Auto%20III%20(USA).png",
+        "features": [
+          "Código fuente invertido/reconstruido de la versión PC; no es recompilación estática de PS2/Xbox",
+          "Nightlies separadas para Windows y Linux; mejoras de widescreen, cámara, framerate y opciones de renderizado",
+          "Requiere archivos originales del juego; no se distribuyen assets"
+        ],
+        "technical_notes": "Fork comunitario de re3/reVC, el repositorio original fue retirado tras una acción legal. El fork de Hezkore conserva el código reverse-engineered para las versiones PC de GTA III y Vice City y publica nightlies Windows/Linux. El README afirma builds multiplataforma x86/ARM; en este catálogo se destacan Windows/Linux, y macOS/FreeBSD deben tratarse como builds menos verificadas. No confundir con static recomp de la versión de consola. Rama correspondiente: master. Executable típico de release: re3.exe; revisar carpeta real de instalación antes de marcar detección como verificada.",
+        "detection": {
+          "executables": [
+            "re3.exe"
+          ],
+          "folder_patterns": [
+            "*GTA III*",
+            "*hez-gta-re3*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      },
+      "release_year": 2001,
+      "sub_games": null,
+      "synopsis": "Claude busca venganza en Liberty City y se abre paso en el crimen organizado tras ser traicionado durante un atraco.",
+      "title": "Grand Theft Auto III"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%202/Named_Boxarts/Grand%20Theft%20Auto%20-%20Vice%20City%20(USA)%20(v1.40).png",
+          "disc": null,
+          "port": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%202/Named_Boxarts/Grand%20Theft%20Auto%20-%20Vice%20City%20(USA)%20(v1.40).png"
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Grand Theft Auto: Vice City",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Grand Theft Auto: Vice City",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Grand Theft Auto: Vice City",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Grand Theft Auto: Vice City",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Grand Theft Auto: Vice City",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Grand Theft Auto: Vice City",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Grand Theft Auto: Vice City",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%202/Named_Boxarts/Grand%20Theft%20Auto%20-%20Vice%20City%20(USA)%20(v1.40).png",
+      "developer": "Rockstar North",
+      "disc_art_url": null,
+      "id": "gta-vice-city-revc",
+      "original_platforms": [
+        "Windows",
+        "PlayStation 2",
+        "Xbox"
+      ],
+      "project": {
+        "id": "hez-gta-re3-miami",
+        "name": "re3 / reVC (Hezkore fork)",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "hez-gta-re3",
+          "owner": "Hezkore",
+          "provider": "github",
+          "url": "https://github.com/Hezkore/hez-gta-re3"
+        },
+        "requires_original_assets": true,
+        "author": "Hezkore",
+        "author_avatar_url": "https://github.com/Hezkore.png",
+        "port_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%202/Named_Boxarts/Grand%20Theft%20Auto%20-%20Vice%20City%20(USA)%20(v1.40).png",
+        "features": [
+          "Código fuente invertido/reconstruido de la versión PC; no es recompilación estática de PS2/Xbox",
+          "Nightlies separadas para Windows y Linux; mejoras de widescreen, cámara, framerate y opciones de renderizado",
+          "Requiere archivos originales del juego; no se distribuyen assets"
+        ],
+        "technical_notes": "Fork comunitario de re3/reVC, el repositorio original fue retirado tras una acción legal. El fork de Hezkore conserva el código reverse-engineered para las versiones PC de GTA III y Vice City y publica nightlies Windows/Linux. El README afirma builds multiplataforma x86/ARM; en este catálogo se destacan Windows/Linux, y macOS/FreeBSD deben tratarse como builds menos verificadas. No confundir con static recomp de la versión de consola. Rama correspondiente: miami. Executable típico de release: reVC.exe; revisar carpeta real de instalación antes de marcar detección como verificada.",
+        "detection": {
+          "executables": [
+            "reVC.exe"
+          ],
+          "folder_patterns": [
+            "*Vice City*",
+            "*hez-gta-re3*"
+          ],
+          "known_hashes": [],
+          "verified": false
+        }
+      },
+      "release_year": 2002,
+      "sub_games": null,
+      "synopsis": "Tommy Vercetti construye su imperio criminal en Vice City, una ciudad inspirada en Miami durante los años ochenta.",
+      "title": "Grand Theft Auto: Vice City"
     }
   ],
   "schema_version": 2,
@@ -4531,7 +5901,24 @@
       "name": "PortsDR",
       "role": "project discovery; repository/platform/version references are independently validated before scanner verification",
       "url": "https://portsdr.com/"
-    }
+    },
+    "supplementary_discovery": [
+      {
+        "name": "recomp.fyi",
+        "role": "discovery and project metadata",
+        "url": "https://recomp.fyi/"
+      },
+      {
+        "name": "Recompendium",
+        "role": "curated ports, recompilations and decompositions",
+        "url": "https://recompendium.com/es/"
+      },
+      {
+        "name": "GitHub Releases",
+        "role": "primary source for release and repository verification",
+        "url": "https://github.com/"
+      }
+    ]
   },
-  "updated_at": "2026-10-21T15:00:00Z"
+  "updated_at": "2026-10-29T05:00:41Z"
 }
