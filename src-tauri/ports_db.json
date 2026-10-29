@@ -1,5 +1,5 @@
 {
-  "catalog_version": "2.6.5",
+  "catalog_version": "2.6.6",
   "games": [
     {
       "artwork": {
@@ -5866,7 +5866,7 @@
       "release_year": 1993,
       "developer": "id Software",
       "synopsis": "Doom y Doom II: combate contra demonios en Marte y el Infierno, con campañas, expansiones y mods.",
-      "box_art_url": "",
+      "box_art_url": "https://www.mobygames.com/images/covers/l/3963-doom-ii-dos-front-cover.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -5909,7 +5909,7 @@
       "release_year": 1997,
       "developer": "Midway Games / id Software",
       "synopsis": "Doomguy vuelve a enfrentarse a las fuerzas demoníacas en una campaña creada para Nintendo 64.",
-      "box_art_url": "",
+      "box_art_url": "https://cdn.mobygames.com/covers/4101102-doom-64-nintendo-64-front-cover.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -5952,7 +5952,7 @@
       "release_year": 2012,
       "developer": "id Software",
       "synopsis": "Un marine espacial combate una invasión demoníaca en la estación de investigación de Marte.",
-      "box_art_url": "",
+      "box_art_url": "https://target.scene7.com/is/image/Target/GUEST_599ad244-20f9-4e2d-90b7-4f3989ceb820",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -5994,7 +5994,7 @@
       "release_year": 2000,
       "developer": "Reflections Interactive",
       "synopsis": "Tanner y Jones persiguen una red criminal en Chicago, La Habana, Las Vegas y Río de Janeiro.",
-      "box_art_url": "",
+      "box_art_url": "https://images.launchbox-app.com/d655270f-26bf-4ae8-9cc8-8e1a71a0e329.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6037,7 +6037,7 @@
       "release_year": 1996,
       "developer": "Core Design",
       "synopsis": "Las tres primeras aventuras de Lara Croft, sus expansiones y niveles personalizados en un motor nativo moderno.",
-      "box_art_url": "https://www.mobygames.com/images/covers/l/16220-tomb-raider-playstation-front-cover.jpg",
+      "box_art_url": "https://images.launchbox-app.com/r2_ce63a786-0f91-42ab-ac7f-ed5e20e9b274.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6079,7 +6079,7 @@
       "release_year": 1996,
       "developer": "id Software",
       "synopsis": "Ranger combate a los ejércitos de Quake en una campaña de acción en primera persona.",
-      "box_art_url": "",
+      "box_art_url": "https://m.media-amazon.com/images/M/MV5BMDU2YWRlZTUtMTE3ZS00NDg4LTg3N2ItNWZjNzM1NzQwNmU5XkEyXkFqcGc%40._V1_.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6121,7 +6121,7 @@
       "release_year": 1997,
       "developer": "id Software",
       "synopsis": "El marine Bitterman combate a los Strogg en una campaña de ciencia ficción militar.",
-      "box_art_url": "",
+      "box_art_url": "https://i.ebayimg.com/images/g/VxMAAeSw9aJoGgBT/s-l1200.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6163,7 +6163,7 @@
       "release_year": 1996,
       "developer": "3D Realms",
       "synopsis": "Duke Nukem combate una invasión alienígena en Los Ángeles usando armas y escenarios interactivos.",
-      "box_art_url": "https://jogorama.com.br/arquivos/capas/25.jpg",
+      "box_art_url": "https://i.ebayimg.com/images/g/2qIAAeSwgyNookQS/s-l1200.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6205,7 +6205,7 @@
       "release_year": 1993,
       "developer": "Apogee Software / 3D Realms",
       "synopsis": "Duke escapa de los alienígenas Rigelatins y busca regresar a la Tierra.",
-      "box_art_url": "",
+      "box_art_url": "https://images.launchbox-app.com/eef4289c-3417-40cf-b179-f6f844265878.png",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6292,7 +6292,7 @@
       "release_year": 2017,
       "developer": "PagodaWest Games / Headcannon / Sonic Team",
       "synopsis": "Sonic, Tails y Knuckles vuelven a las plataformas 2D con zonas clásicas y nuevas.",
-      "box_art_url": "https://multimedia.bbycastatic.ca/multimedia/products/1500x1500/143/14379/14379711.jpg",
+      "box_art_url": "https://images.launchbox-app.com/41fdf238-9a4a-4ab5-a98b-934ef75cb4bf.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6376,7 +6376,7 @@
       "release_year": 2002,
       "developer": "Insomniac Games",
       "synopsis": "Ratchet y Clank emprenden una aventura para detener al presidente Drek y salvar la galaxia.",
-      "box_art_url": "",
+      "box_art_url": "https://images.launchbox-app.com/255725b7-ab9d-4111-84c3-98ba66ace4ac.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6418,7 +6418,7 @@
       "release_year": 2006,
       "developer": "Yuke's / THQ",
       "synopsis": "Simulador de lucha libre con temporadas, creación de luchadores y múltiples tipos de combate.",
-      "box_art_url": "",
+      "box_art_url": "https://storage.googleapis.com/images.pricecharting.com/az2s7xvum6rfzqkv/1600.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6460,7 +6460,7 @@
       "release_year": 1998,
       "developer": "Pioneer LDC / Production I.G",
       "synopsis": "Aventura narrativa experimental ambientada en el universo de Serial Experiments Lain.",
-      "box_art_url": "",
+      "box_art_url": "https://i.ebayimg.com/images/g/TDUAAOSwM6RoF-yz/s-l1200.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6501,7 +6501,7 @@
       "release_year": 2010,
       "developer": "Capcom Vancouver",
       "synopsis": "Chuck Greene y Frank West investigan un centro de investigación infestado de zombis.",
-      "box_art_url": "",
+      "box_art_url": "https://cdn.mobygames.com/covers/2279002-dead-rising-2-case-west-xbox-360-front-cover.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6543,7 +6543,7 @@
       "release_year": 2010,
       "developer": "Namco Bandai Games / BottleRocket Entertainment",
       "synopsis": "Rick busca rescatar a Jennifer mientras una máscara sobrenatural lo transforma en un arma viviente.",
-      "box_art_url": "",
+      "box_art_url": "https://i0.wp.com/1.bp.blogspot.com/-OGPApo1N_Tc/X4NKMSuKrzI/AAAAAAAAHWg/N8B1mOEOzBgEUbtGIz_9zP4eae0a-z0XACLcBGAsYHQ/s1500/Splatterhouse%2Bxbox.jpg?resize=355%2C500&ssl=1",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6585,7 +6585,7 @@
       "release_year": 1999,
       "developer": "Rare",
       "synopsis": "Juno y su equipo combaten a Mizar y liberan a los Tribals en una aventura de acción.",
-      "box_art_url": "",
+      "box_art_url": "https://cdn11.bigcommerce.com/s-ymgqt/images/stencil/1280w/products/23925/50592/jfg-----1__94201.1713200674.jpg?c=2",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6627,7 +6627,7 @@
       "release_year": 2009,
       "developer": "Swordfish Studios",
       "synopsis": "50 Cent y su equipo buscan recuperar un cráneo robado en una campaña de acción cooperativa.",
-      "box_art_url": "",
+      "box_art_url": "https://www.thevideogamecompany.com/cdn/shop/products/50-cent-blood-on-the-sand-microsoft-xbox-360-752919550953-cover-art.jpg?v=1661459885&width=1000",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6670,7 +6670,7 @@
       "release_year": 1985,
       "developer": "Nintendo",
       "synopsis": "Super Mario Bros. y The Lost Levels reimplementados con fidelidad a los originales.",
-      "box_art_url": "",
+      "box_art_url": "https://m.media-amazon.com/images/M/MV5BZDg5NGYxOGEtMTc2NC00NTZiLThjNjQtYTM3Mzg0MTBhNjFkXkEyXkFqcGc%40._V1_.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6712,7 +6712,7 @@
       "release_year": 1997,
       "developer": "EA Canada",
       "synopsis": "Carreras arcade por circuitos internacionales, con coches exóticos y modos de competición.",
-      "box_art_url": "",
+      "box_art_url": "https://cdn.mobygames.com/covers/18727587-need-for-speed-ii-se-windows-front-cover.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6754,7 +6754,7 @@
       "release_year": 1993,
       "developer": "Broderbund",
       "synopsis": "El príncipe busca regresar a Persia tras ser expulsado de su reino.",
-      "box_art_url": "",
+      "box_art_url": "https://www.mobygames.com/images/covers/l/252929-prince-of-persia-2-the-shadow-the-flame-dos-front-cover.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6796,7 +6796,7 @@
       "release_year": 2005,
       "developer": "EA Canada",
       "synopsis": "Baloncesto callejero 3 contra 3 con jugadas espectaculares y equipos de leyendas.",
-      "box_art_url": "",
+      "box_art_url": "https://images.launchbox-app.com/3baa0009-d394-44ed-ba1c-f5a71addc658.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
