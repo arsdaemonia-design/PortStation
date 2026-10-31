@@ -167,6 +167,10 @@ jobs:
           if [ ! -d "src-tauri/gen/android" ]; then
             npx tauri android init --ci --skip-targets-install
           fi
+          MANIFEST="src-tauri/gen/android/app/src/main/AndroidManifest.xml"
+          if [ -f "$MANIFEST" ] && ! grep -q "QUERY_ALL_PACKAGES" "$MANIFEST"; then
+            sed -i 's|<application|<uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />\n    <application|' "$MANIFEST"
+          fi
           npx tauri android build --apk --target aarch64 --ci
 
       - name: Sign & Package Installable Android APK

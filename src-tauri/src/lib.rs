@@ -762,13 +762,202 @@ pub fn expand_tilde_path(raw_path: &str) -> PathBuf {
     PathBuf::from(trimmed)
 }
 
+pub fn match_android_package_to_project(
+    pkg_name: &str,
+    project: &crate::core::models::Project,
+) -> bool {
+    let pkg = pkg_name
+        .trim()
+        .trim_start_matches("package:")
+        .to_ascii_lowercase();
+    if pkg.is_empty()
+        || pkg == "com.portstation.app"
+        || pkg.starts_with("com.android.")
+        || pkg.starts_with("com.google.")
+        || pkg.starts_with("android.")
+        || pkg.starts_with("com.qualcomm.")
+        || pkg.starts_with("com.samsung.")
+        || pkg.starts_with("com.sec.")
+        || pkg.starts_with("com.miui.")
+    {
+        return false;
+    }
+
+    if !project
+        .supported_platforms
+        .iter()
+        .any(|p| p.eq_ignore_ascii_case("android"))
+    {
+        return false;
+    }
+
+    let pkg_alnum: String = pkg.chars().filter(|c| c.is_ascii_alphanumeric()).collect();
+    let segments: Vec<&str> = pkg.split('.').filter(|s| !s.is_empty()).collect();
+
+    const IGNORED_SEGMENTS: [&str; 12] = [
+        "com", "org", "net", "io", "github", "gitlab", "android", "app", "game", "port", "recomp",
+        "libsdl",
+    ];
+
+    let mut project_tokens: Vec<String> = Vec::new();
+    let clean_token = |raw: &str| -> String {
+        raw.chars()
+            .filter(|c| c.is_ascii_alphanumeric())
+            .collect::<String>()
+            .to_ascii_lowercase()
+    };
+
+    let id_token = clean_token(
+        project
+            .id
+            .trim_end_matches("-port")
+            .trim_end_matches("-recomp"),
+    );
+    if id_token.len() >= 4 {
+        project_tokens.push(id_token);
+    }
+
+    if let Some(repo_name) = project.repository.as_ref().and_then(|r| r.name.as_deref()) {
+        let repo_token = clean_token(repo_name);
+        if repo_token.len() >= 4 {
+            project_tokens.push(repo_token);
+        }
+    }
+
+    for exe in &project.detection.executables {
+        let stem = exe
+            .trim_end_matches(".exe")
+            .trim_end_matches(".apk")
+            .trim_end_matches(".AppImage");
+        let exe_token = clean_token(stem);
+        if exe_token.len() >= 3 && !IGNORED_SEGMENTS.contains(&exe_token.as_str()) {
+            project_tokens.push(exe_token);
+        }
+    }
+
+    for token in &project_tokens {
+        if token.len() >= 6 && pkg_alnum.contains(token) {
+            return true;
+        }
+        if segments.iter().any(|seg| {
+            !IGNORED_SEGMENTS.contains(seg) && (*seg == token.as_str() || (token.len() >= 5 && seg.contains(token.as_str())))
+        }) {
+            return true;
+        }
+    }
+
+    false
+}
+
+#[cfg(target_os = "android")]
+fn list_installed_android_packages() -> Vec<String> {
+    let commands: [(&str, &[&str]); 3] = [
+        ("pm", &["list", "packages", "-3"]),
+        ("/system/bin/pm", &["list", "packages", "-3"]),
+        ("cmd", &["package", "list", "packages", "-3"]),
+    ];
+    for (bin, args) in commands {
+        if let Ok(output) = std::process::Command::new(bin).args(args).output() {
+            if output.status.success() {
+                let stdout = String::from_utf8_lossy(&output.stdout);
+                let pkgs: Vec<String> = stdout
+                    .lines()
+                    .filter_map(|line| line.trim().strip_prefix("package:"))
+                    .map(|s| s.trim().to_string())
+                    .filter(|s| !s.is_empty())
+                    .collect();
+                if !pkgs.is_empty() {
+                    return pkgs;
+                }
+            }
+        }
+    }
+    Vec::new()
+}
+
 #[tauri::command(async)]
 fn scan_and_match(
     root_path: String,
     state: State<AppState>,
 ) -> Result<Vec<DetectedGameDTO>, String> {
-    let scanner = LocalFileScanner::new();
     let registry = EmbeddedSeedRegistry::new();
+
+    #[cfg(target_os = "android")]
+    {
+        let _ = root_path;
+        let installed_pkgs = list_installed_android_packages();
+        let all_projects = registry.list_all_projects();
+        let mut detected = Vec::new();
+
+        for project in all_projects {
+            if let Some(matched_pkg) = installed_pkgs
+                .iter()
+                .find(|pkg| match_android_package_to_project(pkg, &project))
+            {
+                let game = registry.find_game(&project.game_id);
+                let title = game
+                    .as_ref()
+                    .map(|g| g.title.clone())
+                    .unwrap_or_else(|| project.name.clone());
+                let platform = game
+                    .as_ref()
+                    .map(|g| g.original_platforms.join(" / "))
+                    .unwrap_or_else(|| "Android".to_string());
+                let year = game.as_ref().and_then(|g| g.release_year);
+                let developer = game.as_ref().and_then(|g| g.developer.clone());
+                let synopsis = game.as_ref().and_then(|g| g.synopsis.clone());
+                let box_art_url = game.as_ref().and_then(|g| g.box_art_url.clone());
+                let disc_art_url = game.as_ref().and_then(|g| g.disc_art_url.clone());
+                let sub_games = game.as_ref().and_then(|g| g.sub_games.clone());
+
+                if let Ok(db) = state.db.lock() {
+                    let inst = Installation {
+                        id: format!("inst-{}", project.id),
+                        game_id: project.game_id.clone(),
+                        project_id: project.id.clone(),
+                        install_path: "Android APK".to_string(),
+                        executable_path: matched_pkg.clone(),
+                        version: None,
+                        status: MatchStatus::VERIFIED,
+                        sha256: None,
+                        runner: LaunchRunner::Native,
+                        custom_args: Vec::new(),
+                    };
+                    let _ = db.upsert_installation(&inst);
+                }
+
+                detected.push(DetectedGameDTO {
+                    id: project.id.clone(),
+                    title,
+                    original_platform: platform,
+                    release_year: year,
+                    developer,
+                    synopsis,
+                    box_art_url,
+                    disc_art_url,
+                    sub_games,
+                    project_title: project.name,
+                    method: project.method,
+                    status: MatchStatus::VERIFIED,
+                    author: project.author,
+                    author_avatar_url: project.author_avatar_url,
+                    port_art_url: project.port_art_url,
+                    repository_url: project.repository_url.or_else(|| {
+                        project.repository.as_ref().map(|r| r.url.clone())
+                    }),
+                    features: project.features,
+                    technical_notes: project.technical_notes,
+                    executable_path: matched_pkg.clone(),
+                    install_path: "Android APK Instalada".to_string(),
+                    sha256: None,
+                    version: None,
+                });
+            }
+        }
+        return Ok(detected);
+    }
+
+    let scanner = LocalFileScanner::new();
     let matcher = HeuristicMatcher::new(registry.list_all_projects());
 
     let root_buf = expand_tilde_path(&root_path);
@@ -1006,6 +1195,38 @@ fn launch_game(
 ) -> Result<u32, String> {
     use tauri::Emitter;
     use tauri::Manager;
+
+    #[cfg(target_os = "android")]
+    {
+        let _ = working_dir;
+        let pkg = executable_path
+            .trim()
+            .trim_start_matches("package:")
+            .to_string();
+        if pkg.is_empty()
+            || !pkg
+                .chars()
+                .all(|c| c.is_ascii_alphanumeric() || c == '.' || c == '_' || c == '-')
+        {
+            return Err(format!("Paquete de Android inválido: {}", executable_path));
+        }
+        let child = std::process::Command::new("monkey")
+            .args(["-p", &pkg, "-c", "android.intent.category.LAUNCHER", "1"])
+            .spawn()
+            .or_else(|_| {
+                std::process::Command::new("/system/bin/monkey")
+                    .args(["-p", &pkg, "-c", "android.intent.category.LAUNCHER", "1"])
+                    .spawn()
+            })
+            .map_err(|e| format!("No se pudo lanzar el APK {}: {}", pkg, e))?;
+        let pid = child.id();
+        let app_handle = app.clone();
+        std::thread::spawn(move || {
+            std::thread::sleep(std::time::Duration::from_secs(3));
+            let _ = app_handle.emit("game-exited", pid);
+        });
+        return Ok(pid);
+    }
 
     let launcher = SafeProcessLauncher::new();
     let mut child = launcher.launch_child(
@@ -1341,7 +1562,23 @@ fn open_browser(url: String) -> Result<(), String> {
             .spawn()
             .map_err(|e| e.to_string())?;
     }
-    #[cfg(all(not(target_os = "windows"), not(target_os = "macos")))]
+    #[cfg(target_os = "android")]
+    {
+        std::process::Command::new("am")
+            .args(["start", "-a", "android.intent.action.VIEW", "-d", &url])
+            .spawn()
+            .or_else(|_| {
+                std::process::Command::new("/system/bin/am")
+                    .args(["start", "-a", "android.intent.action.VIEW", "-d", &url])
+                    .spawn()
+            })
+            .map_err(|e| e.to_string())?;
+    }
+    #[cfg(all(
+        not(target_os = "windows"),
+        not(target_os = "macos"),
+        not(target_os = "android")
+    ))]
     {
         std::process::Command::new("xdg-open")
             .arg(&url)
@@ -2666,5 +2903,22 @@ mod tests {
             compare_semver_strings("windows-v1.9.2", "1.9.0"),
             "update_available"
         );
+    }
+
+    #[test]
+    fn test_match_android_package_to_project() {
+        let registry = EmbeddedSeedRegistry::new();
+        let mp2 = registry
+            .find_project("metroid-prime-2-port")
+            .expect("metroid-prime-2-port exists");
+        assert!(match_android_package_to_project(
+            "com.odrannnn.metroidprime2port",
+            &mp2
+        ));
+        assert!(!match_android_package_to_project("com.portstation.app", &mp2));
+        assert!(!match_android_package_to_project(
+            "com.android.settings",
+            &mp2
+        ));
     }
 }

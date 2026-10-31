@@ -847,9 +847,10 @@ export const App: React.FC = () => {
         setPlatformInfo(info);
         if (info.os && ['windows', 'linux', 'android', 'macos'].includes(info.os)) {
           setSelectedPlatformTab(info.os as 'windows' | 'linux' | 'android' | 'macos');
+          setCatalogTargetFilter(info.os as CatalogTargetFilter);
         }
-        if (info.os && info.os !== 'windows') {
-          const osDefaultPath = info.os === 'android' ? '/storage/emulated/0/Download' : '~/Games/Ports';
+        if (info.os && info.os !== 'windows' && info.os !== 'android') {
+          const osDefaultPath = '~/Games/Ports';
           setRoots((prev) => {
             if (prev.length === 1 && prev[0].id === 'default-root' && prev[0].path === 'E:\\Games\\Ports') {
               return [{ ...prev[0], path: osDefaultPath }];
@@ -1301,6 +1302,15 @@ export const App: React.FC = () => {
     setCatalogDownloadMessages((previous) => ({ ...previous, [port.id]: '' }));
     try {
       const downloadUrl = asset.download_url || (asset as any).browser_download_url || '';
+      if (platformInfo.os === 'android') {
+        await handleOpenBrowser(downloadUrl);
+        setCatalogDownloadMessages((previous) => ({
+          ...previous,
+          [port.id]: `Descarga enviada al gestor nativo de Android (${asset.name}). Al finalizar, toca el APK en tus notificaciones para instalarlo y pulsa «Escanear Ahora».`,
+        }));
+        setCatalogDownloaded((previous) => ({ ...previous, [port.id]: true }));
+        return;
+      }
       const targetDir = roots[0]?.path || settings.libraryPath || null;
       const result = await invoke<DownloadedCatalogZip>('download_catalog_zip', {
         projectId: port.id,
@@ -1312,13 +1322,6 @@ export const App: React.FC = () => {
       const message = `${result.path}\nSHA-256: ${result.sha256}`;
       setCatalogDownloadMessages((previous) => ({ ...previous, [port.id]: message }));
       setCatalogDownloaded((previous) => ({ ...previous, [port.id]: true }));
-      if (platformInfo.os === 'android' && result.path.startsWith('/data/')) {
-        void handleOpenBrowser(downloadUrl);
-        setCatalogDownloadMessages((previous) => ({
-          ...previous,
-          [port.id]: `${message}\n(En Android también se envió a tu carpeta pública Descargas del navegador para instalar el APK directamente).`,
-        }));
-      }
     } catch (error) {
       setCatalogDownloadMessages((previous) => ({ ...previous, [port.id]: `Falló la descarga: ${error}` }));
       setCatalogDownloaded((previous) => ({ ...previous, [port.id]: false }));
@@ -2225,22 +2228,24 @@ export const App: React.FC = () => {
               <Sparkles size={16} /> <span>Sorpréndeme</span><small>{CURIOSITIES.length}</small>
             </button>
 
-            <button
-              className="btn-crystal-action btn-crystal-anadir"
-              onClick={handleAddFolder}
-              title="Añadir carpeta de ports a la biblioteca"
-            >
-              <img
-                src="/assets/branding/buttons/2k/btn_2k_anadir_normal.png"
-                alt="Añadir Carpeta"
-                className="crystal-btn-img normal"
-              />
-              <img
-                src="/assets/branding/buttons/2k/btn_2k_anadir_hover.png"
-                alt="Añadir Carpeta"
-                className="crystal-btn-img hover"
-              />
-            </button>
+            {platformInfo.os !== 'android' && (
+              <button
+                className="btn-crystal-action btn-crystal-anadir"
+                onClick={handleAddFolder}
+                title="Añadir carpeta de ports a la biblioteca"
+              >
+                <img
+                  src="/assets/branding/buttons/2k/btn_2k_anadir_normal.png"
+                  alt="Añadir Carpeta"
+                  className="crystal-btn-img normal"
+                />
+                <img
+                  src="/assets/branding/buttons/2k/btn_2k_anadir_hover.png"
+                  alt="Añadir Carpeta"
+                  className="crystal-btn-img hover"
+                />
+              </button>
+            )}
             <button
               className={`btn-crystal-action btn-crystal-escanear ${scanning ? 'is-scanning' : ''}`}
               onClick={() => handleScanReal()}
@@ -3629,7 +3634,7 @@ export const App: React.FC = () => {
                         <div className="settings-platform-badge" style={{ justifyContent: 'center', width: '100%' }}>
                           <Sparkles size={14} /> Port Disponible para Descarga
                         </div>
-                        {catalogDownloaded[selectedCatalogPort.id] && (
+                        {catalogDownloaded[selectedCatalogPort.id] && platformInfo.os !== 'android' && (
                           <button
                             className="btn btn-secondary"
                             style={{ width: '100%', fontSize: '0.8rem', padding: '0.5rem' }}
@@ -3711,7 +3716,7 @@ export const App: React.FC = () => {
                     >
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <span>{catalogDownloadMessages[selectedCatalogPort.id]}</span>
-                        {catalogDownloaded[selectedCatalogPort.id] && (
+                        {catalogDownloaded[selectedCatalogPort.id] && platformInfo.os !== 'android' && (
                           <button
                             className="btn btn-secondary"
                             style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem', flexShrink: 0, marginLeft: '0.5rem' }}
@@ -4227,79 +4232,84 @@ export const App: React.FC = () => {
                 </div>
               </div>
 
-              <div className="settings-section">
-                <label className="settings-label">Carpetas de la Biblioteca</label>
-                <p className="settings-desc">
-                  Añade o edita una o varias carpetas. PortCave las escanea juntas (soporta rutas de Windows, Linux/WSL como <code>/mnt/e/Games</code> o <code>~/Games</code>, y Android).
-                </p>
-                <div className="settings-roots-list">
-                  {roots.map((root) => (
-                    <div className="settings-input-group settings-root-row" key={root.id}>
-                      <input
-                        type="text"
-                        className="settings-input"
-                        value={root.path}
-                        title={root.path}
-                        onChange={(e) => {
-                          const newVal = e.target.value;
-                          setRoots((prev) =>
-                            prev.map((item) => (item.id === root.id ? { ...item, path: newVal } : item))
-                          );
-                        }}
-                      />
-                      <span className="settings-root-count">{root.totalFound} juegos</span>
-                      <button
-                        className="btn btn-secondary settings-root-remove"
-                        disabled={roots.length <= 1}
-                        title={roots.length <= 1 ? 'Debe quedar al menos una carpeta' : 'Quitar carpeta de la biblioteca'}
-                        onClick={() => {
-                          if (roots.length <= 1) return;
-                          const remainingRoots = roots.filter((item) => item.id !== root.id);
-                          setRoots(remainingRoots);
-                          void handleScanReal(undefined, remainingRoots);
-                        }}
-                      >
-                        <Trash2 size={14} />
-                      </button>
-                    </div>
-                  ))}
+              {platformInfo.os === 'android' ? (
+                <div className="settings-section">
+                  <label className="settings-label">📱 Modo Android (Detección y Lanzamiento de APKs)</label>
+                  <p className="settings-desc">
+                    En Android no necesitas registrar carpetas. Cuando descargas e instalas el <code>.apk</code> de un port en tu dispositivo y pulsas <strong>Escanear Ahora</strong>, PortStation consulta los paquetes instalados en tu sistema y te permite lanzarlos directamente con tu mando.
+                  </p>
                 </div>
-                <div className="settings-input-group" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '0.5rem' }}>
-                  <input
-                    type="text"
-                    className="settings-input"
-                    style={{ flex: '1 1 200px' }}
-                    placeholder={
-                      platformInfo.os === 'android'
-                        ? 'Ej: /storage/emulated/0/Download'
-                        : platformInfo.os === 'windows'
+              ) : (
+                <div className="settings-section">
+                  <label className="settings-label">Carpetas de la Biblioteca</label>
+                  <p className="settings-desc">
+                    Añade o edita una o varias carpetas. PortCave las escanea juntas (las descargas del catálogo se guardan automáticamente en la subcarpeta <code>Descargas</code> de tu carpeta principal).
+                  </p>
+                  <div className="settings-roots-list">
+                    {roots.map((root) => (
+                      <div className="settings-input-group settings-root-row" key={root.id}>
+                        <input
+                          type="text"
+                          className="settings-input"
+                          value={root.path}
+                          title={root.path}
+                          onChange={(e) => {
+                            const newVal = e.target.value;
+                            setRoots((prev) =>
+                              prev.map((item) => (item.id === root.id ? { ...item, path: newVal } : item))
+                            );
+                          }}
+                        />
+                        <span className="settings-root-count">{root.totalFound} juegos</span>
+                        <button
+                          className="btn btn-secondary settings-root-remove"
+                          disabled={roots.length <= 1}
+                          title={roots.length <= 1 ? 'Debe quedar al menos una carpeta' : 'Quitar carpeta de la biblioteca'}
+                          onClick={() => {
+                            if (roots.length <= 1) return;
+                            const remainingRoots = roots.filter((item) => item.id !== root.id);
+                            setRoots(remainingRoots);
+                            void handleScanReal(undefined, remainingRoots);
+                          }}
+                        >
+                          <Trash2 size={14} />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="settings-input-group" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '0.5rem' }}>
+                    <input
+                      type="text"
+                      className="settings-input"
+                      style={{ flex: '1 1 200px' }}
+                      placeholder={
+                        platformInfo.os === 'windows'
                           ? 'Ej: D:\\Games\\Ports'
                           : 'Ej: ~/Games/Ports o /mnt/e/Games/Ports'
-                    }
-                    value={newFolderDraft}
-                    onChange={(e) => setNewFolderDraft(e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' && newFolderDraft.trim()) {
-                        e.preventDefault();
-                        void handleAddManualFolder(newFolderDraft);
                       }
-                    }}
-                  />
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    disabled={!newFolderDraft.trim()}
-                    onClick={() => void handleAddManualFolder(newFolderDraft)}
-                  >
-                    <FolderPlus size={14} /> Añadir ruta
-                  </button>
-                  {platformInfo.os !== 'android' && (
+                      value={newFolderDraft}
+                      onChange={(e) => setNewFolderDraft(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' && newFolderDraft.trim()) {
+                          e.preventDefault();
+                          void handleAddManualFolder(newFolderDraft);
+                        }
+                      }}
+                    />
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      disabled={!newFolderDraft.trim()}
+                      onClick={() => void handleAddManualFolder(newFolderDraft)}
+                    >
+                      <FolderPlus size={14} /> Añadir ruta
+                    </button>
                     <button type="button" className="btn btn-secondary" onClick={handleAddFolder}>
                       <FolderOpen size={14} /> Explorar carpeta...
                     </button>
-                  )}
+                  </div>
                 </div>
-              </div>
+              )}
 
               <div className="settings-section">
                 <label className="settings-label">Fondo de la Caverna (PortCave Wallpaper)</label>
