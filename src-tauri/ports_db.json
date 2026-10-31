@@ -1,5 +1,5 @@
 {
-  "catalog_version": "2.7.0",
+  "catalog_version": "2.9.0",
   "games": [
     {
       "artwork": {
@@ -1609,7 +1609,7 @@
           "url": "https://github.com/HarbourMasters/Shipwright"
         },
         "requires_original_assets": true,
-        "technical_notes": "Port nativo para PC basado en la decompilación completa de OoT N64.",
+        "technical_notes": "Port nativo para PC basado en la decompilación completa de OoT N64. Puertos móviles para Android e iOS disponibles en el repositorio linkzenic/Shipwright-Ports (https://github.com/linkzenic/Shipwright-Ports).",
         "supported_platforms": [
           "windows",
           "linux",
@@ -4811,33 +4811,36 @@
       "disc_art_url": null,
       "sub_games": null,
       "project": {
-        "id": "allgenurecomp",
-        "name": "AllGenURecomp",
+        "id": "mhgurecomp",
+        "name": "MHGURecomp",
         "method": "STATIC_RECOMP",
         "repository": {
-          "name": "AllGenURecomp",
-          "owner": "krisztsa",
+          "name": "MHGURecomp",
+          "owner": "morerokk",
           "provider": "github",
-          "url": "https://github.com/krisztsa/AllGenURecomp"
+          "url": "https://github.com/morerokk/MHGURecomp"
         },
         "requires_original_assets": true,
-        "author": "Kris´ZtS",
-        "author_avatar_url": "https://github.com/krisztsa.png",
+        "author": "morerokk",
+        "author_avatar_url": "https://github.com/morerokk.png",
         "port_art_url": "https://upload.wikimedia.org/wikipedia/en/2/23/Monster_hunter_generations_cover_art.jpg",
         "features": [
-          "Recompilación estática de código AOT de Switch a Windows x64",
+          "Recompilación estática de código AOT de Switch a Windows y Linux x64",
           "Tasa de cuadros desbloqueada de 30 hasta 240 FPS nativos",
-          "Resoluciones libres hasta 4K y soporte para monitores Ultrawide (21:9)",
-          "Multijugador local Wireless sobre IP (LAN/VPN) y misiones de aldea cooperativas",
+          "Resolución libre hasta 4K y soporte para pantallas ultrapanorámicas (Ultrawide 21:9)",
+          "Campaña completa jugable de principio a fin y misiones de aldea cooperativas",
+          "Multijugador local Wireless sobre IP (LAN/VPN) con mejoras de matchmaking en v0.11.1",
           "Soporte completo de mandos con SDL3 y control experimental de teclado y ratón",
-          "Cargador nativo de mods RomFS y plugins Forge"
+          "Cargador nativo de mods RomFS y plugins comunitarios Forge"
         ],
-        "technical_notes": "Port nativo para PC basado en la versión 1.4.0 de Nintendo Switch. Requiere los datos originales (exefs y romfs).",
+        "technical_notes": "Ranking: 1 · Más avanzado. Repositorio principal: morerokk/MHGURecomp. Versión 0.11.1 (Pre-release, 29/10/2026) con mejoras de matchmaking y correcciones; última versión estable 0.10.7. Releases: https://github.com/morerokk/MHGURecomp/releases. Requiere volcado legal de Switch (exefs y romfs).",
         "detection": {
           "executables": [
+            "MHGURecomp.exe",
             "AllGenURecomp.exe"
           ],
           "folder_patterns": [
+            "*MHGURecomp*",
             "*AllGenURecomp*",
             "*MHGU*",
             "*Monster Hunter Generations Ultimate*"
@@ -4846,7 +4849,8 @@
           "verified": true
         },
         "supported_platforms": [
-          "windows"
+          "windows",
+          "linux"
         ],
         "supported_platforms_complete": false
       }
@@ -5039,7 +5043,7 @@
           "Controles actuales, ajustes gráficos, caché de shaders y opciones de escalado",
           "Trabajo cooperativo/System Link en desarrollo y probado por el proyecto"
         ],
-        "technical_notes": "Repositorio consultado el 29 de octubre de 2026: la release más reciente visible es v0.3.8. El ejecutable de Windows confirmado es gow2.exe; la APK Android es experimental y separada. Requiere archivos de una copia propia. La campaña completa no se declara validada de principio a fin.",
+        "technical_notes": "Repositorio consultado el 29 de octubre de 2026: la release más reciente visible es v0.3.8. El ejecutable de Windows confirmado es gow2.exe; la APK Android es experimental y separada. Requiere archivos de una copia propia. La campaña completa no se declara validada de principio a fin. Website oficial: https://santiquiroz.github.io/gears-of-war-2-pc-port/.",
         "detection": {
           "executables": [
             "gow2.exe"
@@ -5536,7 +5540,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/b/ba/MetroidPrimebox.jpg",
       "developer": "Retro Studios / Nintendo",
       "disc_art_url": null,
       "id": "metroid-prime-remastered",
@@ -5556,7 +5560,7 @@
         "requires_original_assets": true,
         "author": "gminustwo",
         "author_avatar_url": "https://github.com/gminustwo.png",
-        "port_art_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/b/ba/MetroidPrimebox.jpg",
         "features": [
           "Recompilación estática de ARM64 de Nintendo Switch a C y ejecutable nativo de Windows",
           "Renderer y servicios de sistema reimplementados para Windows/Vulkan",
@@ -5743,7 +5747,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/7/74/The_Legend_of_Zelda_Link%27s_Awakening_%282019_video_game%29.jpg",
       "developer": "Grezzo / Nintendo",
       "disc_art_url": null,
       "id": "links-awakening-2019",
@@ -5763,7 +5767,7 @@
         "requires_original_assets": true,
         "author": "peiikai",
         "author_avatar_url": "https://github.com/peiikai.png",
-        "port_art_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/7/74/The_Legend_of_Zelda_Link%27s_Awakening_%282019_video_game%29.jpg",
         "features": [
           "Recompilación estática de la versión Nintendo Switch a aplicación nativa",
           "Windows x64, macOS Apple Silicon y Linux x64; Linux ARM64 experimental",
@@ -5848,7 +5852,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg",
       "developer": "Nintendo EPD",
       "disc_art_url": null,
       "id": "zelda-botw-android",
@@ -5869,7 +5873,7 @@
         "requires_original_assets": true,
         "author": "mamcjr",
         "author_avatar_url": "https://github.com/mamcjr.png",
-        "port_art_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg",
         "features": [
           "Recompilación estática de la versión Switch para Android ARM64/Vulkan",
           "v0.2.2 beta 15 (28 de octubre de 2026); gameplay desde el título hasta el mundo abierto y guardados en el dispositivo probado",
@@ -5950,7 +5954,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/f/fb/The_Legend_of_Zelda_Tears_of_the_Kingdom_cover.jpg",
       "developer": "Nintendo EPD",
       "disc_art_url": null,
       "id": "zelda-totk",
@@ -5970,7 +5974,7 @@
         "requires_original_assets": true,
         "author": "kuraeow",
         "author_avatar_url": "https://github.com/kuraeow.png",
-        "port_art_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/f/fb/The_Legend_of_Zelda_Tears_of_the_Kingdom_cover.jpg",
         "features": [
           "Recompilación estática de Switch ARM64 a C/x86-64 para Windows y Vulkan",
           "Early playable: título, nueva partida, prólogo y Gran Isla Celeste probados en PC de desarrollo",
@@ -6918,7 +6922,7 @@
           "Se puede terminar desde el arranque hasta los créditos, incluida Nueva partida+.",
           "Cámara configurable, mandos y mejoras gráficas opcionales."
         ],
-        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. Requiere imagen propia PAL v1.00 (SCES-50916) o NTSC-U v1.00 (SCUS-97199).",
+        "technical_notes": "Recompendium (https://recompendium.com/es/), revisado 2026-10-29; la ficha lo marca Totalmente jugable. Requiere datos de una copia propia salvo que se indique lo contrario. No se fijan reglas de detección hasta confirmar el ejecutable real. Requiere imagen propia PAL v1.00 (SCES-50916) o NTSC-U v1.00 (SCUS-97199). Website oficial: https://asobicodes.dev/.",
         "detection": {
           "executables": [],
           "folder_patterns": [
@@ -7459,7 +7463,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg",
       "developer": "Nintendo EPD",
       "disc_art_url": null,
       "id": "zelda-botw-savage-wind-pc",
@@ -7479,7 +7483,7 @@
         "requires_original_assets": true,
         "author": "Revivedx",
         "author_avatar_url": "https://github.com/Revivedx.png",
-        "port_art_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg",
         "features": [
           "Recompilación estática de Breath of the Wild para PC a partir de la versión Switch 1.9.0.",
           "Alpha 0.3.1 (25 de octubre de 2026); Windows y Linux/Steam Deck.",
@@ -7558,7 +7562,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg",
       "developer": "Nintendo EPD",
       "disc_art_url": null,
       "id": "zelda-botw-native-pc",
@@ -7578,7 +7582,7 @@
         "requires_original_assets": true,
         "author": "ryderclanky",
         "author_avatar_url": "https://github.com/ryderclanky.png",
-        "port_art_url": null,
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg",
         "features": [
           "Recompilación estática de Breath of the Wild para Windows a partir de la versión Wii U 1.5.0.",
           "v0.1.1 (25 de octubre de 2026); ejecuta de forma nativa con renderer Vulkan.",
@@ -7600,6 +7604,436 @@
       "sub_games": null,
       "synopsis": "Link despierta en Hyrule después de un largo sueño para recuperar sus recuerdos y detener a Ganon.",
       "title": "The Legend of Zelda: Breath of the Wild"
+    },
+    {
+      "id": "demons-souls",
+      "title": "Demon's Souls",
+      "original_platforms": [
+        "PlayStation 3"
+      ],
+      "release_year": 2009,
+      "developer": "FromSoftware",
+      "synopsis": "El reino de Boletaria sucumbe ante una espesa niebla incolora y demonios nacidos tras despertar al Anciano. Un solitario guerrero debe adentrarse en la niebla para salvar al mundo de la oscuridad eterna.",
+      "box_art_url": "https://images.openai.com/static-rsc-4/lAZg-sgKxqJboOuLgNTLcvSCnL1ISBwLE4ttJVJmNDAix4-J7RrK0RERH1cMHfHaaX8DESaKsauVSA7Y6A96t3NmpxWry2w13Q36lTk40qi-jAvsneBDFSp_ocqi6dXTF_ldnh10mrYmkF6ra7LSEJ8xw4ZolhCdmXT2afjeAWA?purpose=inline",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "demons-souls-recomp",
+        "name": "DemonsSoulsRecomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "DemonsSoulsRecomp",
+          "owner": "JonathanDC64",
+          "provider": "github",
+          "url": "https://github.com/JonathanDC64/DemonsSoulsRecomp"
+        },
+        "requires_original_assets": true,
+        "author": "JonathanDC64",
+        "author_avatar_url": "https://github.com/JonathanDC64.png",
+        "port_art_url": "https://images.openai.com/static-rsc-4/lAZg-sgKxqJboOuLgNTLcvSCnL1ISBwLE4ttJVJmNDAix4-J7RrK0RERH1cMHfHaaX8DESaKsauVSA7Y6A96t3NmpxWry2w13Q36lTk40qi-jAvsneBDFSp_ocqi6dXTF_ldnh10mrYmkF6ra7LSEJ8xw4ZolhCdmXT2afjeAWA?purpose=inline",
+        "features": [
+          "Recompilación estática nativa de PS3 a PC (Windows y Linux) sin emulador",
+          "Resoluciones nativas altas y soporte para pantallas panorámicas y ultrawide",
+          "Framerate desbloqueado con temporización de juego corregida",
+          "Controles de teclado y ratón además de mandos de PlayStation y Xbox",
+          "Menú de configuración in-game accesible con F1 o L3 + R3"
+        ],
+        "technical_notes": "Proyecto en fase Early / Alpha. Última versión registrada: llvm-linux-22.1.8-2 (25/10/2026). Requiere un volcado legal propio de la edición norteamericana de PS3 (BLUS30443). No redistribuye archivos con copyright ni firmware de Sony.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
+      }
+    },
+    {
+      "id": "super-mario-galaxy",
+      "title": "Super Mario Galaxy",
+      "original_platforms": [
+        "Wii"
+      ],
+      "release_year": 2007,
+      "developer": "Nintendo EAD Tokyo",
+      "synopsis": "Mario viaja por diferentes galaxias y planetoides gravitacionales para rescatar a la Princesa Peach de las garras de Bowser con la ayuda de Rosalina y los Destellos.",
+      "box_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Wii/Named_Boxarts/Super%20Mario%20Galaxy%20(USA).png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "nebula",
+        "name": "Nebula",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "nebula",
+          "owner": "keepvaibin",
+          "provider": "github",
+          "url": "https://github.com/keepvaibin/nebula"
+        },
+        "requires_original_assets": true,
+        "author": "keepvaibin",
+        "author_avatar_url": "https://github.com/keepvaibin.png",
+        "port_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Wii/Named_Boxarts/Super%20Mario%20Galaxy%20(USA).png",
+        "features": [
+          "Recompilación estática de PowerPC (Wii) a C++ nativo para PC",
+          "Renderizado nativo Direct3D 12 con soporte DLSS y framerate superior a 60 FPS",
+          "Soporte multiplataforma proyectado para Windows, Linux, macOS y móviles",
+          "Adaptación de controles de movimiento y puntero a mandos y teclado"
+        ],
+        "technical_notes": "Requiere archivos del juego original (ISO/RVZ). Requiere CPU con soporte AVX2 y GPU compatible con Direct3D 12.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android",
+          "ios"
+        ],
+        "supported_platforms_complete": false
+      }
+    },
+    {
+      "id": "super-mario-maker-2",
+      "title": "Super Mario Maker 2",
+      "original_platforms": [
+        "Nintendo Switch"
+      ],
+      "release_year": 2019,
+      "developer": "Nintendo EPD",
+      "synopsis": "Crea, comparte y juega niveles de Mario en múltiples estilos visuales y mecánicas desde Super Mario Bros. hasta Super Mario 3D World.",
+      "box_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Nintendo%20Switch/Named_Boxarts/Super%20Mario%20Maker%202%20(USA).png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "smm2recomp",
+        "name": "SMM2 Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "smm2recomp",
+          "owner": "smm2recomp",
+          "provider": "github",
+          "url": "https://github.com/smm2recomp/smm2recomp"
+        },
+        "requires_original_assets": true,
+        "author": "smm2recomp",
+        "author_avatar_url": "https://github.com/smm2recomp.png",
+        "port_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Nintendo%20Switch/Named_Boxarts/Super%20Mario%20Maker%202%20(USA).png",
+        "features": [
+          "Recompilación estática AArch64 (Switch) a C nativo con renderizado Vulkan/Metal",
+          "Reincorporación del modo Desafío 100 Mario clásico de SMM1",
+          "Compatibilidad con servidores comunitarios de niveles independientes y auto-alojados",
+          "Mods retro de SMM1 activables (champiñón raro, disfraces, etc.)"
+        ],
+        "technical_notes": "Requiere volcado legal propio del juego con actualización v3.0.3 y claves de sistema. No redistribuye archivos de Nintendo.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android",
+          "ios"
+        ],
+        "supported_platforms_complete": false
+      }
+    },
+    {
+      "id": "ratchet-and-clank-openrac",
+      "title": "Ratchet & Clank (OpenRAC)",
+      "original_platforms": [
+        "PlayStation 2"
+      ],
+      "release_year": 2002,
+      "developer": "Insomniac Games",
+      "synopsis": "La primera aventura galáctica de Ratchet el Lombax y el pequeño robot Clank para salvar la galaxia Solana del infame Presidente Drek.",
+      "box_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%202/Named_Boxarts/Ratchet%20%26%20Clank%20(USA).png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "openrac",
+        "name": "OpenRAC",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "OpenRAC",
+          "owner": "OpenRAC",
+          "provider": "github",
+          "url": "https://github.com/OpenRAC/OpenRAC"
+        },
+        "requires_original_assets": true,
+        "author": "OpenRAC Community",
+        "author_avatar_url": "https://github.com/OpenRAC.png",
+        "port_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%202/Named_Boxarts/Ratchet%20%26%20Clank%20(USA).png",
+        "features": [
+          "Decompilación byte-matching y port nativo en C/C++",
+          "Soporte multiplataforma para Windows, Linux, macOS y Android",
+          "Resoluciones modernas sin emulador y compatibilidad con mandos y teclado",
+          "Sitio web oficial con lanzador y herramientas en openrac.dev"
+        ],
+        "technical_notes": "Requiere imagen original del juego (ISO de PS2) para construir los assets. Website oficial: https://openrac.dev/.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": false
+      }
+    },
+    {
+      "id": "silent-hill-ps1",
+      "title": "Silent Hill",
+      "original_platforms": [
+        "PlayStation"
+      ],
+      "release_year": 1999,
+      "developer": "Team Silent / Konami Computer Entertainment Tokyo",
+      "synopsis": "Harry Mason busca desesperadamente a su hija Cheryl perdida en el misterioso y macabro pueblo de Silent Hill, envuelto en una densa niebla y pesadillas de otra realidad.",
+      "box_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation/Named_Boxarts/Silent%20Hill%20(USA).png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "silent-hill-decomp",
+        "name": "Silent Hill PC Port (Silent Hill Decomp)",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "silent-hill-decomp",
+          "owner": "SlickAmogus",
+          "provider": "github",
+          "url": "https://github.com/SlickAmogus/silent-hill-decomp"
+        },
+        "requires_original_assets": true,
+        "author": "SlickAmogus",
+        "author_avatar_url": "https://github.com/SlickAmogus.png",
+        "port_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation/Named_Boxarts/Silent%20Hill%20(USA).png",
+        "features": [
+          "Port nativo para PC basado en decompilación PSX y compatibilidad PsyCross",
+          "Tasa de cuadros desbloqueada y soporte para monitores panorámicos",
+          "Ajustes gráficos modernos: distancia de dibujado, niebla personalizada y modelos de alta resolución",
+          "Soporte para mods y quicksaves nativos"
+        ],
+        "technical_notes": "Sitio web oficial: https://sh1pc.com/. Requiere volcado propio del juego original de PS1 para preparar los datos.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
+      }
+    },
+    {
+      "id": "gta-classic-recomp",
+      "title": "Grand Theft Auto / GTA London / GTA 2",
+      "original_platforms": [
+        "PC",
+        "PlayStation"
+      ],
+      "release_year": 1997,
+      "developer": "DMA Design / Rockstar Games",
+      "synopsis": "Los títulos clásicos fundacionales con vista cenital de Grand Theft Auto (1997), las expansiones London 1969 y 1961, y GTA 2 (1999) en una metrópolis retrofuturista.",
+      "box_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation/Named_Boxarts/Grand%20Theft%20Auto%20(USA).png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "gta-pcrecomp",
+        "name": "gta (pcrecomp)",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "gta",
+          "owner": "sp00nznet",
+          "provider": "github",
+          "url": "https://github.com/sp00nznet/gta"
+        },
+        "requires_original_assets": true,
+        "author": "sp00nznet (Ned Heller)",
+        "author_avatar_url": "https://github.com/sp00nznet.png",
+        "port_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation/Named_Boxarts/Grand%20Theft%20Auto%20(USA).png",
+        "features": [
+          "Recompilación estática de ejecutables clásicos x86 de PC a código C nativo mediante el framework pcrecomp",
+          "Ejecución nativa en sistemas operativos y arquitecturas modernas de 64 bits sin emulación x86 lenta",
+          "Pipeline para GTA 1 (DMA Race 'n' Chase), packs de Londres y GTA 2"
+        ],
+        "technical_notes": "Desarrollado por Ned Heller dentro del ecosistema de toolkits de ingeniería inversa pcrecomp / sp00nznet. Requiere los archivos de instalación originales de los juegos.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
+      }
+    },
+    {
+      "id": "monster-hunter-portable-3rd-hd",
+      "title": "Monster Hunter Portable 3rd HD Ver.",
+      "original_platforms": [
+        "PlayStation Portable",
+        "PlayStation 3"
+      ],
+      "release_year": 2011,
+      "developer": "Capcom",
+      "synopsis": "Caza bestias en los serenos paisajes de la aldea Yukumo en la versión HD remasterizada para PS3/PSP, con modelados mejorados, compatibilidad de partidas y cooperativo completo.",
+      "box_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%20Portable/Named_Boxarts/Monster%20Hunter%20Portable%203rd%20(Japan)%20(v1.02).png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "yakumo",
+        "name": "Yakumo",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "Yakumo",
+          "owner": "TeamGDB",
+          "provider": "github",
+          "url": "https://github.com/TeamGDB/Yakumo"
+        },
+        "requires_original_assets": true,
+        "author": "TeamGDB",
+        "author_avatar_url": "https://github.com/TeamGDB.png",
+        "port_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%20Portable/Named_Boxarts/Monster%20Hunter%20Portable%203rd%20(Japan)%20(v1.02).png",
+        "features": [
+          "Recompilación estática de código PSP MIPS a C++ nativo (no emulación tradicional)",
+          "Backend gráfico acelerado con Vulkan y subsistema de control de baja latencia mediante SDL3",
+          "Totalmente jugable: permite jugar, guardar e importar directamente partidas originales de PSP",
+          "Multijugador local y online cooperativo integrado, además de compatibilidad con mods",
+          "Versión v0.7.5 con traducciones comunitarias, controles flexibles y mejoras cruciales de Android",
+          "Soporte multiplataforma: Windows, Linux, macOS (Apple Silicon) y Android (ARM64)"
+        ],
+        "technical_notes": "Ranking: 2 · Mayor expansión de plataformas. Website oficial: https://teamgdb.github.io/Yakumo/. Releases: https://github.com/TeamGDB/Yakumo/releases. Versión v0.7.5 (estable, 13/10/2026). Requiere volcado legal del juego original de PSP/PS3.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": false
+      }
+    },
+    {
+      "id": "monster-hunter-4-ultimate",
+      "title": "Monster Hunter 4 Ultimate",
+      "original_platforms": [
+        "Nintendo 3DS"
+      ],
+      "release_year": 2013,
+      "developer": "Capcom",
+      "synopsis": "Únete a la caravana itinerante para enfrentar al temible Gore Magala en una travesía épica que introdujo la verticalidad, el Glaive Insecto y la mecánica de monta de monstruos.",
+      "box_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Nintendo%203DS/Named_Boxarts/Monster%20Hunter%204%20Ultimate%20(USA).png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "mh4ultimatedc",
+        "name": "MH4UltimateDC",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "name": "MH4UltimateDC",
+          "owner": "CompaLarios18",
+          "provider": "github",
+          "url": "https://github.com/CompaLarios18/MH4UltimateDC"
+        },
+        "requires_original_assets": true,
+        "author": "CompaLarios18",
+        "author_avatar_url": "https://github.com/CompaLarios18.png",
+        "port_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Nintendo%203DS/Named_Boxarts/Monster%20Hunter%204%20Ultimate%20(USA).png",
+        "features": [
+          "Port nativo para PC derivado de decompilación/recompilación de código de Nintendo 3DS",
+          "Estado Phase 5 alcanzado (Playable / Jugable de principio a fin)",
+          "Compatibilidad nativa con pantallas modernas en alta resolución y tasas de refresco fluidas",
+          "Soporte completo para mandos modernos con control de cámara analógico dual",
+          "Soporte multiplataforma de escritorio: Windows, Linux y macOS"
+        ],
+        "technical_notes": "Fase 5 de desarrollo (Playable) por CompaLarios18. Proyecto de decompilación/recompilación de Nintendo 3DS para Windows, Linux y macOS. Requiere volcado de assets del juego original.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": false
+      }
+    },
+    {
+      "id": "monster-hunter-3-ultimate",
+      "title": "Monster Hunter 3 Ultimate",
+      "original_platforms": [
+        "Wii U"
+      ],
+      "release_year": 2011,
+      "developer": "Capcom",
+      "synopsis": "Caza colosos terrestres y sumérgete en batallas acuáticas en la versión definitiva de tercera generación contra bestias legendarias como el Lagiacrus y Brachydios.",
+      "box_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Wii%20U/Named_Boxarts/Monster%20Hunter%203%20Ultimate%20(USA).png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "mh3u-port",
+        "name": "mh3u-port",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "mh3u-port",
+          "owner": "glinesbdev",
+          "provider": "github",
+          "url": "https://github.com/glinesbdev/mh3u-port"
+        },
+        "requires_original_assets": true,
+        "author": "glinesbdev",
+        "author_avatar_url": "https://github.com/glinesbdev.png",
+        "port_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Wii%20U/Named_Boxarts/Monster%20Hunter%203%20Ultimate%20(USA).png",
+        "features": [
+          "Recompilación estática de código binario PowerPC de Wii U a código fuente C",
+          "Runtime nativo de alta eficiencia implementado en Rust con backend gráfico mediante wgpu",
+          "Arranque funcional, creación de cazador, exploración de aldea de Moga e inicio de misiones con audio",
+          "Soporte nativo para sistemas de 64 bits en Windows y Linux x64"
+        ],
+        "technical_notes": "Ranking: 3 · WIP jugable. En desarrollo activo sin release binario estable. Funciona específicamente con la versión estadounidense (USA) de Wii U con la actualización v32. Sin multijugador online aún y efectos visuales en optimización.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
+      }
     }
   ],
   "schema_version": 2,
@@ -7664,5 +8098,5 @@
       }
     ]
   },
-  "updated_at": "2026-10-29T05:00:41Z"
+  "updated_at": "2026-10-31T11:00:00Z"
 }
