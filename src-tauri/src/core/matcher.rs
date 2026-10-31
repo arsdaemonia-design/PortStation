@@ -21,6 +21,32 @@ pub struct HeuristicMatcher {
     projects: Vec<Project>,
 }
 
+fn is_safe_partial_exe_match(candidate_stem: &str, rule_stem: &str) -> bool {
+    if rule_stem.len() < 4 || candidate_stem == rule_stem {
+        return false;
+    }
+    if rule_stem.len() >= 6 {
+        return candidate_stem.contains(rule_stem);
+    }
+    for (idx, _) in candidate_stem.match_indices(rule_stem) {
+        let before_ok = idx == 0
+            || candidate_stem[..idx]
+                .chars()
+                .next_back()
+                .is_some_and(|c| !c.is_ascii_alphanumeric());
+        let after_idx = idx + rule_stem.len();
+        let after_ok = after_idx == candidate_stem.len()
+            || candidate_stem[after_idx..]
+                .chars()
+                .next()
+                .is_some_and(|c| !c.is_ascii_alphanumeric());
+        if before_ok && after_ok {
+            return true;
+        }
+    }
+    false
+}
+
 impl HeuristicMatcher {
     pub fn new(projects: Vec<Project>) -> Self {
         Self { projects }
@@ -72,8 +98,8 @@ impl Matcher for HeuristicMatcher {
                     break;
                 } else {
                     let base_exe = lower_exe.replace(".exe", "");
-                    if base_exe.len() > 3
-                        && lower_filename.contains(&base_exe)
+                    let candidate_stem = lower_filename.strip_suffix(".exe").unwrap_or(&lower_filename);
+                    if is_safe_partial_exe_match(candidate_stem, &base_exe)
                         && lower_filename.ends_with(".exe")
                     {
                         current_score += 60;
@@ -300,5 +326,44 @@ mod tests {
             );
             assert_eq!(result.status, MatchStatus::UNKNOWN, "{path} -> {:?}", result.matched_project_id);
         }
+    }
+    #[test]
+    fn test_short_executable_names_do_not_false_positive_on_unrelated_games() {
+        let matcher = HeuristicMatcher::default();
+        for (path, filename) in [
+            ("E:/Games/Ports/BlackMesa/BlackMesa.exe", "BlackMesa.exe"),
+            ("E:/Games/Ports/Pokemon/PokemonBlack.exe", "PokemonBlack.exe"),
+            ("E:/Games/Ports/GBA/BanjoPilotGBA.exe", "BanjoPilotGBA.exe"),
+        ] {
+            let result = matcher.evaluate_candidate(
+                &CandidateFile {
+                    path: path.to_string(),
+                    filename: filename.to_string(),
+                    size: 1,
+                    is_executable: true,
+                },
+                None,
+            );
+            assert_eq!(
+                result.status,
+                MatchStatus::UNKNOWN,
+                "{path} -> {:?}",
+                result.matched_project_id
+            );
+        }
+
+        let valid_black = matcher.evaluate_candidate(
+            &CandidateFile {
+                path: "E:/Games/Ports/BLACK/BLACK-win64.exe".to_string(),
+                filename: "BLACK-win64.exe".to_string(),
+                size: 1,
+                is_executable: true,
+            },
+            None,
+        );
+        assert_eq!(
+            valid_black.matched_project_id.as_deref(),
+            Some("black-xberecomp")
+        );
     }
 }

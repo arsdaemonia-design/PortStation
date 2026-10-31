@@ -1,5 +1,5 @@
 {
-  "catalog_version": "2.6.9",
+  "catalog_version": "2.7.0",
   "games": [
     {
       "artwork": {
@@ -1493,7 +1493,6 @@
         "detection": {
           "executables": [
             "Ghostship.exe",
-            "ghostship.exe",
             "sm64.exe"
           ],
           "folder_patterns": [
@@ -2150,8 +2149,7 @@
         "author_avatar_url": "https://github.com/HarbourMasters.png",
         "detection": {
           "executables": [
-            "Starship.exe",
-            "starship.exe"
+            "Starship.exe"
           ],
           "folder_patterns": [
             "*Starship*",
@@ -2706,7 +2704,6 @@
         "technical_notes": "Release consultada 2026-09-30: v0.2.2-beta. Netplay sigue en evolución. No se incluyen datos del juego. Falta incorporar carátula al catálogo.",
         "detection": {
           "executables": [
-            "melee.exe",
             "Melee.exe"
           ],
           "folder_patterns": [
@@ -4838,7 +4835,6 @@
         "technical_notes": "Port nativo para PC basado en la versión 1.4.0 de Nintendo Switch. Requiere los datos originales (exefs y romfs).",
         "detection": {
           "executables": [
-            "allgenurecomp.exe",
             "AllGenURecomp.exe"
           ],
           "folder_patterns": [

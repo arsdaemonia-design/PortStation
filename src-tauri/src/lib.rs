@@ -380,24 +380,29 @@ fn check_github_updates(
     let latest_version = releases.first().map(|release| release.tag_name.clone());
     let status = match (current_version.as_deref(), releases.first()) {
         (Some(current), Some(latest)) => {
-            let normalize = |version: &str| {
-                version
-                    .trim()
-                    .trim_start_matches(|c| c == 'v' || c == 'V')
-                    .to_ascii_lowercase()
-            };
-            let current_normalized = normalize(current);
-            let latest_normalized = normalize(&latest.tag_name);
-            if current_normalized == latest_normalized {
-                "up_to_date"
-            } else if releases
-                .iter()
-                .position(|release| normalize(&release.tag_name) == current_normalized)
-                .is_some_and(|position| position > 0)
-            {
-                "update_available"
+            let semver_result = compare_semver_strings(&latest.tag_name, current);
+            if semver_result != "comparison_unavailable" {
+                semver_result
             } else {
-                "comparison_unavailable"
+                let normalize = |version: &str| {
+                    version
+                        .trim()
+                        .trim_start_matches(|c| c == 'v' || c == 'V')
+                        .to_ascii_lowercase()
+                };
+                let current_normalized = normalize(current);
+                let latest_normalized = normalize(&latest.tag_name);
+                if current_normalized == latest_normalized {
+                    "up_to_date"
+                } else if releases
+                    .iter()
+                    .position(|release| normalize(&release.tag_name) == current_normalized)
+                    .is_some_and(|position| position > 0)
+                {
+                    "update_available"
+                } else {
+                    "comparison_unavailable"
+                }
             }
         }
         (Some(_), None) => "no_releases",
@@ -480,6 +485,28 @@ fn list_catalog_ports(state: State<AppState>) -> Result<Vec<CatalogPortDTO>, Str
     Ok(ports)
 }
 
+pub fn split_package_stem_and_ext(file_name: &str) -> Option<(&str, &str)> {
+    const COMPOUND_EXTENSIONS: [&str; 4] = [".tar.gz", ".tar.xz", ".tar.zst", ".tar.bz2"];
+    const SINGLE_EXTENSIONS: [&str; 9] = [
+        ".zip", ".rar", ".7z", ".tgz", ".exe", ".msi", ".appimage", ".deb", ".rpm",
+    ];
+
+    let lower = file_name.to_ascii_lowercase();
+    for ext in COMPOUND_EXTENSIONS {
+        if lower.ends_with(ext) && file_name.len() > ext.len() {
+            let split_idx = file_name.len() - ext.len();
+            return Some((&file_name[..split_idx], &ext[1..]));
+        }
+    }
+    for ext in SINGLE_EXTENSIONS {
+        if lower.ends_with(ext) && file_name.len() > ext.len() {
+            let split_idx = file_name.len() - ext.len();
+            return Some((&file_name[..split_idx], &ext[1..]));
+        }
+    }
+    None
+}
+
 #[tauri::command]
 async fn download_catalog_zip(
     project_id: String,
@@ -513,40 +540,16 @@ async fn download_catalog_zip(
         let owner = parts.next().unwrap_or_default();
         let repo = parts.next().unwrap_or_default().trim_end_matches(".git");
         let allowed_prefix = format!("https://github.com/{}/{}/releases/download/", owner, repo);
-        let lower = asset_name.to_ascii_lowercase();
-        let is_valid_package = lower.ends_with(".zip")
-            || lower.ends_with(".rar")
-            || lower.ends_with(".7z")
-            || lower.ends_with(".tar.gz")
-            || lower.ends_with(".tar.xz")
-            || lower.ends_with(".tar.zst")
-            || lower.ends_with(".tgz")
-            || lower.ends_with(".exe")
-            || lower.ends_with(".msi")
-            || lower.ends_with(".appimage");
+        let file_name = safe_path_component(&asset_name);
+        let Some((stem, ext)) = split_package_stem_and_ext(&file_name) else {
+            return Err("Solo se permiten paquetes válidos de releases del repositorio registrado (.zip, .7z, .tar.gz, .AppImage, etc.)".to_string());
+        };
 
         if !asset_download_url.starts_with(&allowed_prefix)
             || asset_download_url.contains('?')
             || asset_download_url.contains('#')
-            || !is_valid_package
         {
-            return Err("Solo se permiten archivos de releases del repositorio registrado (.zip, .rar, .7z, .tar.gz, etc.)".to_string());
-        }
-        let file_name = safe_path_component(&asset_name);
-        let safe_lower = file_name.to_ascii_lowercase();
-        let safe_is_valid = safe_lower.ends_with(".zip")
-            || safe_lower.ends_with(".rar")
-            || safe_lower.ends_with(".7z")
-            || safe_lower.ends_with(".tar.gz")
-            || safe_lower.ends_with(".tar.xz")
-            || safe_lower.ends_with(".tar.zst")
-            || safe_lower.ends_with(".tgz")
-            || safe_lower.ends_with(".exe")
-            || safe_lower.ends_with(".msi")
-            || safe_lower.ends_with(".appimage");
-
-        if !safe_is_valid {
-            return Err("El nombre del archivo no es un paquete válido".to_string());
+            return Err("La URL del asset no pertenece a las releases del repositorio registrado".to_string());
         }
         let data_dir = get_portstation_data_dir()?;
         let download_dir = data_dir
@@ -573,9 +576,6 @@ async fn download_catalog_zip(
             .duration_since(std::time::UNIX_EPOCH)
             .unwrap_or_default()
             .as_millis();
-        let path_obj = std::path::Path::new(&file_name);
-        let ext = path_obj.extension().and_then(|e| e.to_str()).unwrap_or("zip");
-        let stem = path_obj.file_stem().and_then(|s| s.to_str()).unwrap_or(&file_name);
         let final_file_name = format!("{}-{}.{}", stem, timestamp, ext);
         let final_path = download_dir.join(&final_file_name);
         let partial_path = download_dir.join(format!("{}.part", final_file_name));
@@ -1021,17 +1021,27 @@ fn update_game_artwork(
         for entry in games {
             if entry.get("id").and_then(|i| i.as_str()) == Some(&game_id) {
                 if let Some(ref b) = box_art_url {
-                    entry["box_art_url"] = serde_json::Value::String(b.clone());
+                    entry["box_art_url"] = if b.trim().is_empty() {
+                        serde_json::Value::Null
+                    } else {
+                        serde_json::Value::String(b.trim().to_string())
+                    };
                 }
                 if let Some(ref d) = disc_art_url {
-                    entry["disc_art_url"] = serde_json::Value::String(d.clone());
+                    entry["disc_art_url"] = if d.trim().is_empty() {
+                        serde_json::Value::Null
+                    } else {
+                        serde_json::Value::String(d.trim().to_string())
+                    };
                 }
                 if let Some(ref p) = port_art_url {
                     if let Some(proj) = entry.get_mut("project").and_then(|pr| pr.as_object_mut()) {
-                        proj.insert(
-                            "port_art_url".to_string(),
-                            serde_json::Value::String(p.clone()),
-                        );
+                        let val = if p.trim().is_empty() {
+                            serde_json::Value::Null
+                        } else {
+                            serde_json::Value::String(p.trim().to_string())
+                        };
+                        proj.insert("port_art_url".to_string(), val);
                     }
                 }
             }
@@ -2468,5 +2478,46 @@ mod tests {
 
         // Added new game
         assert!(games.iter().any(|g| g["id"] == "brand-new-game"));
+    }
+    #[test]
+    fn test_split_package_stem_and_ext() {
+        assert_eq!(
+            split_package_stem_and_ext("port-linux-x86_64.tar.gz"),
+            Some(("port-linux-x86_64", "tar.gz"))
+        );
+        assert_eq!(
+            split_package_stem_and_ext("release-v1.0.tar.xz"),
+            Some(("release-v1.0", "tar.xz"))
+        );
+        assert_eq!(
+            split_package_stem_and_ext("package.tar.zst"),
+            Some(("package", "tar.zst"))
+        );
+        assert_eq!(
+            split_package_stem_and_ext("archive.tar.bz2"),
+            Some(("archive", "tar.bz2"))
+        );
+        assert_eq!(
+            split_package_stem_and_ext("Game-Win64.zip"),
+            Some(("Game-Win64", "zip"))
+        );
+        assert_eq!(
+            split_package_stem_and_ext("Game-Linux.AppImage"),
+            Some(("Game-Linux", "appimage"))
+        );
+        assert_eq!(
+            split_package_stem_and_ext("installer.exe"),
+            Some(("installer", "exe"))
+        );
+        assert_eq!(split_package_stem_and_ext("readme.txt"), None);
+        assert_eq!(split_package_stem_and_ext(".zip"), None);
+    }
+
+    #[test]
+    fn test_semver_prefix_windows_v() {
+        assert_eq!(
+            compare_semver_strings("windows-v1.9.2", "1.9.0"),
+            "update_available"
+        );
     }
 }

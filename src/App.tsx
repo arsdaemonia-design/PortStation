@@ -1080,13 +1080,16 @@ export const App: React.FC = () => {
       portArtUrl?: string;
     }
   ) => {
-    // 1. Update React state for games list
+    // 1. Update React state for games list (explicit empty strings mapped to undefined)
     setGames((prev) =>
       prev.map((g) => {
         if (g.id === gameId) {
           return {
             ...g,
-            ...updated,
+            boxArtUrl: updated.boxArtUrl !== undefined ? (updated.boxArtUrl || undefined) : g.boxArtUrl,
+            discArtUrl: updated.discArtUrl !== undefined ? (updated.discArtUrl || undefined) : g.discArtUrl,
+            cartridgeArtUrl: updated.cartridgeArtUrl !== undefined ? (updated.cartridgeArtUrl || undefined) : g.cartridgeArtUrl,
+            portArtUrl: updated.portArtUrl !== undefined ? (updated.portArtUrl || undefined) : g.portArtUrl,
           };
         }
         return g;
@@ -1095,26 +1098,54 @@ export const App: React.FC = () => {
 
     // 2. Update selectedGameForModal if open
     if (selectedGameForModal?.id === gameId) {
-      setSelectedGameForModal((prev) => (prev ? { ...prev, ...updated } : null));
+      setSelectedGameForModal((prev) =>
+        prev
+          ? {
+              ...prev,
+              boxArtUrl: updated.boxArtUrl !== undefined ? (updated.boxArtUrl || undefined) : prev.boxArtUrl,
+              discArtUrl: updated.discArtUrl !== undefined ? (updated.discArtUrl || undefined) : prev.discArtUrl,
+              cartridgeArtUrl: updated.cartridgeArtUrl !== undefined ? (updated.cartridgeArtUrl || undefined) : prev.cartridgeArtUrl,
+              portArtUrl: updated.portArtUrl !== undefined ? (updated.portArtUrl || undefined) : prev.portArtUrl,
+            }
+          : null
+      );
     }
 
-    // 3. Persist to localStorage
+    // 3. Persist to localStorage (prune deleted fields to prevent resurrection on rescan)
     try {
       const customArtStr = localStorage.getItem('portstation_custom_artwork');
       const customArt = customArtStr ? JSON.parse(customArtStr) : {};
-      customArt[gameId] = { ...(customArt[gameId] || {}), ...updated };
+      const gameArt = { ...(customArt[gameId] || {}) };
+      if (updated.boxArtUrl !== undefined) {
+        if (updated.boxArtUrl) gameArt.boxArtUrl = updated.boxArtUrl;
+        else delete gameArt.boxArtUrl;
+      }
+      if (updated.discArtUrl !== undefined) {
+        if (updated.discArtUrl) gameArt.discArtUrl = updated.discArtUrl;
+        else delete gameArt.discArtUrl;
+      }
+      if (updated.cartridgeArtUrl !== undefined) {
+        if (updated.cartridgeArtUrl) gameArt.cartridgeArtUrl = updated.cartridgeArtUrl;
+        else delete gameArt.cartridgeArtUrl;
+      }
+      if (updated.portArtUrl !== undefined) {
+        if (updated.portArtUrl) gameArt.portArtUrl = updated.portArtUrl;
+        else delete gameArt.portArtUrl;
+      }
+      customArt[gameId] = gameArt;
       localStorage.setItem('portstation_custom_artwork', JSON.stringify(customArt));
     } catch (err) {
       console.warn('Failed to save custom artwork to localStorage:', err);
     }
 
-    // 4. Persist to ports_db.json via Tauri command
+    // 4. Persist to ports_db.json via Tauri command (preserve empty string so Rust sets Value::Null)
     if (isTauri) {
       try {
+        const discOrCart = updated.discArtUrl !== undefined ? updated.discArtUrl : updated.cartridgeArtUrl;
         await invoke('update_game_artwork', {
           gameId,
           boxArtUrl: updated.boxArtUrl,
-          discArtUrl: updated.discArtUrl || updated.cartridgeArtUrl,
+          discArtUrl: discOrCart,
           portArtUrl: updated.portArtUrl,
         });
       } catch (err) {
@@ -2922,7 +2953,7 @@ export const App: React.FC = () => {
                               <tbody>
                                 <tr>
                                   <th>Archivo / Ejecutable</th>
-                                  <td>{selectedGameForModal.executablePath.split('\\').pop()}</td>
+                                  <td>{selectedGameForModal.executablePath.split(/[\\/]/).pop()}</td>
                                 </tr>
                                 <tr>
                                   <th>Tamaño del Medio</th>
@@ -3205,9 +3236,13 @@ export const App: React.FC = () => {
                                     <small style={{ color: '#9aa6b5' }}>{new Date(release.published_at).toLocaleDateString()}</small>
                                   )}
                                   {release.assets.length > 0 && (() => {
+                                    const targetOs: 'windows' | 'linux' | 'macos' | 'android' =
+                                      platformInfo.os === 'linux' || platformInfo.os === 'macos' || platformInfo.os === 'android'
+                                        ? platformInfo.os
+                                        : 'windows';
                                     const grouped = groupReleaseAssets(
                                       release.assets,
-                                      platformInfo.os as ('windows' | 'linux' | 'macos'),
+                                      targetOs,
                                       platformInfo.arch
                                     );
                                     return (
@@ -3592,12 +3627,23 @@ export const App: React.FC = () => {
                     ) : (
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
                         {catalogReleaseChecks[selectedCatalogPort.id].releases.map((release) => {
+                          const targetOs: 'windows' | 'linux' | 'macos' | 'android' =
+                            platformInfo.os === 'linux' || platformInfo.os === 'macos' || platformInfo.os === 'android'
+                              ? platformInfo.os
+                              : 'windows';
                           const grouped = groupReleaseAssets(
                             release.assets,
-                            platformInfo.os as ('windows' | 'linux' | 'macos'),
+                            targetOs,
                             platformInfo.arch
                           );
-                          const osLabel = platformInfo.os === 'windows' ? 'Windows' : platformInfo.os === 'linux' ? 'Linux / SteamOS' : 'macOS';
+                          const osLabel =
+                            platformInfo.os === 'windows'
+                              ? 'Windows'
+                              : platformInfo.os === 'linux'
+                              ? 'Linux / SteamOS'
+                              : platformInfo.os === 'android'
+                              ? 'Android'
+                              : 'macOS';
 
                           return (
                             <div key={release.tag_name} style={{ background: 'rgba(0,0,0,0.25)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 8, padding: '0.85rem' }}>

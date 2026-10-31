@@ -52,10 +52,10 @@ export const ArtworkManagerModal: React.FC<ArtworkManagerModalProps> = ({
   const isDisc = profile.kind === 'disc';
 
   // Local draft state for artwork URLs
-  const [boxArtUrl, setBoxArtUrl] = useState<string>(game.boxArtUrl || `/games/${game.id}/cover.png`);
-  const [discArtUrl, setDiscArtUrl] = useState<string>(game.discArtUrl || (isDisc ? `/games/${game.id}/disc.png` : ''));
-  const [cartridgeArtUrl, setCartridgeArtUrl] = useState<string>(game.cartridgeArtUrl || (!isDisc ? `/games/${game.id}/label.png` : ''));
-  const [portArtUrl, setPortArtUrl] = useState<string>(game.portArtUrl || `/games/${game.id}/cover.png`);
+  const [boxArtUrl, setBoxArtUrl] = useState<string>(game.boxArtUrl || '');
+  const [discArtUrl, setDiscArtUrl] = useState<string>(game.discArtUrl || '');
+  const [cartridgeArtUrl, setCartridgeArtUrl] = useState<string>(game.cartridgeArtUrl || '');
+  const [portArtUrl, setPortArtUrl] = useState<string>(game.portArtUrl || '');
 
   const [saveSuccess, setSaveSuccess] = useState<boolean>(false);
   const [showGuide, setShowGuide] = useState<boolean>(false);
@@ -73,10 +73,10 @@ export const ArtworkManagerModal: React.FC<ArtworkManagerModalProps> = ({
   // Sync draft state on open
   useEffect(() => {
     if (isOpen) {
-      setBoxArtUrl(game.boxArtUrl || `/games/${game.id}/cover.png`);
-      setDiscArtUrl(game.discArtUrl || (isDisc ? `/games/${game.id}/disc.png` : ''));
-      setCartridgeArtUrl(game.cartridgeArtUrl || (!isDisc ? `/games/${game.id}/label.png` : ''));
-      setPortArtUrl(game.portArtUrl || `/games/${game.id}/cover.png`);
+      setBoxArtUrl(game.boxArtUrl || '');
+      setDiscArtUrl(game.discArtUrl || '');
+      setCartridgeArtUrl(game.cartridgeArtUrl || '');
+      setPortArtUrl(game.portArtUrl || '');
       setSaveSuccess(false);
 
       const cleanTitle = game.title
@@ -225,12 +225,12 @@ export const ArtworkManagerModal: React.FC<ArtworkManagerModalProps> = ({
 
   const handleResetTarget = () => {
     if (activeTarget === 'box') {
-      setBoxArtUrl(`/games/${game.id}/cover.png`);
+      setBoxArtUrl('');
     } else if (activeTarget === 'media') {
-      if (isDisc) setDiscArtUrl(`/games/${game.id}/disc.png`);
-      else setCartridgeArtUrl(`/games/${game.id}/label.png`);
+      if (isDisc) setDiscArtUrl('');
+      else setCartridgeArtUrl('');
     } else if (activeTarget === 'port') {
-      setPortArtUrl(game.authorAvatarUrl || `/games/${game.id}/cover.png`);
+      setPortArtUrl('');
     }
   };
 
@@ -304,10 +304,10 @@ export const ArtworkManagerModal: React.FC<ArtworkManagerModalProps> = ({
 
   const handleSave = () => {
     onSaveArtwork({
-      boxArtUrl,
-      discArtUrl: isDisc ? discArtUrl : undefined,
-      cartridgeArtUrl: !isDisc ? cartridgeArtUrl : undefined,
-      portArtUrl,
+      boxArtUrl: boxArtUrl.trim(),
+      discArtUrl: isDisc ? discArtUrl.trim() : undefined,
+      cartridgeArtUrl: !isDisc ? cartridgeArtUrl.trim() : undefined,
+      portArtUrl: portArtUrl.trim(),
     });
     setSaveSuccess(true);
     setTimeout(() => {
@@ -445,26 +445,38 @@ export const ArtworkManagerModal: React.FC<ArtworkManagerModalProps> = ({
               <div className="preview-media-wrapper">
                 {activeTarget === 'box' && (
                   <div className="preview-frame-box">
-                    <img
-                      src={boxArtUrl}
-                      alt="Caja"
-                      onError={(e) => {
-                        (e.currentTarget as HTMLImageElement).src = `/games/${game.id}/cover.png`;
-                      }}
-                    />
+                    {boxArtUrl ? (
+                      <img
+                        src={boxArtUrl}
+                        alt="Caja"
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
+                    ) : (
+                      <span style={{ fontSize: '0.72rem', color: '#8b949e', textAlign: 'center', padding: '0.5rem' }}>
+                        Sin carátula personalizada
+                      </span>
+                    )}
                     <span className="frame-type-badge">600×900 Front</span>
                   </div>
                 )}
 
                 {activeTarget === 'media' && isDisc && (
                   <div className="preview-frame-disc">
-                    <img
-                      src={discArtUrl}
-                      alt="Disco"
-                      onError={(e) => {
-                        (e.currentTarget as HTMLImageElement).src = `/games/${game.id}/disc.png`;
-                      }}
-                    />
+                    {discArtUrl ? (
+                      <img
+                        src={discArtUrl}
+                        alt="Disco"
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
+                    ) : (
+                      <span style={{ fontSize: '0.72rem', color: '#8b949e', textAlign: 'center', padding: '0.5rem' }}>
+                        Plantilla Física
+                      </span>
+                    )}
                     <div className="preview-disc-hole" />
                     <span className="frame-type-badge">PNG Circular</span>
                   </div>
@@ -472,27 +484,38 @@ export const ArtworkManagerModal: React.FC<ArtworkManagerModalProps> = ({
 
                 {activeTarget === 'media' && !isDisc && (
                   <div className="preview-frame-cart">
-                    <img
-                      src={cartridgeArtUrl}
-                      alt="Cartucho"
-                      onError={(e) => {
-                        (e.currentTarget as HTMLImageElement).src = `/games/${game.id}/label.png`;
-                      }}
-                    />
+                    {cartridgeArtUrl ? (
+                      <img
+                        src={cartridgeArtUrl}
+                        alt="Cartucho"
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
+                    ) : (
+                      <span style={{ fontSize: '0.72rem', color: '#8b949e', textAlign: 'center', padding: '0.5rem' }}>
+                        Plantilla Física
+                      </span>
+                    )}
                     <span className="frame-type-badge">Sticker</span>
                   </div>
                 )}
 
                 {activeTarget === 'port' && (
                   <div className="preview-frame-port">
-                    <img
-                      src={portArtUrl}
-                      alt="Arte del Port"
-                      onError={(e) => {
-                        (e.currentTarget as HTMLImageElement).src =
-                          game.authorAvatarUrl || `/games/${game.id}/cover.png`;
-                      }}
-                    />
+                    {portArtUrl ? (
+                      <img
+                        src={portArtUrl}
+                        alt="Arte del Port"
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
+                    ) : (
+                      <span style={{ fontSize: '0.72rem', color: '#8b949e', textAlign: 'center', padding: '0.5rem' }}>
+                        Icono por defecto
+                      </span>
+                    )}
                     <span className="frame-type-badge">Icono Nativo</span>
                   </div>
                 )}

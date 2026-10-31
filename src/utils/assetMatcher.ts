@@ -58,12 +58,27 @@ export function isDedicatedDeviceOrMobile(name: string): boolean {
   return false;
 }
 
+function hasMacPlatformMarker(lower: string): boolean {
+  return (
+    /(?:macos|osx|darwin|\.dmg|\.pkg)/i.test(lower) ||
+    /(?:^|[^a-z0-9])apple-silicon(?:$|[^a-z0-9])/i.test(lower) ||
+    /(?:^|[^a-z0-9])mac(?:$|[^a-z0-9])/i.test(lower)
+  );
+}
+
 /**
  * Checks if asset is suitable for Windows.
  */
 export function isWindowsAsset(name: string): boolean {
   const lower = name.toLowerCase();
-  if (isAuxiliaryAsset(lower) || isDedicatedDeviceOrMobile(lower) || isAndroidAsset(lower)) return false;
+  if (
+    isAuxiliaryAsset(lower) ||
+    isDedicatedDeviceOrMobile(lower) ||
+    isAndroidAsset(lower) ||
+    hasMacPlatformMarker(lower)
+  ) {
+    return false;
+  }
 
   // Rejects explicit non-windows platform markers
   for (const marker of NON_WINDOWS_MARKERS) {
@@ -81,15 +96,34 @@ export function isWindowsAsset(name: string): boolean {
 /**
  * Checks if asset is suitable for Linux (including SteamOS & Steam Deck).
  */
-export function isLinuxAsset(name: string): boolean {
+export function isLinuxAsset(name: string, arch: string = 'x64'): boolean {
   const lower = name.toLowerCase();
-  if (isAuxiliaryAsset(lower) || isDedicatedDeviceOrMobile(lower) || isAndroidAsset(lower)) return false;
+  if (
+    isAuxiliaryAsset(lower) ||
+    isDedicatedDeviceOrMobile(lower) ||
+    isAndroidAsset(lower) ||
+    hasMacPlatformMarker(lower)
+  ) {
+    return false;
+  }
 
   if (/(?:windows|win32|win64|\.exe|\.msi|macos|osx|darwin|\.dmg|\.pkg|\.apk|android)/i.test(lower)) {
     return false;
   }
 
-  return /(?:linux|appimage|flatpak|\.deb|\.rpm|\.tar\.(?:gz|xz|zst|bz2)|\.tgz|\.sh$|\.bin$)/i.test(lower);
+  const hasLinuxMarker = /(?:linux|appimage|flatpak|\.deb|\.rpm|\.tar\.(?:gz|xz|zst|bz2)|\.tgz|\.sh$|\.bin$)/i.test(lower);
+  if (!hasLinuxMarker) return false;
+
+  const isArmTarget = arch === 'arm64' || arch === 'arm';
+  const hasArmMarker = /(?:arm64|aarch64|armv7|armhf|arm-)/i.test(lower);
+  const hasX86Marker = /(?:x64|x86[_-]64|amd64|i686|i386|i586|x86-linux|-i686-)/i.test(lower);
+
+  if (isArmTarget) {
+    return !hasX86Marker;
+  } else {
+    if (/(?:i686|i386|i586|x86-linux|-i686-)/i.test(lower)) return false;
+    return !hasArmMarker;
+  }
 }
 
 /**
@@ -103,18 +137,22 @@ export function isMacAsset(name: string): boolean {
     return false;
   }
 
-  return /(?:macos|osx|darwin|\.dmg|\.pkg|apple|\bmac\b)/i.test(lower);
+  return hasMacPlatformMarker(lower);
 }
 
 /**
  * Determines whether the asset matches a specific target platform ('windows', 'linux', 'macos', or 'android').
  */
-export function matchesPlatform(name: string, targetOs: 'windows' | 'linux' | 'macos' | 'android'): boolean {
+export function matchesPlatform(
+  name: string,
+  targetOs: 'windows' | 'linux' | 'macos' | 'android',
+  arch: string = 'x64'
+): boolean {
   switch (targetOs) {
     case 'windows':
       return isWindowsAsset(name);
     case 'linux':
-      return isLinuxAsset(name);
+      return isLinuxAsset(name, arch);
     case 'macos':
       return isMacAsset(name);
     case 'android':
@@ -128,7 +166,7 @@ export function matchesPlatform(name: string, targetOs: 'windows' | 'linux' | 'm
  * Scores an asset's relevance for the user's OS and processor architecture (higher is better).
  */
 export function scoreAsset(name: string, targetOs: 'windows' | 'linux' | 'macos' | 'android', arch: string = 'x64'): number {
-  if (!matchesPlatform(name, targetOs)) return -100;
+  if (!matchesPlatform(name, targetOs, arch)) return -100;
 
   const lower = name.toLowerCase();
   let score = 10;
@@ -190,7 +228,7 @@ export function groupReleaseAssets<T extends ReleaseAssetInfo>(
   for (const asset of assets) {
     if (isAuxiliaryAsset(asset.name)) {
       auxiliary.push(asset);
-    } else if (matchesPlatform(asset.name, targetOs)) {
+    } else if (matchesPlatform(asset.name, targetOs, arch)) {
       recommended.push(asset);
     } else {
       otherPlatforms.push(asset);
