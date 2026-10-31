@@ -526,6 +526,21 @@ export const App: React.FC = () => {
 
   const isTauri = typeof window !== 'undefined' && '__TAURI_INTERNALS__' in window;
 
+  const getAndroidBridge = () => {
+    if (typeof window === 'undefined') return undefined;
+    return (
+      window as unknown as {
+        PortStationAndroid?: {
+          downloadFile?: (url: string, fileName: string) => string;
+          openExternalUrl?: (url: string) => boolean;
+          openDownloads?: () => boolean;
+          getInstalledPackages?: () => string;
+          launchPackage?: (packageName: string) => boolean;
+        };
+      }
+    ).PortStationAndroid;
+  };
+
   const handleScanReal = async (_targetPath?: string, rootsOverride?: ScanRoot[]) => {
     const rootsToScan = rootsOverride?.length ? rootsOverride : roots;
     setScanning(true);
@@ -537,9 +552,25 @@ export const App: React.FC = () => {
       const scanErrors: string[] = [];
       if (isTauri) {
         const uniqueGames = new Map<string, GameItem>();
+        const androidBridge = getAndroidBridge();
+        let androidPackages: string[] | null = null;
+        if (androidBridge?.getInstalledPackages) {
+          try {
+            const rawPkgs = androidBridge.getInstalledPackages() || '';
+            androidPackages = rawPkgs
+              .split('\n')
+              .map((line) => line.trim())
+              .filter(Boolean);
+          } catch {
+            androidPackages = null;
+          }
+        }
         for (const root of rootsToScan) {
           try {
-            const found = await invoke<GameItem[]>('scan_and_match', { rootPath: root.path });
+            const found = await invoke<GameItem[]>('scan_and_match', {
+              rootPath: root.path,
+              androidPackages,
+            });
             foundByRoot.set(root.id, found.length);
             for (const game of found) {
               const previous = uniqueGames.get(game.id);
@@ -693,6 +724,16 @@ export const App: React.FC = () => {
     try {
       setLaunchMessage(`Iniciando ${game.title}...`);
       setIsGameRunning(true);
+      const androidBridge = getAndroidBridge();
+      if (androidBridge?.launchPackage) {
+        const launched = androidBridge.launchPackage(game.executablePath);
+        if (launched) {
+          setLaunchMessage(`¡${game.title} iniciado en Android!`);
+          setTimeout(() => setIsGameRunning(false), 3000);
+          setTimeout(() => setLaunchMessage(null), 4000);
+          return;
+        }
+      }
       if (isTauri) {
         const pid = await invoke<number>('launch_game', {
           executablePath: game.executablePath,
@@ -1208,6 +1249,25 @@ export const App: React.FC = () => {
 
   const handleOpenBrowser = async (url?: string | null) => {
     if (!url) return;
+    const androidBridge = getAndroidBridge();
+    if (androidBridge) {
+      const cleanUrl = url.split('?')[0].toLowerCase();
+      if (
+        androidBridge.downloadFile &&
+        (cleanUrl.endsWith('.apk') || cleanUrl.endsWith('.zip') || cleanUrl.endsWith('.7z') || cleanUrl.endsWith('.tar.gz'))
+      ) {
+        const fileName = url.split('/').pop()?.split('?')[0] || 'portstation-package.apk';
+        const status = androidBridge.downloadFile(url, fileName);
+        if (!status.startsWith('ERROR:')) {
+          setLaunchMessage(`Descargando ${fileName} en la barra de notificaciones de Android...`);
+          setTimeout(() => setLaunchMessage(null), 4500);
+          return;
+        }
+      }
+      if (androidBridge.openExternalUrl && androidBridge.openExternalUrl(url)) {
+        return;
+      }
+    }
     try {
       if (isTauri) {
         await invoke('open_browser', { url });
@@ -1303,10 +1363,23 @@ export const App: React.FC = () => {
     try {
       const downloadUrl = asset.download_url || (asset as any).browser_download_url || '';
       if (platformInfo.os === 'android') {
+        const androidBridge = getAndroidBridge();
+        if (androidBridge?.downloadFile) {
+          const status = androidBridge.downloadFile(downloadUrl, asset.name);
+          if (status.startsWith('ERROR:')) {
+            throw new Error(status.replace(/^ERROR:/, ''));
+          }
+          setCatalogDownloadMessages((previous) => ({
+            ...previous,
+            [port.id]: `Descargando ${asset.name} en la barra de notificaciones de Android (carpeta Descargas). Al finalizar, tócalo en tus notificaciones o en «Abrir Descargas» para instalar el APK y pulsa «Escanear Ahora».`,
+          }));
+          setCatalogDownloaded((previous) => ({ ...previous, [port.id]: true }));
+          return;
+        }
         await handleOpenBrowser(downloadUrl);
         setCatalogDownloadMessages((previous) => ({
           ...previous,
-          [port.id]: `Descarga enviada al gestor nativo de Android (${asset.name}). Al finalizar, toca el APK en tus notificaciones para instalarlo y pulsa «Escanear Ahora».`,
+          [port.id]: `Descarga enviada al navegador de Android (${asset.name}). Al finalizar, instala el APK y pulsa «Escanear Ahora».`,
         }));
         setCatalogDownloaded((previous) => ({ ...previous, [port.id]: true }));
         return;
@@ -1332,6 +1405,12 @@ export const App: React.FC = () => {
 
   const handleOpenCatalogDownloadFolder = async (port: CatalogPort) => {
     try {
+      const androidBridge = getAndroidBridge();
+      if (platformInfo.os === 'android' && androidBridge?.openDownloads) {
+        if (androidBridge.openDownloads()) {
+          return;
+        }
+      }
       const targetDir = roots[0]?.path || settings.libraryPath || null;
       await invoke('open_catalog_download_folder', {
         projectId: port.id,
@@ -3634,13 +3713,13 @@ export const App: React.FC = () => {
                         <div className="settings-platform-badge" style={{ justifyContent: 'center', width: '100%' }}>
                           <Sparkles size={14} /> Port Disponible para Descarga
                         </div>
-                        {catalogDownloaded[selectedCatalogPort.id] && platformInfo.os !== 'android' && (
+                        {catalogDownloaded[selectedCatalogPort.id] && (
                           <button
                             className="btn btn-secondary"
                             style={{ width: '100%', fontSize: '0.8rem', padding: '0.5rem' }}
                             onClick={() => handleOpenCatalogDownloadFolder(selectedCatalogPort)}
                           >
-                            <FolderOpen size={14} /> Abrir carpeta de descargas
+                            <FolderOpen size={14} /> {platformInfo.os === 'android' ? 'Abrir Descargas de Android' : 'Abrir carpeta de descargas'}
                           </button>
                         )}
                       </div>
@@ -3711,18 +3790,18 @@ export const App: React.FC = () => {
                         background: catalogDownloaded[selectedCatalogPort.id] ? 'rgba(46, 160, 67, 0.15)' : 'rgba(248, 81, 73, 0.15)',
                         border: `1px solid ${catalogDownloaded[selectedCatalogPort.id] ? 'rgba(46, 160, 67, 0.35)' : 'rgba(248, 81, 73, 0.35)'}`,
                         color: catalogDownloaded[selectedCatalogPort.id] ? '#7ee787' : '#ff7b72',
-                        wordBreak: 'break-all'
+                        wordBreak: 'break-word'
                       }}
                     >
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <span>{catalogDownloadMessages[selectedCatalogPort.id]}</span>
-                        {catalogDownloaded[selectedCatalogPort.id] && platformInfo.os !== 'android' && (
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+                        <span style={{ flex: '1 1 200px' }}>{catalogDownloadMessages[selectedCatalogPort.id]}</span>
+                        {catalogDownloaded[selectedCatalogPort.id] && (
                           <button
                             className="btn btn-secondary"
-                            style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem', flexShrink: 0, marginLeft: '0.5rem' }}
+                            style={{ fontSize: '0.72rem', padding: '0.25rem 0.55rem', flexShrink: 0 }}
                             onClick={() => handleOpenCatalogDownloadFolder(selectedCatalogPort)}
                           >
-                            <FolderOpen size={12} /> Abrir carpeta
+                            <FolderOpen size={12} /> {platformInfo.os === 'android' ? 'Abrir Descargas' : 'Abrir carpeta'}
                           </button>
                         )}
                       </div>
@@ -3799,11 +3878,11 @@ export const App: React.FC = () => {
 
                                       return (
                                         <div key={asset.name} className="release-asset-card is-recommended">
-                                          <div style={{ minWidth: 0, flex: 1 }}>
+                                          <div style={{ minWidth: '170px', flex: '1 1 170px' }}>
                                             <div className="release-asset-name">{asset.name}</div>
                                             <div className="release-asset-meta">{(asset.size / 1024 / 1024).toFixed(1)} MB</div>
                                           </div>
-                                          <div style={{ display: 'flex', gap: '0.45rem', alignItems: 'center', flexShrink: 0 }}>
+                                          <div style={{ display: 'flex', gap: '0.45rem', alignItems: 'center', flexShrink: 0, flexWrap: 'wrap' }}>
                                             <button
                                               className="catalog-zip-download catalog-zip-windows"
                                               style={{ width: 'auto', padding: '0.4rem 0.8rem', fontSize: '0.78rem', fontWeight: 600 }}
@@ -3862,11 +3941,11 @@ export const App: React.FC = () => {
                                         const assetUrl = asset.download_url || (asset as any).browser_download_url || '';
                                         return (
                                           <div key={asset.name} className="release-asset-card" style={{ opacity: 0.85 }}>
-                                            <div style={{ minWidth: 0, flex: 1 }}>
+                                            <div style={{ minWidth: '170px', flex: '1 1 170px' }}>
                                               <div className="release-asset-name" style={{ fontSize: '0.75rem' }}>{asset.name}</div>
                                               <div className="release-asset-meta">{(asset.size / 1024 / 1024).toFixed(1)} MB</div>
                                             </div>
-                                            <div style={{ display: 'flex', gap: '0.35rem', alignItems: 'center', flexShrink: 0 }}>
+                                            <div style={{ display: 'flex', gap: '0.35rem', alignItems: 'center', flexShrink: 0, flexWrap: 'wrap' }}>
                                               <button
                                                 className="catalog-zip-download"
                                                 style={{ width: 'auto', padding: '0.3rem 0.6rem', fontSize: '0.72rem' }}

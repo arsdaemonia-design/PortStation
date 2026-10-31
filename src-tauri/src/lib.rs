@@ -763,15 +763,17 @@ pub fn expand_tilde_path(raw_path: &str) -> PathBuf {
 }
 
 pub fn match_android_package_to_project(
-    pkg_name: &str,
+    pkg_entry: &str,
     project: &crate::core::models::Project,
 ) -> bool {
-    let pkg = pkg_name
+    let (pkg_raw, label_raw) = pkg_entry.split_once('|').unwrap_or((pkg_entry, ""));
+    let pkg = pkg_raw
         .trim()
         .trim_start_matches("package:")
         .to_ascii_lowercase();
     if pkg.is_empty()
         || pkg == "com.portstation.app"
+        || pkg == "com.kraken.portstation"
         || pkg.starts_with("com.android.")
         || pkg.starts_with("com.google.")
         || pkg.starts_with("android.")
@@ -814,7 +816,12 @@ pub fn match_android_package_to_project(
             .trim_end_matches("-recomp"),
     );
     if id_token.len() >= 4 {
-        project_tokens.push(id_token);
+        project_tokens.push(id_token.clone());
+    }
+
+    let proj_name_token = clean_token(&project.name);
+    if proj_name_token.len() >= 4 {
+        project_tokens.push(proj_name_token.clone());
     }
 
     if let Some(repo_name) = project.repository.as_ref().and_then(|r| r.name.as_deref()) {
@@ -832,6 +839,18 @@ pub fn match_android_package_to_project(
         let exe_token = clean_token(stem);
         if exe_token.len() >= 3 && !IGNORED_SEGMENTS.contains(&exe_token.as_str()) {
             project_tokens.push(exe_token);
+        }
+    }
+
+    let label_alnum = clean_token(label_raw);
+    if label_alnum.len() >= 4 {
+        if label_alnum == proj_name_token || label_alnum == id_token {
+            return true;
+        }
+        if (proj_name_token.len() >= 6 && label_alnum.contains(&proj_name_token))
+            || (id_token.len() >= 6 && label_alnum.contains(&id_token))
+        {
+            return true;
         }
     }
 
@@ -877,16 +896,31 @@ fn list_installed_android_packages() -> Vec<String> {
 fn scan_android_installed_ports(
     registry: &EmbeddedSeedRegistry,
     state: &State<AppState>,
+    extra_packages: Option<Vec<String>>,
 ) -> Vec<DetectedGameDTO> {
-    let installed_pkgs = list_installed_android_packages();
+    let mut installed_pkgs = extra_packages.unwrap_or_default();
+    for pkg in list_installed_android_packages() {
+        if !installed_pkgs.iter().any(|existing| {
+            existing.split('|').next().unwrap_or(existing).eq_ignore_ascii_case(&pkg)
+        }) {
+            installed_pkgs.push(pkg);
+        }
+    }
     let all_projects = registry.list_all_projects();
     let mut detected = Vec::new();
 
     for project in all_projects {
-        if let Some(matched_pkg) = installed_pkgs
+        if let Some(matched_entry) = installed_pkgs
             .iter()
             .find(|pkg| match_android_package_to_project(pkg, &project))
         {
+            let clean_pkg = matched_entry
+                .split('|')
+                .next()
+                .unwrap_or(matched_entry)
+                .trim()
+                .trim_start_matches("package:")
+                .to_string();
             let game = registry.find_game(&project.game_id);
             let title = game
                 .as_ref()
@@ -908,7 +942,7 @@ fn scan_android_installed_ports(
                     id: project.id.clone(),
                     game_id: project.game_id.clone(),
                     project_id: project.id.clone(),
-                    executable_path: matched_pkg.clone(),
+                    executable_path: clean_pkg.clone(),
                     working_dir: "Android APK Instalada".to_string(),
                     status: MatchStatus::VERIFIED,
                     sha256: None,
@@ -938,7 +972,7 @@ fn scan_android_installed_ports(
                 }),
                 features: project.features,
                 technical_notes: project.technical_notes,
-                executable_path: matched_pkg.clone(),
+                executable_path: clean_pkg,
                 install_path: "Android APK Instalada".to_string(),
                 sha256: None,
                 version: None,
@@ -951,12 +985,13 @@ fn scan_android_installed_ports(
 #[tauri::command(async)]
 fn scan_and_match(
     root_path: String,
+    android_packages: Option<Vec<String>>,
     state: State<AppState>,
 ) -> Result<Vec<DetectedGameDTO>, String> {
     let registry = EmbeddedSeedRegistry::new();
 
-    if cfg!(target_os = "android") {
-        return Ok(scan_android_installed_ports(&registry, &state));
+    if cfg!(target_os = "android") || android_packages.is_some() {
+        return Ok(scan_android_installed_ports(&registry, &state, android_packages));
     }
 
     let scanner = LocalFileScanner::new();
