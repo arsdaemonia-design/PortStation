@@ -34,7 +34,8 @@ import {
   Smartphone,
   Monitor,
   Database,
-  ArrowUpDown
+  ArrowUpDown,
+  Menu
 } from 'lucide-react';
 import { invoke } from '@tauri-apps/api/core';
 import { listen } from '@tauri-apps/api/event';
@@ -334,6 +335,9 @@ export const App: React.FC = () => {
   // Settings & Legal Modal State
   const [showSettingsModal, setShowSettingsModal] = useState<boolean>(false);
   const [showLegalModal, setShowLegalModal] = useState<boolean>(false);
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState<boolean>(false);
+  const [dismissedPortraitWarning, setDismissedPortraitWarning] = useState<boolean>(false);
+  const [newFolderDraft, setNewFolderDraft] = useState<string>('');
   const [settings, setSettings] = useState(() => {
     try {
       const saved = localStorage.getItem('portstation_settings');
@@ -644,14 +648,31 @@ export const App: React.FC = () => {
     }
   };
 
+  const handleAddManualFolder = async (rawPath: string) => {
+    const trimmed = rawPath.trim();
+    if (!trimmed) return;
+    const nextRoots = roots.some((r) => r.path.toLowerCase() === trimmed.toLowerCase())
+      ? roots
+      : [...roots, { id: `root-${Date.now()}`, path: trimmed, totalFound: 0 }];
+    setRoots(nextRoots);
+    setNewFolderDraft('');
+    await handleScanReal(undefined, nextRoots);
+  };
+
   const handleAddFolder = async () => {
     if (!isTauri) {
       alert('En modo web remoto, la ruta local activa es E:\\Games\\Ports. Para añadir carpetas en tu sistema de archivos de Windows se ejecuta la app de escritorio nativa.');
       return;
     }
+    if (platformInfo.os === 'android') {
+      setShowSettingsModal(true);
+      setLaunchMessage('En Android puedes escribir o editar la ruta manualmente en Carpetas de la Biblioteca.');
+      return;
+    }
     try {
+      const defaultDir = roots[0]?.path || (platformInfo.os === 'windows' ? 'E:\\Games\\Ports' : '~/Games/Ports');
       const selected = await invoke<string | null>('pick_folder', {
-        defaultPath: 'E:\\Games\\Ports',
+        defaultPath: defaultDir,
       });
 
       if (selected) {
@@ -663,6 +684,8 @@ export const App: React.FC = () => {
       }
     } catch (err) {
       console.error('Error picking folder:', err);
+      setShowSettingsModal(true);
+      setLaunchMessage('Usa el campo de ruta manual en Configuración → Carpetas de la Biblioteca.');
     }
   };
 
@@ -824,6 +847,18 @@ export const App: React.FC = () => {
         setPlatformInfo(info);
         if (info.os && ['windows', 'linux', 'android', 'macos'].includes(info.os)) {
           setSelectedPlatformTab(info.os as 'windows' | 'linux' | 'android' | 'macos');
+        }
+        if (info.os && info.os !== 'windows') {
+          const osDefaultPath = info.os === 'android' ? '/storage/emulated/0/Download' : '~/Games/Ports';
+          setRoots((prev) => {
+            if (prev.length === 1 && prev[0].id === 'default-root' && prev[0].path === 'E:\\Games\\Ports') {
+              return [{ ...prev[0], path: osDefaultPath }];
+            }
+            return prev;
+          });
+        }
+        if (info.os === 'android') {
+          void handleLoadPortCatalog();
         }
       })
       .catch((err) => console.warn('No se pudo obtener información de la plataforma:', err));
@@ -1034,7 +1069,8 @@ export const App: React.FC = () => {
       });
 
       if (selected) {
-        const workingDir = selected.substring(0, selected.lastIndexOf('\\'));
+        const lastSep = Math.max(selected.lastIndexOf('\\'), selected.lastIndexOf('/'));
+        const workingDir = lastSep >= 0 ? selected.substring(0, lastSep) : game.installPath;
         await invoke('update_game_executable', {
           id: game.id,
           executablePath: selected,
@@ -1876,13 +1912,52 @@ export const App: React.FC = () => {
 
   return (
     <div className="portcave-layout">
+      {!dismissedPortraitWarning && (
+        <div className="portrait-orientation-overlay">
+          <div className="portrait-orientation-card">
+            <div className="portrait-icon-wrap">
+              <Smartphone size={44} className="rotate-phone-icon" />
+            </div>
+            <h3>Gira tu pantalla en horizontal</h3>
+            <p>
+              PortStation está diseñado como interfaz de consola portátil (modo horizontal / mando conectado) para explorar la bóveda y el catálogo con comodidad.
+            </p>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={() => setDismissedPortraitWarning(true)}
+            >
+              Continuar en vertical de todos modos
+            </button>
+          </div>
+        </div>
+      )}
+      {mobileSidebarOpen && (
+        <div
+          className="mobile-sidebar-backdrop"
+          onClick={() => setMobileSidebarOpen(false)}
+          aria-hidden="true"
+        />
+      )}
       {/* ============================================================
           LEFT SIDEBAR (PortCave Navigation)
           ============================================================ */}
-      <aside className={`portcave-sidebar ${settings.hideDividersOnHover ? 'hide-dividers-on-hover' : ''}`}>
+      <aside
+        className={`portcave-sidebar ${settings.hideDividersOnHover ? 'hide-dividers-on-hover' : ''} ${
+          mobileSidebarOpen ? 'mobile-open' : ''
+        }`}
+      >
         <div>
           {/* Brand Header with Pixel Portal Mascot */}
           <div className="sidebar-brand">
+            <button
+              type="button"
+              className="mobile-sidebar-close"
+              onClick={() => setMobileSidebarOpen(false)}
+              title="Cerrar menú"
+            >
+              <X size={18} />
+            </button>
             <img
               src="/assets/branding/portal-controller.png"
               alt="PortStation"
@@ -1911,6 +1986,7 @@ export const App: React.FC = () => {
               onClick={() => {
                 setActiveView('library');
                 setActiveFilter({ type: 'all', id: 'all', name: 'Todos los Juegos' });
+                setMobileSidebarOpen(false);
               }}
             >
               <div className="nav-item-left">
@@ -1925,7 +2001,10 @@ export const App: React.FC = () => {
               className={`nav-item ${activeView === 'explore' ? 'active' : ''} ${
                 padState.activated && focusZone === 'sidebar' && sidebarIndex === 1 ? 'gamepad-focused' : ''
               }`}
-              onClick={() => void handleLoadPortCatalog()}
+              onClick={() => {
+                void handleLoadPortCatalog();
+                setMobileSidebarOpen(false);
+              }}
               title="Explora proyectos registrados, incluso si aún no están instalados"
             >
               <div className="nav-item-left">
@@ -1938,7 +2017,10 @@ export const App: React.FC = () => {
             <button
               data-sidebar-index={2}
               className={`nav-item ${padState.activated && focusZone === 'sidebar' && sidebarIndex === 2 ? 'gamepad-focused' : ''}`}
-              onClick={showRandomCuriosity}
+              onClick={() => {
+                showRandomCuriosity();
+                setMobileSidebarOpen(false);
+              }}
               title="Abre una historia o curiosidad con fuente"
             >
               <div className="nav-item-left"><Sparkles size={16} /><span>Dato de la bóveda</span></div>
@@ -1965,6 +2047,7 @@ export const App: React.FC = () => {
                     onClick={() => {
                       setActiveView('library');
                       setActiveFilter({ type: 'brand', id: brand.id, name: brand.name });
+                      setMobileSidebarOpen(false);
                     }}
                   >
                     <div className="nav-brand-left">
@@ -2006,6 +2089,7 @@ export const App: React.FC = () => {
                                 id: consoleItem.name,
                                 name: consoleItem.name,
                               });
+                              setMobileSidebarOpen(false);
                             }}
                           >
                             <div className="nav-sub-left">
@@ -2036,7 +2120,10 @@ export const App: React.FC = () => {
             className={`btn-sidebar-settings ${
               padState.activated && focusZone === 'sidebar' && sidebarIndex === 7 ? 'gamepad-focused' : ''
             }`}
-            onClick={() => setShowSettingsModal(true)}
+            onClick={() => {
+              setShowSettingsModal(true);
+              setMobileSidebarOpen(false);
+            }}
             title="Abrir configuración de PortStation"
           >
             <Settings size={16} />
@@ -2047,7 +2134,10 @@ export const App: React.FC = () => {
             className={`btn-sidebar-legal ${
               padState.activated && focusZone === 'sidebar' && sidebarIndex === 8 ? 'gamepad-focused' : ''
             }`}
-            onClick={() => setShowLegalModal(true)}
+            onClick={() => {
+              setShowLegalModal(true);
+              setMobileSidebarOpen(false);
+            }}
             title="Aviso Legal, Marcas Registradas y Preservación"
           >
             <ShieldCheck size={14} />
@@ -2077,6 +2167,14 @@ export const App: React.FC = () => {
         {/* Top bar with Breadcrumb, Search, and Actions */}
         <header className="portcave-topbar">
           <div className="portcave-breadcrumb">
+            <button
+              type="button"
+              className="mobile-menu-toggle"
+              onClick={() => setMobileSidebarOpen((prev) => !prev)}
+              title="Abrir menú lateral"
+            >
+              <Menu size={20} />
+            </button>
             <img
               src="/assets/branding/portal-controller.png"
               alt=""
@@ -4119,12 +4217,23 @@ export const App: React.FC = () => {
               <div className="settings-section">
                 <label className="settings-label">Carpetas de la Biblioteca</label>
                 <p className="settings-desc">
-                  Añade una o varias carpetas. PortCave las escanea juntas; puedes mantener Ports y Abandon separados o mezclar todo en una sola.
+                  Añade o edita una o varias carpetas. PortCave las escanea juntas (soporta rutas de Windows, Linux/WSL como <code>/mnt/e/Games</code> o <code>~/Games</code>, y Android).
                 </p>
                 <div className="settings-roots-list">
                   {roots.map((root) => (
                     <div className="settings-input-group settings-root-row" key={root.id}>
-                      <input type="text" className="settings-input" value={root.path} readOnly title={root.path} />
+                      <input
+                        type="text"
+                        className="settings-input"
+                        value={root.path}
+                        title={root.path}
+                        onChange={(e) => {
+                          const newVal = e.target.value;
+                          setRoots((prev) =>
+                            prev.map((item) => (item.id === root.id ? { ...item, path: newVal } : item))
+                          );
+                        }}
+                      />
                       <span className="settings-root-count">{root.totalFound} juegos</span>
                       <button
                         className="btn btn-secondary settings-root-remove"
@@ -4142,10 +4251,40 @@ export const App: React.FC = () => {
                     </div>
                   ))}
                 </div>
-                <div className="settings-input-group">
-                  <button className="btn btn-secondary" onClick={handleAddFolder}>
-                    <FolderPlus size={14} /> Añadir otra carpeta
+                <div className="settings-input-group" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '0.5rem' }}>
+                  <input
+                    type="text"
+                    className="settings-input"
+                    style={{ flex: '1 1 200px' }}
+                    placeholder={
+                      platformInfo.os === 'android'
+                        ? 'Ej: /storage/emulated/0/Download'
+                        : platformInfo.os === 'windows'
+                          ? 'Ej: D:\\Games\\Ports'
+                          : 'Ej: ~/Games/Ports o /mnt/e/Games/Ports'
+                    }
+                    value={newFolderDraft}
+                    onChange={(e) => setNewFolderDraft(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' && newFolderDraft.trim()) {
+                        e.preventDefault();
+                        void handleAddManualFolder(newFolderDraft);
+                      }
+                    }}
+                  />
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    disabled={!newFolderDraft.trim()}
+                    onClick={() => void handleAddManualFolder(newFolderDraft)}
+                  >
+                    <FolderPlus size={14} /> Añadir ruta
                   </button>
+                  {platformInfo.os !== 'android' && (
+                    <button type="button" className="btn btn-secondary" onClick={handleAddFolder}>
+                      <FolderOpen size={14} /> Explorar carpeta...
+                    </button>
+                  )}
                 </div>
               </div>
 
@@ -4363,7 +4502,24 @@ export const App: React.FC = () => {
               >
                 <ShieldCheck size={14} /> Aviso Legal & Marcas
               </button>
-              <button className="btn btn-primary" onClick={() => setShowSettingsModal(false)}>
+              <button
+                className="btn btn-primary"
+                onClick={() => {
+                  const trimmed = newFolderDraft.trim();
+                  let nextRoots = roots.filter((r) => r.path.trim().length > 0);
+                  if (trimmed && !nextRoots.some((r) => r.path.toLowerCase() === trimmed.toLowerCase())) {
+                    nextRoots = [...nextRoots, { id: `root-${Date.now()}`, path: trimmed, totalFound: 0 }];
+                  }
+                  if (nextRoots.length === 0) {
+                    const fallback = platformInfo.os === 'android' ? '/storage/emulated/0/Download' : platformInfo.os === 'windows' ? 'E:\\Games\\Ports' : '~/Games/Ports';
+                    nextRoots = [{ id: 'default-root', path: fallback, totalFound: 0 }];
+                  }
+                  setRoots(nextRoots);
+                  setNewFolderDraft('');
+                  setShowSettingsModal(false);
+                  void handleScanReal(undefined, nextRoots);
+                }}
+              >
                 Guardar & Cerrar
               </button>
             </div>

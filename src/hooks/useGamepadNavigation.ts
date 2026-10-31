@@ -117,11 +117,14 @@ export function useGamepadNavigation({
       }
     }
 
+    const hatX = pad.axes[6] ?? 0;
+    const hatY = pad.axes[7] ?? 0;
+
     const current: Record<PadAction, boolean> = {
-      up: isPressed(12) || stickUp,
-      down: isPressed(13) || stickDown,
-      left: isPressed(14) || stickLeft,
-      right: isPressed(15) || stickRight,
+      up: isPressed(12) || stickUp || hatY < -0.5,
+      down: isPressed(13) || stickDown || hatY > 0.5,
+      left: isPressed(14) || stickLeft || hatX < -0.5,
+      right: isPressed(15) || stickRight || hatX > 0.5,
       confirm: isPressed(0), // South button (A / Cross)
       back: isPressed(1),    // East button (B / Circle)
       action_x: isPressed(2),// West button (X / Square)
@@ -143,13 +146,15 @@ export function useGamepadNavigation({
     const pollLoop = () => {
       if (!isRunning) return;
 
-      // 1. If PortStation disabled, game running, or window hidden/unfocused, sleep loop
+      // 1. If PortStation disabled, game running, or document hidden, sleep loop.
+      // Note: Do NOT gate on document.hasFocus() because on Android WebView and
+      // Linux WebKitGTK, hasFocus() is false at startup until a touch/mouse click,
+      // which would block gamepad navigation on initial launch.
       if (
         !enabledRef.current ||
         isGameRunningRef.current ||
         typeof document === 'undefined' ||
-        document.visibilityState === 'hidden' ||
-        !document.hasFocus()
+        document.visibilityState === 'hidden'
       ) {
         animFrameIdRef.current = requestAnimationFrame(pollLoop);
         return;

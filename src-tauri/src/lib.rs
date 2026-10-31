@@ -972,7 +972,7 @@ fn launch_game(
     Ok(pid)
 }
 
-#[tauri::command]
+#[tauri::command(async)]
 fn pick_folder(
     app: tauri::AppHandle,
     default_path: Option<String>,
@@ -993,11 +993,11 @@ fn pick_folder(
     #[cfg(mobile)]
     {
         let _ = (app, default_path);
-        Err("La selección directa de carpetas de escritorio no está soportada en Android (SAF)".to_string())
+        Err("En Android puedes escribir o editar la ruta manualmente en Configuración → Carpetas de la Biblioteca.".to_string())
     }
 }
 
-#[tauri::command]
+#[tauri::command(async)]
 fn pick_executable(
     app: tauri::AppHandle,
     default_path: Option<String>,
@@ -1025,7 +1025,7 @@ fn pick_executable(
     Ok(res.map(|p| p.to_string()))
 }
 
-#[tauri::command]
+#[tauri::command(async)]
 fn pick_image_file(
     app: tauri::AppHandle,
     default_path: Option<String>,
