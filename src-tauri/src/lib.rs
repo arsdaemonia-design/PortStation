@@ -494,8 +494,22 @@ fn list_catalog_ports(state: State<AppState>) -> Result<Vec<CatalogPortDTO>, Str
 
 pub fn split_package_stem_and_ext(file_name: &str) -> Option<(&str, &str)> {
     const COMPOUND_EXTENSIONS: [&str; 4] = [".tar.gz", ".tar.xz", ".tar.zst", ".tar.bz2"];
-    const SINGLE_EXTENSIONS: [&str; 9] = [
-        ".zip", ".rar", ".7z", ".tgz", ".exe", ".msi", ".appimage", ".deb", ".rpm",
+    const SINGLE_EXTENSIONS: [&str; 15] = [
+        ".zip",
+        ".rar",
+        ".7z",
+        ".tgz",
+        ".exe",
+        ".msi",
+        ".appimage",
+        ".deb",
+        ".rpm",
+        ".apk",
+        ".aab",
+        ".dmg",
+        ".pkg",
+        ".flatpak",
+        ".ipa",
     ];
 
     let lower = file_name.to_ascii_lowercase();
@@ -514,12 +528,83 @@ pub fn split_package_stem_and_ext(file_name: &str) -> Option<(&str, &str)> {
     None
 }
 
+fn resolve_catalog_download_dir(
+    project_id: &str,
+    target_dir: Option<&str>,
+) -> Result<PathBuf, String> {
+    let safe_id = safe_path_component(project_id);
+    if let Some(raw_root) = target_dir {
+        let trimmed = raw_root.trim();
+        if !trimmed.is_empty() {
+            let expanded = expand_tilde_path(trimmed);
+            let library_downloads = expanded.join("Descargas").join(&safe_id);
+            if std::fs::create_dir_all(&library_downloads).is_ok() {
+                return Ok(library_downloads);
+            }
+        }
+    }
+    let data_dir = get_portstation_data_dir()?;
+    let fallback_dir = data_dir.join("downloads").join(&safe_id);
+    std::fs::create_dir_all(&fallback_dir)
+        .map_err(|e| format!("No se pudo crear la carpeta de descargas: {}", e))?;
+    Ok(fallback_dir)
+}
+
+fn open_directory_in_os(directory: &Path) -> Result<(), String> {
+    #[cfg(target_os = "windows")]
+    {
+        std::process::Command::new("explorer.exe")
+            .arg(directory)
+            .spawn()
+            .map_err(|e| format!("No se pudo abrir el Explorador de archivos: {}", e))?;
+    }
+    #[cfg(target_os = "macos")]
+    {
+        std::process::Command::new("open")
+            .arg(directory)
+            .spawn()
+            .map_err(|e| format!("No se pudo abrir la carpeta: {}", e))?;
+    }
+    #[cfg(all(not(target_os = "windows"), not(target_os = "macos")))]
+    {
+        if std::process::Command::new("xdg-open")
+            .arg(directory)
+            .spawn()
+            .is_err()
+        {
+            // Fallback for WSL2 where xdg-open is absent: convert path via wslpath and open Windows Explorer
+            let wsl_win_path = std::process::Command::new("wslpath")
+                .args(["-w", &directory.to_string_lossy()])
+                .output()
+                .ok()
+                .filter(|o| o.status.success())
+                .and_then(|o| String::from_utf8(o.stdout).ok())
+                .map(|s| s.trim().to_string());
+            if let Some(win_dir) = wsl_win_path {
+                if std::process::Command::new("explorer.exe")
+                    .arg(&win_dir)
+                    .spawn()
+                    .is_ok()
+                {
+                    return Ok(());
+                }
+            }
+            return Err(format!(
+                "No se pudo abrir el gestor gráfico. Ruta descargada: {}",
+                directory.display()
+            ));
+        }
+    }
+    Ok(())
+}
+
 #[tauri::command]
 async fn download_catalog_zip(
     project_id: String,
     asset_download_url: String,
     asset_name: String,
     expected_sha256: Option<String>,
+    target_dir: Option<String>,
 ) -> Result<DownloadedGitHubAsset, String> {
     tauri::async_runtime::spawn_blocking(move || {
         const MAX_DOWNLOAD_BYTES: u64 = 8 * 1024 * 1024 * 1024;
@@ -549,7 +634,7 @@ async fn download_catalog_zip(
         let allowed_prefix = format!("https://github.com/{}/{}/releases/download/", owner, repo);
         let file_name = safe_path_component(&asset_name);
         let Some((stem, ext)) = split_package_stem_and_ext(&file_name) else {
-            return Err("Solo se permiten paquetes válidos de releases del repositorio registrado (.zip, .7z, .tar.gz, .AppImage, etc.)".to_string());
+            return Err("Solo se permiten paquetes válidos de releases del repositorio registrado (.zip, .7z, .tar.gz, .AppImage, .apk, etc.)".to_string());
         };
 
         if !asset_download_url.starts_with(&allowed_prefix)
@@ -558,12 +643,7 @@ async fn download_catalog_zip(
         {
             return Err("La URL del asset no pertenece a las releases del repositorio registrado".to_string());
         }
-        let data_dir = get_portstation_data_dir()?;
-        let download_dir = data_dir
-            .join("downloads")
-            .join(safe_path_component(&project_id));
-        std::fs::create_dir_all(&download_dir)
-            .map_err(|e| format!("No se pudo crear la carpeta de descargas: {}", e))?;
+        let download_dir = resolve_catalog_download_dir(&project_id, target_dir.as_deref())?;
 
         let response = ureq::get(&asset_download_url)
             .set("User-Agent", "PortStation")
@@ -579,11 +659,7 @@ async fn download_catalog_zip(
             }
         }
 
-        let timestamp = std::time::SystemTime::now()
-            .duration_since(std::time::UNIX_EPOCH)
-            .unwrap_or_default()
-            .as_millis();
-        let final_file_name = format!("{}-{}.{}", stem, timestamp, ext);
+        let final_file_name = format!("{}.{}", stem, ext);
         let final_path = download_dir.join(&final_file_name);
         let partial_path = download_dir.join(format!("{}.part", final_file_name));
         let mut file = std::fs::File::create(&partial_path)
@@ -618,6 +694,9 @@ async fn download_catalog_zip(
                 );
             }
         }
+        if final_path.exists() {
+            let _ = std::fs::remove_file(&final_path);
+        }
         std::fs::rename(&partial_path, &final_path).map_err(|e| {
             let _ = std::fs::remove_file(&partial_path);
             format!("No se pudo finalizar el archivo descargado: {}", e)
@@ -634,31 +713,26 @@ async fn download_catalog_zip(
 }
 
 #[tauri::command]
-fn open_catalog_download_folder(project_id: String) -> Result<(), String> {
+fn open_catalog_download_folder(
+    project_id: String,
+    target_dir: Option<String>,
+) -> Result<(), String> {
+    let safe_id = safe_path_component(&project_id);
+    if let Some(ref raw_root) = target_dir {
+        let trimmed = raw_root.trim();
+        if !trimmed.is_empty() {
+            let candidate = expand_tilde_path(trimmed).join("Descargas").join(&safe_id);
+            if candidate.is_dir() {
+                return open_directory_in_os(&candidate);
+            }
+        }
+    }
     let data_dir = get_portstation_data_dir()?;
-    let directory = data_dir
-        .join("downloads")
-        .join(safe_path_component(&project_id));
+    let directory = data_dir.join("downloads").join(&safe_id);
     if !directory.is_dir() {
         return Err("Todavía no existe una carpeta de descarga para este port".to_string());
     }
-
-    #[cfg(target_os = "windows")]
-    std::process::Command::new("explorer.exe")
-        .arg(&directory)
-        .spawn()
-        .map_err(|e| format!("No se pudo abrir el Explorador de archivos: {}", e))?;
-    #[cfg(target_os = "macos")]
-    std::process::Command::new("open")
-        .arg(&directory)
-        .spawn()
-        .map_err(|e| format!("No se pudo abrir la carpeta: {}", e))?;
-    #[cfg(all(not(target_os = "windows"), not(target_os = "macos")))]
-    std::process::Command::new("xdg-open")
-        .arg(&directory)
-        .spawn()
-        .map_err(|e| format!("No se pudo abrir la carpeta: {}", e))?;
-    Ok(())
+    open_directory_in_os(&directory)
 }
 
 #[tauri::command]
@@ -668,23 +742,7 @@ fn open_game_folder(executable_path: String) -> Result<(), String> {
         .parent()
         .filter(|path| path.is_dir())
         .ok_or_else(|| "No se encontró la carpeta del ejecutable asignado".to_string())?;
-
-    #[cfg(target_os = "windows")]
-    std::process::Command::new("explorer.exe")
-        .arg(directory)
-        .spawn()
-        .map_err(|e| format!("No se pudo abrir la carpeta del juego: {}", e))?;
-    #[cfg(target_os = "macos")]
-    std::process::Command::new("open")
-        .arg(directory)
-        .spawn()
-        .map_err(|e| format!("No se pudo abrir la carpeta del juego: {}", e))?;
-    #[cfg(all(not(target_os = "windows"), not(target_os = "macos")))]
-    std::process::Command::new("xdg-open")
-        .arg(directory)
-        .spawn()
-        .map_err(|e| format!("No se pudo abrir la carpeta del juego: {}", e))?;
-    Ok(())
+    open_directory_in_os(directory)
 }
 
 pub fn expand_tilde_path(raw_path: &str) -> PathBuf {
@@ -2585,6 +2643,18 @@ mod tests {
         assert_eq!(
             split_package_stem_and_ext("installer.exe"),
             Some(("installer", "exe"))
+        );
+        assert_eq!(
+            split_package_stem_and_ext("metroid-prime2-port-0.6.6-android-arm64.apk"),
+            Some(("metroid-prime2-port-0.6.6-android-arm64", "apk"))
+        );
+        assert_eq!(
+            split_package_stem_and_ext("Port-macOS.dmg"),
+            Some(("Port-macOS", "dmg"))
+        );
+        assert_eq!(
+            split_package_stem_and_ext("MetroidPrime2Port.flatpak"),
+            Some(("MetroidPrime2Port", "flatpak"))
         );
         assert_eq!(split_package_stem_and_ext("readme.txt"), None);
         assert_eq!(split_package_stem_and_ext(".zip"), None);

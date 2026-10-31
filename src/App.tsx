@@ -1301,15 +1301,24 @@ export const App: React.FC = () => {
     setCatalogDownloadMessages((previous) => ({ ...previous, [port.id]: '' }));
     try {
       const downloadUrl = asset.download_url || (asset as any).browser_download_url || '';
+      const targetDir = roots[0]?.path || settings.libraryPath || null;
       const result = await invoke<DownloadedCatalogZip>('download_catalog_zip', {
         projectId: port.id,
         assetDownloadUrl: downloadUrl,
         assetName: asset.name,
         expectedSha256: asset.digest || null,
+        targetDir,
       });
       const message = `${result.path}\nSHA-256: ${result.sha256}`;
       setCatalogDownloadMessages((previous) => ({ ...previous, [port.id]: message }));
       setCatalogDownloaded((previous) => ({ ...previous, [port.id]: true }));
+      if (platformInfo.os === 'android' && result.path.startsWith('/data/')) {
+        void handleOpenBrowser(downloadUrl);
+        setCatalogDownloadMessages((previous) => ({
+          ...previous,
+          [port.id]: `${message}\n(En Android también se envió a tu carpeta pública Descargas del navegador para instalar el APK directamente).`,
+        }));
+      }
     } catch (error) {
       setCatalogDownloadMessages((previous) => ({ ...previous, [port.id]: `Falló la descarga: ${error}` }));
       setCatalogDownloaded((previous) => ({ ...previous, [port.id]: false }));
@@ -1320,7 +1329,11 @@ export const App: React.FC = () => {
 
   const handleOpenCatalogDownloadFolder = async (port: CatalogPort) => {
     try {
-      await invoke('open_catalog_download_folder', { projectId: port.id });
+      const targetDir = roots[0]?.path || settings.libraryPath || null;
+      await invoke('open_catalog_download_folder', {
+        projectId: port.id,
+        targetDir,
+      });
     } catch (error) {
       setCatalogDownloadMessages((previous) => ({ ...previous, [port.id]: `No se pudo abrir la carpeta: ${error}` }));
     }
