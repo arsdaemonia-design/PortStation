@@ -680,6 +680,23 @@ fn open_game_folder(executable_path: String) -> Result<(), String> {
     Ok(())
 }
 
+pub fn expand_tilde_path(raw_path: &str) -> PathBuf {
+    let trimmed = raw_path.trim();
+    if trimmed == "~" {
+        if let Ok(home) = std::env::var("HOME").or_else(|_| std::env::var("USERPROFILE")) {
+            return PathBuf::from(home);
+        }
+    } else if let Some(rest) = trimmed
+        .strip_prefix("~/")
+        .or_else(|| trimmed.strip_prefix("~\\"))
+    {
+        if let Ok(home) = std::env::var("HOME").or_else(|_| std::env::var("USERPROFILE")) {
+            return PathBuf::from(home).join(rest);
+        }
+    }
+    PathBuf::from(trimmed)
+}
+
 #[tauri::command(async)]
 fn scan_and_match(
     root_path: String,
@@ -689,7 +706,8 @@ fn scan_and_match(
     let registry = EmbeddedSeedRegistry::new();
     let matcher = HeuristicMatcher::new(registry.list_all_projects());
 
-    let root = Path::new(&root_path);
+    let root_buf = expand_tilde_path(&root_path);
+    let root = root_buf.as_path();
     let candidates = scanner.scan_directory(root)?;
 
     let mut best_matches: HashMap<String, (crate::core::matcher::MatchEvaluation, CandidateFile)> =
@@ -954,7 +972,10 @@ fn pick_folder(
     use tauri_plugin_dialog::DialogExt;
     let mut builder = app.dialog().file();
     if let Some(ref d) = default_path {
-        builder = builder.set_directory(d);
+        let expanded = expand_tilde_path(d);
+        if expanded.is_dir() {
+            builder = builder.set_directory(expanded);
+        }
     }
     let res = builder.blocking_pick_folder();
     Ok(res.map(|p| p.to_string()))
@@ -970,11 +991,15 @@ fn pick_executable(
         .dialog()
         .file()
         .add_filter(
-            "Ejecutables (*.exe, *.bat, *.cmd, *.AppImage, *.sh)",
-            &["exe", "bat", "cmd", "AppImage", "appimage", "sh", "bin"],
-        );
+            "Ejecutables (*.exe, *.bat, *.cmd, *.AppImage, *.sh, *.elf)",
+            &["exe", "bat", "cmd", "AppImage", "appimage", "sh", "bin", "elf"],
+        )
+        .add_filter("Todos los archivos (incluye binarios ELF sin extensión)", &["*"]);
     if let Some(ref d) = default_path {
-        builder = builder.set_directory(d);
+        let expanded = expand_tilde_path(d);
+        if expanded.is_dir() {
+            builder = builder.set_directory(expanded);
+        }
     }
     let res = builder.blocking_pick_file();
     Ok(res.map(|p| p.to_string()))
@@ -1224,9 +1249,19 @@ fn open_browser(url: String) -> Result<(), String> {
             .spawn()
             .map_err(|e| e.to_string())?;
     }
-    #[cfg(not(target_os = "windows"))]
+    #[cfg(target_os = "macos")]
     {
-        let _ = std::process::Command::new("xdg-open").arg(&url).spawn();
+        std::process::Command::new("open")
+            .arg(&url)
+            .spawn()
+            .map_err(|e| e.to_string())?;
+    }
+    #[cfg(all(not(target_os = "windows"), not(target_os = "macos")))]
+    {
+        std::process::Command::new("xdg-open")
+            .arg(&url)
+            .spawn()
+            .map_err(|e| e.to_string())?;
     }
     Ok(())
 }

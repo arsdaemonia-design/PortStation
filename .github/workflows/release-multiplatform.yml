@@ -1,0 +1,111 @@
+name: Multiplatform Build & Release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-desktop:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: windows-x64
+            os: windows-latest
+            bin_name: portstation-core.exe
+            out_name: PortStation.exe
+            archive_name: PortStation-windows-x64.zip
+          - platform: linux-x86_64
+            os: ubuntu-22.04
+            bin_name: portstation-core
+            out_name: PortStation
+            archive_name: PortStation-linux-x86_64.tar.gz
+          - platform: macos-arm64
+            os: macos-latest
+            bin_name: portstation-core
+            out_name: PortStation
+            archive_name: PortStation-macos-arm64.tar.gz
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Linux System Dependencies (WebKitGTK 4.1)
+        if: matrix.os == 'ubuntu-22.04'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev \
+            build-essential \
+            curl \
+            wget \
+            file \
+            libxdo-dev \
+            libssl-dev \
+            libayatana-appindicator3-dev \
+            librsvg2-dev \
+            patchelf
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Setup Rust Toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: './src-tauri -> target'
+
+      - name: Install Frontend Dependencies
+        run: npm ci
+
+      - name: Lint & Run Unit Tests
+        run: |
+          npm run lint
+          cargo test --manifest-path src-tauri/Cargo.toml --lib
+
+      - name: Build Tauri Application (Embedded Frontend)
+        run: npx tauri build
+
+      - name: Package Windows Release Archive
+        if: matrix.os == 'windows-latest'
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path dist-pkg | Out-Null
+          Copy-Item "src-tauri/target/release/${{ matrix.bin_name }}" "dist-pkg/${{ matrix.out_name }}" -Force
+          if (Test-Path "README.md") { Copy-Item "README.md" "dist-pkg/README.md" -Force }
+          Compress-Archive -Path "dist-pkg/*" -DestinationPath "${{ matrix.archive_name }}" -Force
+
+      - name: Package Unix Release Archive (Linux / macOS)
+        if: matrix.os != 'windows-latest'
+        shell: bash
+        run: |
+          mkdir -p dist-pkg
+          cp "src-tauri/target/release/${{ matrix.bin_name }}" "dist-pkg/${{ matrix.out_name }}"
+          chmod +x "dist-pkg/${{ matrix.out_name }}"
+          if [ -f "README.md" ]; then cp "README.md" "dist-pkg/README.md"; fi
+          tar -czvf "${{ matrix.archive_name }}" -C dist-pkg .
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.archive_name }}
+          path: ${{ matrix.archive_name }}
+
+      - name: Attach to GitHub Release (on Tag Push)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ matrix.archive_name }}
+          generate_release_notes: true

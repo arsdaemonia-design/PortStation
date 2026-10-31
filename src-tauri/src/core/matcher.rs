@@ -47,6 +47,18 @@ fn is_safe_partial_exe_match(candidate_stem: &str, rule_stem: &str) -> bool {
     false
 }
 
+fn strip_executable_suffix(lower_name: &str) -> Option<&str> {
+    for suffix in [".exe", ".appimage", ".elf", ".bin", ".sh", ".bat", ".cmd"] {
+        if let Some(stem) = lower_name.strip_suffix(suffix) {
+            return Some(stem);
+        }
+    }
+    if !lower_name.contains('.') {
+        return Some(lower_name);
+    }
+    None
+}
+
 impl HeuristicMatcher {
     pub fn new(projects: Vec<Project>) -> Self {
         Self { projects }
@@ -87,21 +99,27 @@ impl Matcher for HeuristicMatcher {
             let mut is_match = false;
 
             // 1. Structural / Name checks against registered executables
+            let candidate_stem_opt = if candidate.is_executable {
+                strip_executable_suffix(&lower_filename)
+            } else {
+                None
+            };
+
             for (idx, exe) in proj.detection.executables.iter().enumerate() {
                 let lower_exe = exe.to_lowercase();
-                if lower_filename == lower_exe {
+                let base_exe = lower_exe.strip_suffix(".exe").unwrap_or(&lower_exe);
+                if lower_filename == lower_exe
+                    || candidate_stem_opt
+                        .is_some_and(|stem| !base_exe.is_empty() && stem == base_exe)
+                {
                     let exe_score = if idx == 0 { 85 } else { 70 };
                     current_score += exe_score;
                     current_evidence
                         .push(format!("Exact executable match '{}' (+{})", exe, exe_score));
                     is_match = true;
                     break;
-                } else {
-                    let base_exe = lower_exe.replace(".exe", "");
-                    let candidate_stem = lower_filename.strip_suffix(".exe").unwrap_or(&lower_filename);
-                    if is_safe_partial_exe_match(candidate_stem, &base_exe)
-                        && lower_filename.ends_with(".exe")
-                    {
+                } else if let Some(candidate_stem) = candidate_stem_opt {
+                    if is_safe_partial_exe_match(candidate_stem, base_exe) {
                         current_score += 60;
                         current_evidence.push(format!("Partial executable match '{}' (+60)", exe));
                         is_match = true;
@@ -114,7 +132,13 @@ impl Matcher for HeuristicMatcher {
             if is_match {
                 for pattern in &proj.detection.folder_patterns {
                     let clean_pat = pattern.trim_matches('*').to_lowercase();
-                    if lower_path.contains(&clean_pat) {
+                    let os_neutral_pat = clean_pat
+                        .strip_suffix("-windows")
+                        .or_else(|| clean_pat.strip_suffix("_windows"))
+                        .filter(|s| s.len() >= 4);
+                    if lower_path.contains(&clean_pat)
+                        || os_neutral_pat.is_some_and(|neutral| lower_path.contains(neutral))
+                    {
                         current_score += 15;
                         current_evidence.push(format!(
                             "Directory path matches folder pattern '{}' (+15)",
@@ -364,6 +388,35 @@ mod tests {
         assert_eq!(
             valid_black.matched_project_id.as_deref(),
             Some("black-xberecomp")
+        );
+    }
+
+    #[test]
+    fn test_matcher_recognizes_linux_elf_and_appimage_binaries() {
+        let matcher = HeuristicMatcher::default();
+        let elf_candidate = CandidateFile {
+            path: "/home/deck/Games/Ports/SpartanPort/SpartanPort".to_string(),
+            filename: "SpartanPort".to_string(),
+            size: 10_000_000,
+            is_executable: true,
+        };
+        let eval_elf = matcher.evaluate_candidate(&elf_candidate, None);
+        assert_eq!(eval_elf.status, MatchStatus::VERIFIED);
+        assert_eq!(
+            eval_elf.matched_project_id.as_deref(),
+            Some("spartanport-gow3")
+        );
+
+        let appimage_candidate = CandidateFile {
+            path: "/home/deck/Games/Ports/Ghostship/Ghostship-x86_64.AppImage".to_string(),
+            filename: "Ghostship-x86_64.AppImage".to_string(),
+            size: 25_000_000,
+            is_executable: true,
+        };
+        let eval_appimage = matcher.evaluate_candidate(&appimage_candidate, None);
+        assert_eq!(
+            eval_appimage.matched_project_id.as_deref(),
+            Some("ghostship")
         );
     }
 }

@@ -36,9 +36,8 @@ impl LocalFileScanner {
         )
     }
 
-    fn is_candidate_executable(filename: &str) -> bool {
-        let lower = filename.to_lowercase();
-        if lower.starts_with("unins")
+    fn is_ignored_executable_name(lower: &str) -> bool {
+        lower.starts_with("unins")
             || lower.contains("crashpad")
             || lower.contains("xbcompress")
             || lower.contains("xbdecompress")
@@ -46,7 +45,19 @@ impl LocalFileScanner {
             || lower == "tsc.exe"
             || lower.starts_with("pip")
             || lower.starts_with("python")
-        {
+            || lower.ends_with(".so")
+            || lower.contains(".so.")
+            || lower.ends_with(".dll")
+            || lower.ends_with(".dylib")
+    }
+
+    pub fn has_elf_magic(header: &[u8]) -> bool {
+        header.len() >= 4 && header[..4] == [0x7F, b'E', b'L', b'F']
+    }
+
+    fn is_candidate_executable(filename: &str) -> bool {
+        let lower = filename.to_lowercase();
+        if Self::is_ignored_executable_name(&lower) {
             return false;
         }
 
@@ -55,6 +66,29 @@ impl LocalFileScanner {
             || lower.ends_with(".cmd")
             || lower.ends_with(".appimage")
             || lower.ends_with(".sh")
+            || lower.ends_with(".elf")
+    }
+
+    #[cfg(unix)]
+    fn is_unix_elf_executable(path: &Path, metadata: &std::fs::Metadata, filename: &str) -> bool {
+        use std::io::Read;
+        use std::os::unix::fs::PermissionsExt;
+
+        let lower = filename.to_lowercase();
+        if Self::is_ignored_executable_name(&lower) {
+            return false;
+        }
+        if metadata.permissions().mode() & 0o111 == 0 {
+            return false;
+        }
+        let Ok(mut file) = std::fs::File::open(path) else {
+            return false;
+        };
+        let mut header = [0u8; 4];
+        if file.read_exact(&mut header).is_err() {
+            return false;
+        }
+        Self::has_elf_magic(&header)
     }
 }
 
@@ -81,10 +115,15 @@ impl Scanner for LocalFileScanner {
             if entry.file_type().is_file() {
                 let path = entry.path();
                 let fname = entry.file_name().to_string_lossy();
-                let is_exec = Self::is_candidate_executable(&fname);
+                let metadata = entry.metadata().map_err(|e| e.to_string())?;
+                #[allow(unused_mut)]
+                let mut is_exec = Self::is_candidate_executable(&fname);
+                #[cfg(unix)]
+                if !is_exec {
+                    is_exec = Self::is_unix_elf_executable(path, &metadata, &fname);
+                }
 
                 if is_exec {
-                    let metadata = entry.metadata().map_err(|e| e.to_string())?;
                     results.push(CandidateFile {
                         path: path.to_string_lossy().to_string(),
                         filename: entry.file_name().to_string_lossy().to_string(),
@@ -136,5 +175,14 @@ mod tests {
         assert!(LocalFileScanner::is_candidate_executable(
             "DefJamLauncher.exe"
         ));
+    }
+
+    #[test]
+    fn test_elf_magic_and_shared_library_exclusion() {
+        assert!(LocalFileScanner::has_elf_magic(b"\x7FELF\x02\x01\x01\x00"));
+        assert!(!LocalFileScanner::has_elf_magic(b"MZ\x90\x00"));
+        assert!(!LocalFileScanner::is_ignored_executable_name("crashbandicoot"));
+        assert!(LocalFileScanner::is_ignored_executable_name("libvulkan.so"));
+        assert!(LocalFileScanner::is_ignored_executable_name("libssl.so.3"));
     }
 }
