@@ -70,10 +70,13 @@ jobs:
       - name: Install Frontend Dependencies
         run: npm ci
 
-      - name: Lint & Run Unit Tests
+      - name: Lint & Frontend Build
         run: |
           npm run lint
-          cargo test --manifest-path src-tauri/Cargo.toml --lib
+          npm run build
+
+      - name: Run Rust Unit Tests
+        run: cargo test --manifest-path src-tauri/Cargo.toml --lib
 
       - name: Build Tauri Application (Embedded Frontend)
         run: npx tauri build
@@ -108,4 +111,80 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: ${{ matrix.archive_name }}
+          generate_release_notes: true
+
+  build-android:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Setup Java 17 (Temurin)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Android SDK & NDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android NDK & Build-Tools
+        run: |
+          yes | sdkmanager --licenses > /dev/null || true
+          sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0" "ndk;26.3.11579264"
+          echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
+          echo "NDK_HOME=$ANDROID_HOME/ndk/26.3.11579264" >> $GITHUB_ENV
+
+      - name: Setup Rust with Android ARM64 Target
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-linux-android,armv7-linux-androideabi,i686-linux-android,x86_64-linux-android
+
+      - name: Rust Cache (Android)
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: './src-tauri -> target'
+          key: android-arm64
+
+      - name: Install Frontend Dependencies & Build Dist
+        run: |
+          npm ci
+          npm run build
+
+      - name: Initialize & Build Tauri Android APK (ARM64)
+        run: |
+          if [ ! -d "src-tauri/gen/android" ]; then
+            npx tauri android init
+          fi
+          npx tauri android build --apk --target aarch64
+
+      - name: Sign & Package Installable Android APK
+        run: |
+          UNSIGNED_APK=$(find src-tauri/gen/android/app/build/outputs/apk -name "*.apk" | head -n 1)
+          echo "Found APK: $UNSIGNED_APK"
+          if [[ "$UNSIGNED_APK" == *"unsigned"* ]]; then
+            keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
+            $ANDROID_HOME/build-tools/34.0.0/zipalign -v -p 4 "$UNSIGNED_APK" aligned.apk
+            $ANDROID_HOME/build-tools/34.0.0/apksigner sign --ks debug.keystore --ks-key-alias androiddebugkey --ks-pass pass:android --key-pass pass:android --out PortStation-android-arm64.apk aligned.apk
+          else
+            cp "$UNSIGNED_APK" PortStation-android-arm64.apk
+          fi
+
+      - name: Upload Android APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PortStation-android-arm64.apk
+          path: PortStation-android-arm64.apk
+
+      - name: Attach Android APK to GitHub Release (on Tag Push)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: PortStation-android-arm64.apk
           generate_release_notes: true

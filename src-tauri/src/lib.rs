@@ -178,11 +178,18 @@ pub struct CatalogInfoDTO {
     pub official_repo_url: String,
 }
 
+static APP_DATA_DIR_OVERRIDE: std::sync::OnceLock<PathBuf> = std::sync::OnceLock::new();
+
 pub fn get_portstation_data_dir() -> Result<PathBuf, String> {
     if let Ok(custom) = std::env::var("PORTSTATION_DATA_DIR") {
         let p = PathBuf::from(custom);
         let _ = std::fs::create_dir_all(&p);
         return Ok(p);
+    }
+
+    if let Some(override_dir) = APP_DATA_DIR_OVERRIDE.get() {
+        let _ = std::fs::create_dir_all(override_dir);
+        return Ok(override_dir.clone());
     }
 
     #[cfg(target_os = "windows")]
@@ -220,7 +227,7 @@ pub fn get_portstation_data_dir() -> Result<PathBuf, String> {
         return Ok(p);
     }
 
-    let p = PathBuf::from(".").join("portstation_data");
+    let p = std::env::temp_dir().join("PortStation");
     let _ = std::fs::create_dir_all(&p);
     Ok(p)
 }
@@ -956,6 +963,7 @@ fn launch_game(
     std::thread::spawn(move || {
         let _ = child.wait();
         let _ = app_handle.emit("game-exited", pid);
+        #[cfg(desktop)]
         if let Some(window) = app_handle.get_webview_window("main") {
             let _ = window.set_focus();
         }
@@ -969,16 +977,24 @@ fn pick_folder(
     app: tauri::AppHandle,
     default_path: Option<String>,
 ) -> Result<Option<String>, String> {
-    use tauri_plugin_dialog::DialogExt;
-    let mut builder = app.dialog().file();
-    if let Some(ref d) = default_path {
-        let expanded = expand_tilde_path(d);
-        if expanded.is_dir() {
-            builder = builder.set_directory(expanded);
+    #[cfg(desktop)]
+    {
+        use tauri_plugin_dialog::DialogExt;
+        let mut builder = app.dialog().file();
+        if let Some(ref d) = default_path {
+            let expanded = expand_tilde_path(d);
+            if expanded.is_dir() {
+                builder = builder.set_directory(expanded);
+            }
         }
+        let res = builder.blocking_pick_folder();
+        return Ok(res.map(|p| p.to_string()));
     }
-    let res = builder.blocking_pick_folder();
-    Ok(res.map(|p| p.to_string()))
+    #[cfg(mobile)]
+    {
+        let _ = (app, default_path);
+        Err("La selección directa de carpetas de escritorio no está soportada en Android (SAF)".to_string())
+    }
 }
 
 #[tauri::command]
@@ -987,6 +1003,7 @@ fn pick_executable(
     default_path: Option<String>,
 ) -> Result<Option<String>, String> {
     use tauri_plugin_dialog::DialogExt;
+    #[allow(unused_mut)]
     let mut builder = app
         .dialog()
         .file()
@@ -995,12 +1012,15 @@ fn pick_executable(
             &["exe", "bat", "cmd", "AppImage", "appimage", "sh", "bin", "elf"],
         )
         .add_filter("Todos los archivos (incluye binarios ELF sin extensión)", &["*"]);
+    #[cfg(desktop)]
     if let Some(ref d) = default_path {
         let expanded = expand_tilde_path(d);
         if expanded.is_dir() {
             builder = builder.set_directory(expanded);
         }
     }
+    #[cfg(mobile)]
+    let _ = default_path;
     let res = builder.blocking_pick_file();
     Ok(res.map(|p| p.to_string()))
 }
@@ -1011,13 +1031,20 @@ fn pick_image_file(
     default_path: Option<String>,
 ) -> Result<Option<String>, String> {
     use tauri_plugin_dialog::DialogExt;
+    #[allow(unused_mut)]
     let mut builder = app.dialog().file().add_filter(
         "Imágenes (*.png, *.jpg, *.jpeg, *.webp)",
         &["png", "jpg", "jpeg", "webp"],
     );
+    #[cfg(desktop)]
     if let Some(ref d) = default_path {
-        builder = builder.set_directory(d);
+        let expanded = expand_tilde_path(d);
+        if expanded.is_dir() {
+            builder = builder.set_directory(expanded);
+        }
     }
+    #[cfg(mobile)]
+    let _ = default_path;
     let res = builder.blocking_pick_file();
     Ok(res.map(|p| p.to_string()))
 }
@@ -2211,24 +2238,39 @@ fn sync_remote_catalog(
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
-    let db_path = if let Ok(data_dir) = get_portstation_data_dir() {
-        data_dir.join("library.db")
-    } else {
-        PathBuf::from("library.db")
-    };
-
-    let db = DatabaseManager::open(&db_path).unwrap_or_else(|e| {
-        eprintln!(
-            "Aviso: No se pudo abrir DB en disco ({}), usando memoria.",
-            e
-        );
-        DatabaseManager::open_in_memory().expect("Failed to initialize SQLite")
-    });
+    use tauri::Manager;
 
     tauri::Builder::default()
         .plugin(tauri_plugin_shell::init())
         .plugin(tauri_plugin_dialog::init())
-        .manage(AppState { db: Mutex::new(db) })
+        .setup(|app| {
+            #[cfg(target_os = "android")]
+            if let Ok(app_dir) = app.path().app_data_dir() {
+                let _ = std::fs::create_dir_all(&app_dir);
+                let _ = APP_DATA_DIR_OVERRIDE.set(app_dir);
+            }
+
+            let db_path = if let Ok(data_dir) = get_portstation_data_dir() {
+                data_dir.join("library.db")
+            } else if let Ok(app_dir) = app.path().app_data_dir() {
+                let _ = std::fs::create_dir_all(&app_dir);
+                let _ = APP_DATA_DIR_OVERRIDE.set(app_dir.clone());
+                app_dir.join("library.db")
+            } else {
+                std::env::temp_dir().join("PortStation").join("library.db")
+            };
+
+            let db = DatabaseManager::open(&db_path).unwrap_or_else(|e| {
+                eprintln!(
+                    "Aviso: No se pudo abrir DB en disco ({}), usando memoria.",
+                    e
+                );
+                DatabaseManager::open_in_memory().expect("Failed to initialize SQLite")
+            });
+
+            app.manage(AppState { db: Mutex::new(db) });
+            Ok(())
+        })
         .invoke_handler(tauri::generate_handler![
             scan_and_match,
             list_catalog_ports,
