@@ -849,7 +849,6 @@ pub fn match_android_package_to_project(
     false
 }
 
-#[cfg(target_os = "android")]
 fn list_installed_android_packages() -> Vec<String> {
     let commands: [(&str, &[&str]); 3] = [
         ("pm", &["list", "packages", "-3"]),
@@ -875,6 +874,80 @@ fn list_installed_android_packages() -> Vec<String> {
     Vec::new()
 }
 
+fn scan_android_installed_ports(
+    registry: &EmbeddedSeedRegistry,
+    state: &State<AppState>,
+) -> Vec<DetectedGameDTO> {
+    let installed_pkgs = list_installed_android_packages();
+    let all_projects = registry.list_all_projects();
+    let mut detected = Vec::new();
+
+    for project in all_projects {
+        if let Some(matched_pkg) = installed_pkgs
+            .iter()
+            .find(|pkg| match_android_package_to_project(pkg, &project))
+        {
+            let game = registry.find_game(&project.game_id);
+            let title = game
+                .as_ref()
+                .map(|g| g.title.clone())
+                .unwrap_or_else(|| project.name.clone());
+            let platform = game
+                .as_ref()
+                .map(|g| g.original_platforms.join(" / "))
+                .unwrap_or_else(|| "Android".to_string());
+            let year = game.as_ref().and_then(|g| g.release_year);
+            let developer = game.as_ref().and_then(|g| g.developer.clone());
+            let synopsis = game.as_ref().and_then(|g| g.synopsis.clone());
+            let box_art_url = game.as_ref().and_then(|g| g.box_art_url.clone());
+            let disc_art_url = game.as_ref().and_then(|g| g.disc_art_url.clone());
+            let sub_games = game.as_ref().and_then(|g| g.sub_games.clone());
+
+            if let Ok(db) = state.db.lock() {
+                let inst = Installation {
+                    id: project.id.clone(),
+                    game_id: project.game_id.clone(),
+                    project_id: project.id.clone(),
+                    executable_path: matched_pkg.clone(),
+                    working_dir: "Android APK Instalada".to_string(),
+                    status: MatchStatus::VERIFIED,
+                    sha256: None,
+                    detected_version: None,
+                };
+                let _ = db.save_installation(&inst);
+            }
+
+            detected.push(DetectedGameDTO {
+                id: project.game_id.clone(),
+                title,
+                original_platform: platform,
+                release_year: year,
+                developer,
+                synopsis,
+                box_art_url,
+                disc_art_url,
+                sub_games,
+                project_title: project.name,
+                method: project.method,
+                status: MatchStatus::VERIFIED,
+                author: project.author,
+                author_avatar_url: project.author_avatar_url,
+                port_art_url: project.port_art_url,
+                repository_url: project.repository_url.or_else(|| {
+                    project.repository.as_ref().map(|r| r.url.clone())
+                }),
+                features: project.features,
+                technical_notes: project.technical_notes,
+                executable_path: matched_pkg.clone(),
+                install_path: "Android APK Instalada".to_string(),
+                sha256: None,
+                version: None,
+            });
+        }
+    }
+    detected
+}
+
 #[tauri::command(async)]
 fn scan_and_match(
     root_path: String,
@@ -882,79 +955,8 @@ fn scan_and_match(
 ) -> Result<Vec<DetectedGameDTO>, String> {
     let registry = EmbeddedSeedRegistry::new();
 
-    #[cfg(target_os = "android")]
-    {
-        let _ = root_path;
-        let installed_pkgs = list_installed_android_packages();
-        let all_projects = registry.list_all_projects();
-        let mut detected = Vec::new();
-
-        for project in all_projects {
-            if let Some(matched_pkg) = installed_pkgs
-                .iter()
-                .find(|pkg| match_android_package_to_project(pkg, &project))
-            {
-                let game = registry.find_game(&project.game_id);
-                let title = game
-                    .as_ref()
-                    .map(|g| g.title.clone())
-                    .unwrap_or_else(|| project.name.clone());
-                let platform = game
-                    .as_ref()
-                    .map(|g| g.original_platforms.join(" / "))
-                    .unwrap_or_else(|| "Android".to_string());
-                let year = game.as_ref().and_then(|g| g.release_year);
-                let developer = game.as_ref().and_then(|g| g.developer.clone());
-                let synopsis = game.as_ref().and_then(|g| g.synopsis.clone());
-                let box_art_url = game.as_ref().and_then(|g| g.box_art_url.clone());
-                let disc_art_url = game.as_ref().and_then(|g| g.disc_art_url.clone());
-                let sub_games = game.as_ref().and_then(|g| g.sub_games.clone());
-
-                if let Ok(db) = state.db.lock() {
-                    let inst = Installation {
-                        id: format!("inst-{}", project.id),
-                        game_id: project.game_id.clone(),
-                        project_id: project.id.clone(),
-                        install_path: "Android APK".to_string(),
-                        executable_path: matched_pkg.clone(),
-                        version: None,
-                        status: MatchStatus::VERIFIED,
-                        sha256: None,
-                        runner: LaunchRunner::Native,
-                        custom_args: Vec::new(),
-                    };
-                    let _ = db.upsert_installation(&inst);
-                }
-
-                detected.push(DetectedGameDTO {
-                    id: project.id.clone(),
-                    title,
-                    original_platform: platform,
-                    release_year: year,
-                    developer,
-                    synopsis,
-                    box_art_url,
-                    disc_art_url,
-                    sub_games,
-                    project_title: project.name,
-                    method: project.method,
-                    status: MatchStatus::VERIFIED,
-                    author: project.author,
-                    author_avatar_url: project.author_avatar_url,
-                    port_art_url: project.port_art_url,
-                    repository_url: project.repository_url.or_else(|| {
-                        project.repository.as_ref().map(|r| r.url.clone())
-                    }),
-                    features: project.features,
-                    technical_notes: project.technical_notes,
-                    executable_path: matched_pkg.clone(),
-                    install_path: "Android APK Instalada".to_string(),
-                    sha256: None,
-                    version: None,
-                });
-            }
-        }
-        return Ok(detected);
+    if cfg!(target_os = "android") {
+        return Ok(scan_android_installed_ports(&registry, &state));
     }
 
     let scanner = LocalFileScanner::new();
@@ -1194,11 +1196,8 @@ fn launch_game(
     working_dir: String,
 ) -> Result<u32, String> {
     use tauri::Emitter;
-    use tauri::Manager;
 
-    #[cfg(target_os = "android")]
-    {
-        let _ = working_dir;
+    if cfg!(target_os = "android") {
         let pkg = executable_path
             .trim()
             .trim_start_matches("package:")
@@ -1243,8 +1242,11 @@ fn launch_game(
         let _ = child.wait();
         let _ = app_handle.emit("game-exited", pid);
         #[cfg(desktop)]
-        if let Some(window) = app_handle.get_webview_window("main") {
-            let _ = window.set_focus();
+        {
+            use tauri::Manager;
+            if let Some(window) = app_handle.get_webview_window("main") {
+                let _ = window.set_focus();
+            }
         }
     });
 
