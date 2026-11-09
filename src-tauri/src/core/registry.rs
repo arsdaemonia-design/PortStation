@@ -25,6 +25,8 @@ struct PortsDbFile {
 #[derive(Debug, Deserialize)]
 struct DbGameEntry {
     pub id: String,
+    #[serde(default)]
+    pub merge_group_id: Option<String>,
     pub title: String,
     pub original_platforms: Vec<String>,
     pub release_year: Option<u32>,
@@ -109,6 +111,7 @@ impl EmbeddedSeedRegistry {
                     let project = Project {
                         id: entry.project.id.clone(),
                         game_id: entry.id,
+                        merge_group_id: entry.merge_group_id,
                         name: entry.project.name,
                         method: entry.project.method,
                         repository: entry.project.repository,
@@ -160,6 +163,7 @@ fn merge_missing_seed_entries(user_json: &str, seed_json: &str) -> String {
             .find(|game| game.get("id").and_then(serde_json::Value::as_str) == Some(seed_id))
         {
             merge_platform_support(existing, seed_game);
+            merge_merge_group_id(existing, seed_game);
         }
         let exists = user_games
             .iter()
@@ -249,6 +253,20 @@ fn merge_missing_seed_entries(user_json: &str, seed_json: &str) -> String {
     }
 
     serde_json::to_string(&user_catalog).unwrap_or_else(|_| user_json.to_string())
+}
+
+fn merge_merge_group_id(existing: &mut serde_json::Value, seed: &serde_json::Value) {
+    let has_group = existing
+        .get("merge_group_id")
+        .and_then(serde_json::Value::as_str)
+        .is_some_and(|value| !value.trim().is_empty());
+    if !has_group {
+        if let Some(group_id) = seed.get("merge_group_id").filter(|value| !value.is_null()) {
+            if let Some(object) = existing.as_object_mut() {
+                object.insert("merge_group_id".to_string(), group_id.clone());
+            }
+        }
+    }
 }
 
 fn merge_platform_support(existing: &mut serde_json::Value, seed: &serde_json::Value) {

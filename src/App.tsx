@@ -81,15 +81,9 @@ interface CachedRepoReleaseSummary {
   checkedAt: number;
 }
 
-interface CatalogPort {
+interface CatalogProjectOption {
   id: string;
   gameId: string;
-  title: string;
-  originalPlatform: string;
-  releaseYear?: number | null;
-  developer?: string | null;
-  synopsis?: string | null;
-  boxArtUrl?: string | null;
   projectTitle: string;
   method: GameItem['method'];
   author?: string | null;
@@ -100,6 +94,53 @@ interface CatalogPort {
   supportedPlatformsComplete: boolean;
   installed: boolean;
 }
+
+interface CatalogPort extends CatalogProjectOption {
+  title: string;
+  originalPlatform: string;
+  releaseYear?: number | null;
+  developer?: string | null;
+  synopsis?: string | null;
+  boxArtUrl?: string | null;
+  mergeGroupId?: string | null;
+  projectOptions?: CatalogProjectOption[];
+}
+
+const groupCatalogPortEntries = (ports: CatalogPort[]): CatalogPort[] => {
+  const groups = new Map<string, CatalogPort[]>();
+  [...ports].sort((a, b) => a.id.localeCompare(b.id)).forEach((port) => {
+    const key = port.mergeGroupId ? `group:${port.mergeGroupId}` : `project:${port.id}`;
+    groups.set(key, [...(groups.get(key) ?? []), port]);
+  });
+
+  return Array.from(groups.values()).map((entries) => {
+    if (entries.length < 2) return entries[0];
+
+    // Prefer an installed variant; otherwise default to a desktop build when one exists.
+    const primary = entries.find((entry) => entry.installed)
+      ?? entries.find((entry) => entry.supportedPlatforms?.includes('windows'))
+      ?? entries[0];
+    const originalPlatform = Array.from(new Set(entries.flatMap((entry) =>
+      entry.originalPlatform.split('/').map((platform) => platform.trim()).filter(Boolean)
+    ))).join(' / ');
+    const supportedPlatforms = Array.from(new Set(entries.flatMap((entry) => entry.supportedPlatforms ?? [])));
+    const platformListsMatch = entries.every((entry) =>
+      entry.supportedPlatformsComplete &&
+      [...(entry.supportedPlatforms ?? [])].sort().join('|') === [...(primary.supportedPlatforms ?? [])].sort().join('|')
+    );
+
+    return {
+      ...primary,
+      installed: entries.some((entry) => entry.installed),
+      originalPlatform,
+      supportedPlatforms,
+      supportedPlatformsComplete: platformListsMatch,
+      projectOptions: entries.map(({ id, gameId, projectTitle, method, author, repositoryUrl, features, technicalNotes, supportedPlatforms, supportedPlatformsComplete, installed }) => ({
+        id, gameId, projectTitle, method, author, repositoryUrl, features, technicalNotes, supportedPlatforms, supportedPlatformsComplete, installed,
+      })),
+    };
+  });
+};
 
 type CatalogSortOption =
   | 'default'
@@ -1286,6 +1327,18 @@ export const App: React.FC = () => {
     }
   };
 
+  const handleSelectCatalogProject = (projectId: string) => {
+    const current = selectedCatalogPort;
+    if (!current?.projectOptions) return;
+    const option = current.projectOptions.find((item) => item.id === projectId);
+    if (!option) return;
+    const selected = { ...current, ...option, projectOptions: current.projectOptions, mergeGroupId: current.mergeGroupId };
+    setSelectedCatalogPort(selected);
+    if (!catalogReleaseChecks[option.id] && option.repositoryUrl) {
+      void handleLoadCatalogReleases(selected);
+    }
+  };
+
   const handleLoadCatalogInfo = useCallback(async () => {
     if (!isTauri) return;
     try {
@@ -1502,9 +1555,11 @@ export const App: React.FC = () => {
     return true;
   });
 
+  const groupedCatalogPorts = React.useMemo(() => groupCatalogPortEntries(catalogPorts), [catalogPorts]);
+
   const availableCatalogPlatforms = React.useMemo(() => {
     const map = new Map<string, number>();
-    catalogPorts.forEach((p) => {
+    groupedCatalogPorts.forEach((p) => {
       p.originalPlatform.split('/').forEach((part) => {
         const plat = part.trim();
         if (plat) {
@@ -1513,17 +1568,22 @@ export const App: React.FC = () => {
       });
     });
     return Array.from(map.entries()).sort((a, b) => a[0].localeCompare(b[0], 'es'));
-  }, [catalogPorts]);
+  }, [groupedCatalogPorts]);
 
   const catalogTargetFilterCounts = React.useMemo(() => {
-    const supported = (os: string) => catalogPorts.filter((port) => port.supportedPlatforms?.includes(os)).length;
-    const only = (os: string) => catalogPorts.filter((port) =>
-      port.supportedPlatformsComplete &&
-      port.supportedPlatforms?.length === 1 &&
-      port.supportedPlatforms[0] === os
+    const optionsFor = (port: CatalogPort) => port.projectOptions ?? [port];
+    const supported = (os: string) => groupedCatalogPorts.filter((port) =>
+      optionsFor(port).some((option) => option.supportedPlatforms?.includes(os))
+    ).length;
+    const only = (os: string) => groupedCatalogPorts.filter((port) =>
+      optionsFor(port).some((option) =>
+        option.supportedPlatformsComplete &&
+        option.supportedPlatforms?.length === 1 &&
+        option.supportedPlatforms[0] === os
+      )
     ).length;
     return {
-      multiplatform: catalogPorts.filter((port) => (port.supportedPlatforms?.length ?? 0) > 1).length,
+      multiplatform: groupedCatalogPorts.filter((port) => optionsFor(port).some((option) => (option.supportedPlatforms?.length ?? 0) > 1)).length,
       windows: supported('windows'),
       android: supported('android'),
       linux: supported('linux'),
@@ -1532,13 +1592,13 @@ export const App: React.FC = () => {
       androidOnly: only('android'),
       linuxOnly: only('linux'),
       macosOnly: only('macos'),
-      unknown: catalogPorts.filter((port) => !port.supportedPlatforms?.length).length,
+      unknown: groupedCatalogPorts.filter((port) => optionsFor(port).every((option) => !option.supportedPlatforms?.length)).length,
     };
-  }, [catalogPorts]);
+  }, [groupedCatalogPorts]);
 
   const filteredCatalogPorts = React.useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
-    const result = catalogPorts.filter((port) => {
+    const result = groupedCatalogPorts.filter((port) => {
       // 1. Search Query
       if (query) {
         const matchesQuery = [
@@ -1546,7 +1606,8 @@ export const App: React.FC = () => {
           port.projectTitle,
           port.originalPlatform,
           port.author || '',
-          port.developer || ''
+          port.developer || '',
+          ...(port.projectOptions?.flatMap((option) => [option.projectTitle, option.author || '']) ?? [])
         ].some((value) => value.toLowerCase().includes(query));
         if (!matchesQuery) return false;
       }
@@ -1562,14 +1623,14 @@ export const App: React.FC = () => {
 
       // 2b. Target OS filter. "Only" categories require a complete platform list;
       // unknown or partial metadata must never be presented as Windows-only, etc.
-      const supportedPlatforms = port.supportedPlatforms ?? [];
-      if (catalogTargetFilter === 'multiplatform' && supportedPlatforms.length < 2) return false;
-      if (catalogTargetFilter === 'unknown' && supportedPlatforms.length > 0) return false;
+      const projectOptions = port.projectOptions ?? [port];
+      if (catalogTargetFilter === 'multiplatform' && !projectOptions.some((option) => (option.supportedPlatforms?.length ?? 0) > 1)) return false;
+      if (catalogTargetFilter === 'unknown' && projectOptions.some((option) => (option.supportedPlatforms?.length ?? 0) > 0)) return false;
       if (['windows', 'android', 'linux', 'macos'].includes(catalogTargetFilter)
-        && !supportedPlatforms.includes(catalogTargetFilter)) return false;
+        && !projectOptions.some((option) => option.supportedPlatforms?.includes(catalogTargetFilter))) return false;
       if (catalogTargetFilter.endsWith('-only')) {
         const onlyOs = catalogTargetFilter.slice(0, -5);
-        if (!port.supportedPlatformsComplete || supportedPlatforms.length !== 1 || supportedPlatforms[0] !== onlyOs) return false;
+        if (!projectOptions.some((option) => option.supportedPlatformsComplete && option.supportedPlatforms?.length === 1 && option.supportedPlatforms[0] === onlyOs)) return false;
       }
 
       // 3. Status filter
@@ -1622,7 +1683,7 @@ export const App: React.FC = () => {
     }
 
     return result;
-  }, [catalogPorts, searchQuery, catalogPlatformFilter, catalogTargetFilter, catalogStatusFilter, catalogSort]);
+  }, [groupedCatalogPorts, searchQuery, catalogPlatformFilter, catalogTargetFilter, catalogStatusFilter, catalogSort]);
 
   // Find banner hero info for active filter (both corporate + console logos)
   const getActiveBannerInfo = () => {
@@ -2501,7 +2562,7 @@ export const App: React.FC = () => {
                           value={catalogPlatformFilter}
                           onChange={(e) => setCatalogPlatformFilter(e.target.value)}
                         >
-                          <option value="all">Todas ({catalogPorts.length})</option>
+                          <option value="all">Todas ({groupedCatalogPorts.length})</option>
                           {availableCatalogPlatforms.map(([plat, count]) => (
                             <option key={plat} value={plat}>
                               {plat} ({count})
@@ -2549,21 +2610,21 @@ export const App: React.FC = () => {
                           className={`explore-pill-btn ${catalogStatusFilter === 'installed' ? 'active' : ''}`}
                           onClick={() => setCatalogStatusFilter('installed')}
                         >
-                          Instalados ({catalogPorts.filter((p) => p.installed).length})
+                          Instalados ({groupedCatalogPorts.filter((p) => p.installed).length})
                         </button>
                         <button
                           type="button"
                           className={`explore-pill-btn ${catalogStatusFilter === 'available' ? 'active' : ''}`}
                           onClick={() => setCatalogStatusFilter('available')}
                         >
-                          Por Instalar ({catalogPorts.filter((p) => !p.installed).length})
+                          Por Instalar ({groupedCatalogPorts.filter((p) => !p.installed).length})
                         </button>
                       </div>
                     </div>
 
                     {/* Results Count & Reset */}
                     <div className="explore-results-badge">
-                      <span>Mostrando <strong style={{ color: '#f0f6fc' }}>{filteredCatalogPorts.length}</strong> de {catalogPorts.length} ports</span>
+                      <span>Mostrando <strong style={{ color: '#f0f6fc' }}>{filteredCatalogPorts.length}</strong> de {groupedCatalogPorts.length} juegos</span>
                       {(catalogSort !== 'alpha-asc' || catalogPlatformFilter !== 'all' || catalogTargetFilter !== 'all' || catalogStatusFilter !== 'all' || searchQuery.trim()) && (
                         <button
                           type="button"
@@ -2603,7 +2664,7 @@ export const App: React.FC = () => {
                         ? 'gamepad-focused'
                         : ''
                     }`}
-                    key={port.id}
+                    key={port.mergeGroupId || port.id}
                     data-catalog-index={idx}
                     onMouseEnter={countCardHover}
                     onClick={() => {
@@ -2612,11 +2673,11 @@ export const App: React.FC = () => {
                     }}
                   >
                     <div className="catalog-port-cover">
-                      {port.boxArtUrl && !coverErrors[port.id] ? (
+                      {port.boxArtUrl && !coverErrors[port.mergeGroupId || port.id] ? (
                         <img
                           src={port.boxArtUrl}
                           alt={`Carátula de ${port.title}`}
-                          onError={() => setCoverErrors((prev) => ({ ...prev, [port.id]: true }))}
+                          onError={() => setCoverErrors((prev) => ({ ...prev, [port.mergeGroupId || port.id]: true }))}
                         />
                       ) : (
                         <div className="catalog-port-cover-placeholder">
@@ -2632,6 +2693,9 @@ export const App: React.FC = () => {
                       <small>{port.originalPlatform}{port.releaseYear ? ` · ${port.releaseYear}` : ''}</small>
                       <h3 title={port.title}>{port.title}</h3>
                       <p className="catalog-project-title">{port.projectTitle}</p>
+                      {(port.projectOptions?.length ?? 0) > 1 && (
+                        <span className="catalog-variants-count">{port.projectOptions!.length} proyectos disponibles</span>
+                      )}
                       {port.synopsis && <p className="catalog-port-synopsis">{port.synopsis}</p>}
                       <div className="catalog-port-meta">
                         <span>{formatMethodName(port.method)}</span>
@@ -3742,6 +3806,21 @@ export const App: React.FC = () => {
               <div className="modal-right-col" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 {/* Project Overview */}
                 <div>
+                  {(selectedCatalogPort.projectOptions?.length ?? 0) > 1 && (
+                    <label className="catalog-project-selector">
+                      <span>Proyecto / variante ({selectedCatalogPort.projectOptions!.length})</span>
+                      <select
+                        value={selectedCatalogPort.id}
+                        onChange={(event) => handleSelectCatalogProject(event.target.value)}
+                      >
+                        {selectedCatalogPort.projectOptions!.map((option) => (
+                          <option key={option.id} value={option.id}>
+                            {option.projectTitle}{option.installed ? ' · Instalado' : ''}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  )}
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem' }}>
                     <span className="creator-role-tag">Proyecto Port</span>
                     <span style={{ fontSize: '0.82rem', color: '#8b949e' }}>por {selectedCatalogPort.author || 'Comunidad'}</span>

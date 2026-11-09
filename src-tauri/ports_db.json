@@ -1,5 +1,5 @@
 {
-  "catalog_version": "2.9.0",
+  "catalog_version": "2.13.0",
   "games": [
     {
       "artwork": {
@@ -4427,11 +4427,11 @@
         "author_avatar_url": null,
         "port_art_url": "https://upload.wikimedia.org/wikipedia/en/9/9b/SSF_HD_Remix_Boxart.jpg",
         "features": [
-          "Port nativo por recompilación estática para Windows x64 y Linux (AppImage)",
-          "Incluye actualizador integrado",
-          "Requiere tus propios archivos de Xbox 360"
+          "Recompilación estática nativa para Windows; AppImage de Linux experimental",
+          "Luchas locales contra CPU, logros locales y juego en línea con lobby/amistades",
+          "Requiere el paquete propio XBLA; admite versión base 0.0.1.3 y Title Update opcional 0.0.2.3"
         ],
-        "technical_notes": "Release v0.2.1 revisada 2026-10-26.",
+        "technical_notes": "Release más reciente consultada: v0.4.0 (8 nov 2026). Incluye Evil Ryu, Violent Ken, CPU local y lobby público; el juego en línea requiere builds compatibles y Linux sigue siendo experimental. Requiere el paquete XBLA propio (Title ID 584108A4); la actualización oficial 0.0.2.3 es opcional. No incluye archivos del juego.",
         "detection": {
           "executables": [
             "ssf2t_hd_remix.exe"
@@ -4447,7 +4447,7 @@
           "windows",
           "linux"
         ],
-        "supported_platforms_complete": false
+        "supported_platforms_complete": true
       }
     },
     {
@@ -5856,6 +5856,7 @@
       "developer": "Nintendo EPD",
       "disc_art_url": null,
       "id": "zelda-botw-android",
+      "merge_group_id": "zelda-botw",
       "original_platforms": [
         "Wii U",
         "Nintendo Switch"
@@ -7467,6 +7468,7 @@
       "developer": "Nintendo EPD",
       "disc_art_url": null,
       "id": "zelda-botw-savage-wind-pc",
+      "merge_group_id": "zelda-botw",
       "original_platforms": [
         "Nintendo Switch"
       ],
@@ -7566,6 +7568,7 @@
       "developer": "Nintendo EPD",
       "disc_art_url": null,
       "id": "zelda-botw-native-pc",
+      "merge_group_id": "zelda-botw",
       "original_platforms": [
         "Wii U"
       ],
@@ -8034,6 +8037,591 @@
         ],
         "supported_platforms_complete": false
       }
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://assets.nintendo.com/image/upload/c_fill%2Cw_1200/q_auto%3Abest/f_auto/dpr_2.0/ncom/My%20Nintendo%20Store/EN-US/Nintendo%20Switch%202/Software/The%20Legend%20of%20Zelda%20Ocarina%20of%20Time/125697-nintendo-the-legend-of-zelda-ocarina-of-time-2000x2000",
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://assets.nintendo.com/image/upload/c_fill%2Cw_1200/q_auto%3Abest/f_auto/dpr_2.0/ncom/My%20Nintendo%20Store/EN-US/Nintendo%20Switch%202/Software/The%20Legend%20of%20Zelda%20Ocarina%20of%20Time/125697-nintendo-the-legend-of-zelda-ocarina-of-time-2000x2000",
+      "developer": "Nintendo EPD",
+      "disc_art_url": null,
+      "id": "zelda-oot-switch2-ocarina-recomp",
+      "original_platforms": [
+        "Nintendo Switch 2"
+      ],
+      "project": {
+        "id": "ocarina-recomp-switch2",
+        "name": "Ocarina Recomp (Switch 2)",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "ocarina-recomp",
+          "owner": "sostenesfreitas",
+          "provider": "github",
+          "url": "https://github.com/sostenesfreitas/ocarina-recomp"
+        },
+        "requires_original_assets": true,
+        "author": "sostenesfreitas",
+        "author_avatar_url": "https://github.com/sostenesfreitas.png",
+        "port_art_url": null,
+        "features": [
+          "Recompilación estática ARM64 a C y Vulkan; versión del juego compatible: 1.1.1",
+          "Proyecto experimental: pruebas reportadas concentradas en el inicio del juego",
+          "Instalador Windows en ZIP; requiere los archivos propios del juego"
+        ],
+        "technical_notes": "Proyecto experimental. El README reporta la apertura, el Bosque Kokiri y el inicio del Árbol Deku; Hyrule Field y el resto del juego aún no están verificados por sus autores. La release estable consultada es distinta de las releases marcadas como prueba. Requiere la edición Switch 2, versión 1.1.1.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 2026,
+      "sub_games": null,
+      "synopsis": "Recompilación nativa de la edición para Nintendo Switch 2 (versión 1.1.1). Requiere los archivos propios del juego; el repositorio no distribuye contenido del juego.",
+      "title": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+      "merge_group_id": "zelda-oot-switch2"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://assets.nintendo.com/image/upload/c_fill%2Cw_1200/q_auto%3Abest/f_auto/dpr_2.0/ncom/My%20Nintendo%20Store/EN-US/Nintendo%20Switch%202/Software/The%20Legend%20of%20Zelda%20Ocarina%20of%20Time/125697-nintendo-the-legend-of-zelda-ocarina-of-time-2000x2000",
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://assets.nintendo.com/image/upload/c_fill%2Cw_1200/q_auto%3Abest/f_auto/dpr_2.0/ncom/My%20Nintendo%20Store/EN-US/Nintendo%20Switch%202/Software/The%20Legend%20of%20Zelda%20Ocarina%20of%20Time/125697-nintendo-the-legend-of-zelda-ocarina-of-time-2000x2000",
+      "developer": "Nintendo EPD",
+      "disc_art_url": null,
+      "id": "zelda-oot-switch2-hookshot",
+      "original_platforms": [
+        "Nintendo Switch 2"
+      ],
+      "project": {
+        "id": "hookshot-switch2",
+        "name": "Hookshot (Switch 2)",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "Hookshot",
+          "owner": "NotRexed",
+          "provider": "github",
+          "url": "https://github.com/NotRexed/Hookshot"
+        },
+        "requires_original_assets": true,
+        "author": "NotRexed",
+        "author_avatar_url": "https://github.com/NotRexed.png",
+        "port_art_url": null,
+        "features": [
+          "Recompilación estática ARM64 a C con backend Vulkan; requiere build e0f3ccfa",
+          "Windows y Linux; builder con actualización del proyecto",
+          "Controles, menú gráfico, escalado y generación de cuadros"
+        ],
+        "technical_notes": "Proyecto experimental. El README indica que usuarios han llegado a Hyrule Field, Ciudad del Castillo, Kakariko y mazmorras, con errores todavía abiertos. Requiere la edición Switch 2, actualización v131072 y build e0f3ccfa; no admite otras versiones del juego.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 2026,
+      "sub_games": null,
+      "synopsis": "Recompilación nativa de la edición para Nintendo Switch 2 (versión 1.1.1). Requiere los archivos propios del juego; el repositorio no distribuye contenido del juego.",
+      "title": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+      "merge_group_id": "zelda-oot-switch2"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://assets.nintendo.com/image/upload/c_fill%2Cw_1200/q_auto%3Abest/f_auto/dpr_2.0/ncom/My%20Nintendo%20Store/EN-US/Nintendo%20Switch%202/Software/The%20Legend%20of%20Zelda%20Ocarina%20of%20Time/125697-nintendo-the-legend-of-zelda-ocarina-of-time-2000x2000",
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://assets.nintendo.com/image/upload/c_fill%2Cw_1200/q_auto%3Abest/f_auto/dpr_2.0/ncom/My%20Nintendo%20Store/EN-US/Nintendo%20Switch%202/Software/The%20Legend%20of%20Zelda%20Ocarina%20of%20Time/125697-nintendo-the-legend-of-zelda-ocarina-of-time-2000x2000",
+      "developer": "Nintendo EPD",
+      "disc_art_url": null,
+      "id": "zelda-oot-switch2-nx2navi",
+      "original_platforms": [
+        "Nintendo Switch 2"
+      ],
+      "project": {
+        "id": "nx2navi-switch2",
+        "name": "NX2navi (Switch 2)",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "NX2navi",
+          "owner": "tangerineturtle1",
+          "provider": "github",
+          "url": "https://github.com/tangerineturtle1/NX2navi"
+        },
+        "requires_original_assets": true,
+        "author": "tangerineturtle1",
+        "author_avatar_url": "https://github.com/tangerineturtle1.png",
+        "port_art_url": null,
+        "features": [
+          "Recompilación estática a aplicación x86-64 con Vulkan; versión del juego compatible: 1.1.1",
+          "Windows; instalador que construye y actualiza el juego desde los archivos propios",
+          "HDR, controles reasignables, FSR/DLSS según hardware y preparación de shaders"
+        ],
+        "technical_notes": "Desarrollo temprano pero jugable. El README lista Bosque Kokiri, Aldea Kakariko, Sendero de la Montaña de la Muerte, Templo del Tiempo y fuentes de las Hadas. Se esperan errores visuales y cierres ocasionales. El launcher publicado es para Windows; compilar en Linux requiere el proceso manual descrito por el proyecto.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 2026,
+      "sub_games": null,
+      "synopsis": "Recompilación nativa de la edición para Nintendo Switch 2 (versión 1.1.1). Requiere los archivos propios del juego; el repositorio no distribuye contenido del juego.",
+      "title": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+      "merge_group_id": "zelda-oot-switch2"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://i5.walmartimages.com/asr/6ba47d25-8c75-45ef-a1d9-193a9f3961d4.69b92e8cd3361f2c536d0daa5fc55544.jpeg?odnBg=FFFFFF&odnHeight=2000&odnWidth=2000",
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "Walmart",
+            "query": "Pokémon Pokopia Nintendo Switch 2",
+            "url": "https://www.walmart.ca/en/ip/Pok-mon-Pokopia/3F88EW63FYU0"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Pokémon Pokopia",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Pokémon Pokopia",
+            "url": "https://www.mobygames.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://i5.walmartimages.com/asr/6ba47d25-8c75-45ef-a1d9-193a9f3961d4.69b92e8cd3361f2c536d0daa5fc55544.jpeg?odnBg=FFFFFF&odnHeight=2000&odnWidth=2000",
+      "developer": "The Pokémon Company / GAME FREAK / KOEI TECMO GAMES",
+      "disc_art_url": null,
+      "id": "pokemon-pokopia-recomp",
+      "original_platforms": [
+        "Nintendo Switch 2"
+      ],
+      "project": {
+        "id": "pokopia-recomp",
+        "name": "Pokopia Recomp (Recompia)",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "Recompia",
+          "owner": "Dittobyte",
+          "provider": "github",
+          "url": "https://github.com/Dittobyte/Recompia"
+        },
+        "requires_original_assets": true,
+        "author": "Dittobyte",
+        "author_avatar_url": "https://github.com/Dittobyte.png",
+        "port_art_url": null,
+        "features": [
+          "Recompilación para Windows; launcher AppImage para Linux y SteamOS, donde el juego se ejecuta mediante Proton",
+          "Multijugador Link Play, mods y mejoras de controles",
+          "Importación asistida de partidas desde Eden y Ryujinx"
+        ],
+        "technical_notes": "Requiere una copia propia extraída de Pokémon Pokopia, versión 2.0.1a; el repositorio no incluye archivos del juego. El README estima unos 7 minutos para compilar el juego y entre 1 y 2 horas para preparar shaders, proceso que puede pausarse y continuar. En Linux/SteamOS el juego corre con Proton. La release estable consultada es 0.8.2; 0.8.3-beta.1 y beta.2 están marcadas como Testing/prerelease.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 2026,
+      "sub_games": null,
+      "synopsis": "Juega como un Ditto transformado en humano, crea hábitats y construye una comunidad junto a Pokémon. Recompilación del juego de Nintendo Switch 2 para ejecutarse en PC.",
+      "title": "Pokémon Pokopia (Switch 2)"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://bitjumpgames.com/cdn/shop/files/Gtu1qkPWUAA_leE.jpg?v=1753742413&width=1500",
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "Bitjump Games",
+            "query": "Donkey Kong Bananza",
+            "url": "https://bitjumpgames.com/cdn/shop/files/Gtu1qkPWUAA_leE.jpg?v=1753742413&width=1500"
+          },
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Donkey Kong Bananza",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Donkey Kong Bananza",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Donkey Kong Bananza",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Donkey Kong Bananza",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Donkey Kong Bananza",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Donkey Kong Bananza",
+            "url": "https://www.igdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Donkey Kong Bananza",
+            "url": "https://www.thecoverproject.net/"
+          }
+        ]
+      },
+      "box_art_url": "https://bitjumpgames.com/cdn/shop/files/Gtu1qkPWUAA_leE.jpg?v=1753742413&width=1500",
+      "disc_art_url": null,
+      "id": "donkey-kong-bananza-recomp",
+      "original_platforms": [
+        "Nintendo Switch 2"
+      ],
+      "release_year": 2025,
+      "developer": "Nintendo EPD",
+      "synopsis": "Aventura de plataformas en 3D donde Donkey Kong excava y destruye el entorno para explorar el mundo subterráneo y recuperar las Banandium Gems.",
+      "sub_games": null,
+      "title": "Donkey Kong Bananza",
+      "project": {
+        "id": "dkb-pc-recomp",
+        "name": "DKB Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "dkb-pc-recomp",
+          "owner": "Lucas-blip-png",
+          "provider": "github",
+          "url": "https://github.com/Lucas-blip-png/dkb-pc-recomp"
+        },
+        "requires_original_assets": true,
+        "author": "Lucas-blip-png",
+        "author_avatar_url": "https://github.com/Lucas-blip-png.png",
+        "port_art_url": null,
+        "features": [
+          "Recompilación estática nativa con renderizador Vulkan",
+          "La build publicada llega al tutorial y a la primera fase; todavía es experimental y puede fallar",
+          "Requiere preparar localmente el juego propio; el paquete no distribuye datos del juego"
+        ],
+        "technical_notes": "Release v0.1.0 consultada el 8 nov 2026. El paquete Windows admite el juego base 1.0.0; Linux x86-64 y macOS Apple Silicon aparecen como previews experimentales. Se requiere CPU AVX2, Vulkan 1.3 y 16 GB de RAM (32 GB recomendados); el consumo de memoria y compatibilidad GPU varían. No está completo ni permite terminar la aventura. No usar la copia no oficial teasergames/dbk-recomp como fuente principal.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
+      }
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://8-bits.cl/cdn/shop/products/mk8.jpg?v=1697305266&width=1445",
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "8 BITS",
+            "query": "Mario Kart 8 Deluxe",
+            "url": "https://8-bits.cl/cdn/shop/products/mk8.jpg?v=1697305266&width=1445"
+          },
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Mario Kart 8 Deluxe",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Mario Kart 8 Deluxe",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Mario Kart 8 Deluxe",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Mario Kart 8 Deluxe",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Mario Kart 8 Deluxe",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Mario Kart 8 Deluxe",
+            "url": "https://www.igdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Mario Kart 8 Deluxe",
+            "url": "https://www.thecoverproject.net/"
+          }
+        ]
+      },
+      "box_art_url": "https://8-bits.cl/cdn/shop/products/mk8.jpg?v=1697305266&width=1445",
+      "disc_art_url": null,
+      "id": "mario-kart-8-deluxe-mk8-online",
+      "original_platforms": [
+        "Nintendo Switch"
+      ],
+      "release_year": 2017,
+      "developer": "Nintendo EPD / Bandai Namco Studios",
+      "synopsis": "Carreras de karts con modos de Grand Prix, batalla y multijugador; esta recompilación experimental prepara una build nativa para Windows.",
+      "sub_games": null,
+      "title": "Mario Kart 8 Deluxe",
+      "project": {
+        "id": "mk8-online",
+        "name": "MK8-online",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "MK8-online",
+          "owner": "Vnnc1",
+          "provider": "github",
+          "url": "https://github.com/Vnnc1/MK8-online"
+        },
+        "requires_original_assets": true,
+        "author": "Vnnc1",
+        "author_avatar_url": "https://github.com/Vnnc1.png",
+        "port_art_url": null,
+        "features": [
+          "Recompilación estática y runtime Vulkan para Windows x64",
+          "Las cuatro pistas de la Copa Champiñón han completado pruebas locales; no equivale a compatibilidad completa",
+          "Salas/multijugador entre PCs aún en validación; Nextendo no está integrado"
+        ],
+        "technical_notes": "Release experimental v0.1.6 (9 nov 2026). Requiere Windows x64, WebView2, Python 3.12 en PATH, Vulkan 1.3, archivos propios del juego, actualización 4.0.1 y claves de consola. Los archivos se preparan localmente; no se distribuye contenido del juego. Persisten defectos gráficos, pausas de compilación de shaders y consumo creciente de VRAM. El autor advierte que las pruebas de transporte de red no demuestran carreras multijugador entre PCs ya calificadas.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": true
+      }
     }
   ],
   "schema_version": 2,
@@ -8098,5 +8686,5 @@
       }
     ]
   },
-  "updated_at": "2026-10-31T11:00:00Z"
+  "updated_at": "2026-11-09T00:00:00Z"
 }

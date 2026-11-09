@@ -58,6 +58,7 @@ pub struct DetectedGameDTO {
 pub struct CatalogPortDTO {
     pub id: String,
     pub game_id: String,
+    pub merge_group_id: Option<String>,
     pub title: String,
     pub original_platform: String,
     pub release_year: Option<u32>,
@@ -464,6 +465,7 @@ fn list_catalog_ports(state: State<AppState>) -> Result<Vec<CatalogPortDTO>, Str
             CatalogPortDTO {
                 id: project.id.clone(),
                 game_id: project.game_id,
+                merge_group_id: project.merge_group_id,
                 title: game
                     .as_ref()
                     .map(|item| item.title.clone())
@@ -2380,6 +2382,24 @@ pub fn merge_remote_catalog_json(
                     ) {
                         l_proj.insert("repository".to_string(), r_repo.clone());
                         game_updated = true;
+                    }
+                }
+
+                if let Some(remote_merge_group_id) = r_game
+                    .get("merge_group_id")
+                    .and_then(serde_json::Value::as_str)
+                {
+                    let local_merge_group_id = l_game
+                        .get("merge_group_id")
+                        .and_then(serde_json::Value::as_str);
+                    if local_merge_group_id != Some(remote_merge_group_id) {
+                        if let Some(local_game) = l_game.as_object_mut() {
+                            local_game.insert(
+                                "merge_group_id".to_string(),
+                                serde_json::Value::String(remote_merge_group_id.to_string()),
+                            );
+                            game_updated = true;
+                        }
                     }
                 }
 

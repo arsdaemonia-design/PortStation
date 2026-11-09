@@ -67,6 +67,8 @@ pub struct DetectionRule {
 pub struct Project {
     pub id: String,
     pub game_id: String,
+    #[serde(default)]
+    pub merge_group_id: Option<String>,
     pub name: String,
     pub method: PortMethod,
     pub repository: Option<RepositoryInfo>,

@@ -385,6 +385,34 @@ body {
   font-weight: 650;
 }
 
+.catalog-variants-count {
+  margin-top: -0.2rem;
+  color: #9aa8bb;
+  font-size: 0.68rem;
+}
+
+.catalog-project-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0 0 0.9rem;
+  color: #9aa8bb;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.catalog-project-selector select {
+  width: min(100%, 34rem);
+  min-height: 2.4rem;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid rgba(88, 166, 255, 0.38);
+  border-radius: 7px;
+  background: #101927;
+  color: #f0f6fc;
+  font: inherit;
+  font-weight: 600;
+}
+
 .catalog-port-synopsis {
   display: -webkit-box;
   min-height: 3.3em;
