@@ -1,5 +1,5 @@
 {
-  "catalog_version": "2.14.0",
+  "catalog_version": "2.15.0",
   "games": [
     {
       "artwork": {
@@ -4448,7 +4448,8 @@
           "linux"
         ],
         "supported_platforms_complete": true
-      }
+      },
+      "merge_group_id": "super-street-fighter-ii-turbo"
     },
     {
       "id": "burnout-3-takedown",
@@ -9420,6 +9421,3530 @@
       "synopsis": "Compilación de carreras antigravedad de WipEout HD, Fury y 2048.",
       "title": "WipEout Omega Collection",
       "merge_group_id": "wipeout-omega"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Super Street Fighter II",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Super Street Fighter II",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Super Street Fighter II",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Super Street Fighter II",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Super Street Fighter II",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Super Street Fighter II",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Super Street Fighter II",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-super-street-fighter-ii",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1993,
+      "sub_games": null,
+      "synopsis": "Ryu, Ken y los World Warriors vuelven a combatir con nuevos personajes y escenarios.",
+      "title": "Super Street Fighter II"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Super Street Fighter II Turbo",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Super Street Fighter II Turbo",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Super Street Fighter II Turbo",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Super Street Fighter II Turbo",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Super Street Fighter II Turbo",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Super Street Fighter II Turbo",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Super Street Fighter II Turbo",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-super-street-fighter-ii-turbo",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1994,
+      "sub_games": null,
+      "synopsis": "La edición competitiva de Super Street Fighter II, con velocidad aumentada y nuevos movimientos.",
+      "title": "Super Street Fighter II Turbo",
+      "merge_group_id": "super-street-fighter-ii-turbo"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Hyper Street Fighter II: The Anniversary Edition",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Hyper Street Fighter II: The Anniversary Edition",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Hyper Street Fighter II: The Anniversary Edition",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Hyper Street Fighter II: The Anniversary Edition",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Hyper Street Fighter II: The Anniversary Edition",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Hyper Street Fighter II: The Anniversary Edition",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Hyper Street Fighter II: The Anniversary Edition",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-hyper-street-fighter-ii",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 2004,
+      "sub_games": null,
+      "synopsis": "Edición aniversario que permite enfrentar personajes de distintas versiones de Street Fighter II.",
+      "title": "Hyper Street Fighter II: The Anniversary Edition"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Street Fighter Alpha: Warriors’ Dreams",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Street Fighter Alpha: Warriors’ Dreams",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Street Fighter Alpha: Warriors’ Dreams",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Street Fighter Alpha: Warriors’ Dreams",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Street Fighter Alpha: Warriors’ Dreams",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Street Fighter Alpha: Warriors’ Dreams",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Street Fighter Alpha: Warriors’ Dreams",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-street-fighter-alpha",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1995,
+      "sub_games": null,
+      "synopsis": "Combates de Street Fighter ambientados antes de la serie principal, con sistema de combos y Alpha Counters.",
+      "title": "Street Fighter Alpha: Warriors’ Dreams"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Street Fighter Alpha 2",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Street Fighter Alpha 2",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Street Fighter Alpha 2",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Street Fighter Alpha 2",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Street Fighter Alpha 2",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Street Fighter Alpha 2",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Street Fighter Alpha 2",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-street-fighter-alpha-2",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1996,
+      "sub_games": null,
+      "synopsis": "Juego de lucha con modos Alpha, Custom Combo y combates de equipo.",
+      "title": "Street Fighter Alpha 2"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Street Fighter Zero 2 Alpha",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Street Fighter Zero 2 Alpha",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Street Fighter Zero 2 Alpha",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Street Fighter Zero 2 Alpha",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Street Fighter Zero 2 Alpha",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Street Fighter Zero 2 Alpha",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Street Fighter Zero 2 Alpha",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-street-fighter-zero-2-alpha",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1996,
+      "sub_games": null,
+      "synopsis": "Edición regional ampliada de Alpha 2 con ajustes y personajes adicionales.",
+      "title": "Street Fighter Zero 2 Alpha"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Street Fighter Alpha 3",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Street Fighter Alpha 3",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Street Fighter Alpha 3",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Street Fighter Alpha 3",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Street Fighter Alpha 3",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Street Fighter Alpha 3",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Street Fighter Alpha 3",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-street-fighter-alpha-3",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1998,
+      "sub_games": null,
+      "synopsis": "La entrega final de la trilogía Alpha, con múltiples estilos de combate y amplio elenco.",
+      "title": "Street Fighter Alpha 3"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Super Gem Fighter Mini Mix",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Super Gem Fighter Mini Mix",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Super Gem Fighter Mini Mix",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Super Gem Fighter Mini Mix",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Super Gem Fighter Mini Mix",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Super Gem Fighter Mini Mix",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Super Gem Fighter Mini Mix",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-super-gem-fighter-mini-mix",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1997,
+      "sub_games": null,
+      "synopsis": "Juego de lucha con personajes chibi de Capcom, objetos coleccionables y controles accesibles.",
+      "title": "Super Gem Fighter Mini Mix"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "X-Men: Children of the Atom",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "X-Men: Children of the Atom",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "X-Men: Children of the Atom",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "X-Men: Children of the Atom",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "X-Men: Children of the Atom",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "X-Men: Children of the Atom",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "X-Men: Children of the Atom",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-x-men-children-of-the-atom",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1994,
+      "sub_games": null,
+      "synopsis": "Juego de lucha de los X-Men con escenarios dinámicos y combates aéreos.",
+      "title": "X-Men: Children of the Atom"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Marvel Super Heroes",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Marvel Super Heroes",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Marvel Super Heroes",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Marvel Super Heroes",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Marvel Super Heroes",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Marvel Super Heroes",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Marvel Super Heroes",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-marvel-super-heroes",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1995,
+      "sub_games": null,
+      "synopsis": "Luchadores de Marvel combaten por las Gemas del Infinito en un juego de lucha de Capcom.",
+      "title": "Marvel Super Heroes"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "X-Men vs. Street Fighter",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "X-Men vs. Street Fighter",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "X-Men vs. Street Fighter",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "X-Men vs. Street Fighter",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "X-Men vs. Street Fighter",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "X-Men vs. Street Fighter",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "X-Men vs. Street Fighter",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-x-men-vs-street-fighter",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1996,
+      "sub_games": null,
+      "synopsis": "Cruce de X-Men y Street Fighter con combates por equipos y cambio de personaje.",
+      "title": "X-Men vs. Street Fighter"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Marvel Super Heroes vs. Street Fighter",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Marvel Super Heroes vs. Street Fighter",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Marvel Super Heroes vs. Street Fighter",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Marvel Super Heroes vs. Street Fighter",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Marvel Super Heroes vs. Street Fighter",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Marvel Super Heroes vs. Street Fighter",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Marvel Super Heroes vs. Street Fighter",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-marvel-super-heroes-vs-street-fighter",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1997,
+      "sub_games": null,
+      "synopsis": "Héroes de Marvel y luchadores de Street Fighter se enfrentan en combates tag.",
+      "title": "Marvel Super Heroes vs. Street Fighter"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Marvel vs. Capcom: Clash of Super Heroes",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Marvel vs. Capcom: Clash of Super Heroes",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Marvel vs. Capcom: Clash of Super Heroes",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Marvel vs. Capcom: Clash of Super Heroes",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Marvel vs. Capcom: Clash of Super Heroes",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Marvel vs. Capcom: Clash of Super Heroes",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Marvel vs. Capcom: Clash of Super Heroes",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-marvel-vs-capcom",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1998,
+      "sub_games": null,
+      "synopsis": "Combates por equipos entre personajes de Marvel y Capcom con ataques de asistencia.",
+      "title": "Marvel vs. Capcom: Clash of Super Heroes"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Super Puzzle Fighter II Turbo",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Super Puzzle Fighter II Turbo",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Super Puzzle Fighter II Turbo",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Super Puzzle Fighter II Turbo",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Super Puzzle Fighter II Turbo",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Super Puzzle Fighter II Turbo",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Super Puzzle Fighter II Turbo",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-super-puzzle-fighter-ii-turbo",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1996,
+      "sub_games": null,
+      "synopsis": "Duelo de puzles en el que se combinan gemas de colores para atacar al rival.",
+      "title": "Super Puzzle Fighter II Turbo"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Darkstalkers: The Night Warriors",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Darkstalkers: The Night Warriors",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Darkstalkers: The Night Warriors",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Darkstalkers: The Night Warriors",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Darkstalkers: The Night Warriors",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Darkstalkers: The Night Warriors",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Darkstalkers: The Night Warriors",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-darkstalkers-the-night-warriors",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1994,
+      "sub_games": null,
+      "synopsis": "Juego de lucha de fantasía gótica con criaturas sobrenaturales y animación detallada.",
+      "title": "Darkstalkers: The Night Warriors"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Night Warriors: Darkstalkers’ Revenge",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Night Warriors: Darkstalkers’ Revenge",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Night Warriors: Darkstalkers’ Revenge",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Night Warriors: Darkstalkers’ Revenge",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Night Warriors: Darkstalkers’ Revenge",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Night Warriors: Darkstalkers’ Revenge",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Night Warriors: Darkstalkers’ Revenge",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-night-warriors-darkstalkers-revenge",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1995,
+      "sub_games": null,
+      "synopsis": "Secuela de Darkstalkers que amplía el elenco y los sistemas de combate.",
+      "title": "Night Warriors: Darkstalkers’ Revenge"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Cyberbots: Fullmetal Madness",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Cyberbots: Fullmetal Madness",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Cyberbots: Fullmetal Madness",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Cyberbots: Fullmetal Madness",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Cyberbots: Fullmetal Madness",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Cyberbots: Fullmetal Madness",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Cyberbots: Fullmetal Madness",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-cyberbots-fullmetal-madness",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1995,
+      "sub_games": null,
+      "synopsis": "Combates de mechas personalizables en un juego de lucha futurista.",
+      "title": "Cyberbots: Fullmetal Madness"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Vampire Savior: The Lord of Vampire",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Vampire Savior: The Lord of Vampire",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Vampire Savior: The Lord of Vampire",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Vampire Savior: The Lord of Vampire",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Vampire Savior: The Lord of Vampire",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Vampire Savior: The Lord of Vampire",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Vampire Savior: The Lord of Vampire",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-vampire-savior",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1997,
+      "sub_games": null,
+      "synopsis": "La serie Darkstalkers continúa con combates rápidos, nuevos personajes y mecánicas de equipo.",
+      "title": "Vampire Savior: The Lord of Vampire"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Vampire Savior 2: The Lord of Vampire",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Vampire Savior 2: The Lord of Vampire",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Vampire Savior 2: The Lord of Vampire",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Vampire Savior 2: The Lord of Vampire",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Vampire Savior 2: The Lord of Vampire",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Vampire Savior 2: The Lord of Vampire",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Vampire Savior 2: The Lord of Vampire",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-vampire-savior-2",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1997,
+      "sub_games": null,
+      "synopsis": "Variante arcade de Vampire Savior con cambios de elenco y balance.",
+      "title": "Vampire Savior 2: The Lord of Vampire"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Vampire Hunter 2: Darkstalkers’ Revenge",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Vampire Hunter 2: Darkstalkers’ Revenge",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Vampire Hunter 2: Darkstalkers’ Revenge",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Vampire Hunter 2: Darkstalkers’ Revenge",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Vampire Hunter 2: Darkstalkers’ Revenge",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Vampire Hunter 2: Darkstalkers’ Revenge",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Vampire Hunter 2: Darkstalkers’ Revenge",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-vampire-hunter-2",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1997,
+      "sub_games": null,
+      "synopsis": "Revisión arcade que combina personajes de Night Warriors con el sistema de Vampire Savior.",
+      "title": "Vampire Hunter 2: Darkstalkers’ Revenge"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Vampire Savior Definitive (Beta)",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Vampire Savior Definitive (Beta)",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Vampire Savior Definitive (Beta)",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Vampire Savior Definitive (Beta)",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Vampire Savior Definitive (Beta)",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Vampire Savior Definitive (Beta)",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Vampire Savior Definitive (Beta)",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-vampire-savior-definitive",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1997,
+      "sub_games": null,
+      "synopsis": "Variante beta de Vampire Savior que integra personajes y escenarios de otros juegos de la colección.",
+      "title": "Vampire Savior Definitive (Beta)"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Alien vs. Predator",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Alien vs. Predator",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Alien vs. Predator",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Alien vs. Predator",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Alien vs. Predator",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Alien vs. Predator",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Alien vs. Predator",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps2-alien-vs-predator",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1994,
+      "sub_games": null,
+      "synopsis": "Beat ’em up cooperativo en el que humanos y Depredadores combaten a los xenomorfos.",
+      "title": "Alien vs. Predator"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Street Fighter II: The World Warrior",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Street Fighter II: The World Warrior",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Street Fighter II: The World Warrior",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Street Fighter II: The World Warrior",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Street Fighter II: The World Warrior",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Street Fighter II: The World Warrior",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Street Fighter II: The World Warrior",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps1-street-fighter-ii-the-world-warrior",
+      "original_platforms": [
+        "Arcade (CPS-1)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1991,
+      "sub_games": null,
+      "synopsis": "El clásico juego de lucha que enfrenta a ocho guerreros en un torneo mundial.",
+      "title": "Street Fighter II: The World Warrior"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Street Fighter II: Champion Edition",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Street Fighter II: Champion Edition",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Street Fighter II: Champion Edition",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Street Fighter II: Champion Edition",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Street Fighter II: Champion Edition",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Street Fighter II: Champion Edition",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Street Fighter II: Champion Edition",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps1-street-fighter-ii-champion-edition",
+      "original_platforms": [
+        "Arcade (CPS-1)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1992,
+      "sub_games": null,
+      "synopsis": "Revisión de Street Fighter II que permite jugar como los cuatro jefes y habilita combates espejo.",
+      "title": "Street Fighter II: Champion Edition"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Street Fighter II: Hyper Fighting",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Street Fighter II: Hyper Fighting",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Street Fighter II: Hyper Fighting",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Street Fighter II: Hyper Fighting",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Street Fighter II: Hyper Fighting",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Street Fighter II: Hyper Fighting",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Street Fighter II: Hyper Fighting",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps1-street-fighter-ii-hyper-fighting",
+      "original_platforms": [
+        "Arcade (CPS-1)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1992,
+      "sub_games": null,
+      "synopsis": "Edición más rápida de Street Fighter II con movimientos y colores adicionales.",
+      "title": "Street Fighter II: Hyper Fighting"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Ghouls’n Ghosts",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Ghouls’n Ghosts",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Ghouls’n Ghosts",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Ghouls’n Ghosts",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Ghouls’n Ghosts",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Ghouls’n Ghosts",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Ghouls’n Ghosts",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps1-ghouls-n-ghosts",
+      "original_platforms": [
+        "Arcade (CPS-1)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1988,
+      "sub_games": null,
+      "synopsis": "El caballero Arthur lucha contra criaturas sobrenaturales en una aventura de plataformas.",
+      "title": "Ghouls’n Ghosts"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Cadillacs and Dinosaurs",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Cadillacs and Dinosaurs",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Cadillacs and Dinosaurs",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Cadillacs and Dinosaurs",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Cadillacs and Dinosaurs",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Cadillacs and Dinosaurs",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Cadillacs and Dinosaurs",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps1-cadillacs-and-dinosaurs",
+      "original_platforms": [
+        "Arcade (CPS-1)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1993,
+      "sub_games": null,
+      "synopsis": "Beat ’em up cooperativo ambientado en un mundo donde conviven humanos y dinosaurios.",
+      "title": "Cadillacs and Dinosaurs"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "The Punisher",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "The Punisher",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "The Punisher",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "The Punisher",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "The Punisher",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "The Punisher",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "The Punisher",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "cps1-the-punisher",
+      "original_platforms": [
+        "Arcade (CPS-1)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1993,
+      "sub_games": null,
+      "synopsis": "Beat ’em up cooperativo protagonizado por The Punisher y Nick Fury.",
+      "title": "The Punisher"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Giga Wing",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Giga Wing",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Giga Wing",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Giga Wing",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Giga Wing",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Giga Wing",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Giga Wing",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Takumi / Capcom",
+      "disc_art_url": null,
+      "id": "cps2-giga-wing",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1999,
+      "sub_games": null,
+      "synopsis": "Shoot ’em up vertical con disparos, bombas y un sistema de reflejo de proyectiles.",
+      "title": "Giga Wing"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Progear",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Progear",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Progear",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Progear",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Progear",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Progear",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Progear",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Cave / Capcom",
+      "disc_art_url": null,
+      "id": "cps2-progear",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 2001,
+      "sub_games": null,
+      "synopsis": "Shoot ’em up horizontal steampunk con cazas pilotados y armas configurables.",
+      "title": "Progear"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Dimahoo: Great Mahou Daisakusen",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Dimahoo: Great Mahou Daisakusen",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Dimahoo: Great Mahou Daisakusen",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Dimahoo: Great Mahou Daisakusen",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Dimahoo: Great Mahou Daisakusen",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Dimahoo: Great Mahou Daisakusen",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Dimahoo: Great Mahou Daisakusen",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Raizing / Capcom",
+      "disc_art_url": null,
+      "id": "cps2-dimahoo",
+      "original_platforms": [
+        "Arcade (CPS-2)"
+      ],
+      "project": {
+        "author": "tmcleroy",
+        "author_avatar_url": "https://github.com/tmcleroy.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
+          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
+          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+        ],
+        "id": "cps2recomp",
+        "method": "STATIC_RECOMP",
+        "name": "CPS-2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "tmcleroy",
+          "name": "cps2recomp",
+          "url": "https://github.com/tmcleroy/cps2recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 2000,
+      "sub_games": null,
+      "synopsis": "Shoot ’em up vertical de fantasía con rutas, objetos y puntuación de riesgo.",
+      "title": "Dimahoo: Great Mahou Daisakusen"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Marvel vs. Capcom 2",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Marvel vs. Capcom 2",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Marvel vs. Capcom 2",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Marvel vs. Capcom 2",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Marvel vs. Capcom 2",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Marvel vs. Capcom 2",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Marvel vs. Capcom 2",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Capcom",
+      "disc_art_url": null,
+      "id": "marvel-vs-capcom-2-recomp",
+      "original_platforms": [
+        "Original Xbox"
+      ],
+      "project": {
+        "author": "dalves408",
+        "author_avatar_url": "https://github.com/dalves408.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Recompilación estática de la versión Original Xbox para Windows x64.",
+          "Release v1.0.1.",
+          "Requiere archivos extraídos de una copia propia; no incluye los datos del juego."
+        ],
+        "id": "mvsc2-recomp",
+        "method": "STATIC_RECOMP",
+        "name": "Marvel vs. Capcom 2 Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "dalves408",
+          "name": "mvsc2-recomp",
+          "url": "https://github.com/dalves408/mvsc2-recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Port de destino Windows x64 basado en la versión Original Xbox. Requiere datos propios del juego; el repositorio no declara builds Android, Linux ni macOS.",
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 2000,
+      "sub_games": null,
+      "synopsis": "Juego de lucha por equipos que reúne personajes de Marvel y Capcom en combates tres contra tres.",
+      "title": "Marvel vs. Capcom 2"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Mortal Kombat vs. DC Universe",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Mortal Kombat vs. DC Universe",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Mortal Kombat vs. DC Universe",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Mortal Kombat vs. DC Universe",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Mortal Kombat vs. DC Universe",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Mortal Kombat vs. DC Universe",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Mortal Kombat vs. DC Universe",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Midway Games",
+      "disc_art_url": null,
+      "id": "mortal-kombat-vs-dc-universe-recomp",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "project": {
+        "author": "KawaiiBunga",
+        "author_avatar_url": "https://github.com/KawaiiBunga.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Recompilación estática de la versión Xbox 360 mediante ReXGlue para PC Windows.",
+          "Release v0.2.1; el launcher genera la build en el equipo del usuario.",
+          "El estado de juego y compatibilidad sigue siendo experimental; requiere carpeta extraída con default.xex."
+        ],
+        "id": "mkvdcu-recomp",
+        "method": "STATIC_RECOMP",
+        "name": "MKVDCU-Recomp",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "KawaiiBunga",
+          "name": "MKVDCU-Recomp",
+          "url": "https://github.com/KawaiiBunga/MKVDCU-Recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Destino actualmente publicado: Windows. El repositorio menciona más plataformas futuras, que no se cuentan como soporte disponible. Requiere archivos propios del juego y herramientas de build.",
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 2008,
+      "sub_games": null,
+      "synopsis": "Luchadores de Mortal Kombat y DC se enfrentan en un juego de lucha con modos Arcade e historia.",
+      "title": "Mortal Kombat vs. DC Universe"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Street Fighter EX2 Plus",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Street Fighter EX2 Plus",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Street Fighter EX2 Plus",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Street Fighter EX2 Plus",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Street Fighter EX2 Plus",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Street Fighter EX2 Plus",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Street Fighter EX2 Plus",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Arika",
+      "disc_art_url": null,
+      "id": "street-fighter-ex2-plus-recompiled",
+      "original_platforms": [
+        "PlayStation"
+      ],
+      "project": {
+        "author": "strider973",
+        "author_avatar_url": "https://github.com/strider973.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Recompilación estática de la edición estadounidense de PlayStation SLUS-01105 mediante PSXRecomp.",
+          "El README declara el juego jugable de principio a fin.",
+          "Requiere BIOS SCPH-1001 y una imagen CUE/BIN propias; no incluye esos archivos."
+        ],
+        "id": "street-fighter-ex2-plus-recompiled",
+        "method": "STATIC_RECOMP",
+        "name": "Street Fighter EX2 Plus Recompiled",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "strider973",
+          "name": "Street-Fighter-EX2-Plus-Recompiled",
+          "url": "https://github.com/strider973/Street-Fighter-EX2-Plus-Recompiled"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Proyecto de escritorio basado en PSXRecomp. Windows es el único destino que registramos como publicado/confirmado; el código puede compilarse con toolchains adicionales, pero no se atribuye soporte Android ni se amplía la lista de binarios sin evidencia.",
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
+      },
+      "release_year": 1999,
+      "sub_games": null,
+      "synopsis": "Juego de lucha 3D de Arika con personajes de Street Fighter EX y combates arcade.",
+      "title": "Street Fighter EX2 Plus"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Mortal Kombat Trilogy",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Mortal Kombat Trilogy",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Mortal Kombat Trilogy",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Mortal Kombat Trilogy",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Mortal Kombat Trilogy",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Mortal Kombat Trilogy",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Mortal Kombat Trilogy",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Midway Games",
+      "disc_art_url": null,
+      "id": "mortal-kombat-trilogy-recompiled",
+      "original_platforms": [
+        "PlayStation"
+      ],
+      "project": {
+        "author": "alexbeavs-ps1-ports",
+        "author_avatar_url": "https://github.com/alexbeavs-ps1-ports.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Candidato de recompilación PSXRecomp con setup para Windows.",
+          "El repositorio indica que la aceptación de gameplay y el empaquetado siguen pendientes; no se presenta como port terminado.",
+          "Requiere disco SLUS-00330 y BIOS europea SCPH-5502/5552 propios."
+        ],
+        "id": "mortal-kombat-trilogy-recomp",
+        "method": "STATIC_RECOMP",
+        "name": "Mortal Kombat Trilogy Recompiled",
+        "port_art_url": null,
+        "repository": {
+          "provider": "github",
+          "owner": "alexbeavs-ps1-ports",
+          "name": "mortal-kombat-trilogy-recomp",
+          "url": "https://github.com/alexbeavs-ps1-ports/mortal-kombat-trilogy-recomp"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Proyecto pre-release, sin release binaria pública verificada al momento de catalogarlo. El repositorio documenta el setup Windows y compilación posible con toolchains instaladas en Linux/macOS; estos últimos no se marcan como destinos confirmados. El estado de gameplay permanece pendiente.",
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false
+      },
+      "release_year": 1996,
+      "sub_games": null,
+      "synopsis": "Edición de lucha que reúne personajes y escenarios de las primeras entregas de Mortal Kombat.",
+      "title": "Mortal Kombat Trilogy"
     }
   ],
   "schema_version": 2,
@@ -9484,5 +13009,5 @@
       }
     ]
   },
-  "updated_at": "2026-11-11T00:00:00Z"
+  "updated_at": "2026-11-11T23:23:48Z"
 }
