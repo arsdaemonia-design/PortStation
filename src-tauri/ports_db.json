@@ -1,5 +1,5 @@
 {
-  "catalog_version": "2.13.0",
+  "catalog_version": "2.14.0",
   "games": [
     {
       "artwork": {
@@ -5038,12 +5038,12 @@
         "author_avatar_url": "https://github.com/santiquiroz.png",
         "port_art_url": "https://cdn.awsli.com.br/800x800/1919/1919257/produto/295579204/gearsofwar2-1-v1wqnb8jtv.jpg",
         "features": [
-          "Recompilación estática para Windows x64 con runtime gráfico híbrido ReXGlue",
-          "Release Windows; APK Android ARM64 experimental",
-          "Controles actuales, ajustes gráficos, caché de shaders y opciones de escalado",
-          "Trabajo cooperativo/System Link en desarrollo y probado por el proyecto"
+          "Recompilación estática para Windows x64 con runtime gráfico basado en ReXGlue.",
+          "v0.4.0: HDR10, generación de frames FSR, capturas F12, carpeta de mods y packs de texturas apilables.",
+          "La generación de frames y varias opciones nuevas requieren pruebas en más equipos; están desactivadas por defecto.",
+          "APK ARM64 experimental, independiente del build estable de Windows."
         ],
-        "technical_notes": "Repositorio consultado el 29 de octubre de 2026: la release más reciente visible es v0.3.8. El ejecutable de Windows confirmado es gow2.exe; la APK Android es experimental y separada. Requiere archivos de una copia propia. La campaña completa no se declara validada de principio a fin. Website oficial: https://santiquiroz.github.io/gears-of-war-2-pc-port/.",
+        "technical_notes": "Release v0.4.0 publicada el 10 de noviembre de 2026; el ZIP fue reemplazado el mismo día para corregir el límite VRR y FSR frame generation. El ejecutable Windows es gow2.exe. Requiere archivos de una copia propia; la campaña completa no está declarada validada de principio a fin. La APK Android es experimental.",
         "detection": {
           "executables": [
             "gow2.exe"
@@ -5876,11 +5876,11 @@
         "author_avatar_url": "https://github.com/mamcjr.png",
         "port_art_url": "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg",
         "features": [
-          "Recompilación estática de la versión Switch para Android ARM64/Vulkan",
-          "v0.2.2 beta 15 (28 de octubre de 2026); gameplay desde el título hasta el mundo abierto y guardados en el dispositivo probado",
-          "Modo nativo experimental; probado en POCO F7 Ultra, Adreno 830 con controlador Turnip"
+          "Recompilación estática de Breath of the Wild para Android ARM64/Vulkan.",
+          "v0.3.4-beta (beta 31): hotfix de compatibilidad para dispositivos con 6 GB de RAM.",
+          "El proyecto sigue en beta; compatibilidad y rendimiento dependen del dispositivo y la GPU."
         ],
-        "technical_notes": "Android es el único destino de aplicación declarado; los empaquetados de escritorio se discontinuaron el 22 de octubre de 2026. Beta con compatibilidad muy limitada (el mantenedor solo confirma el POCO F7 Ultra con Adreno 830/Turnip). Requiere dump propio de Breath of the Wild Switch 1.0.0, 1.6.0 o 1.8.2; no se incluye ningún recurso del juego.",
+        "technical_notes": "Android es el único destino de aplicación declarado; el soporte de escritorio fue discontinuado. v0.3.4-beta corrige el perfil automático de memoria para móviles de 6 GB y todavía requiere confirmación en esos equipos. Requiere archivos propios del juego; no incluye datos del juego.",
         "detection": {
           "executables": [],
           "folder_patterns": [
@@ -5977,11 +5977,11 @@
         "author_avatar_url": "https://github.com/kuraeow.png",
         "port_art_url": "https://upload.wikimedia.org/wikipedia/en/f/fb/The_Legend_of_Zelda_Tears_of_the_Kingdom_cover.jpg",
         "features": [
-          "Recompilación estática de Switch ARM64 a C/x86-64 para Windows y Vulkan",
-          "Early playable: título, nueva partida, prólogo y Gran Isla Celeste probados en PC de desarrollo",
-          "30 FPS de simulación; shader compilation stutter y menús/configuración aún limitados"
+          "Recompilación estática nativa de Tears of the Kingdom 1.4.3; no es emulación.",
+          "v0.3.1: mejora importante de rendimiento y estabilidad de tiempos de cuadro.",
+          "Builds publicadas para Windows x64 y Linux/Steam Deck; Vulkan 1.3."
         ],
-        "technical_notes": "Proyecto temprano. El autor solo ha probado Windows 10, Ryzen y RTX 3060; Linux y Steam Deck están planeados, no soportados. Requiere dump propio de Tears of the Kingdom versión 1.4.3 (exefs/romfs). La campaña completa no está validada. No se incluye el juego ni sus archivos.",
+        "technical_notes": "Requiere dump propio de Tears of the Kingdom 1.4.3 (exefs y romfs). El proyecto prepara shaders y construye datos localmente; no incluye juego, claves ni herramientas de extracción. Requisitos publicados: Windows 10/11 o Linux/SteamOS, Vulkan 1.3, 16 GB RAM y 4 GB VRAM. Repositorio correcto: https://github.com/kuraeow/ultratears (el enlace ultratears776 no corresponde).",
         "detection": {
           "executables": [
             "UltraTears.exe"
@@ -5994,14 +5994,16 @@
           "verified": true
         },
         "supported_platforms": [
-          "windows"
+          "windows",
+          "linux"
         ],
-        "supported_platforms_complete": false
+        "supported_platforms_complete": true
       },
       "release_year": 2023,
       "sub_games": null,
       "synopsis": "Link explora Hyrule, los cielos y las profundidades utilizando nuevas habilidades para detener una amenaza ancestral.",
-      "title": "The Legend of Zelda: Tears of the Kingdom"
+      "title": "The Legend of Zelda: Tears of the Kingdom",
+      "merge_group_id": "zelda-totk"
     },
     {
       "artwork": {
@@ -8622,6 +8624,802 @@
         ],
         "supported_platforms_complete": true
       }
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Gran Turismo 3: A-Spec",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Gran Turismo 3: A-Spec",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Gran Turismo 3: A-Spec",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Gran Turismo 3: A-Spec",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Gran Turismo 3: A-Spec",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Gran Turismo 3: A-Spec",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Gran Turismo 3: A-Spec",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Polyphony Digital",
+      "disc_art_url": null,
+      "id": "gran-turismo-3-revisited",
+      "original_platforms": [
+        "PlayStation 2"
+      ],
+      "project": {
+        "author": "matt-pulsipher",
+        "author_avatar_url": "https://github.com/matt-pulsipher.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Reimplementación independiente del motor; no es recompilación estática ni emulación tradicional.",
+          "v0.6.4: carreras personalizadas, cámaras editables y mejoras de renderizado.",
+          "El proyecto declara el juego completo jugable; también ofrece Android, iOS por compilación propia y VR en Meta Quest."
+        ],
+        "id": "gt3-revisited",
+        "method": "PORT",
+        "name": "GT3 Revisited",
+        "port_art_url": null,
+        "repository": {
+          "name": "GT3-revisited",
+          "owner": "matt-pulsipher",
+          "provider": "github",
+          "url": "https://github.com/matt-pulsipher/GT3-revisited"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Requiere imagen propia de Gran Turismo 3 A-Spec en ISO o CHD; no incluye datos del juego. Builds publicadas para Windows x64, macOS Apple Silicon, Linux x86_64 y Android. iOS requiere compilar e instalar desde Xcode en Mac; Meta Quest dispone de APK aparte. Los archivos de release incluyen SHA256SUMS y attestations de build.",
+        "supported_platforms": [
+          "windows",
+          "macos",
+          "linux",
+          "android",
+          "ios"
+        ],
+        "supported_platforms_complete": false
+      },
+      "release_year": 2001,
+      "sub_games": null,
+      "synopsis": "Simulador de conducción con modos Arcade y GT, campeonatos, licencias, tuning y carreras de resistencia.",
+      "title": "Gran Turismo 3: A-Spec"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "F-Zero X",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "F-Zero X",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "F-Zero X",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "F-Zero X",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "F-Zero X",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "F-Zero X",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "F-Zero X",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Nintendo EAD",
+      "disc_art_url": null,
+      "id": "f-zero-x-gdiffuser-3ds",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "project": {
+        "author": "cruxxxxxx",
+        "author_avatar_url": "https://github.com/cruxxxxxx.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Port nativo de la decompilación de F-Zero X para Old y New Nintendo 3DS.",
+          "v1.2.0: salas públicas en línea; multijugador local o por Wi-Fi de 2–4 consolas.",
+          "Incluye 3D estereoscópico y builds O3DS/N3DS; la variante Expansion Kit requiere imagen propia de 64DD."
+        ],
+        "id": "g-diffuser-3ds",
+        "method": "DECOMP_NATIVE",
+        "name": "G-Diffuser 3DS",
+        "port_art_url": null,
+        "repository": {
+          "name": "gdx-3ds",
+          "owner": "cruxxxxxx",
+          "provider": "github",
+          "url": "https://github.com/cruxxxxxx/gdx-3ds"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Proyecto para Nintendo 3DS, no compatible como build de Windows/Android. No incluye ROM ni datos del juego; requiere volcado propio y, para Expansion Kit, imagen propia del disco 64DD. La demostración de cuatro instancias online mencionada por el autor fue capturada en emulador, no en hardware real.",
+        "supported_platforms": [
+          "3ds"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1998,
+      "sub_games": null,
+      "synopsis": "Carreras futuristas de alta velocidad; esta variante adapta el proyecto G-Diffuser a consolas Nintendo 3DS.",
+      "title": "F-Zero X"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Luigi's Mansion",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Luigi's Mansion",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Luigi's Mansion",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Luigi's Mansion",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Luigi's Mansion",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Luigi's Mansion",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Luigi's Mansion",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Nintendo EAD",
+      "disc_art_url": null,
+      "id": "luigis-mansion-recompiled",
+      "original_platforms": [
+        "Nintendo GameCube"
+      ],
+      "project": {
+        "author": "rob646464",
+        "author_avatar_url": "https://github.com/rob646464.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Recompilación del juego de GameCube para PC; renderizado panorámico, altas tasas de cuadros y opciones de mejora.",
+          "v1.1.6: añade la versión japonesa, selección de mansión por región y soporte para texture packs.",
+          "Windows x64, Linux x86_64 y macOS Apple Silicon."
+        ],
+        "id": "luigis-mansion-recompiled",
+        "method": "STATIC_RECOMP",
+        "name": "Luigi's Mansion Recompiled",
+        "port_art_url": null,
+        "repository": {
+          "name": "luigis-mansion-recompiled",
+          "owner": "rob646464",
+          "provider": "github",
+          "url": "https://github.com/rob646464/luigis-mansion-recompiled"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "En el primer inicio requiere una imagen propia ISO/RVZ o carpeta extraída de las ediciones USA, Europa o Japón. Los datos del juego no se distribuyen. El modo de dos jugadores permanece inacabado.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 2001,
+      "sub_games": null,
+      "synopsis": "Luigi explora una mansión encantada para rescatar a Mario, usando la Succionaentes para capturar fantasmas.",
+      "title": "Luigi's Mansion"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Need for Speed III: Hot Pursuit",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Need for Speed III: Hot Pursuit",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Need for Speed III: Hot Pursuit",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Need for Speed III: Hot Pursuit",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Need for Speed III: Hot Pursuit",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Need for Speed III: Hot Pursuit",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Need for Speed III: Hot Pursuit",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "EA Seattle",
+      "disc_art_url": null,
+      "id": "need-for-speed-iii-android",
+      "original_platforms": [
+        "Windows / PC"
+      ],
+      "project": {
+        "author": "ZloiKILLER",
+        "author_avatar_url": "https://github.com/ZloiKILLER.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Recompilación estática del juego original de Windows, con llamadas gráficas y de sistema adaptadas a Android.",
+          "v0.76: nuevo launcher, importación directa ISO/BIN-CUE y carreras por red entre teléfonos y PC.",
+          "Android 8.0+, ARMv7/ARM64 y OpenGL ES 3.0; controles táctiles y gamepad."
+        ],
+        "id": "nfs3recompiled-android",
+        "method": "STATIC_RECOMP",
+        "name": "Need for Speed III Android",
+        "port_art_url": null,
+        "repository": {
+          "name": "nfs3recompiled-android",
+          "owner": "ZloiKILLER",
+          "provider": "github",
+          "url": "https://github.com/ZloiKILLER/nfs3recompiled-android"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Requiere datos extraídos de una copia propia del juego de PC de 1998 (ISO/BIN-CUE o carpetas FEDATA y GAMEDATA). No es emulación y no incluye datos del juego. El repositorio no publica builds de escritorio para este proyecto Android.",
+        "supported_platforms": [
+          "android"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1998,
+      "sub_games": null,
+      "synopsis": "Carreras callejeras y persecuciones policiales con autos deportivos en circuitos de distintas regiones.",
+      "title": "Need for Speed III: Hot Pursuit"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "Legend of Legaia",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "Legend of Legaia",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "Legend of Legaia",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "Legend of Legaia",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "Legend of Legaia",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "Legend of Legaia",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "Legend of Legaia",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Prokion / Contrail",
+      "disc_art_url": null,
+      "id": "legend-of-legaia-re",
+      "original_platforms": [
+        "PlayStation"
+      ],
+      "project": {
+        "author": "AndrewAltimit",
+        "author_avatar_url": "https://github.com/AndrewAltimit.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Reimplementación desde cero en Rust, con versión nativa y WebAssembly para navegador; no es emulador.",
+          "v1.21.0: nuevas rondas de comparación con el juego original y correcciones de lógica y presentación.",
+          "El proyecto informa que se puede jugar desde New Game hasta los créditos."
+        ],
+        "id": "legend-of-legaia-re",
+        "method": "PORT",
+        "name": "legend-of-legaia-re",
+        "port_art_url": null,
+        "repository": {
+          "name": "legend-of-legaia-re",
+          "owner": "AndrewAltimit",
+          "provider": "github",
+          "url": "https://github.com/AndrewAltimit/legend-of-legaia-re"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Requiere imagen propia de la versión USA de PlayStation (SCUS-94254); otras regiones no están soportadas por el motor. No se distribuyen datos del juego. También existe una versión WebAssembly que lee localmente la imagen en el navegador.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 1998,
+      "sub_games": null,
+      "synopsis": "RPG por turnos sobre tres héroes que buscan despertar los Seru y detener una niebla que amenaza el mundo.",
+      "title": "Legend of Legaia"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "The Legend of Zelda: Tears of the Kingdom",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "The Legend of Zelda: Tears of the Kingdom",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "The Legend of Zelda: Tears of the Kingdom",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "The Legend of Zelda: Tears of the Kingdom",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "The Legend of Zelda: Tears of the Kingdom",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "The Legend of Zelda: Tears of the Kingdom",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "The Legend of Zelda: Tears of the Kingdom",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Nintendo EPD",
+      "disc_art_url": null,
+      "id": "zelda-totk-weeping",
+      "original_platforms": [
+        "Nintendo Switch"
+      ],
+      "project": {
+        "author": "daniel-madrid-07",
+        "author_avatar_url": "https://github.com/daniel-madrid-07.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Proyecto de recompilación para PC; comparte el juego base con UltraTears, pero es una implementación independiente.",
+          "v0.1.10.1: correcciones de bloqueos, pantalla completa, menús y Recall en pantallas anchas.",
+          "Windows es el destino principal; Linux/Steam Deck tiene builds de prueba no verificadas por el mantenedor."
+        ],
+        "id": "weeping-of-the-empire",
+        "method": "STATIC_RECOMP",
+        "name": "Weeping of the Empire",
+        "port_art_url": null,
+        "repository": {
+          "name": "weeping-of-the-empire",
+          "owner": "daniel-madrid-07",
+          "provider": "github",
+          "url": "https://github.com/daniel-madrid-07/weeping-of-the-empire"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "Proyecto beta que requiere archivos propios de Tears of the Kingdom; no incluye datos del juego ni claves. La página de releases separa builds principales para Windows y builds experimentales de Linux/Steam Deck. El alcance completo de la campaña no está certificado en el catálogo.",
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false
+      },
+      "release_year": 2023,
+      "sub_games": null,
+      "synopsis": "Link explora Hyrule, los cielos y las profundidades utilizando nuevas habilidades para detener una amenaza ancestral.",
+      "title": "The Legend of Zelda: Tears of the Kingdom",
+      "merge_group_id": "zelda-totk"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "WipEout Omega Collection",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "WipEout Omega Collection",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "WipEout Omega Collection",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "WipEout Omega Collection",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "WipEout Omega Collection",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "WipEout Omega Collection",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "WipEout Omega Collection",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Clever Beans / Sony Interactive Entertainment",
+      "disc_art_url": null,
+      "id": "wipeout-omega-pc",
+      "original_platforms": [
+        "PlayStation 4"
+      ],
+      "project": {
+        "author": "AbdelmoumenDeghbouche",
+        "author_avatar_url": "https://github.com/AbdelmoumenDeghbouche.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Port para Windows que ejecuta el código x86-64 del juego con un runtime de PS4 y renderizado Vulkan derivado de shadPS4.",
+          "v0.2.7: mejoras de selección de idioma por región y correcciones del modo de lectura GPU.",
+          "El proyecto declara carreras jugables; requiere volcado propio CUSA07671 o CUSA05670 con actualización 1.07."
+        ],
+        "id": "wipeout-pc",
+        "method": "HYBRID",
+        "name": "wipeout_pc",
+        "port_art_url": null,
+        "repository": {
+          "name": "wipeout_pc",
+          "owner": "AbdelmoumenDeghbouche",
+          "provider": "github",
+          "url": "https://github.com/AbdelmoumenDeghbouche/wipeout_pc"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "No es un emulador de uso general ni incluye archivos del juego. Requiere Windows 10/11 x64, CPU AVX y GPU Vulkan 1.3. La release de Windows incluye launcher y actualizador propio.",
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 2017,
+      "sub_games": null,
+      "synopsis": "Compilación de carreras antigravedad de WipEout HD, Fury y 2048.",
+      "title": "WipEout Omega Collection",
+      "merge_group_id": "wipeout-omega"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": null,
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "WipEout Omega Collection",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "WipEout Omega Collection",
+            "url": "https://www.steamgriddb.com/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "WipEout Omega Collection",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "TheCoverProject",
+            "query": "WipEout Omega Collection",
+            "url": "https://www.thecoverproject.net/"
+          },
+          {
+            "provider": "Libretro Thumbnails",
+            "query": "WipEout Omega Collection",
+            "url": "https://thumbnails.libretro.com/"
+          },
+          {
+            "provider": "MobyGames",
+            "query": "WipEout Omega Collection",
+            "url": "https://www.mobygames.com/"
+          },
+          {
+            "provider": "IGDB",
+            "query": "WipEout Omega Collection",
+            "url": "https://www.igdb.com/"
+          }
+        ]
+      },
+      "box_art_url": null,
+      "developer": "Clever Beans / Sony Interactive Entertainment",
+      "disc_art_url": null,
+      "id": "wipeout-omega-wipeport",
+      "original_platforms": [
+        "PlayStation 4"
+      ],
+      "project": {
+        "author": "shipa-2",
+        "author_avatar_url": "https://github.com/shipa-2.png",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "features": [
+          "Implementación Linux nativa: ejecuta el código x86-64 del juego con un runtime específico y renderer Vulkan basado en shadPS4.",
+          "Experimental: el autor informa carreras con audio y gamepad y soporte OpenXR/SteamVR hasta 120 FPS en su equipo de prueba.",
+          "No hay releases binarias publicadas en GitHub; requiere compilar desde código fuente."
+        ],
+        "id": "wipeport",
+        "method": "HYBRID",
+        "name": "Wipeport",
+        "port_art_url": null,
+        "repository": {
+          "name": "Wipeport",
+          "owner": "shipa-2",
+          "provider": "github",
+          "url": "https://github.com/shipa-2/Wipeport"
+        },
+        "requires_original_assets": true,
+        "technical_notes": "El proyecto es experimental y no publica releases binarias. Probado por el autor en Linux x86_64 con AMD Radeon RX 6800 XT, Mesa/RADV y Meta Quest 2 mediante SteamVR. Requiere volcado propio de WipEout Omega Collection CUSA05670 con actualización 1.07. No incluye datos del juego.",
+        "supported_platforms": [
+          "linux"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 2017,
+      "sub_games": null,
+      "synopsis": "Compilación de carreras antigravedad de WipEout HD, Fury y 2048.",
+      "title": "WipEout Omega Collection",
+      "merge_group_id": "wipeout-omega"
     }
   ],
   "schema_version": 2,
@@ -8686,5 +9484,5 @@
       }
     ]
   },
-  "updated_at": "2026-11-09T00:00:00Z"
+  "updated_at": "2026-11-11T00:00:00Z"
 }
