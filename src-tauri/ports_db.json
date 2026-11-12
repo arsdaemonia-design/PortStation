@@ -1,5 +1,5 @@
 {
-  "catalog_version": "2.15.0",
+  "catalog_version": "2.15.1",
   "games": [
     {
       "artwork": {
@@ -8629,7 +8629,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_2/master/Named_Boxarts/Gran%20Turismo%203%20-%20A-Spec%20(USA).png",
           "disc": null,
           "port": null
         },
@@ -8681,7 +8681,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_2/master/Named_Boxarts/Gran%20Turismo%203%20-%20A-Spec%20(USA).png",
       "developer": "Polyphony Digital",
       "disc_art_url": null,
       "id": "gran-turismo-3-revisited",
@@ -8731,7 +8731,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/F-Zero%20X%20(USA).png",
           "disc": null,
           "port": null
         },
@@ -8783,7 +8783,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/F-Zero%20X%20(USA).png",
       "developer": "Nintendo EAD",
       "disc_art_url": null,
       "id": "f-zero-x-gdiffuser-3ds",
@@ -8829,7 +8829,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_GameCube/master/Named_Boxarts/Luigi%27s%20Mansion%20(USA).png",
           "disc": null,
           "port": null
         },
@@ -8881,7 +8881,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_GameCube/master/Named_Boxarts/Luigi%27s%20Mansion%20(USA).png",
       "developer": "Nintendo EAD",
       "disc_art_url": null,
       "id": "luigis-mansion-recompiled",
@@ -8929,7 +8929,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Need%20for%20Speed%20III%20-%20Hot%20Pursuit%20(USA).png",
           "disc": null,
           "port": null
         },
@@ -8981,7 +8981,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Need%20for%20Speed%20III%20-%20Hot%20Pursuit%20(USA).png",
       "developer": "EA Seattle",
       "disc_art_url": null,
       "id": "need-for-speed-iii-android",
@@ -9027,7 +9027,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Legend%20of%20Legaia%20(USA).png",
           "disc": null,
           "port": null
         },
@@ -9079,7 +9079,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Legend%20of%20Legaia%20(USA).png",
       "developer": "Prokion / Contrail",
       "disc_art_url": null,
       "id": "legend-of-legaia-re",
@@ -9127,7 +9127,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://media.gamestop.com/i/gamestop/20001188?fmt=auto&h=768&w=768",
           "disc": null,
           "port": null
         },
@@ -9179,7 +9179,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://media.gamestop.com/i/gamestop/20001188?fmt=auto&h=768&w=768",
       "developer": "Nintendo EPD",
       "disc_art_url": null,
       "id": "zelda-totk-weeping",
@@ -9227,7 +9227,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/d2174d4d-a740-4319-9b37-a254432ac1ed.jpg",
           "disc": null,
           "port": null
         },
@@ -9279,7 +9279,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/d2174d4d-a740-4319-9b37-a254432ac1ed.jpg",
       "developer": "Clever Beans / Sony Interactive Entertainment",
       "disc_art_url": null,
       "id": "wipeout-omega-pc",
@@ -9326,7 +9326,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/d2174d4d-a740-4319-9b37-a254432ac1ed.jpg",
           "disc": null,
           "port": null
         },
@@ -9378,7 +9378,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/d2174d4d-a740-4319-9b37-a254432ac1ed.jpg",
       "developer": "Clever Beans / Sony Interactive Entertainment",
       "disc_art_url": null,
       "id": "wipeout-omega-wipeport",
@@ -9425,7 +9425,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://flyers.arcade-museum.com/videogame-flyers/5/super-street-fighter-ii-the-new-challengers-05133-05.jpg",
           "disc": null,
           "port": null
         },
@@ -9477,7 +9477,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://flyers.arcade-museum.com/videogame-flyers/5/super-street-fighter-ii-the-new-challengers-05133-05.jpg",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-super-street-fighter-ii",
@@ -9526,7 +9526,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/3fcf0350-f4a7-47d7-9d19-776eea3b6d56.png",
           "disc": null,
           "port": null
         },
@@ -9578,7 +9578,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/3fcf0350-f4a7-47d7-9d19-776eea3b6d56.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-super-street-fighter-ii-turbo",
@@ -9628,7 +9628,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.nintendolife.com/2d0a5adb365bb/hyper-street-fighter-ii-the-anniversary-edition-cover.cover_large.jpg",
           "disc": null,
           "port": null
         },
@@ -9680,7 +9680,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.nintendolife.com/2d0a5adb365bb/hyper-street-fighter-ii-the-anniversary-edition-cover.cover_large.jpg",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-hyper-street-fighter-ii",
@@ -9729,7 +9729,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/6c60d674-333d-414e-935f-52403ced9a32.png",
           "disc": null,
           "port": null
         },
@@ -9781,7 +9781,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/6c60d674-333d-414e-935f-52403ced9a32.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-street-fighter-alpha",
@@ -9830,7 +9830,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://bdjogos.com.br/capas/3398-Street-Fighter-Alpha-2-Arcade-flyer-1.jpg",
           "disc": null,
           "port": null
         },
@@ -9882,7 +9882,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://bdjogos.com.br/capas/3398-Street-Fighter-Alpha-2-Arcade-flyer-1.jpg",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-street-fighter-alpha-2",
@@ -9931,7 +9931,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/a8391bcb-baae-4e6b-9bb6-160d31e54baf.png",
           "disc": null,
           "port": null
         },
@@ -9983,7 +9983,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/a8391bcb-baae-4e6b-9bb6-160d31e54baf.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-street-fighter-zero-2-alpha",
@@ -10032,7 +10032,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/77707659-c155-4dbe-9006-6d7fd4212571.jpg",
           "disc": null,
           "port": null
         },
@@ -10084,7 +10084,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/77707659-c155-4dbe-9006-6d7fd4212571.jpg",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-street-fighter-alpha-3",
@@ -10133,7 +10133,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/fe4ef615-8f37-42c8-aa48-672c58b784ca.jpg",
           "disc": null,
           "port": null
         },
@@ -10185,7 +10185,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/fe4ef615-8f37-42c8-aa48-672c58b784ca.jpg",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-super-gem-fighter-mini-mix",
@@ -10234,7 +10234,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/e1fe2743-ffbb-4c81-8ba9-bb91f0c12bb6.png",
           "disc": null,
           "port": null
         },
@@ -10286,7 +10286,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/e1fe2743-ffbb-4c81-8ba9-bb91f0c12bb6.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-x-men-children-of-the-atom",
@@ -10335,7 +10335,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://flyers.arcade-museum.com/videogame-flyers/5/marvel-super-heroes-05129-01.jpg",
           "disc": null,
           "port": null
         },
@@ -10387,7 +10387,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://flyers.arcade-museum.com/videogame-flyers/5/marvel-super-heroes-05129-01.jpg",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-marvel-super-heroes",
@@ -10436,7 +10436,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://storage.googleapis.com/hipcomic/p/0c9437c4b0ce18a57e4b480c9ee51da3.jpg",
           "disc": null,
           "port": null
         },
@@ -10488,7 +10488,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://storage.googleapis.com/hipcomic/p/0c9437c4b0ce18a57e4b480c9ee51da3.jpg",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-x-men-vs-street-fighter",
@@ -10537,7 +10537,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://storage.googleapis.com/hipcomic/p/3e8c662008b12a08b6cff5ac04718899-800.jpg",
           "disc": null,
           "port": null
         },
@@ -10589,7 +10589,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://storage.googleapis.com/hipcomic/p/3e8c662008b12a08b6cff5ac04718899-800.jpg",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-marvel-super-heroes-vs-street-fighter",
@@ -10638,7 +10638,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/0ab63d73-05ac-4c6b-b975-d5d9c11294df.png",
           "disc": null,
           "port": null
         },
@@ -10690,7 +10690,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/0ab63d73-05ac-4c6b-b975-d5d9c11294df.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-marvel-vs-capcom",
@@ -10739,7 +10739,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/8eaf17d1-a07d-49b3-a887-e843354fc675.jpg",
           "disc": null,
           "port": null
         },
@@ -10791,7 +10791,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/8eaf17d1-a07d-49b3-a887-e843354fc675.jpg",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-super-puzzle-fighter-ii-turbo",
@@ -10840,7 +10840,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://www.arcadeartwork.org/_data/i/galleries/arcade-custom-2022-oct/Darkstalkers_-The-Night-Warriors-01-me.png",
           "disc": null,
           "port": null
         },
@@ -10892,7 +10892,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://www.arcadeartwork.org/_data/i/galleries/arcade-custom-2022-oct/Darkstalkers_-The-Night-Warriors-01-me.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-darkstalkers-the-night-warriors",
@@ -10941,7 +10941,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/3b729b12-3bcc-419b-b454-a1786291b2d7.png",
           "disc": null,
           "port": null
         },
@@ -10993,7 +10993,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/3b729b12-3bcc-419b-b454-a1786291b2d7.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-night-warriors-darkstalkers-revenge",
@@ -11042,7 +11042,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/e0d3de2c-170d-409f-8f73-25b130dec5f9.png",
           "disc": null,
           "port": null
         },
@@ -11094,7 +11094,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/e0d3de2c-170d-409f-8f73-25b130dec5f9.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-cyberbots-fullmetal-madness",
@@ -11143,7 +11143,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://nu.vgmtreasurechest.com/soundtracks/vampire-savior-the-lord-of-vampire-cp-system-ii-arcade/V1.jpg",
           "disc": null,
           "port": null
         },
@@ -11195,7 +11195,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://nu.vgmtreasurechest.com/soundtracks/vampire-savior-the-lord-of-vampire-cp-system-ii-arcade/V1.jpg",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-vampire-savior",
@@ -11244,7 +11244,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://db.hfsplay.fr/files/2019/07/29/Vampire_Savior_2__The_Lord_of_Vampire-01_2_wyTej5S.png",
           "disc": null,
           "port": null
         },
@@ -11296,7 +11296,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://db.hfsplay.fr/files/2019/07/29/Vampire_Savior_2__The_Lord_of_Vampire-01_2_wyTej5S.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-vampire-savior-2",
@@ -11345,7 +11345,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/9b5fd9db-f1a3-423c-ad25-4c6571064c96.png",
           "disc": null,
           "port": null
         },
@@ -11397,7 +11397,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/9b5fd9db-f1a3-423c-ad25-4c6571064c96.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-vampire-hunter-2",
@@ -11446,7 +11446,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://nu.vgmtreasurechest.com/soundtracks/vampire-savior-the-lord-of-vampire-cp-system-ii-arcade/V1.jpg",
           "disc": null,
           "port": null
         },
@@ -11498,7 +11498,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://nu.vgmtreasurechest.com/soundtracks/vampire-savior-the-lord-of-vampire-cp-system-ii-arcade/V1.jpg",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-vampire-savior-definitive",
@@ -11547,7 +11547,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/5045b133-b99a-4d7a-9749-b8eab0778bae.png",
           "disc": null,
           "port": null
         },
@@ -11599,7 +11599,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/5045b133-b99a-4d7a-9749-b8eab0778bae.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-alien-vs-predator",
@@ -11648,7 +11648,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://bdjogos.com.br/capas/198-street-fighter-ii-arcade-flyer-1.jpg",
           "disc": null,
           "port": null
         },
@@ -11700,7 +11700,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://bdjogos.com.br/capas/198-street-fighter-ii-arcade-flyer-1.jpg",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps1-street-fighter-ii-the-world-warrior",
@@ -11749,7 +11749,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/18d584b6-7bc3-45fa-bf82-f6f4af8edbd1.png",
           "disc": null,
           "port": null
         },
@@ -11801,7 +11801,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/18d584b6-7bc3-45fa-bf82-f6f4af8edbd1.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps1-street-fighter-ii-champion-edition",
@@ -11850,7 +11850,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/a9ca9e42-9b46-44d7-af03-6a625ab3d6b8.jpg",
           "disc": null,
           "port": null
         },
@@ -11902,7 +11902,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/a9ca9e42-9b46-44d7-af03-6a625ab3d6b8.jpg",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps1-street-fighter-ii-hyper-fighting",
@@ -11951,7 +11951,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/732fa5b6-47f3-4caf-b055-569116ef031a.png",
           "disc": null,
           "port": null
         },
@@ -12003,7 +12003,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/732fa5b6-47f3-4caf-b055-569116ef031a.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps1-ghouls-n-ghosts",
@@ -12052,7 +12052,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/828b8136-6ece-43e0-b173-1131d1fd4358.png",
           "disc": null,
           "port": null
         },
@@ -12104,7 +12104,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/828b8136-6ece-43e0-b173-1131d1fd4358.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps1-cadillacs-and-dinosaurs",
@@ -12153,7 +12153,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/f393aebd-2558-4320-9b1b-29049a5f71a0.jpg",
           "disc": null,
           "port": null
         },
@@ -12205,7 +12205,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/f393aebd-2558-4320-9b1b-29049a5f71a0.jpg",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps1-the-punisher",
@@ -12254,7 +12254,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/278c9f72-d4c7-49ad-af8f-cae74001a076.png",
           "disc": null,
           "port": null
         },
@@ -12306,7 +12306,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/278c9f72-d4c7-49ad-af8f-cae74001a076.png",
       "developer": "Takumi / Capcom",
       "disc_art_url": null,
       "id": "cps2-giga-wing",
@@ -12355,7 +12355,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://flyers.arcade-museum.com/videogame-flyers/1/progear-storm-of-progia-01637-02.jpg",
           "disc": null,
           "port": null
         },
@@ -12407,7 +12407,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://flyers.arcade-museum.com/videogame-flyers/1/progear-storm-of-progia-01637-02.jpg",
       "developer": "Cave / Capcom",
       "disc_art_url": null,
       "id": "cps2-progear",
@@ -12456,7 +12456,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/fd2025e0-3b1d-456b-94df-e03ae40d688a.png",
           "disc": null,
           "port": null
         },
@@ -12508,7 +12508,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/fd2025e0-3b1d-456b-94df-e03ae40d688a.png",
       "developer": "Raizing / Capcom",
       "disc_art_url": null,
       "id": "cps2-dimahoo",
@@ -12557,7 +12557,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://media.gamestop.com/i/gamestop/10131373/Marvel-vs.-Capcom-2---Xbox?fmt=auto&h=768&w=768",
           "disc": null,
           "port": null
         },
@@ -12609,7 +12609,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://media.gamestop.com/i/gamestop/10131373/Marvel-vs.-Capcom-2---Xbox?fmt=auto&h=768&w=768",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "marvel-vs-capcom-2-recomp",
@@ -12655,7 +12655,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://www.gooxbox360.nl/images/thumbnails/1280/1280/detailed/3/Mortal_Kombat_vs_DC_Universe_pl.jpg",
           "disc": null,
           "port": null
         },
@@ -12707,7 +12707,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://www.gooxbox360.nl/images/thumbnails/1280/1280/detailed/3/Mortal_Kombat_vs_DC_Universe_pl.jpg",
       "developer": "Midway Games",
       "disc_art_url": null,
       "id": "mortal-kombat-vs-dc-universe-recomp",
@@ -12753,7 +12753,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/601e63bb-dad4-490b-bb70-64f24cef7d72.jpg",
           "disc": null,
           "port": null
         },
@@ -12805,7 +12805,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/601e63bb-dad4-490b-bb70-64f24cef7d72.jpg",
       "developer": "Arika",
       "disc_art_url": null,
       "id": "street-fighter-ex2-plus-recompiled",
@@ -12851,7 +12851,7 @@
     {
       "artwork": {
         "local": {
-          "cover": null,
+          "cover": "https://images.launchbox-app.com/d2cc3568-2c0e-4ffb-b3d1-fbcf7e6e4806.jpg",
           "disc": null,
           "port": null
         },
@@ -12903,7 +12903,7 @@
           }
         ]
       },
-      "box_art_url": null,
+      "box_art_url": "https://images.launchbox-app.com/d2cc3568-2c0e-4ffb-b3d1-fbcf7e6e4806.jpg",
       "developer": "Midway Games",
       "disc_art_url": null,
       "id": "mortal-kombat-trilogy-recompiled",

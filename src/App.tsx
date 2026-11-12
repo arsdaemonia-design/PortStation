@@ -2691,7 +2691,7 @@ export const App: React.FC = () => {
                     </div>
                     <div className="catalog-port-content">
                       <small>{port.originalPlatform}{port.releaseYear ? ` · ${port.releaseYear}` : ''}</small>
-                      <h3 title={port.title}>{port.title}</h3>
+                      <h3>{port.title}</h3>
                       <p className="catalog-project-title">{port.projectTitle}</p>
                       {(port.projectOptions?.length ?? 0) > 1 && (
                         <span className="catalog-variants-count">{port.projectOptions!.length} proyectos disponibles</span>
