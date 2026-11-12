@@ -95,6 +95,14 @@ interface CatalogProjectOption {
   installed: boolean;
 }
 
+interface CatalogSupportedGame {
+  id: string;
+  title: string;
+  releaseYear?: number | null;
+  originalPlatform: string;
+  boxArtUrl?: string | null;
+}
+
 interface CatalogPort extends CatalogProjectOption {
   title: string;
   originalPlatform: string;
@@ -102,8 +110,10 @@ interface CatalogPort extends CatalogProjectOption {
   developer?: string | null;
   synopsis?: string | null;
   boxArtUrl?: string | null;
+  projectArtUrl?: string | null;
   mergeGroupId?: string | null;
   projectOptions?: CatalogProjectOption[];
+  subGames?: CatalogSupportedGame[];
 }
 
 const groupCatalogPortEntries = (ports: CatalogPort[]): CatalogPort[] => {
@@ -124,6 +134,38 @@ const groupCatalogPortEntries = (ports: CatalogPort[]): CatalogPort[] => {
       entry.originalPlatform.split('/').map((platform) => platform.trim()).filter(Boolean)
     ))).join(' / ');
     const supportedPlatforms = Array.from(new Set(entries.flatMap((entry) => entry.supportedPlatforms ?? [])));
+    const isCpsRecompCollection = primary.mergeGroupId === 'cps1-cps2-recomp-collection' && entries.every((entry) =>
+      entry.projectTitle === primary.projectTitle && entry.repositoryUrl === primary.repositoryUrl
+    );
+
+    if (isCpsRecompCollection) {
+      const supportedGames = entries
+        .map((entry) => ({
+          id: entry.gameId,
+          title: entry.title,
+          releaseYear: entry.releaseYear,
+          originalPlatform: entry.originalPlatform,
+          boxArtUrl: entry.boxArtUrl,
+        }))
+        .sort((a, b) => a.title.localeCompare(b.title, 'es'));
+
+      return {
+        ...primary,
+        title: primary.projectTitle,
+        projectTitle: `Colección CPS-1 / CPS-2 · ${supportedGames.length} juegos`,
+        originalPlatform: 'Arcade',
+        releaseYear: null,
+        developer: 'Capcom',
+        synopsis: 'Un solo launcher reúne ports recompilados de varios juegos arcade. Cada título necesita su propio ROM set compatible, aportado por el usuario.',
+        boxArtUrl: primary.projectArtUrl || primary.boxArtUrl,
+        installed: entries.some((entry) => entry.installed),
+        supportedPlatforms,
+        supportedPlatformsComplete: entries.every((entry) => entry.supportedPlatformsComplete),
+        projectOptions: undefined,
+        subGames: supportedGames,
+      };
+    }
+
     const platformListsMatch = entries.every((entry) =>
       entry.supportedPlatformsComplete &&
       [...(entry.supportedPlatforms ?? [])].sort().join('|') === [...(primary.supportedPlatforms ?? [])].sort().join('|')
@@ -1607,7 +1649,8 @@ export const App: React.FC = () => {
           port.originalPlatform,
           port.author || '',
           port.developer || '',
-          ...(port.projectOptions?.flatMap((option) => [option.projectTitle, option.author || '']) ?? [])
+          ...(port.projectOptions?.flatMap((option) => [option.projectTitle, option.author || '']) ?? []),
+          ...(port.subGames?.map((game) => game.title) ?? [])
         ].some((value) => value.toLowerCase().includes(query));
         if (!matchesQuery) return false;
       }
@@ -2501,7 +2544,7 @@ export const App: React.FC = () => {
                         Catálogo Oficial PortStation: <span style={{ color: '#34d399' }}>v{catalogInfo?.catalogVersion ?? '2.6.2'}</span>
                       </span>
                       <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
-                        ({catalogPorts.length} proyectos registrados en GitHub)
+                        ({catalogPorts.length} fichas · {groupedCatalogPorts.length} tarjetas en Explorar)
                       </span>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', flexWrap: 'wrap' }}>
@@ -3841,6 +3884,24 @@ export const App: React.FC = () => {
                   )}
                 </div>
 
+                {selectedCatalogPort.subGames && selectedCatalogPort.subGames.length > 0 && (
+                  <details className="catalog-supported-games" open>
+                    <summary>
+                      <span>Juegos incluidos ({selectedCatalogPort.subGames.length})</span>
+                      <ChevronDown size={15} />
+                    </summary>
+                    <p>Cada título requiere su ROM set compatible. PortStation no distribuye archivos de juego.</p>
+                    <ul>
+                      {selectedCatalogPort.subGames.map((game) => (
+                        <li key={game.id}>
+                          <span>{game.title}</span>
+                          <small>{game.originalPlatform}{game.releaseYear ? ` · ${game.releaseYear}` : ''}</small>
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                )}
+
                 {/* GitHub Releases & Downloads Section */}
                 <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
@@ -4320,7 +4381,7 @@ export const App: React.FC = () => {
                       Catálogo: v{catalogInfo?.catalogVersion ?? '2.5.2'}
                     </span>
                     <span className="chip-latest" style={{ background: 'rgba(52, 211, 153, 0.1)', color: '#a7f3d0' }}>
-                      {catalogInfo?.totalProjects ?? catalogPorts.length ?? 0} proyectos en Explorar
+                      {catalogInfo?.totalProjects ?? catalogPorts.length ?? 0} fichas de juego en el catálogo
                     </span>
                   </div>
                 </div>

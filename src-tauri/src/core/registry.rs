@@ -64,13 +64,15 @@ struct DbProjectEntry {
 
 pub struct EmbeddedSeedRegistry {
     games: HashMap<String, Game>,
-    projects: HashMap<String, Project>,
+    projects_by_id: HashMap<String, Project>,
+    project_entries: Vec<Project>,
 }
 
 impl EmbeddedSeedRegistry {
     pub fn new() -> Self {
         let mut games = HashMap::new();
-        let mut projects = HashMap::new();
+        let mut projects_by_id = HashMap::new();
+        let mut project_entries = Vec::new();
 
         // Load user data first, then add seed entries that are missing by ID.
         // This lets catalog updates reach existing installs without overwriting
@@ -127,12 +129,20 @@ impl EmbeddedSeedRegistry {
                         detection: entry.project.detection,
                     };
                     games.insert(game.id.clone(), game);
-                    projects.insert(project.id.clone(), project);
+                    // Preserve the existing project-ID lookup semantics while
+                    // retaining every game-to-project association for shared
+                    // repositories and collections.
+                    projects_by_id.insert(project.id.clone(), project.clone());
+                    project_entries.push(project);
                 }
             }
         }
 
-        Self { games, projects }
+        Self {
+            games,
+            projects_by_id,
+            project_entries,
+        }
     }
 }
 
@@ -164,6 +174,7 @@ fn merge_missing_seed_entries(user_json: &str, seed_json: &str) -> String {
         {
             merge_platform_support(existing, seed_game);
             merge_merge_group_id(existing, seed_game);
+            merge_project_art(existing, seed_game);
         }
         let exists = user_games
             .iter()
@@ -256,6 +267,16 @@ fn merge_missing_seed_entries(user_json: &str, seed_json: &str) -> String {
 }
 
 fn merge_merge_group_id(existing: &mut serde_json::Value, seed: &serde_json::Value) {
+    if seed.pointer("/project/id").and_then(serde_json::Value::as_str) == Some("cps2recomp") {
+        if let Some(object) = existing.as_object_mut() {
+            object.insert(
+                "merge_group_id".to_string(),
+                serde_json::Value::String("cps1-cps2-recomp-collection".to_string()),
+            );
+        }
+        return;
+    }
+
     let has_group = existing
         .get("merge_group_id")
         .and_then(serde_json::Value::as_str)
@@ -265,6 +286,27 @@ fn merge_merge_group_id(existing: &mut serde_json::Value, seed: &serde_json::Val
             if let Some(object) = existing.as_object_mut() {
                 object.insert("merge_group_id".to_string(), group_id.clone());
             }
+        }
+    }
+}
+
+fn merge_project_art(existing: &mut serde_json::Value, seed: &serde_json::Value) {
+    let (Some(existing_project), Some(seed_project)) = (
+        existing.get_mut("project").and_then(serde_json::Value::as_object_mut),
+        seed.pointer("/project").and_then(serde_json::Value::as_object),
+    ) else {
+        return;
+    };
+
+    let local_art_missing = existing_project.get("port_art_url").map_or(true, |value| {
+        value.is_null() || value.as_str().is_some_and(str::is_empty)
+    });
+    if local_art_missing {
+        if let Some(seed_art) = seed_project
+            .get("port_art_url")
+            .filter(|value| !value.is_null())
+        {
+            existing_project.insert("port_art_url".to_string(), seed_art.clone());
         }
     }
 }
@@ -407,11 +449,11 @@ impl Registry for EmbeddedSeedRegistry {
     }
 
     fn find_project(&self, project_id: &str) -> Option<Project> {
-        self.projects.get(project_id).cloned()
+        self.projects_by_id.get(project_id).cloned()
     }
 
     fn list_all_projects(&self) -> Vec<Project> {
-        self.projects.values().cloned().collect()
+        self.project_entries.clone()
     }
 }
 

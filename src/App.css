@@ -413,6 +413,69 @@ body {
   font-weight: 600;
 }
 
+.catalog-supported-games {
+  border: 1px solid rgba(56, 139, 253, 0.28);
+  border-radius: 8px;
+  background: rgba(7, 15, 27, 0.62);
+  overflow: hidden;
+}
+
+.catalog-supported-games summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.7rem 0.85rem;
+  color: #79c0ff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.catalog-supported-games summary::-webkit-details-marker {
+  display: none;
+}
+
+.catalog-supported-games[open] summary svg {
+  transform: rotate(180deg);
+}
+
+.catalog-supported-games > p {
+  margin: 0;
+  padding: 0 0.85rem 0.55rem;
+  color: #8b949e;
+  font-size: 0.75rem;
+}
+
+.catalog-supported-games ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.3rem 0.75rem;
+  max-height: 220px;
+  margin: 0;
+  padding: 0.15rem 0.85rem 0.8rem 2rem;
+  overflow-y: auto;
+}
+
+.catalog-supported-games li {
+  min-width: 0;
+  color: #e6edf3;
+  font-size: 0.76rem;
+}
+
+.catalog-supported-games li small {
+  display: block;
+  color: #8b949e;
+  font-size: 0.68rem;
+}
+
+@media (max-width: 700px) {
+  .catalog-supported-games ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .catalog-port-synopsis {
   display: -webkit-box;
   min-height: 3.3em;

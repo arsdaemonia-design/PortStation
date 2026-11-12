@@ -1,5 +1,5 @@
 {
-  "catalog_version": "2.15.1",
+  "catalog_version": "2.16.0",
   "games": [
     {
       "artwork": {
@@ -9427,7 +9427,7 @@
         "local": {
           "cover": "https://flyers.arcade-museum.com/videogame-flyers/5/super-street-fighter-ii-the-new-challengers-05133-05.jpg",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -9494,14 +9494,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -9509,7 +9509,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -9521,14 +9521,15 @@
       "release_year": 1993,
       "sub_games": null,
       "synopsis": "Ryu, Ken y los World Warriors vuelven a combatir con nuevos personajes y escenarios.",
-      "title": "Super Street Fighter II"
+      "title": "Super Street Fighter II",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/3fcf0350-f4a7-47d7-9d19-776eea3b6d56.png",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -9595,14 +9596,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -9610,7 +9611,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -9623,14 +9624,14 @@
       "sub_games": null,
       "synopsis": "La edición competitiva de Super Street Fighter II, con velocidad aumentada y nuevos movimientos.",
       "title": "Super Street Fighter II Turbo",
-      "merge_group_id": "super-street-fighter-ii-turbo"
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.nintendolife.com/2d0a5adb365bb/hyper-street-fighter-ii-the-anniversary-edition-cover.cover_large.jpg",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -9697,14 +9698,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -9712,7 +9713,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -9724,14 +9725,15 @@
       "release_year": 2004,
       "sub_games": null,
       "synopsis": "Edición aniversario que permite enfrentar personajes de distintas versiones de Street Fighter II.",
-      "title": "Hyper Street Fighter II: The Anniversary Edition"
+      "title": "Hyper Street Fighter II: The Anniversary Edition",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/6c60d674-333d-414e-935f-52403ced9a32.png",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -9798,14 +9800,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -9813,7 +9815,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -9825,14 +9827,15 @@
       "release_year": 1995,
       "sub_games": null,
       "synopsis": "Combates de Street Fighter ambientados antes de la serie principal, con sistema de combos y Alpha Counters.",
-      "title": "Street Fighter Alpha: Warriors’ Dreams"
+      "title": "Street Fighter Alpha: Warriors’ Dreams",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://bdjogos.com.br/capas/3398-Street-Fighter-Alpha-2-Arcade-flyer-1.jpg",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -9899,14 +9902,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -9914,7 +9917,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -9926,14 +9929,15 @@
       "release_year": 1996,
       "sub_games": null,
       "synopsis": "Juego de lucha con modos Alpha, Custom Combo y combates de equipo.",
-      "title": "Street Fighter Alpha 2"
+      "title": "Street Fighter Alpha 2",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/a8391bcb-baae-4e6b-9bb6-160d31e54baf.png",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -10000,14 +10004,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -10015,7 +10019,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -10027,14 +10031,15 @@
       "release_year": 1996,
       "sub_games": null,
       "synopsis": "Edición regional ampliada de Alpha 2 con ajustes y personajes adicionales.",
-      "title": "Street Fighter Zero 2 Alpha"
+      "title": "Street Fighter Zero 2 Alpha",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/77707659-c155-4dbe-9006-6d7fd4212571.jpg",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -10101,14 +10106,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -10116,7 +10121,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -10128,14 +10133,15 @@
       "release_year": 1998,
       "sub_games": null,
       "synopsis": "La entrega final de la trilogía Alpha, con múltiples estilos de combate y amplio elenco.",
-      "title": "Street Fighter Alpha 3"
+      "title": "Street Fighter Alpha 3",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/fe4ef615-8f37-42c8-aa48-672c58b784ca.jpg",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -10202,14 +10208,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -10217,7 +10223,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -10229,14 +10235,15 @@
       "release_year": 1997,
       "sub_games": null,
       "synopsis": "Juego de lucha con personajes chibi de Capcom, objetos coleccionables y controles accesibles.",
-      "title": "Super Gem Fighter Mini Mix"
+      "title": "Super Gem Fighter Mini Mix",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/e1fe2743-ffbb-4c81-8ba9-bb91f0c12bb6.png",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -10303,14 +10310,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -10318,7 +10325,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -10330,14 +10337,15 @@
       "release_year": 1994,
       "sub_games": null,
       "synopsis": "Juego de lucha de los X-Men con escenarios dinámicos y combates aéreos.",
-      "title": "X-Men: Children of the Atom"
+      "title": "X-Men: Children of the Atom",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://flyers.arcade-museum.com/videogame-flyers/5/marvel-super-heroes-05129-01.jpg",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -10404,14 +10412,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -10419,7 +10427,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -10431,14 +10439,15 @@
       "release_year": 1995,
       "sub_games": null,
       "synopsis": "Luchadores de Marvel combaten por las Gemas del Infinito en un juego de lucha de Capcom.",
-      "title": "Marvel Super Heroes"
+      "title": "Marvel Super Heroes",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://storage.googleapis.com/hipcomic/p/0c9437c4b0ce18a57e4b480c9ee51da3.jpg",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -10505,14 +10514,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -10520,7 +10529,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -10532,14 +10541,15 @@
       "release_year": 1996,
       "sub_games": null,
       "synopsis": "Cruce de X-Men y Street Fighter con combates por equipos y cambio de personaje.",
-      "title": "X-Men vs. Street Fighter"
+      "title": "X-Men vs. Street Fighter",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://storage.googleapis.com/hipcomic/p/3e8c662008b12a08b6cff5ac04718899-800.jpg",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -10606,14 +10616,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -10621,7 +10631,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -10633,14 +10643,15 @@
       "release_year": 1997,
       "sub_games": null,
       "synopsis": "Héroes de Marvel y luchadores de Street Fighter se enfrentan en combates tag.",
-      "title": "Marvel Super Heroes vs. Street Fighter"
+      "title": "Marvel Super Heroes vs. Street Fighter",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/0ab63d73-05ac-4c6b-b975-d5d9c11294df.png",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -10707,14 +10718,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -10722,7 +10733,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -10734,14 +10745,15 @@
       "release_year": 1998,
       "sub_games": null,
       "synopsis": "Combates por equipos entre personajes de Marvel y Capcom con ataques de asistencia.",
-      "title": "Marvel vs. Capcom: Clash of Super Heroes"
+      "title": "Marvel vs. Capcom: Clash of Super Heroes",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/8eaf17d1-a07d-49b3-a887-e843354fc675.jpg",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -10808,14 +10820,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -10823,7 +10835,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -10835,14 +10847,15 @@
       "release_year": 1996,
       "sub_games": null,
       "synopsis": "Duelo de puzles en el que se combinan gemas de colores para atacar al rival.",
-      "title": "Super Puzzle Fighter II Turbo"
+      "title": "Super Puzzle Fighter II Turbo",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://www.arcadeartwork.org/_data/i/galleries/arcade-custom-2022-oct/Darkstalkers_-The-Night-Warriors-01-me.png",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -10909,14 +10922,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -10924,7 +10937,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -10936,14 +10949,15 @@
       "release_year": 1994,
       "sub_games": null,
       "synopsis": "Juego de lucha de fantasía gótica con criaturas sobrenaturales y animación detallada.",
-      "title": "Darkstalkers: The Night Warriors"
+      "title": "Darkstalkers: The Night Warriors",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/3b729b12-3bcc-419b-b454-a1786291b2d7.png",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -11010,14 +11024,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -11025,7 +11039,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -11037,14 +11051,15 @@
       "release_year": 1995,
       "sub_games": null,
       "synopsis": "Secuela de Darkstalkers que amplía el elenco y los sistemas de combate.",
-      "title": "Night Warriors: Darkstalkers’ Revenge"
+      "title": "Night Warriors: Darkstalkers’ Revenge",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/e0d3de2c-170d-409f-8f73-25b130dec5f9.png",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -11111,14 +11126,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -11126,7 +11141,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -11138,14 +11153,15 @@
       "release_year": 1995,
       "sub_games": null,
       "synopsis": "Combates de mechas personalizables en un juego de lucha futurista.",
-      "title": "Cyberbots: Fullmetal Madness"
+      "title": "Cyberbots: Fullmetal Madness",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://nu.vgmtreasurechest.com/soundtracks/vampire-savior-the-lord-of-vampire-cp-system-ii-arcade/V1.jpg",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -11212,14 +11228,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -11227,7 +11243,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -11239,14 +11255,15 @@
       "release_year": 1997,
       "sub_games": null,
       "synopsis": "La serie Darkstalkers continúa con combates rápidos, nuevos personajes y mecánicas de equipo.",
-      "title": "Vampire Savior: The Lord of Vampire"
+      "title": "Vampire Savior: The Lord of Vampire",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://db.hfsplay.fr/files/2019/07/29/Vampire_Savior_2__The_Lord_of_Vampire-01_2_wyTej5S.png",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -11313,14 +11330,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -11328,7 +11345,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -11340,14 +11357,15 @@
       "release_year": 1997,
       "sub_games": null,
       "synopsis": "Variante arcade de Vampire Savior con cambios de elenco y balance.",
-      "title": "Vampire Savior 2: The Lord of Vampire"
+      "title": "Vampire Savior 2: The Lord of Vampire",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/9b5fd9db-f1a3-423c-ad25-4c6571064c96.png",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -11414,14 +11432,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -11429,7 +11447,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -11441,14 +11459,15 @@
       "release_year": 1997,
       "sub_games": null,
       "synopsis": "Revisión arcade que combina personajes de Night Warriors con el sistema de Vampire Savior.",
-      "title": "Vampire Hunter 2: Darkstalkers’ Revenge"
+      "title": "Vampire Hunter 2: Darkstalkers’ Revenge",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://nu.vgmtreasurechest.com/soundtracks/vampire-savior-the-lord-of-vampire-cp-system-ii-arcade/V1.jpg",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -11515,14 +11534,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -11530,7 +11549,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -11542,14 +11561,15 @@
       "release_year": 1997,
       "sub_games": null,
       "synopsis": "Variante beta de Vampire Savior que integra personajes y escenarios de otros juegos de la colección.",
-      "title": "Vampire Savior Definitive (Beta)"
+      "title": "Vampire Savior Definitive (Beta)",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/5045b133-b99a-4d7a-9749-b8eab0778bae.png",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -11616,14 +11636,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -11631,7 +11651,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -11643,14 +11663,15 @@
       "release_year": 1994,
       "sub_games": null,
       "synopsis": "Beat ’em up cooperativo en el que humanos y Depredadores combaten a los xenomorfos.",
-      "title": "Alien vs. Predator"
+      "title": "Alien vs. Predator",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://bdjogos.com.br/capas/198-street-fighter-ii-arcade-flyer-1.jpg",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -11717,14 +11738,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -11732,7 +11753,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -11744,14 +11765,15 @@
       "release_year": 1991,
       "sub_games": null,
       "synopsis": "El clásico juego de lucha que enfrenta a ocho guerreros en un torneo mundial.",
-      "title": "Street Fighter II: The World Warrior"
+      "title": "Street Fighter II: The World Warrior",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/18d584b6-7bc3-45fa-bf82-f6f4af8edbd1.png",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -11818,14 +11840,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -11833,7 +11855,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -11845,14 +11867,15 @@
       "release_year": 1992,
       "sub_games": null,
       "synopsis": "Revisión de Street Fighter II que permite jugar como los cuatro jefes y habilita combates espejo.",
-      "title": "Street Fighter II: Champion Edition"
+      "title": "Street Fighter II: Champion Edition",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/a9ca9e42-9b46-44d7-af03-6a625ab3d6b8.jpg",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -11919,14 +11942,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -11934,7 +11957,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -11946,14 +11969,15 @@
       "release_year": 1992,
       "sub_games": null,
       "synopsis": "Edición más rápida de Street Fighter II con movimientos y colores adicionales.",
-      "title": "Street Fighter II: Hyper Fighting"
+      "title": "Street Fighter II: Hyper Fighting",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/732fa5b6-47f3-4caf-b055-569116ef031a.png",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -12020,14 +12044,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -12035,7 +12059,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -12047,14 +12071,15 @@
       "release_year": 1988,
       "sub_games": null,
       "synopsis": "El caballero Arthur lucha contra criaturas sobrenaturales en una aventura de plataformas.",
-      "title": "Ghouls’n Ghosts"
+      "title": "Ghouls’n Ghosts",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/828b8136-6ece-43e0-b173-1131d1fd4358.png",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -12121,14 +12146,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -12136,7 +12161,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -12148,14 +12173,15 @@
       "release_year": 1993,
       "sub_games": null,
       "synopsis": "Beat ’em up cooperativo ambientado en un mundo donde conviven humanos y dinosaurios.",
-      "title": "Cadillacs and Dinosaurs"
+      "title": "Cadillacs and Dinosaurs",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/f393aebd-2558-4320-9b1b-29049a5f71a0.jpg",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -12222,14 +12248,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -12237,7 +12263,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -12249,14 +12275,15 @@
       "release_year": 1993,
       "sub_games": null,
       "synopsis": "Beat ’em up cooperativo protagonizado por The Punisher y Nick Fury.",
-      "title": "The Punisher"
+      "title": "The Punisher",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/278c9f72-d4c7-49ad-af8f-cae74001a076.png",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -12323,14 +12350,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -12338,7 +12365,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -12350,14 +12377,15 @@
       "release_year": 1999,
       "sub_games": null,
       "synopsis": "Shoot ’em up vertical con disparos, bombas y un sistema de reflejo de proyectiles.",
-      "title": "Giga Wing"
+      "title": "Giga Wing",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://flyers.arcade-museum.com/videogame-flyers/1/progear-storm-of-progia-01637-02.jpg",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -12424,14 +12452,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -12439,7 +12467,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -12451,14 +12479,15 @@
       "release_year": 2001,
       "sub_games": null,
       "synopsis": "Shoot ’em up horizontal steampunk con cazas pilotados y armas configurables.",
-      "title": "Progear"
+      "title": "Progear",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
         "local": {
           "cover": "https://images.launchbox-app.com/fd2025e0-3b1d-456b-94df-e03ae40d688a.png",
           "disc": null,
-          "port": null
+          "port": "/games/cps1-cps2-recomp/cover.png"
         },
         "preferred_order": [
           "local",
@@ -12525,14 +12554,14 @@
           "verified": false
         },
         "features": [
-          "Juego disponible como parte de CPS-2 Recomp v1.4.0; la colección comparte launcher y runtime.",
-          "Builds publicadas para Windows x64, Linux x86_64/ARM64, macOS y Android ARM64.",
-          "Requiere el ROM set compatible indicado por el proyecto; no incluye datos del juego."
+          "Un launcher común ofrece los 31 juegos compatibles listados en el README oficial, para Windows, Linux, macOS y Android.",
+          "La persona elige qué juegos instalar o incluir en su colección; cada título requiere su ROM set compatible y los archivos originales propios.",
+          "No es emulación: el programa arcade se recompila a C++ y usa un runtime compartido del proyecto."
         ],
         "id": "cps2recomp",
         "method": "STATIC_RECOMP",
         "name": "CPS-2 Recomp",
-        "port_art_url": null,
+        "port_art_url": "/games/cps1-cps2-recomp/cover.png",
         "repository": {
           "provider": "github",
           "owner": "tmcleroy",
@@ -12540,7 +12569,7 @@
           "url": "https://github.com/tmcleroy/cps2recomp"
         },
         "requires_original_assets": true,
-        "technical_notes": "Recompilación estática del programa arcade a C++; no es emulación. La versión v1.4.0 publica un launcher común para Windows, Linux, macOS y Android. Requiere los ROM sets y archivos de clave propios correspondientes a esta versión; PortStation no los distribuye.",
+        "technical_notes": "La distribución de CPS-2 Recomp usa un launcher y un runtime común para sus juegos compatibles de CPS-1 y CPS-2. Cada juego requiere el ROM set exacto indicado por el proyecto y aportado por el usuario; los archivos del juego no se incluyen. La lista de juegos compatibles y sus versiones de ROM se documenta en el README oficial.",
         "supported_platforms": [
           "windows",
           "linux",
@@ -12552,7 +12581,8 @@
       "release_year": 2000,
       "sub_games": null,
       "synopsis": "Shoot ’em up vertical de fantasía con rutas, objetos y puntuación de riesgo.",
-      "title": "Dimahoo: Great Mahou Daisakusen"
+      "title": "Dimahoo: Great Mahou Daisakusen",
+      "merge_group_id": "cps1-cps2-recomp-collection"
     },
     {
       "artwork": {
