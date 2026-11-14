@@ -1,5 +1,5 @@
 {
-  "catalog_version": "2.16.0",
+  "catalog_version": "2.17.0",
   "games": [
     {
       "artwork": {
@@ -8319,9 +8319,11 @@
         "features": [
           "Recompilación estática a aplicación x86-64 con Vulkan; versión del juego compatible: 1.1.1",
           "Windows; instalador que construye y actualiza el juego desde los archivos propios",
-          "HDR, controles reasignables, FSR/DLSS según hardware y preparación de shaders"
+          "Release 0.9.1: soporte de mods desde el launcher, lista de pipelines precargada y replay en varios hilos",
+          "FSR 4, menú de depuración y modo cooperativo beta oculto",
+          "HDR, controles reasignables, escalado FSR/DLSS y preparación de shaders"
         ],
-        "technical_notes": "Desarrollo temprano pero jugable. El README lista Bosque Kokiri, Aldea Kakariko, Sendero de la Montaña de la Muerte, Templo del Tiempo y fuentes de las Hadas. Se esperan errores visuales y cierres ocasionales. El launcher publicado es para Windows; compilar en Linux requiere el proceso manual descrito por el proyecto.",
+        "technical_notes": "Última release verificada: 0.9.1 (12/11/2026). Sigue en desarrollo temprano pero jugable; persisten problemas gráficos ocasionales y fallos en algunas GPU. Requiere la edición Switch 2 del juego, versión 1.1.1. La release y el instalador son para Windows; Linux no está declarado como plataforma soportada por esta versión.",
         "detection": {
           "executables": [],
           "folder_patterns": [],
@@ -8336,6 +8338,85 @@
       "release_year": 2026,
       "sub_games": null,
       "synopsis": "Recompilación nativa de la edición para Nintendo Switch 2 (versión 1.1.1). Requiere los archivos propios del juego; el repositorio no distribuye contenido del juego.",
+      "title": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+      "merge_group_id": "zelda-oot-switch2"
+    },
+    {
+      "artwork": {
+        "local": {
+          "cover": "https://assets.nintendo.com/image/upload/c_fill%2Cw_1200/q_auto%3Abest/f_auto/dpr_2.0/ncom/My%20Nintendo%20Store/EN-US/Nintendo%20Switch%202/Software/The%20Legend%20of%20Zelda%20Ocarina%20of%20Time/125697-nintendo-the-legend-of-zelda-ocarina-of-time-2000x2000",
+          "disc": null,
+          "port": null
+        },
+        "preferred_order": [
+          "local",
+          "ArcadeArtwork",
+          "GameTDB",
+          "SteamGridDB",
+          "Libretro Thumbnails",
+          "MobyGames",
+          "IGDB",
+          "TheCoverProject"
+        ],
+        "sources": [
+          {
+            "provider": "ArcadeArtwork",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.arcadeartwork.org/"
+          },
+          {
+            "provider": "GameTDB",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.gametdb.com/"
+          },
+          {
+            "provider": "SteamGridDB",
+            "query": "The Legend of Zelda: Ocarina of Time (Switch 2)",
+            "url": "https://www.steamgriddb.com/"
+          }
+        ]
+      },
+      "box_art_url": "https://assets.nintendo.com/image/upload/c_fill%2Cw_1200/q_auto%3Abest/f_auto/dpr_2.0/ncom/My%20Nintendo%20Store/EN-US/Nintendo%20Switch%202/Software/The%20Legend%20of%20Zelda%20Ocarina%20of%20Time/125697-nintendo-the-legend-of-zelda-ocarina-of-time-2000x2000",
+      "developer": "Nintendo EPD",
+      "disc_art_url": null,
+      "id": "zelda-oot-switch2-longshot",
+      "original_platforms": [
+        "Nintendo Switch 2"
+      ],
+      "project": {
+        "id": "longshot-switch2",
+        "name": "Longshot (Switch 2)",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "name": "Longshot",
+          "owner": "MagicBeanDev",
+          "provider": "forgejo",
+          "url": "https://git.magicbean.dev/MagicBeanDev/Longshot"
+        },
+        "requires_original_assets": true,
+        "author": "Magic Bean contributors",
+        "port_art_url": null,
+        "features": [
+          "Continuación de Hookshot; recompila Ocarina of Time para Windows y Linux, sin emulación",
+          "Requiere la edición Switch 2, actualización v131072 y build e0f3ccfa",
+          "Versión del proyecto 3.0.0-rc.2; launcher separado con Windows y Linux AppImage"
+        ],
+        "technical_notes": "Proyecto experimental derivado de Hookshot. La release v3.0.0-rc.2 contiene los builders que instala el launcher, no es el paquete recomendado para usuarios; descarga el launcher desde https://git.magicbean.dev/MagicBeanDev/LongshotLauncher/releases. El proyecto compila localmente a partir de archivos propios del juego. La lista oficial reporta que Kokiri Forest funciona; hay reportes de progreso por más zonas, pero siguen pendientes errores de iluminación, sombras y estabilidad. La versión del juego debe coincidir exactamente con build e0f3ccfa.",
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        },
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": true
+      },
+      "release_year": 2026,
+      "sub_games": null,
+      "synopsis": "Recompilación nativa de Ocarina of Time para Switch 2 (build e0f3ccfa). Necesita que el usuario aporte su copia del juego y la actualización compatibles; no incluye archivos del juego.",
       "title": "The Legend of Zelda: Ocarina of Time (Switch 2)",
       "merge_group_id": "zelda-oot-switch2"
     },
