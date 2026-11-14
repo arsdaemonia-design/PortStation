@@ -312,6 +312,49 @@ fn github_repo_api_url(repository_url: &str) -> Result<String, String> {
     ))
 }
 
+fn catalog_repo_details(repository_url: &str) -> Result<(String, String), String> {
+    let url = repository_url.trim().trim_end_matches('/');
+    let (host, path) = if let Some(path) = url.strip_prefix("https://github.com/") {
+        ("github.com", path)
+    } else if let Some(path) = url.strip_prefix("https://git.magicbean.dev/") {
+        ("git.magicbean.dev", path)
+    } else {
+        return Err("El repositorio debe estar en GitHub o git.magicbean.dev".to_string());
+    };
+    let mut parts = path.split('/');
+    let owner = parts.next().unwrap_or_default();
+    let repo = parts.next().unwrap_or_default().trim_end_matches(".git");
+    if owner.is_empty()
+        || repo.is_empty()
+        || parts.next().is_some()
+        || owner.chars().any(|c| matches!(c, '?' | '#' | '@' | ':'))
+        || repo.chars().any(|c| matches!(c, '?' | '#' | '@' | ':'))
+    {
+        return Err("La URL no contiene un propietario y repositorio válidos".to_string());
+    }
+    Ok((host.to_string(), format!("{}/{}", owner, repo)))
+}
+
+fn catalog_repo_api_url(repository_url: &str) -> Result<String, String> {
+    let (host, path) = catalog_repo_details(repository_url)?;
+    if host == "github.com" {
+        Ok(format!(
+            "https://api.github.com/repos/{}/releases?per_page=20",
+            path
+        ))
+    } else {
+        Ok(format!(
+            "https://{}/api/v1/repos/{}/releases?limit=20",
+            host, path
+        ))
+    }
+}
+
+fn catalog_release_download_prefix(repository_url: &str) -> Result<String, String> {
+    let (host, path) = catalog_repo_details(repository_url)?;
+    Ok(format!("https://{}/{}/releases/download/", host, path))
+}
+
 fn releases_for_version_display(releases: Vec<GitHubReleaseInfo>) -> Vec<GitHubReleaseInfo> {
     let stable: Vec<_> = releases
         .iter()
@@ -328,7 +371,7 @@ fn releases_for_version_display(releases: Vec<GitHubReleaseInfo>) -> Vec<GitHubR
 
 fn is_explorable_port(method: &PortMethod, repository_url: Option<&str>) -> bool {
     !matches!(method, PortMethod::UNKNOWN)
-        && repository_url.is_some_and(|url| github_repo_api_url(url).is_ok())
+        && repository_url.is_some_and(|url| catalog_repo_api_url(url).is_ok())
 }
 
 fn is_explorable_catalog_entry(entry: &serde_json::Value) -> bool {
@@ -367,11 +410,13 @@ fn check_github_updates(
     current_version: Option<String>,
     auth_token: Option<String>,
 ) -> Result<GitHubUpdateCheck, String> {
-    let api_url = github_repo_api_url(&repository_url)?;
+    let api_url = catalog_repo_api_url(&repository_url)?;
     let mut req = ureq::get(&api_url)
         .set("User-Agent", "PortStation")
-        .set("Accept", "application/vnd.github+json")
         .timeout(std::time::Duration::from_secs(12));
+    if api_url.contains("api.github.com") {
+        req = req.set("Accept", "application/vnd.github+json");
+    }
 
     if let Some(token) = auth_token.filter(|t| !t.trim().is_empty()) {
         req = req.set("Authorization", &format!("Bearer {}", token.trim()));
@@ -381,9 +426,9 @@ fn check_github_updates(
         .call()
         .map_err(|e| format!("No se pudieron consultar las releases: {}", e))?
         .into_string()
-        .map_err(|e| format!("No se pudo leer la respuesta de GitHub: {}", e))?;
+        .map_err(|e| format!("No se pudo leer la respuesta del repositorio: {}", e))?;
     let releases: Vec<GitHubReleaseInfo> = serde_json::from_str(&response)
-        .map_err(|e| format!("GitHub devolvió una respuesta inesperada: {}", e))?;
+        .map_err(|e| format!("El servidor devolvió una respuesta de releases inesperada: {}", e))?;
     let releases = releases_for_version_display(releases);
 
     let latest_version = releases.first().map(|release| release.tag_name.clone());
@@ -442,9 +487,9 @@ fn list_catalog_ports(state: State<AppState>) -> Result<Vec<CatalogPortDTO>, Str
 
     let ports = registry
         .list_all_projects()
-        // The explore view is a GitHub-backed catalog, not a mirror of the
+        // The explore view is a hosted-repository catalog, not a mirror of the
         // user's scanned library. Unknown/local games and ports without a
-        // usable GitHub repository stay in the library only.
+        // supported hosted repository stay in the library only.
         .into_iter()
         .filter(|project| {
             let repository_url = project.repository_url.as_deref().or_else(|| {
@@ -627,15 +672,7 @@ async fn download_catalog_zip(
                     .map(|repository| repository.url.clone())
             })
             .ok_or_else(|| "El proyecto no tiene repositorio registrado".to_string())?;
-        github_repo_api_url(&repository_url)?;
-        let path = repository_url
-            .trim()
-            .strip_prefix("https://github.com/")
-            .ok_or_else(|| "El repositorio debe ser una URL HTTPS de GitHub".to_string())?;
-        let mut parts = path.split('/');
-        let owner = parts.next().unwrap_or_default();
-        let repo = parts.next().unwrap_or_default().trim_end_matches(".git");
-        let allowed_prefix = format!("https://github.com/{}/{}/releases/download/", owner, repo);
+        let allowed_prefix = catalog_release_download_prefix(&repository_url)?;
         let file_name = safe_path_component(&asset_name);
         let Some((stem, ext)) = split_package_stem_and_ext(&file_name) else {
             return Err("Solo se permiten paquetes válidos de releases del repositorio registrado (.zip, .7z, .tar.gz, .AppImage, .apk, etc.)".to_string());
@@ -2235,7 +2272,7 @@ fn check_app_update(
 pub fn resolve_raw_catalog_url(repo_or_raw_url: Option<&str>, branch: Option<&str>) -> String {
     let branch = branch.unwrap_or("main");
     let fallback = format!(
-        "https://raw.githubusercontent.com/arsdaemonia-design/PortStation/{}/src-tauri/ports_db.json",
+        "https://github.com/arsdaemonia-design/PortStation/raw/refs/heads/{}/src-tauri/ports_db.json",
         branch
     );
     let Some(url) = repo_or_raw_url.map(str::trim).filter(|u| !u.is_empty()) else {
@@ -2250,7 +2287,7 @@ pub fn resolve_raw_catalog_url(repo_or_raw_url: Option<&str>, branch: Option<&st
         let repo = parts.next().unwrap_or_default().trim_end_matches(".git");
         if !owner.is_empty() && !repo.is_empty() {
             return format!(
-                "https://raw.githubusercontent.com/{}/{}/{}/src-tauri/ports_db.json",
+                "https://github.com/{}/{}/raw/refs/heads/{}/src-tauri/ports_db.json",
                 owner, repo, branch
             );
         }
@@ -2529,6 +2566,8 @@ fn sync_remote_catalog(
     let mut req = ureq::get(&url)
         .set("User-Agent", "PortStation")
         .set("Accept", "application/json, text/plain, */*")
+        .set("Cache-Control", "no-cache")
+        .set("Pragma", "no-cache")
         .timeout(std::time::Duration::from_secs(15));
 
     if let Some(token) = auth_token.filter(|t| !t.trim().is_empty()) {
@@ -2692,7 +2731,7 @@ mod tests {
     }
 
     #[test]
-    fn explore_requires_a_known_port_method_and_github_repository() {
+    fn explore_requires_a_known_port_method_and_supported_repository() {
         assert!(is_explorable_port(
             &PortMethod::STATIC_RECOMP,
             Some("https://github.com/owner/project")
@@ -2811,11 +2850,11 @@ mod tests {
     fn test_resolve_raw_catalog_url() {
         assert_eq!(
             resolve_raw_catalog_url(None, None),
-            "https://raw.githubusercontent.com/arsdaemonia-design/PortStation/main/src-tauri/ports_db.json"
+            "https://github.com/arsdaemonia-design/PortStation/raw/refs/heads/main/src-tauri/ports_db.json"
         );
         assert_eq!(
             resolve_raw_catalog_url(Some("https://github.com/arsdaemonia-design/PortStation"), Some("dev")),
-            "https://raw.githubusercontent.com/arsdaemonia-design/PortStation/dev/src-tauri/ports_db.json"
+            "https://github.com/arsdaemonia-design/PortStation/raw/refs/heads/dev/src-tauri/ports_db.json"
         );
         assert_eq!(
             resolve_raw_catalog_url(Some("https://raw.githubusercontent.com/custom/repo/main/ports_db.json"), None),
