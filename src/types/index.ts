@@ -78,6 +78,7 @@ export interface AppUpdateAsset {
   name: string;
   downloadUrl: string;
   sizeBytes: number;
+  sha256: string | null;
   platform: 'windows' | 'linux' | 'android' | 'macos' | 'auxiliary' | 'other';
   isRecommended: boolean;
 }

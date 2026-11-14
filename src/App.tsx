@@ -504,6 +504,7 @@ export const App: React.FC = () => {
   // PortStation Launcher Updates State (Multiplatform Git Update Scan)
   const [appUpdateResult, setAppUpdateResult] = useState<AppUpdateCheckResult | null>(null);
   const [checkingAppUpdate, setCheckingAppUpdate] = useState<boolean>(false);
+  const [installingAppUpdate, setInstallingAppUpdate] = useState<boolean>(false);
   const [appUpdateError, setAppUpdateError] = useState<string | null>(null);
   const [selectedPlatformTab, setSelectedPlatformTab] = useState<'windows' | 'linux' | 'android' | 'macos'>('windows');
   const [showAppChangelog, setShowAppChangelog] = useState<boolean>(false);
@@ -957,6 +958,36 @@ export const App: React.FC = () => {
       setCheckingAppUpdate(false);
     }
   }, [settings.appRepositoryUrl, settings.githubToken]);
+
+  const canInstallAppUpdateInPlace = (asset: AppUpdateCheckResult['recommendedAsset']) =>
+    Boolean(
+      platformInfo?.os === 'windows' &&
+      asset?.platform === 'windows' &&
+      asset.name.toLowerCase().endsWith('.exe') &&
+      asset.sha256
+    );
+
+  const handleInstallAppUpdate = async (asset: NonNullable<AppUpdateCheckResult['recommendedAsset']>) => {
+    if (!asset.sha256 || installingAppUpdate) return;
+    const confirmed = window.confirm(
+      `PortStation descargará la actualización v${appUpdateResult?.latestVersion}, verificará su SHA-256, cerrará esta ventana, reemplazará el ejecutable y abrirá la versión nueva.\n\nLa carpeta donde está PortStation.exe debe permitir escritura. ¿Continuar?`
+    );
+    if (!confirmed) return;
+
+    setInstallingAppUpdate(true);
+    setAppUpdateError(null);
+    try {
+      await invoke('install_app_update', {
+        repositoryUrl: settings.appRepositoryUrl || 'https://github.com/arsdaemonia-design/PortStation',
+        downloadUrl: asset.downloadUrl,
+        expectedSha256: asset.sha256,
+      });
+      setLaunchMessage('Actualización verificada. PortStation se cerrará, reemplazará el ejecutable y volverá a abrirse.');
+    } catch (error) {
+      setAppUpdateError(`No se pudo instalar automáticamente: ${error}. Puedes descargar el ZIP y actualizar manualmente.`);
+      setInstallingAppUpdate(false);
+    }
+  };
 
   // Detect runtime platform and CPU architecture + a single silent update check at startup.
   // Deliberately NOT keyed on settings: typing in the repository/token fields must never
@@ -4235,11 +4266,22 @@ export const App: React.FC = () => {
                               </div>
                               <button
                                 className="app-update-download-btn"
-                                onClick={() => handleOpenBrowser(appUpdateResult.recommendedAsset!.downloadUrl)}
-                                title={`Descargar ${appUpdateResult.recommendedAsset.name}`}
+                                disabled={installingAppUpdate}
+                                onClick={() => {
+                                  const asset = appUpdateResult.recommendedAsset!;
+                                  if (canInstallAppUpdateInPlace(asset)) void handleInstallAppUpdate(asset);
+                                  else void handleOpenBrowser(asset.downloadUrl);
+                                }}
+                                title={canInstallAppUpdateInPlace(appUpdateResult.recommendedAsset) ? 'Actualizar y reiniciar PortStation' : `Descargar ${appUpdateResult.recommendedAsset.name}`}
                               >
-                                <Download size={15} />
-                                <span>Descargar</span>
+                                {canInstallAppUpdateInPlace(appUpdateResult.recommendedAsset) ? <RefreshCw size={15} /> : <Download size={15} />}
+                                <span>
+                                  {installingAppUpdate
+                                    ? 'Preparando actualización…'
+                                    : canInstallAppUpdateInPlace(appUpdateResult.recommendedAsset)
+                                    ? 'Actualizar y reiniciar'
+                                    : 'Descargar'}
+                                </span>
                               </button>
                             </div>
                           ) : (
@@ -4299,6 +4341,10 @@ export const App: React.FC = () => {
                               </button>
                             </div>
 
+                            <p style={{ color: '#94a3b8', fontSize: '0.72rem', lineHeight: 1.45, margin: '0.45rem 0' }}>
+                              Windows puede actualizarse y reiniciarse desde aquí cuando la release incluya el ejecutable verificado. En Linux/macOS descarga el paquete y reemplaza el ejecutable con la app cerrada; en Android instala el APK y confirma el aviso del sistema.
+                            </p>
+
                             <div className="app-update-assets-list">
                               {(() => {
                                 const currentTabAssets =
@@ -4331,10 +4377,15 @@ export const App: React.FC = () => {
                                     </div>
                                     <button
                                       className="app-update-asset-download"
-                                      onClick={() => handleOpenBrowser(asset.downloadUrl)}
-                                      title={`Descargar ${asset.name}`}
+                                      disabled={installingAppUpdate}
+                                      onClick={() => {
+                                        if (canInstallAppUpdateInPlace(asset)) void handleInstallAppUpdate(asset);
+                                        else void handleOpenBrowser(asset.downloadUrl);
+                                      }}
+                                      title={canInstallAppUpdateInPlace(asset) ? 'Actualizar y reiniciar PortStation' : `Descargar ${asset.name}`}
                                     >
-                                      <Download size={13} /> Descargar
+                                      {canInstallAppUpdateInPlace(asset) ? <RefreshCw size={13} /> : <Download size={13} />}
+                                      {canInstallAppUpdateInPlace(asset) ? 'Actualizar' : 'Descargar'}
                                     </button>
                                   </div>
                                 ));

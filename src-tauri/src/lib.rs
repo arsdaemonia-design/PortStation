@@ -8,7 +8,7 @@ use crate::core::registry::{EmbeddedSeedRegistry, Registry};
 use crate::core::scanner::{LocalFileScanner, Scanner};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
-use std::io::Read;
+use std::io::{Read, Write};
 use std::path::{Path, PathBuf};
 use std::sync::Mutex;
 use tauri::State;
@@ -121,6 +121,7 @@ pub struct AppUpdateAsset {
     pub name: String,
     pub download_url: String,
     pub size_bytes: u64,
+    pub sha256: Option<String>,
     pub platform: String,
     pub is_recommended: bool,
 }
@@ -2221,6 +2222,11 @@ fn check_app_update(
             name: asset.name.clone(),
             download_url: asset.download_url.clone(),
             size_bytes: asset.size,
+            sha256: asset.digest.as_deref().and_then(|digest| {
+                digest
+                    .strip_prefix("sha256:")
+                    .map(|hash| hash.to_ascii_lowercase())
+            }),
             platform: platform_category.to_string(),
             is_recommended: false,
         };
@@ -2267,6 +2273,182 @@ fn check_app_update(
         macos_assets,
         other_assets,
     })
+}
+
+#[tauri::command(async)]
+fn install_app_update(
+    app: tauri::AppHandle,
+    repository_url: String,
+    download_url: String,
+    expected_sha256: String,
+) -> Result<(), String> {
+    #[cfg(not(windows))]
+    {
+        let _ = (app, repository_url, download_url, expected_sha256);
+        return Err("La instalación asistida solo está disponible para Windows por ahora.".to_string());
+    }
+
+    #[cfg(windows)]
+    {
+        use std::os::windows::process::CommandExt;
+        use sha2::Digest;
+
+        const MAX_UPDATE_SIZE: u64 = 256 * 1024 * 1024;
+        let repo_path = repository_url
+            .trim()
+            .strip_prefix("https://github.com/")
+            .ok_or_else(|| "El repositorio de actualización debe estar en GitHub.".to_string())?;
+        let mut repo_parts = repo_path.split('/');
+        let owner = repo_parts.next().unwrap_or_default();
+        let repo = repo_parts.next().unwrap_or_default().trim_end_matches(".git");
+        if owner.is_empty()
+            || repo.is_empty()
+            || repo_parts.next().is_some()
+            || owner.chars().any(|c| matches!(c, '?' | '#' | '@' | ':'))
+            || repo.chars().any(|c| matches!(c, '?' | '#' | '@' | ':'))
+        {
+            return Err("La URL del repositorio de actualización no es válida.".to_string());
+        }
+
+        let allowed_prefix = format!(
+            "https://github.com/{}/{}/releases/download/",
+            owner, repo
+        );
+        if !download_url.starts_with(&allowed_prefix)
+            || download_url.contains('?')
+            || download_url.contains('#')
+        {
+            return Err("El archivo no pertenece a una release del repositorio configurado.".to_string());
+        }
+
+        let expected_sha256 = expected_sha256.trim().to_ascii_lowercase();
+        if expected_sha256.len() != 64
+            || !expected_sha256
+                .chars()
+                .all(|c| c.is_ascii_hexdigit())
+        {
+            return Err("GitHub no proporcionó un SHA-256 válido para este archivo.".to_string());
+        }
+
+        let target_path = std::env::current_exe()
+            .map_err(|e| format!("No se pudo localizar PortStation.exe: {}", e))?;
+        let target_name = target_path
+            .file_name()
+            .and_then(|name| name.to_str())
+            .unwrap_or_default();
+        if !target_name.eq_ignore_ascii_case("PortStation.exe") {
+            return Err("La instalación asistida requiere que la aplicación se llame PortStation.exe. Usa la descarga manual para esta copia.".to_string());
+        }
+        let target_directory = target_path
+            .parent()
+            .ok_or_else(|| "No se pudo localizar la carpeta de PortStation.".to_string())?;
+
+        let write_probe = target_directory.join(format!(
+            ".portstation-update-write-check-{}.tmp",
+            std::process::id()
+        ));
+        let probe_file = std::fs::OpenOptions::new()
+            .write(true)
+            .create_new(true)
+            .open(&write_probe)
+            .map_err(|e| format!(
+                "No tengo permiso para actualizar esta carpeta ({}). Descarga el ZIP y reemplaza PortStation.exe manualmente.",
+                e
+            ))?;
+        drop(probe_file);
+        let _ = std::fs::remove_file(&write_probe);
+
+        let update_directory = get_portstation_data_dir()?.join("updates");
+        std::fs::create_dir_all(&update_directory)
+            .map_err(|e| format!("No se pudo preparar la carpeta temporal de actualización: {}", e))?;
+        let update_path = update_directory.join(format!(
+            "PortStation-{}.update.exe",
+            std::process::id()
+        ));
+
+        let download_result = (|| -> Result<(), String> {
+            let response = ureq::get(&download_url)
+                .set("User-Agent", "PortStation")
+                .timeout(std::time::Duration::from_secs(180))
+                .call()
+                .map_err(|e| format!("No se pudo descargar la actualización: {}", e))?;
+            if response
+                .header("Content-Length")
+                .and_then(|length| length.parse::<u64>().ok())
+                .is_some_and(|length| length > MAX_UPDATE_SIZE)
+            {
+                return Err("El archivo de actualización supera el límite permitido.".to_string());
+            }
+
+            let mut reader = response.into_reader();
+            let mut file = std::fs::File::create(&update_path)
+                .map_err(|e| format!("No se pudo crear el archivo temporal: {}", e))?;
+            let mut hasher = sha2::Sha256::new();
+            let mut total_bytes = 0u64;
+            let mut buffer = [0u8; 64 * 1024];
+            loop {
+                let bytes_read = reader
+                    .read(&mut buffer)
+                    .map_err(|e| format!("Error descargando el ejecutable: {}", e))?;
+                if bytes_read == 0 {
+                    break;
+                }
+                total_bytes = total_bytes.saturating_add(bytes_read as u64);
+                if total_bytes > MAX_UPDATE_SIZE {
+                    return Err("El archivo de actualización supera el límite permitido.".to_string());
+                }
+                hasher.update(&buffer[..bytes_read]);
+                file.write_all(&buffer[..bytes_read])
+                    .map_err(|e| format!("No se pudo guardar la actualización: {}", e))?;
+            }
+            file.sync_all()
+                .map_err(|e| format!("No se pudo finalizar la descarga: {}", e))?;
+            let actual_sha256 = format!("{:x}", hasher.finalize());
+            if actual_sha256 != expected_sha256 {
+                return Err("La verificación SHA-256 no coincide; no se instalará este archivo.".to_string());
+            }
+            Ok(())
+        })();
+
+        if let Err(error) = download_result {
+            let _ = std::fs::remove_file(&update_path);
+            return Err(error);
+        }
+
+        let script_path = update_directory.join("ApplyPortStationUpdate.ps1");
+        std::fs::write(
+            &script_path,
+            include_str!("../resources/ApplyPortStationUpdate.ps1"),
+        )
+        .map_err(|e| format!("No se pudo preparar el actualizador auxiliar: {}", e))?;
+        let log_path = update_directory.join("update.log");
+
+        std::process::Command::new("powershell.exe")
+            .args([
+                "-NoProfile",
+                "-NonInteractive",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-WindowStyle",
+                "Hidden",
+                "-File",
+            ])
+            .arg(&script_path)
+            .arg("-ProcessId")
+            .arg(std::process::id().to_string())
+            .arg("-TargetPath")
+            .arg(&target_path)
+            .arg("-UpdatePath")
+            .arg(&update_path)
+            .arg("-LogPath")
+            .arg(&log_path)
+            .creation_flags(0x08000000)
+            .spawn()
+            .map_err(|e| format!("No se pudo iniciar el actualizador auxiliar: {}", e))?;
+
+        app.exit(0);
+        Ok(())
+    }
 }
 
 pub fn resolve_raw_catalog_url(repo_or_raw_url: Option<&str>, branch: Option<&str>) -> String {
@@ -2685,6 +2867,7 @@ pub fn run() {
             check_virustotal_report,
             get_platform_info,
             check_app_update,
+            install_app_update,
             get_catalog_info,
             sync_remote_catalog
         ])
