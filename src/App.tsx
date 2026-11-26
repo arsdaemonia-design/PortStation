@@ -35,7 +35,12 @@ import {
   Monitor,
   Database,
   ArrowUpDown,
-  Menu
+  Menu,
+  Star,
+  Upload,
+  Archive,
+  Clock,
+  Terminal
 } from 'lucide-react';
 import { invoke } from '@tauri-apps/api/core';
 import { listen } from '@tauri-apps/api/event';
@@ -254,6 +259,25 @@ interface BrandDefinition {
   consoles: ConsoleDefinition[];
 }
 
+type LibraryQuickFilter = 'all' | 'favorites' | 'recent';
+type LibrarySortOption = 'alpha-asc' | 'alpha-desc' | 'recent' | 'year-desc' | 'platform';
+
+interface GameLaunchOptions {
+  args: string;
+  useWine?: boolean;
+  wineBinary?: string;
+}
+
+function splitCliArgs(raw: string): string[] {
+  const args: string[] = [];
+  const regex = /"([^"]*)"|'([^']*)'|(\S+)/g;
+  let match: RegExpExecArray | null;
+  while ((match = regex.exec(raw)) !== null) {
+    args.push(match[1] ?? match[2] ?? match[3]);
+  }
+  return args;
+}
+
 const BRANDS: BrandDefinition[] = [
   {
     id: 'sony',
@@ -266,7 +290,9 @@ const BRANDS: BrandDefinition[] = [
       { name: 'PlayStation', logo: '/assets/logos/ps1.svg' },
       { name: 'PlayStation 2', logo: '/assets/logos/playstation2.svg' },
       { name: 'PlayStation 3', logo: '/assets/logos/playstation3.svg' },
-      { name: 'PlayStation 4', logo: '/assets/logos/playstation.png' }
+      { name: 'PlayStation 4', logo: '/assets/logos/playstation.png' },
+      { name: 'PSP', logo: '/assets/logos/playstation.png' },
+      { name: 'PS Vita', logo: '/assets/logos/playstation.png' }
     ]
   },
   {
@@ -277,12 +303,18 @@ const BRANDS: BrandDefinition[] = [
     accentColor: '#e60012',
     glowColor: 'rgba(230, 0, 18, 0.35)',
     consoles: [
-      { name: 'Game Boy', logo: '/assets/logos/gameboy.svg' },
+      { name: 'NES', logo: '/assets/logos/nintendo.svg' },
+      { name: 'SNES', logo: '/assets/logos/nintendo.svg' },
+      { name: 'Nintendo 64', logo: '/assets/logos/n64.svg' },
       { name: 'GameCube', logo: '/assets/logos/gamecube.svg' },
       { name: 'Wii', logo: '/assets/logos/wii.svg' },
-      { name: 'Nintendo 64', logo: '/assets/logos/n64.svg' },
-      { name: 'SNES', logo: '/assets/logos/nintendo.svg' },
-      { name: 'GBA', logo: '/assets/logos/gameboy.svg' }
+      { name: 'Wii U', logo: '/assets/logos/wii.svg' },
+      { name: 'Nintendo Switch', logo: '/assets/logos/nintendo.svg' },
+      { name: 'Nintendo Switch 2', logo: '/assets/logos/nintendo.svg' },
+      { name: 'Game Boy', logo: '/assets/logos/gameboy.svg' },
+      { name: 'GBA', logo: '/assets/logos/gameboy.svg' },
+      { name: 'Nintendo DS', logo: '/assets/logos/nintendo.svg' },
+      { name: 'Nintendo 3DS', logo: '/assets/logos/nintendo.svg' }
     ]
   },
   {
@@ -293,23 +325,35 @@ const BRANDS: BrandDefinition[] = [
     accentColor: '#107c41',
     glowColor: 'rgba(16, 124, 65, 0.45)',
     consoles: [
-      { name: 'Xbox 360', logo: '/assets/logos/xbox360.svg' },
-      { name: 'Xbox', logo: '/assets/logos/xbox.png' }
+      { name: 'Xbox', logo: '/assets/logos/xbox.png' },
+      { name: 'Xbox 360', logo: '/assets/logos/xbox360.svg' }
+    ]
+  },
+  {
+    id: 'sega',
+    name: 'SEGA',
+    companyLogo: '/assets/logos/pc.svg',
+    brandLogo: '/assets/logos/pc.svg',
+    accentColor: '#0089cf',
+    glowColor: 'rgba(0, 137, 207, 0.4)',
+    consoles: [
+      { name: 'Sega Genesis', logo: '/assets/logos/pc.svg' },
+      { name: 'Dreamcast', logo: '/assets/logos/pc.svg' },
+      { name: 'Sega Saturn', logo: '/assets/logos/pc.svg' }
     ]
   },
   {
     id: 'pc',
-    name: 'PC & Lost Media',
+    name: 'PC & Arcade',
     companyLogo: '/assets/logos/pc.svg',
     brandLogo: '/assets/logos/pc.svg',
     accentColor: '#00adef',
     glowColor: 'rgba(0, 173, 239, 0.35)',
     consoles: [
       { name: 'PC / Windows', logo: '/assets/logos/pc.svg' },
-      { name: 'DOS', logo: '/assets/logos/pc.svg' },
-      { name: 'Amiga', logo: '/assets/logos/pc.svg' },
       { name: 'Arcade', logo: '/assets/logos/pc.svg' },
-      { name: 'Sega Genesis', logo: '/assets/logos/pc.svg' }
+      { name: 'DOS', logo: '/assets/logos/pc.svg' },
+      { name: 'Amiga', logo: '/assets/logos/pc.svg' }
     ]
   }
 ];
@@ -362,7 +406,45 @@ export const App: React.FC = () => {
   const [downloadingCatalogAsset, setDownloadingCatalogAsset] = useState<string | null>(null);
   const [catalogDownloadMessages, setCatalogDownloadMessages] = useState<Record<string, string>>({});
   const [catalogDownloaded, setCatalogDownloaded] = useState<Record<string, boolean>>({});
+  const [catalogDownloadedPaths, setCatalogDownloadedPaths] = useState<Record<string, string>>({});
+  const [extractingCatalogId, setExtractingCatalogId] = useState<string | null>(null);
   const [coverErrors, setCoverErrors] = useState<Record<string, boolean>>({});
+  const [favoriteGameIds, setFavoriteGameIds] = useState<string[]>(() => {
+    try {
+      const saved = localStorage.getItem('portstation_favorites');
+      const parsed = saved ? JSON.parse(saved) : null;
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  });
+  const [recentPlayedMap, setRecentPlayedMap] = useState<Record<string, number>>(() => {
+    try {
+      const saved = localStorage.getItem('portstation_recent_played');
+      const parsed = saved ? JSON.parse(saved) : null;
+      return parsed && typeof parsed === 'object' ? parsed : {};
+    } catch {
+      return {};
+    }
+  });
+  const [libraryQuickFilter, setLibraryQuickFilter] = useState<LibraryQuickFilter>('all');
+  const [librarySort, setLibrarySort] = useState<LibrarySortOption>(() => {
+    try {
+      const saved = localStorage.getItem('portstation_library_sort') as LibrarySortOption;
+      if (['alpha-asc', 'alpha-desc', 'recent', 'year-desc', 'platform'].includes(saved)) return saved;
+    } catch {}
+    return 'alpha-asc';
+  });
+  const [gameLaunchOptions, setGameLaunchOptions] = useState<Record<string, GameLaunchOptions>>(() => {
+    try {
+      const saved = localStorage.getItem('portstation_launch_options');
+      const parsed = saved ? JSON.parse(saved) : null;
+      return parsed && typeof parsed === 'object' ? parsed : {};
+    } catch {
+      return {};
+    }
+  });
+  const backupImportRef = useRef<HTMLInputElement>(null);
   const [catalogSort, setCatalogSort] = useState<CatalogSortOption>(() => {
     try {
       const saved = localStorage.getItem('portstation_catalog_sort') as CatalogSortOption;
@@ -412,6 +494,7 @@ export const App: React.FC = () => {
     sony: true,
     nintendo: true,
     xbox: true,
+    sega: true,
     pc: true
   });
 
@@ -475,6 +558,43 @@ export const App: React.FC = () => {
       localStorage.setItem('portstation_scan_roots', JSON.stringify(roots));
     } catch { /* keep the in-memory roots for this session */ }
   }, [roots]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('portstation_favorites', JSON.stringify(favoriteGameIds));
+    } catch {}
+  }, [favoriteGameIds]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('portstation_recent_played', JSON.stringify(recentPlayedMap));
+    } catch {}
+  }, [recentPlayedMap]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('portstation_library_sort', librarySort);
+    } catch {}
+  }, [librarySort]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('portstation_launch_options', JSON.stringify(gameLaunchOptions));
+    } catch {}
+  }, [gameLaunchOptions]);
+
+  const toggleFavoriteGame = (gameId: string) => {
+    setFavoriteGameIds((prev) =>
+      prev.includes(gameId) ? prev.filter((id) => id !== gameId) : [...prev, gameId]
+    );
+  };
+
+  const updateLaunchOptionsForGame = (gameId: string, patch: Partial<GameLaunchOptions>) => {
+    setGameLaunchOptions((prev) => {
+      const current = prev[gameId] || { args: '', useWine: false, wineBinary: '' };
+      return { ...prev, [gameId]: { ...current, ...patch } };
+    });
+  };
 
   // Modal Game Selection
   const [selectedGameForModal, setSelectedGameForModal] = useState<GameItem | null>(null);
@@ -808,6 +928,7 @@ export const App: React.FC = () => {
     try {
       setLaunchMessage(`Iniciando ${game.title}...`);
       setIsGameRunning(true);
+      setRecentPlayedMap((prev) => ({ ...prev, [game.id]: Date.now() }));
       const androidBridge = getAndroidBridge();
       if (androidBridge?.launchPackage) {
         const launched = androidBridge.launchPackage(game.executablePath);
@@ -818,10 +939,15 @@ export const App: React.FC = () => {
           return;
         }
       }
+      const opts = gameLaunchOptions[game.id];
+      const parsedArgs = opts?.args ? splitCliArgs(opts.args) : [];
       if (isTauri) {
         const pid = await invoke<number>('launch_game', {
           executablePath: game.executablePath,
           workingDir: game.installPath,
+          launchArgs: parsedArgs.length ? parsedArgs : null,
+          useWine: opts?.useWine ?? false,
+          wineBinary: opts?.wineBinary?.trim() || null,
         });
         setLaunchMessage(`¡${game.title} iniciado con éxito (PID ${pid})! El mando se ha transferido al juego.`);
       } else {
@@ -1521,11 +1647,117 @@ export const App: React.FC = () => {
       const message = `${result.path}\nSHA-256: ${result.sha256}`;
       setCatalogDownloadMessages((previous) => ({ ...previous, [port.id]: message }));
       setCatalogDownloaded((previous) => ({ ...previous, [port.id]: true }));
+      setCatalogDownloadedPaths((previous) => ({ ...previous, [port.id]: result.path }));
     } catch (error) {
       setCatalogDownloadMessages((previous) => ({ ...previous, [port.id]: `Falló la descarga: ${error}` }));
       setCatalogDownloaded((previous) => ({ ...previous, [port.id]: false }));
     } finally {
       setDownloadingCatalogAsset(null);
+    }
+  };
+
+  const isExtractablePackagePath = (filePath?: string): boolean => {
+    if (!filePath) return false;
+    return /\.(?:zip|tar\.gz|tgz|tar\.xz|tar\.bz2|tar\.zst|appimage)$/i.test(filePath.trim());
+  };
+
+  const handleExtractCatalogPackage = async (port: CatalogPort) => {
+    const archivePath = catalogDownloadedPaths[port.id];
+    if (!archivePath || extractingCatalogId) return;
+    setExtractingCatalogId(port.id);
+    try {
+      const targetDir = roots[0]?.path || settings.libraryPath || null;
+      const extractedDir = await invoke<string>('extract_catalog_package', {
+        archivePath,
+        projectId: port.id,
+        targetDir,
+      });
+      setCatalogDownloadMessages((previous) => ({
+        ...previous,
+        [port.id]: `Instalado y extraído en: ${extractedDir}\nBiblioteca actualizada.`,
+      }));
+      await handleScanReal();
+    } catch (error) {
+      setCatalogDownloadMessages((previous) => ({
+        ...previous,
+        [port.id]: `No se pudo extraer automáticamente: ${error}`,
+      }));
+    } finally {
+      setExtractingCatalogId(null);
+    }
+  };
+
+  const handleExportBackup = () => {
+    const { githubToken: _gt, virusTotalApiKey: _vt, ...safeSettings } = settings;
+    let customArtwork = {};
+    let customMetadata = {};
+    try {
+      customArtwork = JSON.parse(localStorage.getItem('portstation_custom_artwork') || '{}');
+    } catch {}
+    try {
+      customMetadata = JSON.parse(localStorage.getItem('portstation_custom_metadata') || '{}');
+    } catch {}
+    const payload = {
+      version: 1,
+      exportedAt: new Date().toISOString(),
+      roots,
+      settings: safeSettings,
+      favorites: favoriteGameIds,
+      recentPlayed: recentPlayedMap,
+      launchOptions: gameLaunchOptions,
+      customArtwork,
+      customMetadata,
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `portstation-respaldo-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    setLaunchMessage('Respaldo JSON exportado (sin claves secretas de API).');
+    setTimeout(() => setLaunchMessage(null), 4000);
+  };
+
+  const handleImportBackup = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    event.target.value = '';
+    if (!file) return;
+    try {
+      const text = await file.text();
+      const parsed = JSON.parse(text);
+      if (!parsed || typeof parsed !== 'object') {
+        throw new Error('Archivo JSON inválido');
+      }
+      if (Array.isArray(parsed.roots) && parsed.roots.length > 0) {
+        setRoots(parsed.roots);
+      }
+      if (parsed.settings && typeof parsed.settings === 'object') {
+        const { githubToken: _gt, virusTotalApiKey: _vt, ...safeIncoming } = parsed.settings;
+        setSettings((prev: typeof settings) => ({ ...prev, ...safeIncoming }));
+      }
+      if (Array.isArray(parsed.favorites)) {
+        setFavoriteGameIds(parsed.favorites.filter((x: unknown): x is string => typeof x === 'string'));
+      }
+      if (parsed.recentPlayed && typeof parsed.recentPlayed === 'object') {
+        setRecentPlayedMap(parsed.recentPlayed);
+      }
+      if (parsed.launchOptions && typeof parsed.launchOptions === 'object') {
+        setGameLaunchOptions(parsed.launchOptions);
+      }
+      if (parsed.customArtwork && typeof parsed.customArtwork === 'object') {
+        localStorage.setItem('portstation_custom_artwork', JSON.stringify(parsed.customArtwork));
+      }
+      if (parsed.customMetadata && typeof parsed.customMetadata === 'object') {
+        localStorage.setItem('portstation_custom_metadata', JSON.stringify(parsed.customMetadata));
+      }
+      await handleScanReal(undefined, Array.isArray(parsed.roots) && parsed.roots.length ? parsed.roots : undefined);
+      setLaunchMessage('Respaldo JSON importado y biblioteca actualizada.');
+      setTimeout(() => setLaunchMessage(null), 4000);
+    } catch (err) {
+      alert(`No se pudo importar el respaldo: ${err}`);
     }
   };
 
@@ -1552,13 +1784,30 @@ export const App: React.FC = () => {
     const p = platform.toLowerCase();
     const c = consoleName.toLowerCase();
     if (c === 'playstation') {
-      return (p.includes('playstation') || p.includes('ps1') || p.includes('psx')) && !p.includes('playstation 2') && !p.includes('playstation 3') && !p.includes('ps2') && !p.includes('ps3');
+      return (
+        (p.includes('playstation') || /\bps1\b/.test(p) || /\bpsx\b/.test(p)) &&
+        !p.includes('playstation 2') &&
+        !p.includes('playstation 3') &&
+        !p.includes('playstation 4') &&
+        !p.includes('portable') &&
+        !p.includes('vita') &&
+        !/\bps[234]\b/.test(p)
+      );
     }
     if (c === 'playstation 2') {
-      return p.includes('playstation 2') || p.includes('ps2');
+      return p.includes('playstation 2') || /\bps2\b/.test(p);
     }
     if (c === 'playstation 3') {
-      return p.includes('playstation 3') || p.includes('ps3');
+      return p.includes('playstation 3') || /\bps3\b/.test(p);
+    }
+    if (c === 'playstation 4') {
+      return p.includes('playstation 4') || /\bps4\b/.test(p);
+    }
+    if (c === 'psp') {
+      return /\bpsp\b/.test(p) || p.includes('playstation portable');
+    }
+    if (c === 'ps vita') {
+      return p.includes('ps vita') || /\bvita\b/.test(p);
     }
     if (c === 'xbox') {
       return (p.includes('xbox') || p.includes('original xbox')) && !p.includes('xbox 360') && !p.includes('360');
@@ -1566,26 +1815,56 @@ export const App: React.FC = () => {
     if (c === 'xbox 360') {
       return p.includes('xbox 360') || p.includes('360');
     }
+    if (c === 'nes') {
+      return /\bnes\b/.test(p) || p.includes('nintendo entertainment system') || p.includes('famicom');
+    }
+    if (c === 'snes') {
+      return /\bsnes\b/.test(p) || p.includes('super nintendo');
+    }
+    if (c === 'wii') {
+      return /\bwii\b/.test(p) && !p.includes('wii u');
+    }
+    if (c === 'wii u') {
+      return p.includes('wii u');
+    }
+    if (c === 'nintendo switch') {
+      return (p.includes('nintendo switch') || /\bswitch\b/.test(p)) && !p.includes('switch 2');
+    }
+    if (c === 'nintendo switch 2') {
+      return p.includes('switch 2');
+    }
     if (c === 'game boy') {
-      return (p.includes('game boy') || p.includes('gb')) && !p.includes('advance') && !p.includes('gba');
+      return (p.includes('game boy') || /\bgb\b/.test(p)) && !p.includes('advance') && !p.includes('gba');
     }
     if (c === 'gba') {
-      return p.includes('game boy advance') || p.includes('gba');
+      return p.includes('game boy advance') || /\bgba\b/.test(p);
+    }
+    if (c === 'nintendo ds') {
+      return p.includes('nintendo ds') || (/\bds\b/.test(p) && !p.includes('3ds'));
+    }
+    if (c === 'nintendo 3ds') {
+      return p.includes('3ds');
     }
     if (c === 'pc / windows' || c === 'pc') {
-      return p.includes('pc') || p.includes('windows');
+      return /\bpc\b/.test(p) || p.includes('windows');
     }
     if (c === 'dos') {
-      return p.includes('dos');
+      return /\bdos\b/.test(p) || p.includes('ms-dos');
     }
     if (c === 'amiga') {
       return p.includes('amiga');
     }
     if (c === 'arcade') {
-      return p.includes('arcade') || p.includes('mame');
+      return p.includes('arcade') || p.includes('mame') || p.includes('cps');
     }
     if (c === 'sega genesis') {
       return /\b(genesis|mega drive|megadrive)\b/.test(p) || /\bsega\s+(genesis|mega drive)\b/.test(p);
+    }
+    if (c === 'dreamcast') {
+      return p.includes('dreamcast');
+    }
+    if (c === 'sega saturn') {
+      return p.includes('saturn');
     }
     return p.includes(c);
   };
@@ -1601,32 +1880,66 @@ export const App: React.FC = () => {
   };
 
   // Filtered games list
-  const filteredGames = games.filter((game) => {
-    if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
-      const match =
-        game.title.toLowerCase().includes(q) ||
-        game.originalPlatform.toLowerCase().includes(q) ||
-        (game.developer && game.developer.toLowerCase().includes(q)) ||
-        game.projectTitle.toLowerCase().includes(q) ||
-        (game.author && game.author.toLowerCase().includes(q));
-      if (!match) return false;
+  const filteredGames = React.useMemo(() => {
+    const base = games.filter((game) => {
+      if (libraryQuickFilter === 'favorites' && !favoriteGameIds.includes(game.id)) {
+        return false;
+      }
+      if (libraryQuickFilter === 'recent' && !recentPlayedMap[game.id]) {
+        return false;
+      }
+
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase();
+        const match =
+          game.title.toLowerCase().includes(q) ||
+          game.originalPlatform.toLowerCase().includes(q) ||
+          (game.developer && game.developer.toLowerCase().includes(q)) ||
+          game.projectTitle.toLowerCase().includes(q) ||
+          (game.author && game.author.toLowerCase().includes(q));
+        if (!match) return false;
+      }
+
+      if (activeFilter.type === 'all') return true;
+
+      if (activeFilter.type === 'brand') {
+        const brand = BRANDS.find((b) => b.id === activeFilter.id);
+        if (!brand) return true;
+        return brand.consoles.some((c) => checkConsoleMatch(game.originalPlatform, c.name));
+      }
+
+      if (activeFilter.type === 'console') {
+        return checkConsoleMatch(game.originalPlatform, activeFilter.name);
+      }
+
+      return true;
+    });
+
+    const sorted = [...base];
+    switch (librarySort) {
+      case 'alpha-desc':
+        sorted.sort((a, b) => b.title.localeCompare(a.title, 'es', { numeric: true, sensitivity: 'base' }));
+        break;
+      case 'recent':
+        sorted.sort((a, b) => (recentPlayedMap[b.id] || 0) - (recentPlayedMap[a.id] || 0) || a.title.localeCompare(b.title, 'es'));
+        break;
+      case 'year-desc':
+        sorted.sort((a, b) => (b.releaseYear ?? 0) - (a.releaseYear ?? 0) || a.title.localeCompare(b.title, 'es'));
+        break;
+      case 'platform':
+        sorted.sort((a, b) => a.originalPlatform.localeCompare(b.originalPlatform, 'es') || a.title.localeCompare(b.title, 'es'));
+        break;
+      case 'alpha-asc':
+      default:
+        sorted.sort((a, b) => {
+          const favDiff = Number(favoriteGameIds.includes(b.id)) - Number(favoriteGameIds.includes(a.id));
+          if (favDiff !== 0) return favDiff;
+          return a.title.localeCompare(b.title, 'es', { numeric: true, sensitivity: 'base' });
+        });
+        break;
     }
-
-    if (activeFilter.type === 'all') return true;
-
-    if (activeFilter.type === 'brand') {
-      const brand = BRANDS.find((b) => b.id === activeFilter.id);
-      if (!brand) return true;
-      return brand.consoles.some((c) => checkConsoleMatch(game.originalPlatform, c.name));
-    }
-
-    if (activeFilter.type === 'console') {
-      return checkConsoleMatch(game.originalPlatform, activeFilter.name);
-    }
-
-    return true;
-  });
+    return sorted;
+  }, [games, libraryQuickFilter, librarySort, favoriteGameIds, recentPlayedMap, searchQuery, activeFilter]);
 
   const groupedCatalogPorts = React.useMemo(() => groupCatalogPortEntries(catalogPorts), [catalogPorts]);
 
@@ -1964,10 +2277,12 @@ export const App: React.FC = () => {
           return;
         }
         if (action === 'down') {
-          setSidebarIndex((prev) => Math.min(8, prev + 1));
+          setSidebarIndex((prev) => Math.min(4 + BRANDS.length, prev + 1));
           return;
         }
         if (action === 'confirm') {
+          const settingsIdx = 3 + BRANDS.length;
+          const legalIdx = 4 + BRANDS.length;
           if (sidebarIndex === 0) {
             setActiveFilter({ type: 'all', id: 'all', name: 'Todos los Juegos' });
             setActiveView('library');
@@ -1978,16 +2293,16 @@ export const App: React.FC = () => {
           } else if (sidebarIndex === 2) {
             showRandomCuriosity();
             setFocusZone('grid');
-          } else if (sidebarIndex >= 3 && sidebarIndex <= 6) {
+          } else if (sidebarIndex >= 3 && sidebarIndex < settingsIdx) {
             const brand = BRANDS[sidebarIndex - 3];
             if (brand) {
               setActiveFilter({ type: 'brand', id: brand.id, name: brand.name });
               setActiveView('library');
               setFocusZone('grid');
             }
-          } else if (sidebarIndex === 7) {
+          } else if (sidebarIndex === settingsIdx) {
             setShowSettingsModal(true);
-          } else if (sidebarIndex === 8) {
+          } else if (sidebarIndex === legalIdx) {
             setShowLegalModal(true);
           }
           return;
@@ -2303,33 +2618,35 @@ export const App: React.FC = () => {
 
                   {isExpanded && (
                     <div className="nav-sub-list">
-                      {brand.consoles.map((consoleItem) => {
-                        const count = getConsoleGamesCount(consoleItem.name);
-                        const isConsoleActive =
-                          activeFilter.type === 'console' && activeFilter.name === consoleItem.name;
+                      {brand.consoles
+                        .filter((consoleItem) => brandTotal === 0 || getConsoleGamesCount(consoleItem.name) > 0)
+                        .map((consoleItem) => {
+                          const count = getConsoleGamesCount(consoleItem.name);
+                          const isConsoleActive =
+                            activeFilter.type === 'console' && activeFilter.name === consoleItem.name;
 
-                        return (
-                          <button
-                            key={consoleItem.name}
-                            className={`nav-sub-item ${isConsoleActive ? 'active' : ''}`}
-                            onClick={() => {
-                              setActiveView('library');
-                              setActiveFilter({
-                                type: 'console',
-                                id: consoleItem.name,
-                                name: consoleItem.name,
-                              });
-                              setMobileSidebarOpen(false);
-                            }}
-                          >
-                            <div className="nav-sub-left">
-                              <span className="nav-sub-dot" />
-                              <span className="nav-sub-name">{consoleItem.name}</span>
-                            </div>
-                            <span className="sub-count">{count}</span>
-                          </button>
-                        );
-                      })}
+                          return (
+                            <button
+                              key={consoleItem.name}
+                              className={`nav-sub-item ${isConsoleActive ? 'active' : ''}`}
+                              onClick={() => {
+                                setActiveView('library');
+                                setActiveFilter({
+                                  type: 'console',
+                                  id: consoleItem.name,
+                                  name: consoleItem.name,
+                                });
+                                setMobileSidebarOpen(false);
+                              }}
+                            >
+                              <div className="nav-sub-left">
+                                <span className="nav-sub-dot" />
+                                <span className="nav-sub-name">{consoleItem.name}</span>
+                              </div>
+                              <span className="sub-count">{count}</span>
+                            </button>
+                          );
+                        })}
                     </div>
                   )}
                 </div>
@@ -2346,9 +2663,9 @@ export const App: React.FC = () => {
         {/* Sidebar Footer: Settings & Legal Buttons */}
         <div className="sidebar-footer">
           <button
-            data-sidebar-index={7}
+            data-sidebar-index={3 + BRANDS.length}
             className={`btn-sidebar-settings ${
-              padState.activated && focusZone === 'sidebar' && sidebarIndex === 7 ? 'gamepad-focused' : ''
+              padState.activated && focusZone === 'sidebar' && sidebarIndex === 3 + BRANDS.length ? 'gamepad-focused' : ''
             }`}
             onClick={() => {
               setShowSettingsModal(true);
@@ -2360,9 +2677,9 @@ export const App: React.FC = () => {
             <span>Configuración</span>
           </button>
           <button
-            data-sidebar-index={8}
+            data-sidebar-index={4 + BRANDS.length}
             className={`btn-sidebar-legal ${
-              padState.activated && focusZone === 'sidebar' && sidebarIndex === 8 ? 'gamepad-focused' : ''
+              padState.activated && focusZone === 'sidebar' && sidebarIndex === 4 + BRANDS.length ? 'gamepad-focused' : ''
             }`}
             onClick={() => {
               setShowLegalModal(true);
@@ -2809,95 +3126,165 @@ export const App: React.FC = () => {
               </div>
               </>
             )
-          ) : filteredGames.length === 0 ? (
-            <div className="empty-state">
-              <Gamepad2 className="empty-icon" />
-              <h2 className="empty-title">Sin Juegos en Esta Vista</h2>
-              <p className="empty-desc">
-                No hay ports que coincidan con el filtro &quot;{activeFilter.name}&quot;
-                {searchQuery ? ` y la búsqueda "${searchQuery}"` : ''}.
-              </p>
-              <button
-                className="btn btn-secondary"
-                onClick={() => {
-                  setActiveFilter({ type: 'all', id: 'all', name: 'Todos los Juegos' });
-                  setSearchQuery('');
-                }}
-              >
-                Restablecer Filtros
-              </button>
-            </div>
           ) : (
-            <div className="games-grid">
-              {filteredGames.map((game, idx) => (
-                <div
-                  key={game.id}
-                  data-game-index={idx}
-                  className={`game-card ${
-                    padState.activated &&
-                    focusZone === 'grid' &&
-                    activeView === 'library' &&
-                    !selectedGameForModal &&
-                    !selectedCatalogPort &&
-                    !editingGame &&
-                    !artworkModalGame &&
-                    !showSettingsModal &&
-                    !showLegalModal &&
-                    focusedIndex === idx
-                      ? 'gamepad-focused'
-                      : ''
-                  }`}
-                  onMouseEnter={countCardHover}
-                  onClick={() => {
-                    setFocusedIndex(idx);
-                    openGameDetails(game);
-                  }}
-                >
-                  {/* Card Cover 3D Physical Media (Opens on hover) */}
-                  <PhysicalMediaCard
-                    game={game}
-                    repoVersion={repoReleaseSummaries[game.id]?.latestVersion}
-                    hasRepoUpdate={repoReleaseSummaries[game.id]?.status === 'update_available'}
-                  />
-
-                  {/* Card Details (Compact PortCave Style) */}
-                  <div className="card-body-compact">
-                    <h3 className="card-title-compact" title={game.title}>
-                      {game.title}
-                    </h3>
-                    <div className="card-footer-actions" onClick={(e) => e.stopPropagation()}>
-                      {isAbandonware(game) ? (
-                        <span className="card-status-badge-text is-abandonware" title="Juego descatalogado; la comunidad lo considera abandonware">ABANDON</span>
-                      ) : (
-                        <img
-                          src={game.method === 'DECOMP_NATIVE' ? '/assets/branding/buttons/2k/tag_2k_completo.png' : '/assets/branding/buttons/2k/tag_2k_recompilado.png'}
-                          alt={game.method === 'DECOMP_NATIVE' ? 'COMPLETO' : 'RECOMPILADO'}
-                          className="card-status-badge"
-                          title={game.method === 'DECOMP_NATIVE' ? 'Port Nativo Completo' : 'Recompilación Binaria'}
-                        />
-                      )}
-
-                      <button
-                        className="btn-launch-stone"
-                        onClick={() => handleLaunch(game)}
-                        title={`Jugar ${game.title}`}
-                      >
-                        <img
-                          src="/assets/branding/buttons/2k/btn_2k_jugar_normal.png"
-                          alt="JUGAR"
-                          className="btn-stone-img normal"
-                        />
-                        <img
-                          src="/assets/branding/buttons/2k/btn_2k_jugar_hover.png"
-                          alt="JUGAR"
-                          className="btn-stone-img hover"
-                        />
-                      </button>
-                    </div>
+            <>
+              {games.length > 0 && (
+                <div className="library-toolbar">
+                  <div className="library-filter-pills">
+                    <button
+                      type="button"
+                      className={`library-pill ${libraryQuickFilter === 'all' ? 'active' : ''}`}
+                      onClick={() => setLibraryQuickFilter('all')}
+                    >
+                      <Layers size={13} />
+                      <span>Todos</span>
+                    </button>
+                    <button
+                      type="button"
+                      className={`library-pill ${libraryQuickFilter === 'favorites' ? 'active' : ''}`}
+                      onClick={() => setLibraryQuickFilter('favorites')}
+                    >
+                      <Star size={13} />
+                      <span>Favoritos ({games.filter((g) => favoriteGameIds.includes(g.id)).length})</span>
+                    </button>
+                    <button
+                      type="button"
+                      className={`library-pill ${libraryQuickFilter === 'recent' ? 'active' : ''}`}
+                      onClick={() => setLibraryQuickFilter('recent')}
+                    >
+                      <Clock size={13} />
+                      <span>Recientes ({games.filter((g) => Boolean(recentPlayedMap[g.id])).length})</span>
+                    </button>
+                  </div>
+                  <div className="explore-filter-item">
+                    <ArrowUpDown size={14} color="#58a6ff" />
+                    <label htmlFor="library-sort-select" style={{ fontWeight: 600, color: '#e2e8f0' }}>Orden:</label>
+                    <select
+                      id="library-sort-select"
+                      className="explore-select"
+                      value={librarySort}
+                      onChange={(e) => setLibrarySort(e.target.value as LibrarySortOption)}
+                    >
+                      <option value="alpha-asc">Favoritos y A → Z</option>
+                      <option value="alpha-desc">Alfabético (Z → A)</option>
+                      <option value="recent">Jugados Recientemente</option>
+                      <option value="year-desc">Año (Más Recientes)</option>
+                      <option value="platform">Consola Original</option>
+                    </select>
                   </div>
                 </div>
-              ))}
-            </div>
+              )}
+
+              {filteredGames.length === 0 ? (
+                <div className="empty-state">
+                  <Gamepad2 className="empty-icon" />
+                  <h2 className="empty-title">Sin Juegos en Esta Vista</h2>
+                  <p className="empty-desc">
+                    No hay ports que coincidan con el filtro &quot;{activeFilter.name}&quot;
+                    {libraryQuickFilter === 'favorites' ? ' en Favoritos' : libraryQuickFilter === 'recent' ? ' en Recientes' : ''}
+                    {searchQuery ? ` y la búsqueda "${searchQuery}"` : ''}.
+                  </p>
+                  <button
+                    className="btn btn-secondary"
+                    onClick={() => {
+                      setActiveFilter({ type: 'all', id: 'all', name: 'Todos los Juegos' });
+                      setLibraryQuickFilter('all');
+                      setSearchQuery('');
+                    }}
+                  >
+                    Restablecer Filtros
+                  </button>
+                </div>
+              ) : (
+                <div className="games-grid">
+                  {filteredGames.map((game, idx) => {
+                    const isFavorite = favoriteGameIds.includes(game.id);
+                    return (
+                    <div
+                      key={game.id}
+                      data-game-index={idx}
+                      className={`game-card ${
+                        padState.activated &&
+                        focusZone === 'grid' &&
+                        activeView === 'library' &&
+                        !selectedGameForModal &&
+                        !selectedCatalogPort &&
+                        !editingGame &&
+                        !artworkModalGame &&
+                        !showSettingsModal &&
+                        !showLegalModal &&
+                        focusedIndex === idx
+                          ? 'gamepad-focused'
+                          : ''
+                      }`}
+                      onMouseEnter={countCardHover}
+                      onClick={() => {
+                        setFocusedIndex(idx);
+                        openGameDetails(game);
+                      }}
+                    >
+                      {/* Card Cover 3D Physical Media (Opens on hover) */}
+                      <PhysicalMediaCard
+                        game={game}
+                        repoVersion={repoReleaseSummaries[game.id]?.latestVersion}
+                        hasRepoUpdate={repoReleaseSummaries[game.id]?.status === 'update_available'}
+                      />
+
+                      {/* Card Details (Compact PortCave Style) */}
+                      <div className="card-body-compact">
+                        <div className="card-title-row">
+                          <h3 className="card-title-compact" title={game.title}>
+                            {game.title}
+                          </h3>
+                          <button
+                            type="button"
+                            className={`btn-fav-star ${isFavorite ? 'is-favorite' : ''}`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleFavoriteGame(game.id);
+                            }}
+                            title={isFavorite ? 'Quitar de favoritos' : 'Marcar como favorito'}
+                            aria-label={isFavorite ? 'Quitar de favoritos' : 'Marcar como favorito'}
+                          >
+                            <Star size={14} fill={isFavorite ? 'currentColor' : 'none'} />
+                          </button>
+                        </div>
+                        <div className="card-footer-actions" onClick={(e) => e.stopPropagation()}>
+                          {isAbandonware(game) ? (
+                            <span className="card-status-badge-text is-abandonware" title="Juego descatalogado; la comunidad lo considera abandonware">ABANDON</span>
+                          ) : (
+                            <img
+                              src={game.method === 'DECOMP_NATIVE' ? '/assets/branding/buttons/2k/tag_2k_completo.png' : '/assets/branding/buttons/2k/tag_2k_recompilado.png'}
+                              alt={game.method === 'DECOMP_NATIVE' ? 'COMPLETO' : 'RECOMPILADO'}
+                              className="card-status-badge"
+                              title={game.method === 'DECOMP_NATIVE' ? 'Port Nativo Completo' : 'Recompilación Binaria'}
+                            />
+                          )}
+
+                          <button
+                            className="btn-launch-stone"
+                            onClick={() => handleLaunch(game)}
+                            title={`Jugar ${game.title}`}
+                          >
+                            <img
+                              src="/assets/branding/buttons/2k/btn_2k_jugar_normal.png"
+                              alt="JUGAR"
+                              className="btn-stone-img normal"
+                            />
+                            <img
+                              src="/assets/branding/buttons/2k/btn_2k_jugar_hover.png"
+                              alt="JUGAR"
+                              className="btn-stone-img hover"
+                            />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                  })}
+                </div>
+              )}
+            </>
           )}
         </div>
 
@@ -2946,13 +3333,24 @@ export const App: React.FC = () => {
                   )}
                 </div>
               </div>
-              <button
-                className="btn-close"
-                onClick={() => setSelectedGameForModal(null)}
-                title="Cerrar (Esc)"
-              >
-                <X size={20} />
-              </button>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                <button
+                  type="button"
+                  className={`btn-fav-star ${favoriteGameIds.includes(selectedGameForModal.id) ? 'is-favorite' : ''}`}
+                  style={{ width: '32px', height: '32px' }}
+                  onClick={() => toggleFavoriteGame(selectedGameForModal.id)}
+                  title={favoriteGameIds.includes(selectedGameForModal.id) ? 'Quitar de favoritos' : 'Marcar como favorito'}
+                >
+                  <Star size={16} fill={favoriteGameIds.includes(selectedGameForModal.id) ? 'currentColor' : 'none'} />
+                </button>
+                <button
+                  className="btn-close"
+                  onClick={() => setSelectedGameForModal(null)}
+                  title="Cerrar (Esc)"
+                >
+                  <X size={20} />
+                </button>
+              </div>
             </div>
 
             {/* Modal Body: 2 Columns */}
@@ -3214,6 +3612,60 @@ export const App: React.FC = () => {
                       );
                     })()}
                   </div>
+
+                  {/* Per-Game CLI Arguments & Wine/Proton Options (Desktop) */}
+                  {platformInfo.os !== 'android' && (
+                    <details className="launch-options-card">
+                      <summary className="launch-options-summary">
+                        <Terminal size={13} />
+                        <span>Opciones de lanzamiento</span>
+                        <ChevronDown size={13} style={{ marginLeft: 'auto' }} />
+                      </summary>
+                      <div className="launch-options-body">
+                        <label className="launch-option-label">
+                          <span>Argumentos CLI opcionales</span>
+                          <input
+                            type="text"
+                            className="settings-input"
+                            placeholder="Ej: -fullscreen --vulkan"
+                            value={gameLaunchOptions[selectedGameForModal.id]?.args || ''}
+                            onChange={(e) =>
+                              updateLaunchOptionsForGame(selectedGameForModal.id, { args: e.target.value })
+                            }
+                          />
+                        </label>
+                        {(platformInfo.os === 'linux' || platformInfo.os === 'macos') && (
+                          <div className="launch-option-wine-group">
+                            <label className="launch-option-checkbox">
+                              <input
+                                type="checkbox"
+                                checked={Boolean(gameLaunchOptions[selectedGameForModal.id]?.useWine)}
+                                onChange={(e) =>
+                                  updateLaunchOptionsForGame(selectedGameForModal.id, {
+                                    useWine: e.target.checked,
+                                  })
+                                }
+                              />
+                              <span>Ejecutar .exe con Wine / Proton</span>
+                            </label>
+                            {gameLaunchOptions[selectedGameForModal.id]?.useWine && (
+                              <input
+                                type="text"
+                                className="settings-input"
+                                placeholder="Binario (por defecto: wine o ruta a proton)"
+                                value={gameLaunchOptions[selectedGameForModal.id]?.wineBinary || ''}
+                                onChange={(e) =>
+                                  updateLaunchOptionsForGame(selectedGameForModal.id, {
+                                    wineBinary: e.target.value,
+                                  })
+                                }
+                              />
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </details>
+                  )}
                 </div>
               </div>
 
@@ -3852,13 +4304,25 @@ export const App: React.FC = () => {
                           <Sparkles size={14} /> Port Disponible para Descarga
                         </div>
                         {catalogDownloaded[selectedCatalogPort.id] && (
-                          <button
-                            className="btn btn-secondary"
-                            style={{ width: '100%', fontSize: '0.8rem', padding: '0.5rem' }}
-                            onClick={() => handleOpenCatalogDownloadFolder(selectedCatalogPort)}
-                          >
-                            <FolderOpen size={14} /> {platformInfo.os === 'android' ? 'Abrir Descargas de Android' : 'Abrir carpeta de descargas'}
-                          </button>
+                          <>
+                            {platformInfo.os !== 'android' && isExtractablePackagePath(catalogDownloadedPaths[selectedCatalogPort.id]) && (
+                              <button
+                                className="btn btn-primary"
+                                style={{ width: '100%', fontSize: '0.8rem', padding: '0.5rem' }}
+                                disabled={extractingCatalogId === selectedCatalogPort.id}
+                                onClick={() => void handleExtractCatalogPackage(selectedCatalogPort)}
+                              >
+                                <Archive size={14} /> {extractingCatalogId === selectedCatalogPort.id ? 'Extrayendo…' : 'Extraer en Biblioteca'}
+                              </button>
+                            )}
+                            <button
+                              className="btn btn-secondary"
+                              style={{ width: '100%', fontSize: '0.8rem', padding: '0.5rem' }}
+                              onClick={() => handleOpenCatalogDownloadFolder(selectedCatalogPort)}
+                            >
+                              <FolderOpen size={14} /> {platformInfo.os === 'android' ? 'Abrir Descargas de Android' : 'Abrir carpeta de descargas'}
+                            </button>
+                          </>
                         )}
                       </div>
                     );
@@ -3967,13 +4431,25 @@ export const App: React.FC = () => {
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
                         <span style={{ flex: '1 1 200px' }}>{catalogDownloadMessages[selectedCatalogPort.id]}</span>
                         {catalogDownloaded[selectedCatalogPort.id] && (
-                          <button
-                            className="btn btn-secondary"
-                            style={{ fontSize: '0.72rem', padding: '0.25rem 0.55rem', flexShrink: 0 }}
-                            onClick={() => handleOpenCatalogDownloadFolder(selectedCatalogPort)}
-                          >
-                            <FolderOpen size={12} /> {platformInfo.os === 'android' ? 'Abrir Descargas' : 'Abrir carpeta'}
-                          </button>
+                          <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', flexShrink: 0 }}>
+                            {platformInfo.os !== 'android' && isExtractablePackagePath(catalogDownloadedPaths[selectedCatalogPort.id]) && (
+                              <button
+                                className="btn btn-primary"
+                                style={{ fontSize: '0.72rem', padding: '0.25rem 0.55rem' }}
+                                disabled={extractingCatalogId === selectedCatalogPort.id}
+                                onClick={() => void handleExtractCatalogPackage(selectedCatalogPort)}
+                              >
+                                <Archive size={12} /> {extractingCatalogId === selectedCatalogPort.id ? 'Extrayendo…' : 'Extraer en Biblioteca'}
+                              </button>
+                            )}
+                            <button
+                              className="btn btn-secondary"
+                              style={{ fontSize: '0.72rem', padding: '0.25rem 0.55rem' }}
+                              onClick={() => handleOpenCatalogDownloadFolder(selectedCatalogPort)}
+                            >
+                              <FolderOpen size={12} /> {platformInfo.os === 'android' ? 'Abrir Descargas' : 'Abrir carpeta'}
+                            </button>
+                          </div>
                         )}
                       </div>
                     </div>
@@ -4780,6 +5256,37 @@ export const App: React.FC = () => {
                       </button>
                     </div>
                   </div>
+                </div>
+              </div>
+
+              {/* Library Backup Export / Import (JSON) */}
+              <div className="settings-section">
+                <label className="settings-label">💾 Respaldo de Biblioteca & Preferencias (JSON)</label>
+                <p className="settings-desc">
+                  Exporta o restaura tus carpetas, favoritos, opciones de lanzamiento y metadatos personalizados (las claves secretas de API no se incluyen en el respaldo).
+                </p>
+                <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', marginTop: '0.35rem' }}>
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={handleExportBackup}
+                  >
+                    <Download size={14} /> Exportar respaldo (.json)
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={() => backupImportRef.current?.click()}
+                  >
+                    <Upload size={14} /> Importar respaldo (.json)
+                  </button>
+                  <input
+                    ref={backupImportRef}
+                    type="file"
+                    accept="application/json,.json"
+                    style={{ display: 'none' }}
+                    onChange={(e) => void handleImportBackup(e)}
+                  />
                 </div>
               </div>
             </div>

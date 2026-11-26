@@ -1863,6 +1863,46 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+.card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.45rem;
+}
+
+.card-title-row .card-title-compact {
+  flex: 1;
+  min-width: 0;
+}
+
+.btn-fav-star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.6);
+  color: #64748b;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.btn-fav-star:hover {
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.45);
+  background: rgba(251, 191, 36, 0.1);
+}
+
+.btn-fav-star.is-favorite {
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.55);
+  background: rgba(251, 191, 36, 0.15);
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.2);
+}
+
 .card-title-compact {
   font-size: 0.95rem;
   font-weight: 700;
@@ -4297,6 +4337,119 @@ body {
     padding: 0.85rem 1rem;
     flex-wrap: wrap;
   }
+
+  .library-toolbar {
+    padding: 0.65rem 0.85rem;
+  }
+}
+
+/* ==========================================================================
+   Phase 1 Enhancements: Library Toolbar & Launch Options Card
+   ========================================================================== */
+.library-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.15rem;
+  padding: 0.6rem 0.95rem;
+  background: rgba(13, 20, 30, 0.78);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(88, 166, 255, 0.18);
+  border-radius: 10px;
+}
+
+.library-filter-pills {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.library-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  color: #94a3b8;
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.library-pill:hover {
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(88, 166, 255, 0.35);
+}
+
+.library-pill.active {
+  color: #79c0ff;
+  background: rgba(56, 189, 248, 0.16);
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.18);
+}
+
+.launch-options-card {
+  margin-top: 0.55rem;
+  background: rgba(12, 18, 28, 0.85);
+  border: 1px solid rgba(88, 166, 255, 0.22);
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+}
+
+.launch-options-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #93c5fd;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.launch-options-summary::-webkit-details-marker {
+  display: none;
+}
+
+.launch-options-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.65rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.launch-option-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.launch-option-wine-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.launch-option-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.74rem;
+  color: #e2e8f0;
+  cursor: pointer;
 }
 
 

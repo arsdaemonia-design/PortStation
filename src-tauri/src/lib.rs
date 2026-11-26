@@ -787,6 +787,141 @@ fn open_game_folder(executable_path: String) -> Result<(), String> {
     open_directory_in_os(directory)
 }
 
+#[tauri::command(async)]
+fn extract_catalog_package(
+    archive_path: String,
+    project_id: String,
+    target_dir: Option<String>,
+) -> Result<String, String> {
+    let archive = Path::new(&archive_path);
+    if !archive.is_file() {
+        return Err(format!("No se encontró el archivo descargado: {}", archive.display()));
+    }
+
+    let safe_id = safe_path_component(&project_id);
+    let dest_dir = if let Some(trimmed) = target_dir.as_deref().map(str::trim).filter(|s| !s.is_empty()) {
+        expand_tilde_path(trimmed).join(&safe_id)
+    } else if let Some(parent) = archive.parent() {
+        parent.join(&safe_id)
+    } else {
+        return Err("No se pudo determinar la carpeta de destino para extraer".to_string());
+    };
+
+    let lower = archive
+        .file_name()
+        .and_then(|n| n.to_str())
+        .map(|s| s.to_ascii_lowercase())
+        .unwrap_or_default();
+
+    if lower.ends_with(".appimage") {
+        std::fs::create_dir_all(&dest_dir)
+            .map_err(|e| format!("No se pudo crear la carpeta de destino: {}", e))?;
+        let fname = archive
+            .file_name()
+            .ok_or_else(|| "Nombre de AppImage inválido".to_string())?;
+        let dest_file = dest_dir.join(fname);
+        std::fs::copy(archive, &dest_file)
+            .map_err(|e| format!("No se pudo copiar el AppImage a la biblioteca: {}", e))?;
+        #[cfg(unix)]
+        {
+            use std::os::unix::fs::PermissionsExt;
+            let mut perms = std::fs::metadata(&dest_file)
+                .map_err(|e| format!("No se pudieron leer permisos: {}", e))?
+                .permissions();
+            perms.set_mode(0o755);
+            std::fs::set_permissions(&dest_file, perms)
+                .map_err(|e| format!("No se pudieron aplicar permisos de ejecución: {}", e))?;
+        }
+        return Ok(dest_dir.to_string_lossy().to_string());
+    }
+
+    if lower.ends_with(".zip") {
+        std::fs::create_dir_all(&dest_dir)
+            .map_err(|e| format!("No se pudo crear la carpeta de destino: {}", e))?;
+        #[cfg(target_os = "windows")]
+        {
+            let tar_res = std::process::Command::new("tar.exe")
+                .arg("-xf")
+                .arg(archive)
+                .arg("-C")
+                .arg(&dest_dir)
+                .output();
+            if let Ok(out) = tar_res {
+                if out.status.success() {
+                    return Ok(dest_dir.to_string_lossy().to_string());
+                }
+            }
+            let ps_out = std::process::Command::new("powershell.exe")
+                .args([
+                    "-NoProfile",
+                    "-NonInteractive",
+                    "-Command",
+                    "Expand-Archive -LiteralPath $args[0] -DestinationPath $args[1] -Force",
+                ])
+                .arg(archive)
+                .arg(&dest_dir)
+                .output()
+                .map_err(|e| format!("No se pudo ejecutar PowerShell para extraer el ZIP: {}", e))?;
+            if !ps_out.status.success() {
+                let err_msg = String::from_utf8_lossy(&ps_out.stderr);
+                return Err(format!("Error extrayendo ZIP: {}", err_msg.trim()));
+            }
+            return Ok(dest_dir.to_string_lossy().to_string());
+        }
+        #[cfg(not(target_os = "windows"))]
+        {
+            let unzip_res = std::process::Command::new("unzip")
+                .arg("-o")
+                .arg(archive)
+                .arg("-d")
+                .arg(&dest_dir)
+                .output();
+            if let Ok(out) = unzip_res {
+                if out.status.success() {
+                    return Ok(dest_dir.to_string_lossy().to_string());
+                }
+            }
+            let tar_out = std::process::Command::new("tar")
+                .arg("-xf")
+                .arg(archive)
+                .arg("-C")
+                .arg(&dest_dir)
+                .output()
+                .map_err(|e| format!("No se pudo extraer el ZIP (falta unzip/tar): {}", e))?;
+            if !tar_out.status.success() {
+                let err_msg = String::from_utf8_lossy(&tar_out.stderr);
+                return Err(format!("Error extrayendo ZIP: {}", err_msg.trim()));
+            }
+            return Ok(dest_dir.to_string_lossy().to_string());
+        }
+    }
+
+    if lower.ends_with(".tar.gz")
+        || lower.ends_with(".tgz")
+        || lower.ends_with(".tar.xz")
+        || lower.ends_with(".tar.bz2")
+        || lower.ends_with(".tar.zst")
+    {
+        std::fs::create_dir_all(&dest_dir)
+            .map_err(|e| format!("No se pudo crear la carpeta de destino: {}", e))?;
+        let tar_bin = if cfg!(target_os = "windows") { "tar.exe" } else { "tar" };
+        let tar_out = std::process::Command::new(tar_bin)
+            .arg("-xf")
+            .arg(archive)
+            .arg("-C")
+            .arg(&dest_dir)
+            .output()
+            .map_err(|e| format!("No se pudo ejecutar tar para extraer el archivo: {}", e))?;
+        if !tar_out.status.success() {
+            let err_msg = String::from_utf8_lossy(&tar_out.stderr);
+            return Err(format!("Error extrayendo paquete tar: {}", err_msg.trim()));
+        }
+        return Ok(dest_dir.to_string_lossy().to_string());
+    }
+
+    Err("Formato no compatible para extracción automática (.7z, .rar o instaladores). Usa «Abrir carpeta» para extraerlo o instalarlo manualmente.".to_string())
+}
+
 pub fn expand_tilde_path(raw_path: &str) -> PathBuf {
     let trimmed = raw_path.trim();
     if trimmed == "~" {
@@ -1271,6 +1406,9 @@ fn launch_game(
     app: tauri::AppHandle,
     executable_path: String,
     working_dir: String,
+    launch_args: Option<Vec<String>>,
+    use_wine: Option<bool>,
+    wine_binary: Option<String>,
 ) -> Result<u32, String> {
     use tauri::Emitter;
 
@@ -1304,12 +1442,28 @@ fn launch_game(
         return Ok(pid);
     }
 
+    let runner = if use_wine.unwrap_or(false) {
+        let bin = wine_binary
+            .as_deref()
+            .map(str::trim)
+            .filter(|s| !s.is_empty())
+            .unwrap_or("wine")
+            .to_string();
+        LaunchRunner::Wine {
+            wine_binary: bin,
+            prefix: None,
+        }
+    } else {
+        LaunchRunner::Native
+    };
+    let args = launch_args.unwrap_or_default();
+
     let launcher = SafeProcessLauncher::new();
     let mut child = launcher.launch_child(
         Path::new(&executable_path),
         Path::new(&working_dir),
-        &[],
-        &LaunchRunner::Native,
+        &args,
+        &runner,
     )?;
 
     let pid = child.id();
@@ -2850,6 +3004,7 @@ pub fn run() {
             scan_and_match,
             list_catalog_ports,
             download_catalog_zip,
+            extract_catalog_package,
             open_catalog_download_folder,
             open_game_folder,
             list_saved_installations,
@@ -3201,5 +3356,27 @@ mod tests {
             "com.android.settings",
             &mp2
         ));
+    }
+
+    #[test]
+    fn test_extract_catalog_package_validation() {
+        let missing = extract_catalog_package(
+            "non_existent_archive_12345.zip".to_string(),
+            "test-port".to_string(),
+            None,
+        );
+        assert!(missing.is_err());
+
+        let dir = tempfile::tempdir().expect("tempdir");
+        let rar_path = dir.path().join("sample.rar");
+        std::fs::write(&rar_path, b"dummy").expect("write dummy");
+        let unsupported = extract_catalog_package(
+            rar_path.to_string_lossy().to_string(),
+            "test-port".to_string(),
+            Some(dir.path().to_string_lossy().to_string()),
+        );
+        assert!(unsupported.is_err());
+        let msg = unsupported.unwrap_err();
+        assert!(msg.contains("Formato no compatible"));
     }
 }
