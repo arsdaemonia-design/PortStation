@@ -1,5 +1,5 @@
 {
-  "catalog_version": "2.17.0",
+  "catalog_version": "2.18.0",
   "games": [
     {
       "artwork": {
@@ -196,7 +196,7 @@
         "id": "opengoal-jak1",
         "method": "DECOMP_NATIVE",
         "name": "OpenGOAL (Trilogía Completa)",
-        "port_art_url": "https://raw.githubusercontent.com/open-goal/jak-project/master/game/graphics/opengl_renderer/icon.png",
+        "port_art_url": "https://avatars.githubusercontent.com/u/70182985?s=200&v=4",
         "repository": {
           "name": "jak-project",
           "owner": "open-goal",
@@ -1601,7 +1601,7 @@
         "id": "ship-of-harkinian",
         "method": "DECOMP_NATIVE",
         "name": "Ship of Harkinian",
-        "port_art_url": "https://raw.githubusercontent.com/HarbourMasters/Shipwright/develop/assets/icons/icon.png",
+        "port_art_url": "https://avatars.githubusercontent.com/u/105941279?s=200&v=4",
         "repository": {
           "name": "Shipwright",
           "owner": "HarbourMasters",
@@ -1620,7 +1620,8 @@
       "release_year": 1998,
       "sub_games": null,
       "synopsis": "Viaja a través del tiempo entre la niñez y la adultez para despertar a los Siete Sabios y derrotar al Rey Gerudo Ganondorf.",
-      "title": "The Legend of Zelda: Ocarina of Time"
+      "title": "The Legend of Zelda: Ocarina of Time",
+      "merge_group_id": "zelda-oot"
     },
     {
       "artwork": {
@@ -1728,7 +1729,8 @@
       "release_year": 2000,
       "sub_games": null,
       "synopsis": "Atrapado en la tierra de Términa con solo 72 horas antes de que la luna caiga, Link debe usar máscaras místicas para salvar el mundo.",
-      "title": "The Legend of Zelda: Majora's Mask"
+      "title": "The Legend of Zelda: Majora's Mask",
+      "merge_group_id": "zelda-mm"
     },
     {
       "artwork": {
@@ -3760,7 +3762,7 @@
       "release_year": 2004,
       "developer": "Guerrilla Games",
       "synopsis": "El inicio de la encarnizada guerra entre la ISA y los Helghast. Toma el control del capitán Jan Templar y sus compañeros en una intensa lucha por la supervivencia en el planeta Vekta.",
-      "box_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%202/Named_Boxarts/Killzone%20(USA).png",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_2/master/Named_Boxarts/Killzone%20%28Europe%2C%20Australia%29%20%28En%2CFr%2CDe%2CEs%2CIt%2CNl%29.png",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -4851,7 +4853,8 @@
         },
         "supported_platforms": [
           "windows",
-          "linux"
+          "linux",
+          "android"
         ],
         "supported_platforms_complete": false
       }
@@ -5326,7 +5329,7 @@
           }
         ]
       },
-      "box_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20GameCube/Named_Boxarts/Metroid%20Prime%20(USA).png",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_GameCube/master/Named_Boxarts/Metroid%20Prime%20%28Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png",
       "developer": "Retro Studios / Nintendo",
       "disc_art_url": null,
       "id": "metroid-prime",
@@ -5347,7 +5350,7 @@
         "requires_original_assets": true,
         "author": "Odrannnn",
         "author_avatar_url": "https://github.com/Odrannnn.png",
-        "port_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20GameCube/Named_Boxarts/Metroid%20Prime%20(USA).png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_GameCube/master/Named_Boxarts/Metroid%20Prime%20%28Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png",
         "features": [
           "Port nativo de Metroid Prime basado en PrimeDecomp y Aurora (SDL3/WebGPU)",
           "Builds disponibles para Windows, Linux y Android; macOS/iOS/iPadOS con soporte experimental o variable según build",
@@ -5434,7 +5437,7 @@
           }
         ]
       },
-      "box_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20GameCube/Named_Boxarts/Metroid%20Prime%202%20-%20Echoes%20(USA).png",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_GameCube/master/Named_Boxarts/Metroid%20Prime%202%20-%20Echoes%20%28Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png",
       "developer": "Retro Studios / Nintendo",
       "disc_art_url": null,
       "id": "metroid-prime-2-echoes",
@@ -5455,7 +5458,7 @@
         "requires_original_assets": true,
         "author": "Odrannnn",
         "author_avatar_url": "https://github.com/Odrannnn.png",
-        "port_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20GameCube/Named_Boxarts/Metroid%20Prime%202%20-%20Echoes%20(USA).png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_GameCube/master/Named_Boxarts/Metroid%20Prime%202%20-%20Echoes%20%28Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png",
         "features": [
           "Port nativo basado en la decompilación PrimeDecomp/Echoes y Aurora (SDL3/WebGPU)",
           "Targets declarados: Windows, Linux, macOS y Android; iOS experimental",
@@ -5644,7 +5647,7 @@
           }
         ]
       },
-      "box_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20GameCube/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20The%20Wind%20Waker%20(USA).png",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_GameCube/master/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20The%20Wind%20Waker%20%28USA%29.png",
       "developer": "Nintendo EAD",
       "disc_art_url": null,
       "id": "the-wind-waker-gc",
@@ -5664,7 +5667,7 @@
         "requires_original_assets": true,
         "author": "BlueWake contributors",
         "author_avatar_url": "https://github.com/chrissotraidis.png",
-        "port_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20GameCube/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20The%20Wind%20Waker%20(USA).png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_GameCube/master/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20The%20Wind%20Waker%20%28USA%29.png",
         "features": [
           "Recompilación estática del Wind Waker original de GameCube",
           "Windows listo para descargar; macOS Apple Silicon e iPhone/iPad requieren compilar la app; Apple TV experimental",
@@ -6061,7 +6064,7 @@
           }
         ]
       },
-      "box_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20A%20Link%20to%20the%20Past%20(USA).png",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20A%20Link%20to%20the%20Past%20%28USA%29.png",
       "developer": "Nintendo EAD",
       "disc_art_url": null,
       "id": "zelda-a-link-to-the-past",
@@ -6081,7 +6084,7 @@
         "requires_original_assets": true,
         "author": "snesrev",
         "author_avatar_url": "https://github.com/snesrev.png",
-        "port_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20A%20Link%20to%20the%20Past%20(USA).png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20A%20Link%20to%20the%20Past%20%28USA%29.png",
         "features": [
           "Reimplementación en C del juego de SNES mediante ingeniería inversa; no es recompilación estática del código de SNES",
           "Jugable de principio a fin según el README; requiere ROM propia para extraer recursos, luego no necesita la ROM para jugar",
@@ -6166,7 +6169,7 @@
           }
         ]
       },
-      "box_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%202/Named_Boxarts/Grand%20Theft%20Auto%20III%20(USA).png",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_2/master/Named_Boxarts/Grand%20Theft%20Auto%20III%20%28Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29%20%28v1.40%29.png",
       "developer": "DMA Design / Rockstar North",
       "disc_art_url": null,
       "id": "gta-iii-re3",
@@ -6188,7 +6191,7 @@
         "requires_original_assets": true,
         "author": "Hezkore",
         "author_avatar_url": "https://github.com/Hezkore.png",
-        "port_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%202/Named_Boxarts/Grand%20Theft%20Auto%20III%20(USA).png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_2/master/Named_Boxarts/Grand%20Theft%20Auto%20III%20%28Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29%20%28v1.40%29.png",
         "features": [
           "Código fuente invertido/reconstruido de la versión PC; no es recompilación estática de PS2/Xbox",
           "Nightlies separadas para Windows y Linux; mejoras de widescreen, cámara, framerate y opciones de renderizado",
@@ -6272,7 +6275,7 @@
           }
         ]
       },
-      "box_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%202/Named_Boxarts/Grand%20Theft%20Auto%20-%20Vice%20City%20(USA)%20(v1.40).png",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_2/master/Named_Boxarts/Grand%20Theft%20Auto%20-%20Vice%20City%20%28Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29%20%28v2.03%29.png",
       "developer": "Rockstar North",
       "disc_art_url": null,
       "id": "gta-vice-city-revc",
@@ -6294,7 +6297,7 @@
         "requires_original_assets": true,
         "author": "Hezkore",
         "author_avatar_url": "https://github.com/Hezkore.png",
-        "port_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%202/Named_Boxarts/Grand%20Theft%20Auto%20-%20Vice%20City%20(USA)%20(v1.40).png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_2/master/Named_Boxarts/Grand%20Theft%20Auto%20-%20Vice%20City%20%28Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29%20%28v2.03%29.png",
         "features": [
           "Código fuente invertido/reconstruido de la versión PC; no es recompilación estática de PS2/Xbox",
           "Nightlies separadas para Windows y Linux; mejoras de widescreen, cámara, framerate y opciones de renderizado",
@@ -6332,7 +6335,7 @@
       "release_year": 1993,
       "developer": "id Software",
       "synopsis": "Doom y Doom II: combate contra demonios en Marte y el Infierno, con campañas, expansiones y mods.",
-      "box_art_url": "https://www.mobygames.com/images/covers/l/3963-doom-ii-dos-front-cover.jpg",
+      "box_art_url": "https://cdn.cloudflare.steamstatic.com/steam/apps/2300/library_600x900.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6539,7 +6542,7 @@
         "requires_original_assets": true,
         "author": "LostArtefacts",
         "author_avatar_url": "https://github.com/LostArtefacts.png",
-        "port_art_url": "https://www.mobygames.com/images/covers/l/16220-tomb-raider-playstation-front-cover.jpg",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Tomb%20Raider%20%28Europe%29.png",
         "features": [
           "Un motor para Tomb Raider I, II y III y sus expansiones.",
           "Los tres juegos se pueden terminar de principio a fin.",
@@ -6571,7 +6574,7 @@
       "release_year": 1996,
       "developer": "id Software",
       "synopsis": "Ranger combate a los ejércitos de Quake en una campaña de acción en primera persona.",
-      "box_art_url": "https://m.media-amazon.com/images/M/MV5BMDU2YWRlZTUtMTE3ZS00NDg4LTg3N2ItNWZjNzM1NzQwNmU5XkEyXkFqcGc%40._V1_.jpg",
+      "box_art_url": "https://cdn.cloudflare.steamstatic.com/steam/apps/2310/library_600x900.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6857,7 +6860,7 @@
       "release_year": 2005,
       "developer": "Midway Studios Los Angeles",
       "synopsis": "Liu Kang y Kung Lao se enfrentan a las fuerzas de Outworld en una aventura de acción cooperativa.",
-      "box_art_url": "https://oaleextraducoes.com/img/Posts/Mortal-Kombat-Shaolin-Monks/Xbox/%28Xbox%29-Mortal-Kombat-Shaolin-Monks-2005.webp",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_2/master/Named_Boxarts/Mortal%20Kombat%20-%20Shaolin%20Monks%20%28USA%29.png",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -6873,7 +6876,7 @@
         "requires_original_assets": true,
         "author": "OAleex",
         "author_avatar_url": "https://github.com/OAleex.png",
-        "port_art_url": "https://oaleextraducoes.com/img/Posts/Mortal-Kombat-Shaolin-Monks/Xbox/%28Xbox%29-Mortal-Kombat-Shaolin-Monks-2005.webp",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_2/master/Named_Boxarts/Mortal%20Kombat%20-%20Shaolin%20Monks%20%28USA%29.png",
         "features": [
           "Recompilación estática nativa de la versión Xbox.",
           "Campaña completa terminable según su autor; quedan fallos gráficos menores.",
@@ -7091,7 +7094,7 @@
       "release_year": 2010,
       "developer": "Namco Bandai Games / BottleRocket Entertainment",
       "synopsis": "Rick busca rescatar a Jennifer mientras una máscara sobrenatural lo transforma en un arma viviente.",
-      "box_art_url": "https://i0.wp.com/1.bp.blogspot.com/-OGPApo1N_Tc/X4NKMSuKrzI/AAAAAAAAHWg/N8B1mOEOzBgEUbtGIz_9zP4eae0a-z0XACLcBGAsYHQ/s1500/Splatterhouse%2Bxbox.jpg?resize=355%2C500&ssl=1",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/4/4a/Splatterhouse_%282010_video_game%29.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -7328,7 +7331,7 @@
       "release_year": 1993,
       "developer": "Broderbund",
       "synopsis": "El príncipe busca regresar a Persia tras ser expulsado de su reino.",
-      "box_art_url": "https://www.mobygames.com/images/covers/l/252929-prince-of-persia-2-the-shadow-the-flame-dos-front-cover.jpg",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/DOS/master/Named_Boxarts/Prince%20of%20Persia%202%20-%20The%20Shadow%20and%20The%20Flame.png",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -7667,7 +7670,7 @@
       "release_year": 2007,
       "developer": "Nintendo EAD Tokyo",
       "synopsis": "Mario viaja por diferentes galaxias y planetoides gravitacionales para rescatar a la Princesa Peach de las garras de Bowser con la ayuda de Rosalina y los Destellos.",
-      "box_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Wii/Named_Boxarts/Super%20Mario%20Galaxy%20(USA).png",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Wii/master/Named_Boxarts/Super%20Mario%20Galaxy%20%28USA%29%20%28En%2CFr%2CEs%29.png",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -7683,7 +7686,7 @@
         "requires_original_assets": true,
         "author": "keepvaibin",
         "author_avatar_url": "https://github.com/keepvaibin.png",
-        "port_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Wii/Named_Boxarts/Super%20Mario%20Galaxy%20(USA).png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Wii/master/Named_Boxarts/Super%20Mario%20Galaxy%20%28USA%29%20%28En%2CFr%2CEs%29.png",
         "features": [
           "Recompilación estática de PowerPC (Wii) a C++ nativo para PC",
           "Renderizado nativo Direct3D 12 con soporte DLSS y framerate superior a 60 FPS",
@@ -7716,7 +7719,7 @@
       "release_year": 2019,
       "developer": "Nintendo EPD",
       "synopsis": "Crea, comparte y juega niveles de Mario en múltiples estilos visuales y mecánicas desde Super Mario Bros. hasta Super Mario 3D World.",
-      "box_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Nintendo%20Switch/Named_Boxarts/Super%20Mario%20Maker%202%20(USA).png",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/c/c7/Super_Mario_Maker_2.jpg",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -7732,7 +7735,7 @@
         "requires_original_assets": true,
         "author": "smm2recomp",
         "author_avatar_url": "https://github.com/smm2recomp.png",
-        "port_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Nintendo%20Switch/Named_Boxarts/Super%20Mario%20Maker%202%20(USA).png",
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/c/c7/Super_Mario_Maker_2.jpg",
         "features": [
           "Recompilación estática AArch64 (Switch) a C nativo con renderizado Vulkan/Metal",
           "Reincorporación del modo Desafío 100 Mario clásico de SMM1",
@@ -7765,7 +7768,7 @@
       "release_year": 2002,
       "developer": "Insomniac Games",
       "synopsis": "La primera aventura galáctica de Ratchet el Lombax y el pequeño robot Clank para salvar la galaxia Solana del infame Presidente Drek.",
-      "box_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%202/Named_Boxarts/Ratchet%20%26%20Clank%20(USA).png",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_2/master/Named_Boxarts/Ratchet%20_%20Clank%20%28Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29%20%28v2.00%29.png",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -7781,7 +7784,7 @@
         "requires_original_assets": true,
         "author": "OpenRAC Community",
         "author_avatar_url": "https://github.com/OpenRAC.png",
-        "port_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%202/Named_Boxarts/Ratchet%20%26%20Clank%20(USA).png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_2/master/Named_Boxarts/Ratchet%20_%20Clank%20%28Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29%20%28v2.00%29.png",
         "features": [
           "Decompilación byte-matching y port nativo en C/C++",
           "Soporte multiplataforma para Windows, Linux, macOS y Android",
@@ -7813,7 +7816,7 @@
       "release_year": 1999,
       "developer": "Team Silent / Konami Computer Entertainment Tokyo",
       "synopsis": "Harry Mason busca desesperadamente a su hija Cheryl perdida en el misterioso y macabro pueblo de Silent Hill, envuelto en una densa niebla y pesadillas de otra realidad.",
-      "box_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation/Named_Boxarts/Silent%20Hill%20(USA).png",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Silent%20Hill%20%28USA%29.png",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -7829,7 +7832,7 @@
         "requires_original_assets": true,
         "author": "SlickAmogus",
         "author_avatar_url": "https://github.com/SlickAmogus.png",
-        "port_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation/Named_Boxarts/Silent%20Hill%20(USA).png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Silent%20Hill%20%28USA%29.png",
         "features": [
           "Port nativo para PC basado en decompilación PSX y compatibilidad PsyCross",
           "Tasa de cuadros desbloqueada y soporte para monitores panorámicos",
@@ -7860,7 +7863,7 @@
       "release_year": 1997,
       "developer": "DMA Design / Rockstar Games",
       "synopsis": "Los títulos clásicos fundacionales con vista cenital de Grand Theft Auto (1997), las expansiones London 1969 y 1961, y GTA 2 (1999) en una metrópolis retrofuturista.",
-      "box_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation/Named_Boxarts/Grand%20Theft%20Auto%20(USA).png",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Grand%20Theft%20Auto%20%28USA%29.png",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -7876,7 +7879,7 @@
         "requires_original_assets": true,
         "author": "sp00nznet (Ned Heller)",
         "author_avatar_url": "https://github.com/sp00nznet.png",
-        "port_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation/Named_Boxarts/Grand%20Theft%20Auto%20(USA).png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Grand%20Theft%20Auto%20%28USA%29.png",
         "features": [
           "Recompilación estática de ejecutables clásicos x86 de PC a código C nativo mediante el framework pcrecomp",
           "Ejecución nativa en sistemas operativos y arquitecturas modernas de 64 bits sin emulación x86 lenta",
@@ -7906,7 +7909,7 @@
       "release_year": 2011,
       "developer": "Capcom",
       "synopsis": "Caza bestias en los serenos paisajes de la aldea Yukumo en la versión HD remasterizada para PS3/PSP, con modelados mejorados, compatibilidad de partidas y cooperativo completo.",
-      "box_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%20Portable/Named_Boxarts/Monster%20Hunter%20Portable%203rd%20(Japan)%20(v1.02).png",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_Portable/master/Named_Boxarts/Monster%20Hunter%20Portable%203rd%20%28Japan%29%20%28v1.02%29.png",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -7922,7 +7925,7 @@
         "requires_original_assets": true,
         "author": "TeamGDB",
         "author_avatar_url": "https://github.com/TeamGDB.png",
-        "port_art_url": "https://thumbnails.libretro.com/Sony%20-%20PlayStation%20Portable/Named_Boxarts/Monster%20Hunter%20Portable%203rd%20(Japan)%20(v1.02).png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_Portable/master/Named_Boxarts/Monster%20Hunter%20Portable%203rd%20%28Japan%29%20%28v1.02%29.png",
         "features": [
           "Recompilación estática de código PSP MIPS a C++ nativo (no emulación tradicional)",
           "Backend gráfico acelerado con Vulkan y subsistema de control de baja latencia mediante SDL3",
@@ -7956,7 +7959,7 @@
       "release_year": 2013,
       "developer": "Capcom",
       "synopsis": "Únete a la caravana itinerante para enfrentar al temible Gore Magala en una travesía épica que introdujo la verticalidad, el Glaive Insecto y la mecánica de monta de monstruos.",
-      "box_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Nintendo%203DS/Named_Boxarts/Monster%20Hunter%204%20Ultimate%20(USA).png",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_3DS/master/Named_Boxarts/Monster%20Hunter%204%20Ultimate%20%28Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -7972,7 +7975,7 @@
         "requires_original_assets": true,
         "author": "CompaLarios18",
         "author_avatar_url": "https://github.com/CompaLarios18.png",
-        "port_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Nintendo%203DS/Named_Boxarts/Monster%20Hunter%204%20Ultimate%20(USA).png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_3DS/master/Named_Boxarts/Monster%20Hunter%204%20Ultimate%20%28Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png",
         "features": [
           "Port nativo para PC derivado de decompilación/recompilación de código de Nintendo 3DS",
           "Estado Phase 5 alcanzado (Playable / Jugable de principio a fin)",
@@ -8004,7 +8007,7 @@
       "release_year": 2011,
       "developer": "Capcom",
       "synopsis": "Caza colosos terrestres y sumérgete en batallas acuáticas en la versión definitiva de tercera generación contra bestias legendarias como el Lagiacrus y Brachydios.",
-      "box_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Wii%20U/Named_Boxarts/Monster%20Hunter%203%20Ultimate%20(USA).png",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Wii_U/master/Named_Boxarts/Monster%20Hunter%203%20Ultimate%20%28USA%29.png",
       "disc_art_url": null,
       "sub_games": null,
       "project": {
@@ -8020,7 +8023,7 @@
         "requires_original_assets": true,
         "author": "glinesbdev",
         "author_avatar_url": "https://github.com/glinesbdev.png",
-        "port_art_url": "https://thumbnails.libretro.com/Nintendo%20-%20Wii%20U/Named_Boxarts/Monster%20Hunter%203%20Ultimate%20(USA).png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Wii_U/master/Named_Boxarts/Monster%20Hunter%203%20Ultimate%20%28USA%29.png",
         "features": [
           "Recompilación estática de código binario PowerPC de Wii U a código fuente C",
           "Runtime nativo de alta eficiencia implementado en Rust con backend gráfico mediante wgpu",
@@ -8039,7 +8042,8 @@
           "linux"
         ],
         "supported_platforms_complete": false
-      }
+      },
+      "merge_group_id": "monster-hunter-3-ultimate"
     },
     {
       "artwork": {
@@ -8762,7 +8766,7 @@
           }
         ]
       },
-      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_2/master/Named_Boxarts/Gran%20Turismo%203%20-%20A-Spec%20(USA).png",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_2/master/Named_Boxarts/Gran%20Turismo%203%20-%20A-Spec%20%28USA%29%20%28v1.10%29.png",
       "developer": "Polyphony Digital",
       "disc_art_url": null,
       "id": "gran-turismo-3-revisited",
@@ -9558,7 +9562,7 @@
           }
         ]
       },
-      "box_art_url": "https://flyers.arcade-museum.com/videogame-flyers/5/super-street-fighter-ii-the-new-challengers-05133-05.jpg",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/MAME/master/Named_Boxarts/Super%20Street%20Fighter%20II%20Turbo%20%28USA%20940223%29.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-super-street-fighter-ii",
@@ -9762,7 +9766,7 @@
           }
         ]
       },
-      "box_art_url": "https://images.nintendolife.com/2d0a5adb365bb/hyper-street-fighter-ii-the-anniversary-edition-cover.cover_large.jpg",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/MAME/master/Named_Boxarts/Hyper%20Street%20Fighter%20II_%20The%20Anniversary%20Edition%20%28Asia%20040202%29.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-hyper-street-fighter-ii",
@@ -10476,7 +10480,7 @@
           }
         ]
       },
-      "box_art_url": "https://flyers.arcade-museum.com/videogame-flyers/5/marvel-super-heroes-05129-01.jpg",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/MAME/master/Named_Boxarts/Marvel%20Super%20Heroes%20%28Europe%20951024%29.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-marvel-super-heroes",
@@ -10578,7 +10582,7 @@
           }
         ]
       },
-      "box_art_url": "https://storage.googleapis.com/hipcomic/p/0c9437c4b0ce18a57e4b480c9ee51da3.jpg",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/MAME/master/Named_Boxarts/X-Men%20Vs.%20Street%20Fighter%20%28Europe%20960910%29.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-x-men-vs-street-fighter",
@@ -10680,7 +10684,7 @@
           }
         ]
       },
-      "box_art_url": "https://storage.googleapis.com/hipcomic/p/3e8c662008b12a08b6cff5ac04718899-800.jpg",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/MAME/master/Named_Boxarts/Marvel%20Super%20Heroes%20Vs.%20Street%20Fighter%20%28Asia%20970625%29.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-marvel-super-heroes-vs-street-fighter",
@@ -11292,7 +11296,7 @@
           }
         ]
       },
-      "box_art_url": "https://nu.vgmtreasurechest.com/soundtracks/vampire-savior-the-lord-of-vampire-cp-system-ii-arcade/V1.jpg",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/MAME/master/Named_Boxarts/Vampire%20Savior_%20The%20Lord%20of%20Vampire%20%28Euro%20970519%29.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-vampire-savior",
@@ -11598,7 +11602,7 @@
           }
         ]
       },
-      "box_art_url": "https://nu.vgmtreasurechest.com/soundtracks/vampire-savior-the-lord-of-vampire-cp-system-ii-arcade/V1.jpg",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/MAME/master/Named_Boxarts/Vampire%20Savior_%20The%20Lord%20of%20Vampire%20%28Asia%20970519%29.png",
       "developer": "Capcom",
       "disc_art_url": null,
       "id": "cps2-vampire-savior-definitive",
@@ -12516,7 +12520,7 @@
           }
         ]
       },
-      "box_art_url": "https://flyers.arcade-museum.com/videogame-flyers/1/progear-storm-of-progia-01637-02.jpg",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/MAME/master/Named_Boxarts/Progear%20%28USA%20010117%29.png",
       "developer": "Cave / Capcom",
       "disc_art_url": null,
       "id": "cps2-progear",
@@ -13056,6 +13060,1284 @@
       "sub_games": null,
       "synopsis": "Edición de lucha que reúne personajes y escenarios de las primeras entregas de Mortal Kombat.",
       "title": "Mortal Kombat Trilogy"
+    },
+    {
+      "id": "pokemon-legends-arceus-pla",
+      "title": "Pokémon Legends: Arceus",
+      "original_platforms": [
+        "Nintendo Switch"
+      ],
+      "release_year": 2022,
+      "developer": "Game Freak",
+      "synopsis": "Aventura de acción y rol ambientada en la antigua región de Hisui para completar la primera Pokédex.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/9/9c/Pokemon_Legends_Arceus_cover.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "pla-recomp",
+        "name": "PLA Recomp (LAS Recomp)",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/fabioschmidt01/PokeL-ARecomp",
+          "owner": "fabioschmidt01",
+          "name": "PokeL-ARecomp"
+        },
+        "repository_url": "https://github.com/fabioschmidt01/PokeL-ARecomp",
+        "requires_original_assets": true,
+        "author": "fabioschmidt01",
+        "author_avatar_url": "https://github.com/fabioschmidt01.png",
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/9/9c/Pokemon_Legends_Arceus_cover.jpg",
+        "features": [
+          "Recompilación estática ARM64 de Nintendo Switch",
+          "Backend gráfico Vulkan nativo",
+          "Tasa de cuadros mejorada y resoluciones HD"
+        ],
+        "technical_notes": "Requiere volcado propio de Pokémon Legends: Arceus (Switch) y prod.keys.",
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      },
+      "merge_group_id": "pokemon-legends-arceus"
+    },
+    {
+      "id": "pokemon-legends-arceus-arceuszada",
+      "title": "Pokémon Legends: Arceus",
+      "original_platforms": [
+        "Nintendo Switch"
+      ],
+      "release_year": 2022,
+      "developer": "Game Freak",
+      "synopsis": "Proyecto comunitario alternativo de recompilación estática para ejecutar Pokémon Legends: Arceus de forma nativa en PC.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/9/9c/Pokemon_Legends_Arceus_cover.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "arceuszada",
+        "name": "Arceuszada",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/CarlosExabyte/Arceuszada",
+          "owner": "CarlosExabyte",
+          "name": "Arceuszada"
+        },
+        "repository_url": "https://github.com/CarlosExabyte/Arceuszada",
+        "requires_original_assets": true,
+        "author": "CarlosExabyte",
+        "author_avatar_url": "https://github.com/CarlosExabyte.png",
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/9/9c/Pokemon_Legends_Arceus_cover.jpg",
+        "features": [
+          "Recompilación estática basada en LASRecomp",
+          "Optimizado con tus propios archivos de juego"
+        ],
+        "technical_notes": "Requiere archivos originales volcados legalmente por el usuario.",
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      },
+      "merge_group_id": "pokemon-legends-arceus"
+    },
+    {
+      "id": "pokemon-xd-gale-of-darkness",
+      "title": "Pokémon XD: Gale of Darkness",
+      "original_platforms": [
+        "GameCube"
+      ],
+      "release_year": 2005,
+      "developer": "Genius Sonority",
+      "synopsis": "Secuela de Pokémon Colosseum centrada en purificar Pokémon Oscuros en la región de Aura.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_GameCube/master/Named_Boxarts/Pokemon%20XD%20-%20Gale%20of%20Darkness%20%28Nintendo%29%20%28USA%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "xd-decomp",
+        "name": "TeamOrre xd-decomp",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/TeamOrre/xd-decomp",
+          "owner": "TeamOrre",
+          "name": "xd-decomp"
+        },
+        "repository_url": "https://github.com/TeamOrre/xd-decomp",
+        "requires_original_assets": true,
+        "author": "TeamOrre",
+        "author_avatar_url": "https://github.com/TeamOrre.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_GameCube/master/Named_Boxarts/Pokemon%20XD%20-%20Gale%20of%20Darkness%20%28Nintendo%29%20%28USA%29.png",
+        "features": [
+          "Decompilación en C/C++ de GameCube",
+          "Seguimiento de coincidencia con objdiff"
+        ],
+        "technical_notes": "Proyecto de decompilación matching para GameCube (requiere ISO propia).",
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "pokemon-emerald-multiplatform",
+      "title": "Pokémon Emerald Version",
+      "original_platforms": [
+        "Game Boy Advance"
+      ],
+      "release_year": 2004,
+      "developer": "Game Freak",
+      "synopsis": "La entrega definitiva de la región de Hoenn portada nativamente mediante SDL2 y el árbol decomp de pokeemerald.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Pokemon%20-%20Emerald%20Version%20%28USA%2C%20Europe%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "pokeemerald-multiplatform",
+        "name": "pokeemerald Multiplatform",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/gradenGnostic/pokeemerald-multiplatform",
+          "owner": "gradenGnostic",
+          "name": "pokeemerald-multiplatform"
+        },
+        "repository_url": "https://github.com/gradenGnostic/pokeemerald-multiplatform",
+        "requires_original_assets": true,
+        "author": "gradenGnostic",
+        "author_avatar_url": "https://github.com/gradenGnostic.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Pokemon%20-%20Emerald%20Version%20%28USA%2C%20Europe%29.png",
+        "features": [
+          "Port nativo SDL2 multiplataforma",
+          "Audio mixer mejorado y soporte experimental 2.5D"
+        ],
+        "technical_notes": "Basado en la decompilación pokeemerald con soporte Windows, Linux y Android.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "android"
+        ],
+        "supported_platforms_complete": true,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "monster-hunter-freedom-unite-mhforever",
+      "title": "Monster Hunter Freedom Unite",
+      "original_platforms": [
+        "PSP"
+      ],
+      "release_year": 2008,
+      "developer": "Capcom",
+      "synopsis": "Caza cooperativa clásica con misiones de rango G y decenas de monstruos en Pokke Village.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_Portable/master/Named_Boxarts/Monster%20Hunter%20Freedom%20Unite%20%28Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "mhforever-recomp",
+        "name": "MHForever",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/Mango77x/MHForever",
+          "owner": "Mango77x",
+          "name": "MHForever"
+        },
+        "repository_url": "https://github.com/Mango77x/MHForever",
+        "requires_original_assets": true,
+        "author": "Mango77x",
+        "author_avatar_url": "https://github.com/Mango77x.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_Portable/master/Named_Boxarts/Monster%20Hunter%20Freedom%20Unite%20%28Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png",
+        "features": [
+          "Recompilación estática de código MIPS de PSP",
+          "Ejecución nativa en PC sin emulador"
+        ],
+        "technical_notes": "Requiere tu propia ISO de Monster Hunter Freedom Unite (PSP).",
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      },
+      "merge_group_id": "monster-hunter-freedom-unite"
+    },
+    {
+      "id": "monster-hunter-freedom-unite-recomp",
+      "title": "Monster Hunter Freedom Unite",
+      "original_platforms": [
+        "PSP"
+      ],
+      "release_year": 2008,
+      "developer": "Capcom",
+      "synopsis": "Port nativo de Monster Hunter Freedom Unite para Windows y Android con multijugador multiplataforma.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_Portable/master/Named_Boxarts/Monster%20Hunter%20Freedom%20Unite%20%28Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "freedom-unite-recomp",
+        "name": "FreedomUniteRecomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/PateeerQ/FreedomUniteRecomp",
+          "owner": "PateeerQ",
+          "name": "FreedomUniteRecomp"
+        },
+        "repository_url": "https://github.com/PateeerQ/FreedomUniteRecomp",
+        "requires_original_assets": true,
+        "author": "PateeerQ",
+        "author_avatar_url": "https://github.com/PateeerQ.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_Portable/master/Named_Boxarts/Monster%20Hunter%20Freedom%20Unite%20%28Europe%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png",
+        "features": [
+          "Soporte nativo Windows y Android APK",
+          "Multijugador entre plataformas y regiones"
+        ],
+        "technical_notes": "Requiere copia ISO propia del usuario.",
+        "supported_platforms": [
+          "windows",
+          "android"
+        ],
+        "supported_platforms_complete": true,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      },
+      "merge_group_id": "monster-hunter-freedom-unite"
+    },
+    {
+      "id": "monster-hunter-3-ultimate-chacha",
+      "title": "Monster Hunter 3 Ultimate",
+      "original_platforms": [
+        "Wii U"
+      ],
+      "release_year": 2011,
+      "developer": "Capcom",
+      "synopsis": "Versión extendida de Monster Hunter Tri con combates submarinos, rango G y cross-play Wii U/3DS.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Wii_U/master/Named_Boxarts/Monster%20Hunter%203%20Ultimate%20%28USA%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "mh3u-chacha",
+        "name": "Cha-Cha (MH3U Recomp)",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/BoyClinton/Cha-Cha",
+          "owner": "BoyClinton",
+          "name": "Cha-Cha"
+        },
+        "repository_url": "https://github.com/BoyClinton/Cha-Cha",
+        "requires_original_assets": true,
+        "author": "BoyClinton",
+        "author_avatar_url": "https://github.com/BoyClinton.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Wii_U/master/Named_Boxarts/Monster%20Hunter%203%20Ultimate%20%28USA%29.png",
+        "features": [
+          "Recompilación estática nativa para Windows y Linux",
+          "Ejecución directa sin emulador tradicional"
+        ],
+        "technical_notes": "Requiere archivos volcados propios de Wii U.",
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": true,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      },
+      "merge_group_id": "monster-hunter-3-ultimate"
+    },
+    {
+      "id": "god-of-war-sons-of-sparta",
+      "title": "God of War: Sons of Sparta",
+      "original_platforms": [
+        "PlayStation 5"
+      ],
+      "release_year": 2026,
+      "developer": "Santa Monica Studio",
+      "synopsis": "Aventura de la juventud de Kratos llevada a PC mediante capa de compatibilidad nativa AnyPS5.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/d/d8/God_of_War_Sons_of_Sparta_gameplay.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "sos-ps5-anyps5",
+        "name": "SoS-PS5 (AnyPS5)",
+        "method": "HYBRID",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/OverkillLabs3/SoS-PS5",
+          "owner": "OverkillLabs3",
+          "name": "SoS-PS5"
+        },
+        "repository_url": "https://github.com/OverkillLabs3/SoS-PS5",
+        "requires_original_assets": true,
+        "author": "OverkillLabs3",
+        "author_avatar_url": "https://github.com/OverkillLabs3.png",
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/d/d8/God_of_War_Sons_of_Sparta_gameplay.jpg",
+        "features": [
+          "Ejecución nativa x86-64 mediante capa AnyPS5",
+          "Traducción directa de librerías del sistema y gráficos"
+        ],
+        "technical_notes": "Requiere los archivos originales legítimos del juego.",
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "god-of-war-ghost-of-sparta",
+      "title": "God of War: Ghost of Sparta",
+      "original_platforms": [
+        "PSP"
+      ],
+      "release_year": 2010,
+      "developer": "Ready at Dawn / Santa Monica Studio",
+      "synopsis": "Kratos viaja al reino de los dioses para descubrir los secretos de su pasado y rescatar a su hermano Deimos.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_Portable/master/Named_Boxarts/God%20of%20War%20-%20Ghost%20of%20Sparta%20%28USA%29%20%28En%2CFr%2CEs%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "gow-ghost-of-sparta-pc",
+        "name": "Ghost of Sparta (PortableKit)",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/arnaldolima1/gow-ghost-of-sparta-pc",
+          "owner": "arnaldolima1",
+          "name": "gow-ghost-of-sparta-pc"
+        },
+        "repository_url": "https://github.com/arnaldolima1/gow-ghost-of-sparta-pc",
+        "requires_original_assets": true,
+        "author": "arnaldolima1",
+        "author_avatar_url": "https://github.com/arnaldolima1.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_Portable/master/Named_Boxarts/God%20of%20War%20-%20Ghost%20of%20Sparta%20%28USA%29%20%28En%2CFr%2CEs%29.png",
+        "features": [
+          "Recompilación estática PSP → C/C++",
+          "Renderizador Vulkan multiplataforma"
+        ],
+        "technical_notes": "Requiere imagen ISO original de PSP aportada por el usuario.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": false,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "silent-hill-downpour-recomp",
+      "title": "Silent Hill: Downpour",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2012,
+      "developer": "Vatra Games",
+      "synopsis": "Murphy Pendleton queda atrapado en los distritos del sur de Silent Hill durante una tormenta implacable.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_3/master/Named_Boxarts/Silent%20Hill%20Downpour%20%28Japan%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "downpour-recomp",
+        "name": "DownpourRecomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/LittleBitUA/DownpourRecomp",
+          "owner": "LittleBitUA",
+          "name": "DownpourRecomp"
+        },
+        "repository_url": "https://github.com/LittleBitUA/DownpourRecomp",
+        "requires_original_assets": true,
+        "author": "LittleBitUA",
+        "author_avatar_url": "https://github.com/LittleBitUA.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_3/master/Named_Boxarts/Silent%20Hill%20Downpour%20%28Japan%29.png",
+        "features": [
+          "v1.0 estable con 60 FPS desbloqueados",
+          "Launcher independiente y caché ROV",
+          "Soporte DualSense con gatillos adaptativos"
+        ],
+        "technical_notes": "Compatible con volcados USA y Europa de Xbox 360.",
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": true,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "timesplitters-2-recomp",
+      "title": "TimeSplitters 2",
+      "original_platforms": [
+        "PlayStation 2"
+      ],
+      "release_year": 2002,
+      "developer": "Free Radical Design",
+      "synopsis": "Clásico shooter de ciencia ficción a través del tiempo con campaña cooperativa y decenas de modos arcade.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_2/master/Named_Boxarts/TimeSplitters%202%20%28USA%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "split2-recomp",
+        "name": "TimeSplitters 2 Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/phobos665/split2-recomp",
+          "owner": "phobos665",
+          "name": "split2-recomp"
+        },
+        "repository_url": "https://github.com/phobos665/split2-recomp",
+        "requires_original_assets": true,
+        "author": "phobos665",
+        "author_avatar_url": "https://github.com/phobos665.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_2/master/Named_Boxarts/TimeSplitters%202%20%28USA%29.png",
+        "features": [
+          "Recompilación estática nativa de PS2",
+          "60 FPS, panorámico real y soporte ratón/teclado"
+        ],
+        "technical_notes": "Requiere volcado propio de tu disco original de TimeSplitters 2.",
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": false,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "shadow-of-rome-recomp",
+      "title": "Shadow of Rome",
+      "original_platforms": [
+        "PlayStation 2"
+      ],
+      "release_year": 2005,
+      "developer": "Capcom",
+      "synopsis": "Acción visceral de gladiadores e infiltración política tras el asesinato de Julio César.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_2/master/Named_Boxarts/Shadow%20of%20Rome%20%28Europe%2C%20Australia%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "shadow-of-rome-recompiled",
+        "name": "Shadow of Rome Recompiled",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/Korvonordico/shadow-of-rome-recompiled",
+          "owner": "Korvonordico",
+          "name": "shadow-of-rome-recompiled"
+        },
+        "repository_url": "https://github.com/Korvonordico/shadow-of-rome-recompiled",
+        "requires_original_assets": true,
+        "author": "Korvonordico",
+        "author_avatar_url": "https://github.com/Korvonordico.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_2/master/Named_Boxarts/Shadow%20of%20Rome%20%28Europe%2C%20Australia%29%20%28En%2CFr%2CDe%2CEs%2CIt%29.png",
+        "features": [
+          "60 FPS estables de principio a fin",
+          "Escalado hasta 8x, 16:9 y 21:9 ultrawide",
+          "Imagen limpia sin desenfoque ni grano"
+        ],
+        "technical_notes": "Compatible con discos Europeo (Multi-5), Ruso y Americano.",
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": true,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "spider-man-edge-of-time-recomp",
+      "title": "Spider-Man: Edge of Time",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2011,
+      "developer": "Beenox",
+      "synopsis": "Peter Parker y Miguel O'Hara (Spider-Man 2099) unen fuerzas a través del tiempo para evitar un desastre.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Wii/master/Named_Boxarts/Spider-Man%20-%20Edge%20of%20Time%20%28USA%29%20%28En%2CFr%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "edge-of-time-recomp",
+        "name": "EdgeOfTimeRecomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/goliathret/EdgeOfTimeRecomp",
+          "owner": "goliathret",
+          "name": "EdgeOfTimeRecomp"
+        },
+        "repository_url": "https://github.com/goliathret/EdgeOfTimeRecomp",
+        "requires_original_assets": true,
+        "author": "goliathret",
+        "author_avatar_url": "https://github.com/goliathret.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Wii/master/Named_Boxarts/Spider-Man%20-%20Edge%20of%20Time%20%28USA%29%20%28En%2CFr%29.png",
+        "features": [
+          "Recompilación estática de Xbox 360",
+          "Ejecución nativa con resolución y framerate mejorados"
+        ],
+        "technical_notes": "Requiere copia original de Spider-Man: Edge of Time (Xbox 360).",
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "legend-of-dragoon-severed-chains",
+      "title": "The Legend of Dragoon",
+      "original_platforms": [
+        "PlayStation"
+      ],
+      "release_year": 1999,
+      "developer": "Japan Studio",
+      "synopsis": "RPG épico de cuatro discos en Endiness protagonizado por Dart y los legendarios Dragoons.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Legend%20of%20Dragoon%2C%20The%20%28Europe%29%20%28Disc%201%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "severed-chains",
+        "name": "Severed Chains",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/Legend-of-Dragoon-Modding/Severed-Chains",
+          "owner": "Legend-of-Dragoon-Modding",
+          "name": "Severed-Chains"
+        },
+        "repository_url": "https://github.com/Legend-of-Dragoon-Modding/Severed-Chains",
+        "requires_original_assets": true,
+        "author": "Legend-of-Dragoon-Modding",
+        "author_avatar_url": "https://github.com/Legend-of-Dragoon-Modding.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Legend%20of%20Dragoon%2C%20The%20%28Europe%29%20%28Disc%201%29.png",
+        "features": [
+          "Motor Java/OpenGL nativo reconstruido mediante ingeniería inversa",
+          "Sin tiempos de carga, 60 FPS y soporte nativo Steam Deck"
+        ],
+        "technical_notes": "Requiere tus propias ISOs de los 4 discos originales de PS1.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "diablo-devilutionx",
+      "title": "Diablo + Hellfire",
+      "original_platforms": [
+        "PC",
+        "PlayStation"
+      ],
+      "release_year": 1996,
+      "developer": "Blizzard North",
+      "synopsis": "El clásico ARPG de fantasía oscura en las catacumbas de Tristram reconstruido para sistemas modernos.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Diablo%20%28USA%29%20%28En%2CFr%2CDe%2CSv%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "devilutionx",
+        "name": "DevilutionX",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/diasurgical/devilutionX",
+          "owner": "diasurgical",
+          "name": "devilutionX"
+        },
+        "repository_url": "https://github.com/diasurgical/devilutionX",
+        "requires_original_assets": true,
+        "author": "diasurgical",
+        "author_avatar_url": "https://github.com/diasurgical.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Diablo%20%28USA%29%20%28En%2CFr%2CDe%2CSv%29.png",
+        "features": [
+          "Source port multiplataforma con resolución HD",
+          "Soporte nativo para mandos y pantalla táctil en Android",
+          "Multijugador TCP/IP y compatibilidad con Hellfire"
+        ],
+        "technical_notes": "Requiere archivo DIABDAT.MPQ de tu copia original de Diablo.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "fallout-1-ce",
+      "title": "Fallout: A Post Nuclear Role Playing Game",
+      "original_platforms": [
+        "PC",
+        "DOS"
+      ],
+      "release_year": 1997,
+      "developer": "Interplay Productions",
+      "synopsis": "RPG isométrico postapocalíptico en busca del chip de agua del Refugio 13.",
+      "box_art_url": "https://cdn.cloudflare.steamstatic.com/steam/apps/38400/library_600x900.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "fallout1-ce",
+        "name": "Fallout Community Edition",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/alexbatalov/fallout1-ce",
+          "owner": "alexbatalov",
+          "name": "fallout1-ce"
+        },
+        "repository_url": "https://github.com/alexbatalov/fallout1-ce",
+        "requires_original_assets": true,
+        "author": "alexbatalov",
+        "author_avatar_url": "https://github.com/alexbatalov.png",
+        "port_art_url": "https://cdn.cloudflare.steamstatic.com/steam/apps/38400/library_600x900.jpg",
+        "features": [
+          "Reimplementación limpia y portable del motor original",
+          "Soporte Windows, Linux, macOS y Android APK"
+        ],
+        "technical_notes": "Requiere archivos de datos de tu copia original de Fallout.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "fallout-2-ce",
+      "title": "Fallout 2",
+      "original_platforms": [
+        "PC"
+      ],
+      "release_year": 1998,
+      "developer": "Black Isle Studios",
+      "synopsis": "El Elegido recorre el yermo californiano para rescatar a su tribu y encontrar el G.E.C.K.",
+      "box_art_url": "https://cdn.cloudflare.steamstatic.com/steam/apps/38410/library_600x900.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "fallout2-ce",
+        "name": "Fallout 2 Community Edition",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/alexbatalov/fallout2-ce",
+          "owner": "alexbatalov",
+          "name": "fallout2-ce"
+        },
+        "repository_url": "https://github.com/alexbatalov/fallout2-ce",
+        "requires_original_assets": true,
+        "author": "alexbatalov",
+        "author_avatar_url": "https://github.com/alexbatalov.png",
+        "port_art_url": "https://cdn.cloudflare.steamstatic.com/steam/apps/38410/library_600x900.jpg",
+        "features": [
+          "Motor nativo multiplataforma de código abierto",
+          "Compatible con resoluciones actuales y APK Android"
+        ],
+        "technical_notes": "Requiere archivos originales de Fallout 2.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "morrowind-openmw",
+      "title": "The Elder Scrolls III: Morrowind",
+      "original_platforms": [
+        "PC",
+        "Xbox"
+      ],
+      "release_year": 2002,
+      "developer": "Bethesda Game Studios",
+      "synopsis": "Explora la isla volcánica de Vvardenfell en un motor C++ moderno completamente reescrito.",
+      "box_art_url": "https://cdn.cloudflare.steamstatic.com/steam/apps/22320/library_600x900.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "openmw",
+        "name": "OpenMW",
+        "method": "PORT",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/OpenMW/openmw",
+          "owner": "OpenMW",
+          "name": "openmw"
+        },
+        "repository_url": "https://github.com/OpenMW/openmw",
+        "requires_original_assets": true,
+        "author": "OpenMW Team",
+        "author_avatar_url": "https://github.com/OpenMW.png",
+        "port_art_url": "https://cdn.cloudflare.steamstatic.com/steam/apps/22320/library_600x900.jpg",
+        "features": [
+          "Motor 3D OpenSceneGraph multiplataforma",
+          "Corrección de bugs clásicos, sombras dinámicas y mods Lua",
+          "Soporte nativo Linux/Steam Deck y macOS ARM64"
+        ],
+        "technical_notes": "Requiere archivos ESM/BSA de Morrowind.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos"
+        ],
+        "supported_platforms_complete": true,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "rollercoaster-tycoon-2-openrct2",
+      "title": "RollerCoaster Tycoon 2",
+      "original_platforms": [
+        "PC"
+      ],
+      "release_year": 2002,
+      "developer": "Chris Sawyer Productions",
+      "synopsis": "Reimplementación de código abierto del legendario simulador de parques temáticos.",
+      "box_art_url": "https://cdn.cloudflare.steamstatic.com/steam/apps/285330/library_600x900.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "openrct2",
+        "name": "OpenRCT2",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/OpenRCT2/OpenRCT2",
+          "owner": "OpenRCT2",
+          "name": "OpenRCT2"
+        },
+        "repository_url": "https://github.com/OpenRCT2/OpenRCT2",
+        "requires_original_assets": true,
+        "author": "OpenRCT2 Team",
+        "author_avatar_url": "https://github.com/OpenRCT2.png",
+        "port_art_url": "https://cdn.cloudflare.steamstatic.com/steam/apps/285330/library_600x900.jpg",
+        "features": [
+          "Multijugador cooperativo, OpenGL y UI escalable",
+          "Importa escenarios de RollerCoaster Tycoon 1"
+        ],
+        "technical_notes": "Requiere assets de tu instalación original de RCT2.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "caesar-iii-julius",
+      "title": "Caesar III",
+      "original_platforms": [
+        "PC"
+      ],
+      "release_year": 1998,
+      "developer": "Impressions Games",
+      "synopsis": "Construcción de ciudades romanas con fidelidad pixel-perfect y mejoras de calidad de vida.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/5/56/Caeser_III_Coverart.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "julius",
+        "name": "Julius",
+        "method": "PORT",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/bvschaik/julius",
+          "owner": "bvschaik",
+          "name": "julius"
+        },
+        "repository_url": "https://github.com/bvschaik/julius",
+        "requires_original_assets": true,
+        "author": "bvschaik",
+        "author_avatar_url": "https://github.com/bvschaik.png",
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/5/56/Caeser_III_Coverart.jpg",
+        "features": [
+          "Soporte nativo panorámico HD",
+          "Disponible como ejecutable portable y APK Android"
+        ],
+        "technical_notes": "Requiere los datos de tu copia de Caesar III.",
+        "supported_platforms": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "supported_platforms_complete": true,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "wipeout-phantom-edition",
+      "title": "WipEout",
+      "original_platforms": [
+        "PlayStation"
+      ],
+      "release_year": 1995,
+      "developer": "Psygnosis",
+      "synopsis": "Carreras antigravedad futuristas portadas a PC con fidelidad arcade y 60+ FPS.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/WipEout%20%28Europe%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "wipeout-phantom-edition",
+        "name": "Wipeout Phantom Edition",
+        "method": "PORT",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/wipeout-phantom-edition/wipeout-phantom-edition",
+          "owner": "wipeout-phantom-edition",
+          "name": "wipeout-phantom-edition"
+        },
+        "repository_url": "https://github.com/wipeout-phantom-edition/wipeout-phantom-edition",
+        "requires_original_assets": true,
+        "author": "phoboslab / Community",
+        "author_avatar_url": "https://github.com/wipeout-phantom-edition.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/WipEout%20%28Europe%29.png",
+        "features": [
+          "Renderizado nativo en alta resolución",
+          "Framerate desbloqueado y soporte de mando"
+        ],
+        "technical_notes": "Requiere los archivos originales del primer WipEout.",
+        "supported_platforms": [
+          "windows",
+          "linux"
+        ],
+        "supported_platforms_complete": true,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "zelda-oot-android",
+      "title": "The Legend of Zelda: Ocarina of Time",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "release_year": 1998,
+      "developer": "Nintendo EAD",
+      "synopsis": "Port oficial para Android de Ship of Harkinian con controles táctiles, giroscopio y 60 FPS.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20Ocarina%20of%20Time%20%28USA%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "shipwright-android",
+        "name": "Ship of Harkinian (Android APK)",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/Waterdish/Shipwright-Android",
+          "owner": "Waterdish",
+          "name": "Shipwright-Android"
+        },
+        "repository_url": "https://github.com/Waterdish/Shipwright-Android",
+        "requires_original_assets": true,
+        "author": "Waterdish",
+        "author_avatar_url": "https://github.com/Waterdish.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20Ocarina%20of%20Time%20%28USA%29.png",
+        "features": [
+          "APK nativo para Android ARM64",
+          "Requiere ROM compatible para generar OTR"
+        ],
+        "technical_notes": "Compilación oficial Android de Ship of Harkinian.",
+        "supported_platforms": [
+          "android"
+        ],
+        "supported_platforms_complete": true,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      },
+      "merge_group_id": "zelda-oot"
+    },
+    {
+      "id": "zelda-mm-android",
+      "title": "The Legend of Zelda: Majora's Mask",
+      "original_platforms": [
+        "Nintendo 64"
+      ],
+      "release_year": 2000,
+      "developer": "Nintendo EAD",
+      "synopsis": "Port oficial para Android de 2 Ship 2 Harkinian para jugar Majora's Mask a 60 FPS en móvil.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20Majora%27s%20Mask%20%28USA%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "2ship2harkinian-android",
+        "name": "2 Ship 2 Harkinian (Android APK)",
+        "method": "DECOMP_NATIVE",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/Waterdish/2ship2harkinian-Android",
+          "owner": "Waterdish",
+          "name": "2ship2harkinian-Android"
+        },
+        "repository_url": "https://github.com/Waterdish/2ship2harkinian-Android",
+        "requires_original_assets": true,
+        "author": "Waterdish",
+        "author_avatar_url": "https://github.com/Waterdish.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20Majora%27s%20Mask%20%28USA%29.png",
+        "features": [
+          "APK nativo para Android ARM64",
+          "Controles táctiles, soporte mando y 60 FPS"
+        ],
+        "technical_notes": "Compilación oficial Android de 2 Ship 2 Harkinian.",
+        "supported_platforms": [
+          "android"
+        ],
+        "supported_platforms_complete": true,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      },
+      "merge_group_id": "zelda-mm"
+    },
+    {
+      "id": "ape-escape-recomp",
+      "title": "Ape Escape",
+      "original_platforms": [
+        "PlayStation"
+      ],
+      "release_year": 1999,
+      "developer": "Japan Studio",
+      "synopsis": "Captura a Specter y su ejército de monos usando artilugios a través de distintas épocas históricas.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Ape%20Escape%20%28Europe%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "ape-escape-recomp",
+        "name": "ApeEscapeRecomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/mstan/ApeEscapeRecomp",
+          "owner": "mstan",
+          "name": "ApeEscapeRecomp"
+        },
+        "repository_url": "https://github.com/mstan/ApeEscapeRecomp",
+        "requires_original_assets": true,
+        "author": "mstan",
+        "author_avatar_url": "https://github.com/mstan.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Ape%20Escape%20%28Europe%29.png",
+        "features": [
+          "Recompilación estática de PS1 vía psxrecomp",
+          "Soporte nativo DualAnalog moderno"
+        ],
+        "technical_notes": "Requiere ISO propia de Ape Escape (USA).",
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "valkyrie-profile-recomp",
+      "title": "Valkyrie Profile",
+      "original_platforms": [
+        "PlayStation"
+      ],
+      "release_year": 1999,
+      "developer": "tri-Ace",
+      "synopsis": "Lenneth recluta almas de guerreros nórdicos para prepararlas de cara al Ragnarok.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Valkyrie%20Profile%20%28Japan%29%20%28Disc%201%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "valkyrie-recomp",
+        "name": "ValkyrieRecomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/Ed1z19/ValkyrieRecomp",
+          "owner": "Ed1z19",
+          "name": "ValkyrieRecomp"
+        },
+        "repository_url": "https://github.com/Ed1z19/ValkyrieRecomp",
+        "requires_original_assets": true,
+        "author": "Ed1z19",
+        "author_avatar_url": "https://github.com/Ed1z19.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Valkyrie%20Profile%20%28Japan%29%20%28Disc%201%29.png",
+        "features": [
+          "Recompilación estática nativa mediante PSXRecomp"
+        ],
+        "technical_notes": "Requiere discos originales volcados por el usuario.",
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "ace-combat-x-recomp",
+      "title": "Ace Combat X: Skies of Deception",
+      "original_platforms": [
+        "PSP"
+      ],
+      "release_year": 2006,
+      "developer": "Access Games",
+      "synopsis": "Combates aéreos tácticos en Aurelia recompilados de PSP a renderizador nativo.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_Portable/master/Named_Boxarts/Ace%20Combat%20X%20-%20Skies%20of%20Deception%20%28Europe%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CKo%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "ace-combat-x-recomp",
+        "name": "Ace Combat X Recompilation",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/sal063/Ace-Combat-X-Recompilation",
+          "owner": "sal063",
+          "name": "Ace-Combat-X-Recompilation"
+        },
+        "repository_url": "https://github.com/sal063/Ace-Combat-X-Recompilation",
+        "requires_original_assets": true,
+        "author": "sal063",
+        "author_avatar_url": "https://github.com/sal063.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation_Portable/master/Named_Boxarts/Ace%20Combat%20X%20-%20Skies%20of%20Deception%20%28Europe%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CKo%29.png",
+        "features": [
+          "Recompilación estática de PSP",
+          "Renderizador nativo de alta resolución"
+        ],
+        "technical_notes": "Requiere copia ISO original de PSP.",
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "forza-horizon-pinyon-shift",
+      "title": "Forza Horizon",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2012,
+      "developer": "Playground Games",
+      "synopsis": "Festival automovilístico en mundo abierto ambientado en las carreteras de Colorado.",
+      "box_art_url": "https://upload.wikimedia.org/wikipedia/en/7/77/Forza_Horizon_boxart.jpg",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "pinyon-shift",
+        "name": "pinyon-shift (Forza Horizon Recomp)",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/arcanite24/pinyon-shift",
+          "owner": "arcanite24",
+          "name": "pinyon-shift"
+        },
+        "repository_url": "https://github.com/arcanite24/pinyon-shift",
+        "requires_original_assets": true,
+        "author": "arcanite24",
+        "author_avatar_url": "https://github.com/arcanite24.png",
+        "port_art_url": "https://upload.wikimedia.org/wikipedia/en/7/77/Forza_Horizon_boxart.jpg",
+        "features": [
+          "Recompilación estática de Xbox 360",
+          "Preview jugable nativa en PC"
+        ],
+        "technical_notes": "Requiere copia original de Forza Horizon (Xbox 360).",
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
+    },
+    {
+      "id": "goldeneye-007-xbla-recomp",
+      "title": "GoldenEye 007 (XBLA)",
+      "original_platforms": [
+        "Xbox 360"
+      ],
+      "release_year": 2008,
+      "developer": "Rare",
+      "synopsis": "La remasterización cancelada en alta definición de GoldenEye 007 para Xbox Live Arcade recompilada a PC.",
+      "box_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/GoldenEye%20007%20%28USA%29.png",
+      "disc_art_url": null,
+      "sub_games": null,
+      "project": {
+        "id": "goldeneye-recomp",
+        "name": "GoldenEye-Recomp",
+        "method": "STATIC_RECOMP",
+        "repository": {
+          "provider": "github",
+          "url": "https://github.com/SunJaycy/GoldenEye-Recomp",
+          "owner": "SunJaycy",
+          "name": "GoldenEye-Recomp"
+        },
+        "repository_url": "https://github.com/SunJaycy/GoldenEye-Recomp",
+        "requires_original_assets": true,
+        "author": "SunJaycy",
+        "author_avatar_url": "https://github.com/SunJaycy.png",
+        "port_art_url": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/master/Named_Boxarts/GoldenEye%20007%20%28USA%29.png",
+        "features": [
+          "Recompilación estática del build XBLA",
+          "Framerate desbloqueado y soporte ratón/teclado"
+        ],
+        "technical_notes": "Requiere archivos originales del build XBLA de GoldenEye 007.",
+        "supported_platforms": [
+          "windows"
+        ],
+        "supported_platforms_complete": false,
+        "detection": {
+          "executables": [],
+          "folder_patterns": [],
+          "known_hashes": [],
+          "verified": false
+        }
+      }
     }
   ],
   "schema_version": 2,

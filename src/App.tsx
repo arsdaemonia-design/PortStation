@@ -407,6 +407,7 @@ export const App: React.FC = () => {
   const [catalogDownloadMessages, setCatalogDownloadMessages] = useState<Record<string, string>>({});
   const [catalogDownloaded, setCatalogDownloaded] = useState<Record<string, boolean>>({});
   const [catalogDownloadedPaths, setCatalogDownloadedPaths] = useState<Record<string, string>>({});
+  const [catalogDownloadedVersions, setCatalogDownloadedVersions] = useState<Record<string, string>>({});
   const [extractingCatalogId, setExtractingCatalogId] = useState<string | null>(null);
   const [coverErrors, setCoverErrors] = useState<Record<string, boolean>>({});
   const [favoriteGameIds, setFavoriteGameIds] = useState<string[]>(() => {
@@ -1607,7 +1608,7 @@ export const App: React.FC = () => {
     }
   };
 
-  const handleDownloadCatalogZip = async (port: CatalogPort, asset: GitHubReleaseAsset) => {
+  const handleDownloadCatalogZip = async (port: CatalogPort, asset: GitHubReleaseAsset, releaseTag?: string) => {
     const downloadKey = `${port.id}:${asset.name}`;
     if (downloadingCatalogAsset) return;
     setDownloadingCatalogAsset(downloadKey);
@@ -1626,6 +1627,12 @@ export const App: React.FC = () => {
             [port.id]: `Descargando ${asset.name} en la barra de notificaciones de Android (carpeta Descargas). Al finalizar, tócalo en tus notificaciones o en «Abrir Descargas» para instalar el APK y pulsa «Escanear Ahora».`,
           }));
           setCatalogDownloaded((previous) => ({ ...previous, [port.id]: true }));
+          if (releaseTag) {
+            setCatalogDownloadedVersions((previous) => ({ ...previous, [port.id]: releaseTag }));
+            try {
+              localStorage.setItem(`portstation_installed_version_${port.gameId}`, releaseTag);
+            } catch {}
+          }
           return;
         }
         await handleOpenBrowser(downloadUrl);
@@ -1648,6 +1655,9 @@ export const App: React.FC = () => {
       setCatalogDownloadMessages((previous) => ({ ...previous, [port.id]: message }));
       setCatalogDownloaded((previous) => ({ ...previous, [port.id]: true }));
       setCatalogDownloadedPaths((previous) => ({ ...previous, [port.id]: result.path }));
+      if (releaseTag) {
+        setCatalogDownloadedVersions((previous) => ({ ...previous, [port.id]: releaseTag }));
+      }
     } catch (error) {
       setCatalogDownloadMessages((previous) => ({ ...previous, [port.id]: `Falló la descarga: ${error}` }));
       setCatalogDownloaded((previous) => ({ ...previous, [port.id]: false }));
@@ -1667,16 +1677,28 @@ export const App: React.FC = () => {
     setExtractingCatalogId(port.id);
     try {
       const targetDir = roots[0]?.path || settings.libraryPath || null;
+      const versionTag = catalogDownloadedVersions[port.id] || null;
       const extractedDir = await invoke<string>('extract_catalog_package', {
         archivePath,
         projectId: port.id,
         targetDir,
+        gameId: port.gameId,
+        version: versionTag,
       });
+      if (versionTag) {
+        try {
+          localStorage.setItem(`portstation_installed_version_${port.gameId}`, versionTag);
+        } catch {}
+      }
       setCatalogDownloadMessages((previous) => ({
         ...previous,
-        [port.id]: `Instalado y extraído en: ${extractedDir}\nBiblioteca actualizada.`,
+        [port.id]: `Instalado y extraído en: ${extractedDir}\nVinculado automáticamente en Biblioteca${versionTag ? ` (${versionTag})` : ''}.`,
       }));
       await handleScanReal();
+      try {
+        const refreshedPorts = await invoke<CatalogPort[]>('list_catalog_ports');
+        setCatalogPorts(refreshedPorts);
+      } catch {}
     } catch (error) {
       setCatalogDownloadMessages((previous) => ({
         ...previous,
@@ -4534,7 +4556,7 @@ export const App: React.FC = () => {
                                               className="catalog-zip-download catalog-zip-windows"
                                               style={{ width: 'auto', padding: '0.4rem 0.8rem', fontSize: '0.78rem', fontWeight: 600 }}
                                               disabled={downloadingCatalogAsset !== null}
-                                              onClick={() => void handleDownloadCatalogZip(selectedCatalogPort, asset as GitHubReleaseAsset)}
+                                              onClick={() => void handleDownloadCatalogZip(selectedCatalogPort, asset as GitHubReleaseAsset, release.tag_name)}
                                               title={`Descargar ${asset.name}`}
                                             >
                                               <Download size={13} />
@@ -4597,7 +4619,7 @@ export const App: React.FC = () => {
                                                 className="catalog-zip-download"
                                                 style={{ width: 'auto', padding: '0.3rem 0.6rem', fontSize: '0.72rem' }}
                                                 disabled={downloadingCatalogAsset !== null}
-                                                onClick={() => void handleDownloadCatalogZip(selectedCatalogPort, asset as GitHubReleaseAsset)}
+                                                onClick={() => void handleDownloadCatalogZip(selectedCatalogPort, asset as GitHubReleaseAsset, release.tag_name)}
                                               >
                                                 <Download size={11} /> Descargar
                                               </button>

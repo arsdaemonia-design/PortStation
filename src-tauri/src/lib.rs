@@ -743,6 +743,16 @@ async fn download_catalog_zip(
             let _ = std::fs::remove_file(&partial_path);
             format!("No se pudo finalizar el archivo descargado: {}", e)
         })?;
+        if final_file_name.to_ascii_lowercase().ends_with(".exe")
+            || final_file_name.to_ascii_lowercase().ends_with(".appimage")
+        {
+            let _ = write_local_project_manifest(
+                &download_dir,
+                &project_id,
+                Some(&project.game_id),
+                None,
+            );
+        }
 
         Ok(DownloadedGitHubAsset {
             path: final_path.to_string_lossy().to_string(),
@@ -787,11 +797,65 @@ fn open_game_folder(executable_path: String) -> Result<(), String> {
     open_directory_in_os(directory)
 }
 
+const LOCAL_PROJECT_MANIFEST_FILENAME: &str = ".portstation-project.json";
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+struct LocalProjectManifest {
+    project_id: String,
+    #[serde(default)]
+    game_id: Option<String>,
+    #[serde(default)]
+    version: Option<String>,
+}
+
+fn write_local_project_manifest(
+    dir: &Path,
+    project_id: &str,
+    game_id: Option<&str>,
+    version: Option<&str>,
+) -> Result<(), String> {
+    let manifest = LocalProjectManifest {
+        project_id: project_id.to_string(),
+        game_id: game_id.map(str::trim).filter(|s| !s.is_empty()).map(str::to_string),
+        version: version.map(str::trim).filter(|s| !s.is_empty()).map(str::to_string),
+    };
+    let json = serde_json::to_string_pretty(&manifest)
+        .map_err(|e| format!("Error serializando manifiesto local: {}", e))?;
+    std::fs::write(dir.join(LOCAL_PROJECT_MANIFEST_FILENAME), json)
+        .map_err(|e| format!("No se pudo guardar {}: {}", LOCAL_PROJECT_MANIFEST_FILENAME, e))
+}
+
+fn find_local_project_manifest(
+    candidate_path: &Path,
+    root: &Path,
+) -> Option<(LocalProjectManifest, PathBuf)> {
+    let canon_root = std::fs::canonicalize(root).unwrap_or_else(|_| root.to_path_buf());
+    let mut current = candidate_path.parent()?;
+    loop {
+        let manifest_path = current.join(LOCAL_PROJECT_MANIFEST_FILENAME);
+        if manifest_path.is_file() {
+            if let Ok(raw) = std::fs::read_to_string(&manifest_path) {
+                if let Ok(parsed) = serde_json::from_str::<LocalProjectManifest>(&raw) {
+                    return Some((parsed, current.to_path_buf()));
+                }
+            }
+        }
+        let canon_curr = std::fs::canonicalize(current).unwrap_or_else(|_| current.to_path_buf());
+        if canon_curr == canon_root || !canon_curr.starts_with(&canon_root) {
+            break;
+        }
+        current = current.parent()?;
+    }
+    None
+}
+
 #[tauri::command(async)]
 fn extract_catalog_package(
     archive_path: String,
     project_id: String,
     target_dir: Option<String>,
+    game_id: Option<String>,
+    version: Option<String>,
 ) -> Result<String, String> {
     let archive = Path::new(&archive_path);
     if !archive.is_file() {
@@ -832,6 +896,7 @@ fn extract_catalog_package(
             std::fs::set_permissions(&dest_file, perms)
                 .map_err(|e| format!("No se pudieron aplicar permisos de ejecución: {}", e))?;
         }
+        let _ = write_local_project_manifest(&dest_dir, &project_id, game_id.as_deref(), version.as_deref());
         return Ok(dest_dir.to_string_lossy().to_string());
     }
 
@@ -848,6 +913,7 @@ fn extract_catalog_package(
                 .output();
             if let Ok(out) = tar_res {
                 if out.status.success() {
+                    let _ = write_local_project_manifest(&dest_dir, &project_id, game_id.as_deref(), version.as_deref());
                     return Ok(dest_dir.to_string_lossy().to_string());
                 }
             }
@@ -866,6 +932,7 @@ fn extract_catalog_package(
                 let err_msg = String::from_utf8_lossy(&ps_out.stderr);
                 return Err(format!("Error extrayendo ZIP: {}", err_msg.trim()));
             }
+            let _ = write_local_project_manifest(&dest_dir, &project_id, game_id.as_deref(), version.as_deref());
             return Ok(dest_dir.to_string_lossy().to_string());
         }
         #[cfg(not(target_os = "windows"))]
@@ -878,6 +945,7 @@ fn extract_catalog_package(
                 .output();
             if let Ok(out) = unzip_res {
                 if out.status.success() {
+                    let _ = write_local_project_manifest(&dest_dir, &project_id, game_id.as_deref(), version.as_deref());
                     return Ok(dest_dir.to_string_lossy().to_string());
                 }
             }
@@ -892,6 +960,7 @@ fn extract_catalog_package(
                 let err_msg = String::from_utf8_lossy(&tar_out.stderr);
                 return Err(format!("Error extrayendo ZIP: {}", err_msg.trim()));
             }
+            let _ = write_local_project_manifest(&dest_dir, &project_id, game_id.as_deref(), version.as_deref());
             return Ok(dest_dir.to_string_lossy().to_string());
         }
     }
@@ -916,6 +985,7 @@ fn extract_catalog_package(
             let err_msg = String::from_utf8_lossy(&tar_out.stderr);
             return Err(format!("Error extrayendo paquete tar: {}", err_msg.trim()));
         }
+        let _ = write_local_project_manifest(&dest_dir, &project_id, game_id.as_deref(), version.as_deref());
         return Ok(dest_dir.to_string_lossy().to_string());
     }
 
@@ -1180,9 +1250,33 @@ fn scan_and_match(
 
     let mut best_matches: HashMap<String, (crate::core::matcher::MatchEvaluation, CandidateFile)> =
         HashMap::new();
+    let mut manifest_versions: HashMap<String, Option<String>> = HashMap::new();
 
     for cand in &candidates {
-        let eval = matcher.evaluate_candidate(cand, None);
+        let cand_path = Path::new(&cand.path);
+        let mut eval = if let Some((manifest, manifest_dir)) = find_local_project_manifest(cand_path, root) {
+            if let Some(proj) = registry.find_project(&manifest.project_id) {
+                if manifest.version.is_some() {
+                    manifest_versions.insert(proj.id.clone(), manifest.version.clone());
+                }
+                let in_root = cand_path.parent() == Some(manifest_dir.as_path());
+                let score = if in_root { 105 } else { 95 };
+                crate::core::matcher::MatchEvaluation {
+                    status: MatchStatus::USER_CONFIRMED,
+                    score,
+                    matched_project_id: Some(proj.id),
+                    matched_game_id: Some(proj.game_id),
+                    evidence: vec!["Vinculado por manifiesto local .portstation-project.json".to_string()],
+                }
+            } else {
+                matcher.evaluate_candidate(cand, None)
+            }
+        } else {
+            matcher.evaluate_candidate(cand, None)
+        };
+        if eval.status == MatchStatus::UNKNOWN {
+            eval = matcher.evaluate_candidate(cand, None);
+        }
         if eval.status != MatchStatus::UNKNOWN {
             if let Some(proj_id) = &eval.matched_project_id {
                 let should_replace = match best_matches.get(proj_id) {
@@ -1237,6 +1331,8 @@ fn scan_and_match(
                 }
             }
 
+            let detected_ver = manifest_versions.get(proj_id).cloned().flatten();
+
             let inst = Installation {
                 id: proj_id.clone(),
                 game_id: project.game_id.clone(),
@@ -1245,7 +1341,7 @@ fn scan_and_match(
                 working_dir: final_working_dir.clone(),
                 status: final_status.clone(),
                 sha256: None,
-                detected_version: None,
+                detected_version: detected_ver.clone(),
             };
 
             // Persist to local SQLite
@@ -1275,7 +1371,7 @@ fn scan_and_match(
                 executable_path: final_exec_path,
                 install_path: final_working_dir,
                 sha256: None,
-                version: None,
+                version: detected_ver,
             });
         }
     }
@@ -3364,6 +3460,8 @@ mod tests {
             "non_existent_archive_12345.zip".to_string(),
             "test-port".to_string(),
             None,
+            None,
+            None,
         );
         assert!(missing.is_err());
 
@@ -3374,9 +3472,31 @@ mod tests {
             rar_path.to_string_lossy().to_string(),
             "test-port".to_string(),
             Some(dir.path().to_string_lossy().to_string()),
+            None,
+            None,
         );
         assert!(unsupported.is_err());
         let msg = unsupported.unwrap_err();
         assert!(msg.contains("Formato no compatible"));
+    }
+
+    #[test]
+    fn test_local_project_manifest_roundtrip() {
+        let dir = tempfile::tempdir().expect("tempdir");
+        let proj_dir = dir.path().join("my-port");
+        let nested_dir = proj_dir.join("bin");
+        std::fs::create_dir_all(&nested_dir).expect("create dirs");
+        write_local_project_manifest(&proj_dir, "dusklight", Some("twilight-princess"), Some("v0.5.0"))
+            .expect("write manifest");
+
+        let candidate = nested_dir.join("custom_binary.exe");
+        std::fs::write(&candidate, b"MZ").expect("write dummy exe");
+
+        let (found, found_dir) = find_local_project_manifest(&candidate, dir.path())
+            .expect("should locate manifest inside parent project folder");
+        assert_eq!(found.project_id, "dusklight");
+        assert_eq!(found.game_id.as_deref(), Some("twilight-princess"));
+        assert_eq!(found.version.as_deref(), Some("v0.5.0"));
+        assert_eq!(found_dir, proj_dir);
     }
 }
